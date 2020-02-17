@@ -15,7 +15,6 @@ export class Header extends React.Component {
         theme: 'theme_dark',
       };
     }
-  
     render() {
       return (
         <Navbar bg={this.state.theme} variant={this.state.theme} expand="lg">

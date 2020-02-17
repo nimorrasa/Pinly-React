@@ -13,7 +13,7 @@ export class SettingButton extends React.Component {
       return (
         <Dropdown>
         <Dropdown.Toggle id="dropdown-custom-components" variant="link">
-          <i class="fa fa-cog"></i>
+          <i className="fa fa-cog"></i>
         </Dropdown.Toggle>
     
         <Dropdown.Menu >
