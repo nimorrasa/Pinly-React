@@ -1,5 +1,5 @@
 import React from 'react';
-import './ThemeSwitch.css';
+import '../css/ThemeSwitch.css';
 
 export class ThemeSwitch extends React.Component {
     // constructor(props) {

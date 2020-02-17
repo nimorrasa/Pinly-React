@@ -51,3 +51,13 @@
   width: 2rem;
   height: auto;
 }
+
+.theme_light {
+  background-color: white;
+  color: #282c34;
+}
+
+.theme_dark {
+  background-color: #282c34;
+  color: wheat;
+}

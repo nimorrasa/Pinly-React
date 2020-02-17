@@ -4,10 +4,16 @@ import { Header } from '../components/Header.js';
 import logo from '../images/logo.png';
 
 export class Home extends React.Component {
-  
+  constructor(props) {
+    super(props);
+    this.state = {
+      theme: 'theme_dark',
+    };
+  }
+
     render() {
       return (
-        <div className="App Home">
+        <div className={"App Home "+this.state.theme}>
         <Header></Header>
           <header className="App-header">
             <img src={logo} className="App-logo" alt="logo" />

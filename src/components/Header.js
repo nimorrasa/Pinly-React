@@ -5,19 +5,20 @@ import { NavDropdown } from 'react-bootstrap';
 import { ThemeSwitch } from './ThemeSwitch.js';
 import { SettingButton } from './SettingButton';
 import { Image } from 'react-bootstrap';
+import '../css/Header.css';
 import logo from '../images/logo.png';
 
 export class Header extends React.Component {
-    // constructor(props) {
-    //   super(props);
-    //   this.state = {
-    //     value: null,
-    //   };
-    // }
+    constructor(props) {
+      super(props);
+      this.state = {
+        theme: 'theme_dark',
+      };
+    }
   
     render() {
       return (
-        <Navbar bg="light" expand="lg">
+        <Navbar bg={this.state.theme} variant={this.state.theme} expand="lg">
           <Navbar.Brand href="#home">
           <Image src={logo} className="App-header-logo" rounded/>
           </Navbar.Brand>
