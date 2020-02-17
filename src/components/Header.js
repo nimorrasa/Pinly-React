@@ -5,7 +5,7 @@ import { NavDropdown } from 'react-bootstrap';
 import { ThemeSwitch } from './ThemeSwitch.js';
 import { SettingButton } from './SettingButton';
 import { Image } from 'react-bootstrap';
-import logo from './logo.png';
+import logo from '../images/logo.png';
 
 export class Header extends React.Component {
     // constructor(props) {
@@ -19,7 +19,7 @@ export class Header extends React.Component {
       return (
         <Navbar bg="light" expand="lg">
           <Navbar.Brand href="#home">
-          <Image src={logo} style={{height:'50px',width:'50px'}} rounded/>
+          <Image src={logo} className="App-header-logo" rounded/>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
