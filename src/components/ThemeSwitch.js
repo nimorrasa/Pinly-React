@@ -22,16 +22,16 @@ export class ThemeSwitch extends React.Component {
       <div>
         <input
           type="checkbox"
-          class="checkbox"
+          className="checkbox"
           id="night-mode"
           value={this.state.input}
           onChange={this.handleChange}
           defaultChecked={this.state.input}
           />
-        <label for="night-mode" class="label">
-          <i class="fa fa-sun-o"></i>
-          <i class="fa fa-moon-o"></i>
-          <div class="blob"></div>
+        <label htmlFor="night-mode" className="label">
+          <i className="fa fa-sun-o"></i>
+          <i className="fa fa-moon-o"></i>
+          <div className="blob"></div>
         </label>
       </div>
     );
