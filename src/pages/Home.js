@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Container, Row } from 'react-bootstrap';
-import { Header } from '../components/Header.js';
+import MyNavbar from '../components/MyNavbar.js';
 import logo from '../images/logo.png';
 
 export class Home extends React.Component {
@@ -17,7 +17,7 @@ export class Home extends React.Component {
     render() {
       return (
         <div className={"App Home "+this.state.theme}>
-        <Header theme={this.state.theme} onChangeTheme={this.handleThemeChange}></Header>
+        <MyNavbar theme={this.state.theme} onChangeTheme={this.handleThemeChange}></MyNavbar>
           <header className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
           </header>
