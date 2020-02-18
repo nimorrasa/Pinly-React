@@ -4,17 +4,20 @@ import { Header } from '../components/Header.js';
 import logo from '../images/logo.png';
 
 export class Home extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      theme: 'theme_dark',
-    };
-  }
+    state = {
+      theme: 'theme_dark'
+    }
+
+    handleThemeChange = (new_theme) => {
+        this.setState({
+          theme: new_theme
+        });
+    }
 
     render() {
       return (
         <div className={"App Home "+this.state.theme}>
-        <Header></Header>
+        <Header onChangeTheme={this.handleThemeChange}></Header>
           <header className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
           </header>

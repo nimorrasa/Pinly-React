@@ -9,12 +9,22 @@ import '../css/Header.css';
 import logo from '../images/logo.png';
 
 export class Header extends React.Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-        theme: 'theme_dark',
-      };
+
+    state = {
+      is_dark: true,
+      theme: 'theme_dark'
     }
+
+    handleThemeChange = (new_theme) => {
+        const current_theme = new_theme ? 'theme_dark' : 'theme_light';
+
+        this.setState({
+          is_dark: new_theme,
+          theme: current_theme
+        });
+        this.props.onChangeTheme(current_theme);  
+    }
+
     render() {
       return (
         <Navbar bg={this.state.theme} variant={this.state.theme} expand="lg">
@@ -39,7 +49,7 @@ export class Header extends React.Component {
             </Nav>
             <Nav>
               <Nav.Link href="#deets">
-                <ThemeSwitch></ThemeSwitch>
+                <ThemeSwitch onChangeTheme={this.handleThemeChange}></ThemeSwitch>
               </Nav.Link>
               <Nav.Link>
                 <SettingButton></SettingButton>
