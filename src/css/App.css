@@ -1,5 +1,8 @@
 body{
   font-family: RSU_Regular!important;
+  font-size: 15px;
+  line-height: 25px;
+  font-weight: 300;
 }
 
 .App {

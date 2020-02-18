@@ -11,3 +11,16 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: 'RSU_Regular';
+  src: url('fonts/rsufont/RSU_Regular.ttf');
+}
+@font-face {
+  font-family: 'RSU_light';
+  src: url('fonts/rsufont/RSU_light.ttf');
+}
+@font-face {
+  font-family: 'RSU_BOLD';
+  src: url('fonts/rsufont/RSU_BOLD.ttf');
+}
