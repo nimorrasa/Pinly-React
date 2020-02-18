@@ -51,9 +51,7 @@ export class Header extends React.Component {
               <Nav.Link href="#deets">
                 <ThemeSwitch onChangeTheme={this.handleThemeChange}></ThemeSwitch>
               </Nav.Link>
-              <Nav.Link>
-                <SettingButton></SettingButton>
-              </Nav.Link>
+              <SettingButton></SettingButton>
             </Nav>
           </Navbar.Collapse>
         </Navbar>

@@ -17,20 +17,20 @@ export class ThemeSwitch extends React.Component {
 
   render() {
     return (
-      <div className="toggle-switch">
-      <input
-        type="checkbox"
-        className="toggle-switch-checkbox"
-        name="toggleSwitch"
-        id="toggleSwitch"
-        value={this.state.input}
-        onChange={this.handleChange}
-      />
-      <label className="toggle-switch-label" htmlFor="toggleSwitch">
-        <span className="toggle-switch-inner" />
-        <span className="toggle-switch-switch" />
-      </label>
-    </div>
+      <div class="night-mode-button">
+        <input
+          type="checkbox"
+          class="checkbox"
+          id="night-mode"
+          value={this.state.input}
+          onChange={this.handleChange}
+          />
+        <label for="night-mode" class="label">
+          <i class="fa fa-sun-o"></i>
+          <i class="fa fa-moon-o"></i>
+          <div class="blob"></div>
+        </label>
+      </div>
     );
   }
 }
