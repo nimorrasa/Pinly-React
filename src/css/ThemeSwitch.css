@@ -1,84 +1,51 @@
+.label {
+  background-color: skyblue;
+  display: flex;
+  height: 30px;
+  border-radius: 50px;
+  width: 100px;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  padding: 0 15px;
+  transition: all .5s ease-in-out;
+  cursor: pointer;
+  border: 2px solid black;
+}
+.label .fa-moon-o {
+  color: rgb(250, 250, 250);
+}
+label .fa-sun-o {
+  color: rgb(250, 250, 250);
+}
+.blob {
+  position: absolute;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  background: rgb(99, 110, 110);
+  border-radius: 50px;
+  transition: .5s ease all;
+}
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
+.info {
+  display: block;
+  margin-top: 50px;
+}
+.info.night {
+  color: white;
+}
+.checkbox:checked + .label .blob {
+  left: 0;
+}
+.checkbox:checked + .label {
+  background-color: darkblue;
+}
 
-.toggle-switch {
-    position: relative;
-    width: 75px;
-    display: inline-block;
-    vertical-align: middle;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    text-align: left;
-  }
-  .toggle-switch-checkbox {
-    display: none;
-  }
-  .toggle-switch-label {
-    display: block;
-    overflow: hidden;
-    cursor: pointer;
-    border: 0 solid #ccc;
-    border-radius: 20px;
-    margin: 0;
-  }
-  .toggle-switch-inner {
-    display: block;
-    width: 200%;
-    margin-left: -100%;
-    transition: margin 0.3s ease-in 0s;
-  }
-  .toggle-switch-inner::before, .toggle-switch-inner::after {
-    display: block;
-    float: left;
-    width: 50%;
-    height: 34px;
-    padding: 0;
-    line-height: 34px;
-    font-size: 14px;
-    color: white;
-    font-weight: bold;
-    box-sizing: border-box;
-  }
-  .toggle-switch-inner:before {
-    /* content: "Dark"; */
-    width: 50%;
-    text-transform: uppercase;
-    padding-left: 10px;
-    background-color: #f90;
-    color: #fff;
-  }
-  .toggle-switch-disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-  }
-  .toggle-switch-disabled::before {
-    background-color: #ccc;
-    cursor: not-allowed;
-  }
-  .toggle-switch-inner::after {
-    /* content: "Light"; */
-    width: 50%;
-    text-transform: uppercase;
-    padding-right: 10px;
-    background-color: #ccc;
-    color: #fff;
-    text-align: right;
-  }
-  .toggle-switch-switch {
-    display: block;
-    width: 24px;
-    margin: 5px;
-    background: #fff;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 40px;
-    border: 0 solid #ccc;
-    border-radius: 20px;
-    transition: all 0.3s ease-in 0s;
-  }
-  .toggle-switch-checkbox:checked + .toggle-switch-label .toggle-switch-inner {
-    margin-left: 0;
-  }
-  .toggle-switch-checkbox:checked + .toggle-switch-label .toggle-switch-switch {
-    right: 0px;
-  }
+.nav-item button {
+  background-color: rgba(0, 0, 0, 0);
+  color: green;
+}
