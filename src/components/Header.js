@@ -11,8 +11,8 @@ import logo from '../images/logo.png';
 export class Header extends React.Component {
 
     state = {
-      is_dark: true,
-      theme: 'theme_dark'
+      is_dark: this.props.theme == 'theme_dark',
+      theme: this.props.theme
     }
 
     handleThemeChange = (new_theme) => {
@@ -49,7 +49,7 @@ export class Header extends React.Component {
             </Nav>
             <Nav>
               <Nav.Link href="#deets">
-                <ThemeSwitch onChangeTheme={this.handleThemeChange}></ThemeSwitch>
+                <ThemeSwitch is_dark={this.state.is_dark} onChangeTheme={this.handleThemeChange}></ThemeSwitch>
               </Nav.Link>
               <SettingButton></SettingButton>
             </Nav>

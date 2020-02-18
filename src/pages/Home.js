@@ -17,7 +17,7 @@ export class Home extends React.Component {
     render() {
       return (
         <div className={"App Home "+this.state.theme}>
-        <Header onChangeTheme={this.handleThemeChange}></Header>
+        <Header theme={this.state.theme} onChangeTheme={this.handleThemeChange}></Header>
           <header className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
           </header>
