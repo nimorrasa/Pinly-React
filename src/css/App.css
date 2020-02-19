@@ -104,3 +104,14 @@ body{
   background-color: #5a6268;
   border-color: #545b62;
 }
+
+@media (max-width: 600px) {
+  .navbar {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-color: #545b62;
+    border-radius: 5px 5px;
+  }
+  .navigation {
+    border-color: #545b62;
+  }
+}

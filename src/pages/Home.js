@@ -17,7 +17,7 @@ const Home = (props) => {
         <img src={logo} className="App-logo" alt="logo" />
       </header>
       <div>
-        <Container className="App-content">
+        <Container className={"App-content "+theme}>
             <Row className="Link-padding">
                  <a className="App-link" href="#login">Login</a> | <a className="App-link" href="#sign_up">Sign Up</a>
             </Row>
