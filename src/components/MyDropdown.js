@@ -32,7 +32,7 @@ export class MyDropdown extends React.Component {
 
       const items = this.props.items;
       return (
-        <Dropdown className="d-inline-block" onMouseOver={this.onMouseEnter} onMouseLeave={this.onMouseLeave} isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+        <Dropdown className={"d-inline-block "+this.props.theme} onMouseOver={this.onMouseEnter} onMouseLeave={this.onMouseLeave} isOpen={this.state.dropdownOpen} toggle={this.toggle}>
           <DropdownToggle caret>
             {this.props.titleType === 'text' ? this.props.title : <i className={this.props.title}></i>}
           </DropdownToggle>

@@ -3,7 +3,7 @@ import { Button, Container, Row } from 'react-bootstrap';
 import MyNavbar from '../components/MyNavbar.js';
 import logo from '../images/logo.png';
 
-const Home = (props) => {
+const MyHome = (props) => {
   const [theme, setTheme] = useState("theme_light");
 
   const handleThemeChange = useCallback((current_theme) => {
@@ -30,4 +30,4 @@ const Home = (props) => {
   );
 }
 
-export default Home;
+export default MyHome;

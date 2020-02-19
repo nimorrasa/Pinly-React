@@ -66,12 +66,41 @@ body{
   color: #282c34;
 }
 
+.theme_light a {
+  color: #282c34;
+}
+
+
 .theme_dark {
   background-color: #282c34;
   color: wheat;
 }
 
+.theme_dark a {
+  color: white;
+}
+
 .dropdown button {
   background-color: rgba(0, 0, 0, 0);
   border-color: transparent;
+}
+
+.light button {
+  color: black;
+}
+
+.nav-item a {
+  width: 5vw;
+}
+
+.theme_dark .nav-item a:hover {
+  color: white;
+  background-color: #5a6268;
+  border-color: #545b62;
+}
+
+.theme_light .nav-item a:hover {
+  color: white;
+  background-color: #5a6268;
+  border-color: #545b62;
 }
