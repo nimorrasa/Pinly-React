@@ -2,6 +2,7 @@ import React, { useState, useCallback } from 'react';
 import { Button, Container, Row } from 'react-bootstrap';
 import MyNavbar from '../components/MyNavbar.js';
 import logo from '../images/logo.png';
+import '../css/MyTheme.css';
 
 const Home = (props) => {
   const [theme, setTheme] = useState("theme_light");
