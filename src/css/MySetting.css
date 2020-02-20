@@ -1,8 +1,7 @@
-/* .my-setting {
+.my-setting {
     padding-top: 10px;
-    border-radius: 50%;
 }
-
+/* 
 .my-setting:hover {
     color: rgba(255, 255, 255, 0.1);
     background-color: rgba(38,173,186,0.5);
@@ -12,8 +11,8 @@
     color: white;
     background-color: rgba(38,173,186,0.5);
     border-color: rgba(38,173,186,0);
-  }
- */
+  } */
+
 
  .my-language {
      color: white;
