@@ -33,11 +33,11 @@ export class MyDropdown extends React.Component {
       const items = this.props.items;
       return (
         <Dropdown className={this.props.theme} onMouseOver={this.onMouseEnter} onMouseLeave={this.onMouseLeave} isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-          <DropdownToggle tag="button" type="button" className="my-button" caret>
+          <DropdownToggle tag="button" type="button" className="my-button">
             {this.props.titleType === 'text' ? this.props.title : <i className={this.props.title}></i>}
           </DropdownToggle>
           <DropdownMenu  right={this.props.alignment === 'right'}>
-            {this.props.items.map((item,key) => <DropdownItem key={key}>{item}</DropdownItem>)}
+            {this.props.items.map((item,key) => <DropdownItem key={key}><a>{item}</a></DropdownItem>)}
           </DropdownMenu>
         </Dropdown>
       );

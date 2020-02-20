@@ -1,0 +1,52 @@
+/* .my-setting {
+    padding-top: 10px;
+    border-radius: 50%;
+}
+
+.my-setting:hover {
+    color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(38,173,186,0.5);
+}
+
+.my-setting[aria-expanded="true"]{
+    color: white;
+    background-color: rgba(38,173,186,0.5);
+    border-color: rgba(38,173,186,0);
+  }
+ */
+
+ .my-language {
+     color: white;
+     pointer-events: none;
+ }
+
+/* .theme_dark .dropdown-menu .my-language {
+    color: rgba(255, 255, 255, 1);
+}
+
+.theme_light .dropdown-menu .my-language {
+    color: rgba(255, 255, 255, 1);
+}
+  
+.theme_dark .dropdown-item .my-language :hover {
+    color: rgba(255, 255, 255, 1);
+}
+
+.theme_light .dropdown-item .my-language:hover {
+    color: rgba(255, 255, 255, 1);
+} */
+
+ .theme_dark .dropdown-item .my-language :hover {
+    color: rgba(255,255,255,1);
+    pointer-events: none;
+}
+
+.theme_light .dropdown-item .my-language :hover {
+    color: rgba(255,255,255,1);
+    pointer-events: none;
+}
+  
+ .my-language a{
+    color: white;
+    pointer-events: visible;
+}

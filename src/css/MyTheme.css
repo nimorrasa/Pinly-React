@@ -26,12 +26,12 @@
 
 .theme_dark button {
     background-color: rgba(0, 0, 0, 0);
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.8);
 }
 
 .theme_light button {
     background-color: rgba(0, 0, 0, 0);
-    color: rgba(0, 0, 0, 0.5);
+    color: rgba(0, 0, 0, 0.8);
 }
 
 .theme_light .dropdown-menu {
@@ -53,12 +53,25 @@
 }
   
 .theme_dark .dropdown-item:hover {
-    color: rgba(255,255,255,0.5);
+    /* color: rgba(255,255,255,0.5); */
     background-color: rgba(38,173,186,0);
     border-color: rgba(38,173,186,0);
 }
 
 .theme_light .dropdown-item:hover {
+    /* color: rgba(255,255,255,0.5); */
+    background-color: rgba(38,173,186,0);
+    border-color: rgba(38,173,186,0);
+}
+
+  
+.theme_dark .dropdown-item a:hover {
+    color: rgba(255,255,255,0.5);
+    background-color: rgba(38,173,186,0);
+    border-color: rgba(38,173,186,0);
+}
+
+.theme_light .dropdown-item a:hover {
     color: rgba(255,255,255,0.5);
     background-color: rgba(38,173,186,0);
     border-color: rgba(38,173,186,0);

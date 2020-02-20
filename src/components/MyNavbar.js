@@ -10,6 +10,7 @@ import {
 } from 'reactstrap';
 import { ThemeSwitch } from './ThemeSwitch.js';
 import { MyDropdown } from './MyDropdown.js';
+import MySetting from './MySetting.js';
 import MyButton from './MyButton.js';
 import logo from '../images/logo.png';
 
@@ -58,7 +59,7 @@ const MyNavbar = (props) => {
               <ThemeSwitch is_dark={isDark} onChangeTheme={handleThemeChange}></ThemeSwitch>
             </NavItem>
             <NavItem>
-              <MyDropdown theme={theme} alignment="right" titleType="fontawsome" title="fa fa-cog" items={["Language EN/TH","Logout"]}></MyDropdown>
+              <MySetting theme={theme}></MySetting>
             </NavItem>
           </Nav>
         </Collapse>
