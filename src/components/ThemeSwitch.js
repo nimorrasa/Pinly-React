@@ -1,5 +1,4 @@
 import React from 'react';
-import { Button } from 'reactstrap';
 import '../css/ThemeSwitch.css';
 
 export class ThemeSwitch extends React.Component {

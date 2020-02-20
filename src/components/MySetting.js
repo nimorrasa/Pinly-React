@@ -3,11 +3,9 @@ import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap
 import '../css/MySetting.css';
 
 const MySetting = (props) => {
-  const [isOpen, setIsOpen] = useState(false);
   const [dropdownOpen,setDropdownOpen] = useState(false);
 
     const toggle = () => setDropdownOpen(!dropdownOpen);
-    const submenuToggle = () => setIsOpen(!isOpen);
 
     const onMouseEnter = useCallback(() => {
       setDropdownOpen(true);
@@ -17,14 +15,6 @@ const MySetting = (props) => {
       setDropdownOpen(false);
     },[setDropdownOpen]);
 
-    const onMouseEnterSubmenu = useCallback(() => {
-      setIsOpen(true);
-    },[setIsOpen]);
-  
-    const onMouseLeaveSubmenu = useCallback(() => {
-      setIsOpen(false);
-    },[setIsOpen]);
-  
 
     return (
       <Dropdown className={props.theme} onMouseOver={onMouseEnter} onMouseLeave={onMouseLeave} isOpen={dropdownOpen} toggle={toggle}>
