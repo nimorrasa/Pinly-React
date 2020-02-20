@@ -8,7 +8,7 @@ import {
   NavItem,
   Media
 } from 'reactstrap';
-import { ThemeSwitch } from './ThemeSwitch.js';
+import ThemeSwitch from './ThemeSwitch.js';
 import MyDropdown from './MyDropdown.js';
 import MySetting from './MySetting.js';
 import MyButton from './MyButton.js';

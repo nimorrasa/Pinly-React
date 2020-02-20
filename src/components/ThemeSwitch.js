@@ -1,39 +1,33 @@
-import React from 'react';
+import React, { useState, useCallback } from 'react';
 import '../css/ThemeSwitch.css';
 
-export class ThemeSwitch extends React.Component {
-  state = {
-    input: this.props.is_dark,
+const ThemeSwitch = (props) => {
+
+  const [isDark,setIsDark] = useState(false);
+
+  const handleChange = () => {
+    let new_theme = !isDark;
+    setIsDark(new_theme);
+    props.onChangeTheme(new_theme)
   };
 
-  handleChange = event => {
-    const value = this.state.input;
-    const current_value = !value;
-    // const current_theme = current_value ? 'dark_theme' : 'light_theme';
-    this.setState({
-      input: current_value,
-      // theme: current_theme
-    });
-    this.props.onChangeTheme(current_value);   
-  };
-
-  render() {
-    return (
-      <button className="icon-button">
-        <input
-          type="checkbox"
-          className="checkbox"
-          id="night-mode"
-          value={this.state.input}
-          onChange={this.handleChange}
-          defaultChecked={this.state.input}
-          />
-        <label htmlFor="night-mode" className="label">
-          <i className="fa fa-sun-o"></i>
-          <i className="fa fa-moon-o"></i>
-          <div className="blob"></div>
-        </label>
-      </button>
-    );
-  }
+  return (
+    <button className="icon-button">
+      <input
+        type="checkbox"
+        className="checkbox"
+        id="night-mode"
+        value={isDark}
+        onChange={handleChange}
+        defaultChecked={isDark}
+        />
+      <label htmlFor="night-mode" className="label">
+        <i className="fa fa-sun-o"></i>
+        <i className="fa fa-moon-o"></i>
+        <div className="blob"></div>
+      </label>
+    </button>
+  );
 }
+
+export default ThemeSwitch;
