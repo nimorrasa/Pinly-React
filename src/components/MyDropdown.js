@@ -1,6 +1,6 @@
 import React from 'react';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
-
+import '../css/MyButton.css';
 export class MyDropdown extends React.Component {
 
     constructor(props) {
@@ -32,8 +32,8 @@ export class MyDropdown extends React.Component {
 
       const items = this.props.items;
       return (
-        <Dropdown className={"d-inline-block "+this.props.theme} onMouseOver={this.onMouseEnter} onMouseLeave={this.onMouseLeave} isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-          <DropdownToggle caret>
+        <Dropdown className={this.props.theme} onMouseOver={this.onMouseEnter} onMouseLeave={this.onMouseLeave} isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+          <DropdownToggle tag="button" type="button" className="my-button" caret>
             {this.props.titleType === 'text' ? this.props.title : <i className={this.props.title}></i>}
           </DropdownToggle>
           <DropdownMenu  right={this.props.alignment === 'right'}>

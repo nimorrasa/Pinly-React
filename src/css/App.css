@@ -62,7 +62,7 @@ body{
 }
 
 .theme_light {
-  background-color: white;
+  background-color: #F5F9FD;
   color: #282c34;
 }
 
@@ -80,38 +80,97 @@ body{
   color: white;
 }
 
-.dropdown button {
+.theme_dark button {
   background-color: rgba(0, 0, 0, 0);
   border-color: transparent;
+  color: rgba(255, 255, 255, 0.5);
 }
 
-.light button {
-  color: black;
+.theme_light button {
+  background-color: rgba(0, 0, 0, 0);
+  border-color: transparent;
+  color: rgba(0, 0, 0, 0.5);
 }
+
+.theme_light .dropdown-menu {
+  background-color: rgba(38,173,186,1);
+  border-color: rgba(38,173,186,1);
+}
+
+.theme_dark .dropdown-menu {
+  background-color: rgba(38,173,186,1);
+  border-color: rgba(38,173,186,1);
+}
+
+.theme_dark .dropdown-menu button {
+  color: rgba(255, 255, 255, 1);
+}
+
+.theme_light .dropdown-menu button {
+  color: rgba(255, 255, 255, 1);
+}
+
+
+/* 
+.light button {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.dark button {
+  color: rgba(255, 255, 255, 0.5);
+} */
 
 .nav-item a {
   width: 5vw;
 }
 
-.theme_dark .nav-item a:hover {
+/* .theme_dark .nav-item .btn-secondary:hover {
   color: white;
-  background-color: #5a6268;
-  border-color: #545b62;
+  background-color: rgba(38,173,186,1);
+  border-color: rgba(38,173,186,0);
 }
 
-.theme_light .nav-item a:hover {
+.theme_light .nav-item .btn-secondary:hover {
   color: white;
-  background-color: #5a6268;
-  border-color: #545b62;
+  background-color: rgba(38,173,186,1);
+  border-color: rgba(38,173,186,0);
+}
+
+.theme_dark .nav-item .btn-secondary:active {
+  color: white;
+  background-color: rgba(38,173,186,1);
+  border-color: rgba(38,173,186,0);
+}
+
+.theme_light .nav-item .btn-secondary:active {
+  color: white;
+  background-color: rgba(38,173,186,1);
+  border-color: rgba(38,173,186,0);
+} */
+
+.theme_dark .dropdown-item:hover {
+  color: rgba(255,255,255,0.5);
+  background-color: rgba(38,173,186,0);
+  border-color: rgba(38,173,186,0);
+}
+
+.theme_light .dropdown-item:hover {
+  color: rgba(255,255,255,0.5);
+  background-color: rgba(38,173,186,0);
+  border-color: rgba(38,173,186,0);
 }
 
 @media (max-width: 600px) {
-  .navbar {
+  /* .navbar-light .navbar-toggler {
+    color: rgba(0,0,0,.5);
+    border-color: rgba(0,0,0,.1);
+} */
+  /* .navbar {
     background-color: rgba(0, 0, 0, 0.2);
     border-color: #545b62;
     border-radius: 5px 5px;
   }
   .navigation {
     border-color: #545b62;
-  }
+  } */
 }

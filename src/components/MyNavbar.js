@@ -6,11 +6,11 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
   Media
 } from 'reactstrap';
 import { ThemeSwitch } from './ThemeSwitch.js';
 import { MyDropdown } from './MyDropdown.js';
+import MyButton from './MyButton.js';
 import logo from '../images/logo.png';
 
 
@@ -30,7 +30,7 @@ const MyNavbar = (props) => {
 
   return (
     <div>
-      <Navbar className={'theme_'+theme} expand="md">
+      <Navbar className={'theme_'+theme} bg={theme} light={theme === 'light'} dark={theme === 'dark'}  expand="md">
         <NavbarBrand href="/">
             <Media className="App-header-logo"  src={logo}></Media>
         </NavbarBrand>
@@ -38,22 +38,28 @@ const MyNavbar = (props) => {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
-              <NavLink href="/">Home</NavLink>
+              <MyButton title="Home"></MyButton>
             </NavItem>
             <NavItem>
-              <NavLink href="/Setting/">Setting</NavLink>
+              <MyButton title="Setting"></MyButton>
             </NavItem>
             <NavItem>
-              <NavLink href="/Help/">Help</NavLink>
+              <MyButton title="Help"></MyButton>
             </NavItem>
-            <MyDropdown theme={theme} alignment="left" titleType="text" title="Sleep Test" items={["sleep score","sleep form"]}></MyDropdown>
             <NavItem>
-              <NavLink href="/Profile/">Profile</NavLink>
+              <MyDropdown theme={theme} alignment="left" titleType="text" title="Sleep Test" items={["sleep score","sleep form"]}></MyDropdown>
+            </NavItem>
+            <NavItem>
+              <MyButton title="Profile"></MyButton>
             </NavItem>
           </Nav>
           <Nav className="mr-auto-right" navbar>
-            <ThemeSwitch is_dark={isDark} onChangeTheme={handleThemeChange}></ThemeSwitch>
-            <MyDropdown theme={theme} alignment="right" titleType="fontawsome" title="fa fa-cog" items={["Language EN/TH","Logout"]}></MyDropdown>
+            <NavItem>
+              <ThemeSwitch is_dark={isDark} onChangeTheme={handleThemeChange}></ThemeSwitch>
+            </NavItem>
+            <NavItem>
+              <MyDropdown theme={theme} alignment="right" titleType="fontawsome" title="fa fa-cog" items={["Language EN/TH","Logout"]}></MyDropdown>
+            </NavItem>
           </Nav>
         </Collapse>
       </Navbar>

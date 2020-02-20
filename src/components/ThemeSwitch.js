@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from 'reactstrap';
 import '../css/ThemeSwitch.css';
 
 export class ThemeSwitch extends React.Component {
@@ -19,7 +20,7 @@ export class ThemeSwitch extends React.Component {
 
   render() {
     return (
-      <div>
+      <button className="icon-button">
         <input
           type="checkbox"
           className="checkbox"
@@ -33,7 +34,7 @@ export class ThemeSwitch extends React.Component {
           <i className="fa fa-moon-o"></i>
           <div className="blob"></div>
         </label>
-      </div>
+      </button>
     );
   }
 }
