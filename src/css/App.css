@@ -16,8 +16,8 @@ body{
 
 .App-logo {
   width: 10vw;
-  max-height: 80%;
-  height: auto;
+  max-height: 30%;
+  height: 30vh;
   padding: 10px;
   pointer-events: none;
 }

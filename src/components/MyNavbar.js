@@ -39,19 +39,19 @@ const MyNavbar = (props) => {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
-              <MyButton title="Home"></MyButton>
+              <MyButton type="text" title="Home"></MyButton>
             </NavItem>
             <NavItem>
-              <MyButton title="Setting"></MyButton>
-            </NavItem>
-            <NavItem>
-              <MyButton title="Help"></MyButton>
+              <MyButton type="text" title="Profile"></MyButton>
             </NavItem>
             <NavItem>
               <MyDropdown theme={theme} alignment="left" titleType="text" title="Sleep Test" items={["sleep score","sleep form"]}></MyDropdown>
             </NavItem>
             <NavItem>
-              <MyButton title="Profile"></MyButton>
+              <MyButton type="text" title="Setting"></MyButton>
+            </NavItem>
+            <NavItem>
+              <MyButton type="icon" title="fa fa-question-circle"></MyButton>
             </NavItem>
           </Nav>
           <Nav className="mr-auto-right" navbar>
