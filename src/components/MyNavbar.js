@@ -17,8 +17,8 @@ import logo from '../images/logo.png';
 
 const MyNavbar = (props) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isDark, setIsDark] = useState(false);
-  const [theme, setTheme] = useState("light");
+  const [isDark, setIsDark] = useState((props.theme === 'dark'));
+  const [theme, setTheme] = useState(props.theme);
 
   const toggle = () => setIsOpen(!isOpen);
 
@@ -56,7 +56,7 @@ const MyNavbar = (props) => {
           </Nav>
           <Nav className="mr-auto-right" navbar>
             <NavItem>
-              <ThemeSwitch is_dark={isDark} onChangeTheme={handleThemeChange}></ThemeSwitch>
+              <ThemeSwitch isDark={isDark} onChangeTheme={handleThemeChange}></ThemeSwitch>
             </NavItem>
             <NavItem>
               <MySetting theme={theme}></MySetting>

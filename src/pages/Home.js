@@ -5,15 +5,17 @@ import logo from '../images/logo.png';
 import '../css/MyTheme.css';
 
 const Home = (props) => {
-  const [theme, setTheme] = useState("theme_light");
+  const [theme, setTheme] = useState('theme_dark');
 
   const handleThemeChange = useCallback((current_theme) => {
     setTheme('theme_'+current_theme);
   },[setTheme]);
 
+  let navbarTheme = theme === 'theme_dark' ? 'dark' : 'light';
+
   return (
     <div className={"App Home "+theme}>
-    <MyNavbar theme={theme} onChangeTheme={handleThemeChange}></MyNavbar>
+    <MyNavbar theme={navbarTheme} onChangeTheme={handleThemeChange}></MyNavbar>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
       </header>
