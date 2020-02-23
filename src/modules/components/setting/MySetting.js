@@ -23,7 +23,7 @@ const MySetting = (props) => {
           <i className="fa fa-cog"></i>
         </DropdownToggle>
         <DropdownMenu  right>
-          <DropdownItem className='my-language'>Language <Link to='/?th'>TH</Link>/<Link to='/?en'>EN</Link></DropdownItem>
+          <DropdownItem className='my-language'>Language <Link to='/home?th'>TH</Link>/<Link to='/home?en'>EN</Link></DropdownItem>
           <DropdownItem><Link to='voice_over'>Voice Over</Link></DropdownItem>
           <DropdownItem><Link to='logout'>Logout</Link></DropdownItem>
         </DropdownMenu>
