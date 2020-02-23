@@ -3,7 +3,7 @@ import '../css/ThemeSwitch.css';
 
 const ThemeSwitch = (props) => {
 
-  const [isDark,setIsDark] = useState(false);
+  const [isDark,setIsDark] = useState(props.isDark);
 
   const handleChange = () => {
     let new_theme = !isDark;
