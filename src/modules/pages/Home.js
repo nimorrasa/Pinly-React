@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import { Button, Container, Row } from 'reactstrap';
-import MyNavbar from '../components/MyNavbar.js';
-import logo from '../images/logo.png';
+import MyNavbar from '../components/navbar/MyNavbar.js';
+import logo from '../../images/logo.png';
 import '../css/MyTheme.css';
 
 const Home = (props) => {

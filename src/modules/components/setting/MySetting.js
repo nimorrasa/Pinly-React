@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
-import '../css/MySetting.css';
+import './MySetting.css';
 
 const MySetting = (props) => {
   const [dropdownOpen,setDropdownOpen] = useState(false);

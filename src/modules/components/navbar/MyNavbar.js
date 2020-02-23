@@ -8,11 +8,11 @@ import {
   NavItem,
   Media
 } from 'reactstrap';
-import ThemeSwitch from './ThemeSwitch.js';
-import MyDropdown from './MyDropdown.js';
-import MySetting from './MySetting.js';
-import MyButton from './MyButton.js';
-import logo from '../images/logo.png';
+import ThemeSwitch from '../toggle_switch/ThemeSwitch.js';
+import MyDropdown from '../button/MyDropdown.js';
+import MySetting from '../setting/MySetting.js';
+import MyButton from '../button/MyButton.js';
+import logo from '../../../images/logo.png';
 
 
 const MyNavbar = (props) => {

@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import '../css/ThemeSwitch.css';
+import './ThemeSwitch.css';
 
 const ThemeSwitch = (props) => {
 
