@@ -47,4 +47,7 @@
     border-radius: .25rem;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
   }
-  
+
+  .nav-item .my-button .active {
+    border-color: rgba(38,173,186,1);
+  }
