@@ -1,5 +1,9 @@
 import React, { useState, useCallback } from 'react';
 import {
+  BrowserRouter as Router,
+  Link,
+} from 'react-router-dom';
+import {
   Collapse,
   Navbar,
   NavbarToggler,
@@ -39,19 +43,19 @@ const MyNavbar = (props) => {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
-              <a href='/'><MyButton type="text" title="Home"></MyButton></a>
+              <Link to='/home'><MyButton type="text" title="Home"></MyButton></Link>
             </NavItem>
             <NavItem>
-              <a href='/profile'><MyButton type="text" title="Profile"></MyButton></a>
+              <Link to='/profile'><MyButton type="text" title="Profile"></MyButton></Link>
             </NavItem>
             <NavItem>
               <MyDropdown theme={theme} alignment="left" titleType="text" title="Sleep Test" items={["sleep score","sleep form"]}></MyDropdown>
             </NavItem>
             <NavItem>
-              <a href='/setting'><MyButton type="text" title="Setting"></MyButton></a>
+              <Link to='/setting'><MyButton type="text" title="Setting"></MyButton></Link>
             </NavItem>
             <NavItem>
-              <a href='help'><MyButton type="icon" title="fa fa-question-circle"></MyButton></a>
+              <Link to='/help'><MyButton type="icon" title="fa fa-question-circle"></MyButton></Link>
             </NavItem>
           </Nav>
           <Nav className="mr-auto-right" navbar>

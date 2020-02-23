@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import './MySetting.css';
+import { Link } from 'react-router-dom';
 
 const MySetting = (props) => {
   const [dropdownOpen,setDropdownOpen] = useState(false);
@@ -22,9 +23,9 @@ const MySetting = (props) => {
           <i className="fa fa-cog"></i>
         </DropdownToggle>
         <DropdownMenu  right>
-          <DropdownItem className='my-language'>Language <a>TH</a>/<a>EN</a></DropdownItem>
-          <DropdownItem><a>Voice Over</a></DropdownItem>
-          <DropdownItem><a>Logout</a></DropdownItem>
+          <DropdownItem className='my-language'>Language <Link to='/?th'>TH</Link>/<Link to='/?en'>EN</Link></DropdownItem>
+          <DropdownItem><Link to='voice_over'>Voice Over</Link></DropdownItem>
+          <DropdownItem><Link to='logout'>Logout</Link></DropdownItem>
         </DropdownMenu>
       </Dropdown>
     );

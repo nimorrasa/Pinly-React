@@ -1,16 +1,13 @@
 import React, { useState, useCallback } from 'react';
-import {useRoutes} from 'hookrouter';
 import './fonts/rsufont/RSU_Regular.ttf'
 import './fonts/rsufont/RSU_light.ttf'
 import './fonts/rsufont/RSU_BOLD.ttf'
 import './modules/css/App.css';
 import MyNavbar from './modules/components/navbar/MyNavbar.js';
-import Home from './modules/pages/Home.js';
 import Routes from "./modules/router/Routes.js";
+import { BrowserRouter as Router } from 'react-router-dom';
 
 function App() {
-
-  const routeResult = useRoutes(Routes)
   const [theme, setTheme] = useState('theme_dark');
   const [navbarTheme, setNavbarTheme] = useState('dark');
 
@@ -21,10 +18,10 @@ function App() {
 
   return (
     <div className={"App "+theme}>
-      <MyNavbar theme={navbarTheme} onChangeTheme={handleNavbarThemeChange}></MyNavbar>
-      {routeResult}
-
-      {/* <Home theme={theme} handleThemeChange={handleNavbarThemeChange}></Home> */}
+      <Router>
+        <MyNavbar theme={navbarTheme} onChangeTheme={handleNavbarThemeChange}></MyNavbar>
+        <Routes></Routes>
+      </Router>
     </div>
   );
 }
