@@ -1,3 +1,26 @@
 .Sign_up .col_left{
     background-color: rgb(76, 199, 195);
 }
+
+.row{
+    padding: 5px 5px;
+}
+
+.App {
+    text-align: left;
+}
+input {
+    padding: 0px 12px;
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 0 0 0 2px transparent, 0 1px 0 rgba(0,0,0,0.08) inset;
+    transition: all 0.3s;
+}
+
+select {
+    padding: 0px 12px;
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 0 0 0 2px transparent, 0 1px 0 rgba(0,0,0,0.08) inset;
+    transition: all 0.3s;
+}

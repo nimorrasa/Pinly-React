@@ -13,6 +13,7 @@ function App() {
     setTheme(current_theme);
   },[setTheme]);
 
+
   return (
     <div className={"App "+theme}>
       <Router>

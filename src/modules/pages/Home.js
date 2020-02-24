@@ -2,6 +2,7 @@ import React, { useState, useCallback, useEffect } from 'react';
 import { Button, Container, Row } from 'reactstrap';
 import logo from '../../images/logo.png';
 import '../css/MyTheme.css';
+import '../css/Home.css';
 import { Link } from 'react-router-dom';
 
 const Home = (props) => {
@@ -10,7 +11,7 @@ const Home = (props) => {
   useEffect(() => { setTheme(props.theme)});
 
   return (
-    <div className={"Home "+theme}>
+    <div className={"App Home "+theme}>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
       </header>

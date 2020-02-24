@@ -4,7 +4,7 @@ import FormSignUp  from '../../modules/components/form/FormSignUp.js';
 
 const SignUp = (props) => {
 
-    const [theme,setTheme] = useState(props.theme);
+    const [theme,setTheme] = useState('theme_light');
 
     useEffect(() => { setTheme(props.theme)});
 
