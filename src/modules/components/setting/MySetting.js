@@ -23,9 +23,9 @@ const MySetting = (props) => {
           <i className="fa fa-cog"></i>
         </DropdownToggle>
         <DropdownMenu  right>
-          <DropdownItem className='my-language'>Language <Link to='/home?th'>TH</Link>/<Link to='/home?en'>EN</Link></DropdownItem>
-          <DropdownItem><Link to='voice_over'>Voice Over</Link></DropdownItem>
-          <DropdownItem><Link to='logout'>Logout</Link></DropdownItem>
+          <DropdownItem className='my-language'>Language <Link to='/home?lang=th'>TH</Link>/<Link to='/home?lang=en'>EN</Link></DropdownItem>
+          <DropdownItem><Link to='/voice_over'>Voice Over</Link></DropdownItem>
+          <DropdownItem><Link to='/home?action=logout'>Logout</Link></DropdownItem>
         </DropdownMenu>
       </Dropdown>
     );

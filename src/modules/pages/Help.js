@@ -1,12 +1,10 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 
 const Help = (props) => {
 
     const [theme,setTheme] = useState(props.theme);
 
-    const handleThemeChange = useCallback((current_theme) => {
-        setTheme(current_theme);
-      },[setTheme]);
+    useEffect(() => { setTheme(props.theme)});
 
     return (
         <div className={"App Help "+theme}>
