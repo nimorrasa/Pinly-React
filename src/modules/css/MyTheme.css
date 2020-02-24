@@ -64,6 +64,14 @@
     border-color: rgba(38,173,186,0);
 }
 
+.theme_dark .dropdown-menu a {
+    color: rgba(255, 255, 255, 1);
+}
+
+.theme_light .dropdown-menu a {
+    color: rgba(255, 255, 255, 1);
+}
+
   
 .theme_dark .dropdown-item a:hover {
     color: rgba(255,255,255,0.5);
