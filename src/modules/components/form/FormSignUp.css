@@ -5,7 +5,7 @@
 .Sign_up .col_left{
     /* background-color: rgb(76, 199, 195); */
     padding: 5vh;
-    height: 100vh;
+    padding-top: 20vh;
 }
 
 .Sign_up .col_right{
@@ -22,6 +22,7 @@
     text-align: left;
 }
 input {
+    width: 100%;
     padding: 0px 12px;
     border-radius: 5px;
     box-shadow: 0 0 0 2px transparent, 0 1px 0 rgba(0,0,0,0.08) inset;
@@ -29,6 +30,7 @@ input {
 }
 
 select {
+    width: 100%;
     padding: 0px 12px;
     border-radius: 5px;
     box-shadow: 0 0 0 2px transparent, 0 1px 0 rgba(0,0,0,0.08) inset;
@@ -49,4 +51,16 @@ select {
 
 .sign_up_step_2 .sign_up_2{
     display: block;
+}
+
+.Sign_up .App-header {
+    padding-top: 0;
+    padding-left: 0;
+  }
+  
+
+@media (max-width: 600px) {
+    .Sign_up .col_left{
+        display: none;
+    }
 }

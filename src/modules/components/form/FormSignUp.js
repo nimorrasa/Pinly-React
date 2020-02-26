@@ -21,11 +21,11 @@ const FormSignUp = (props) => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Container>
+      <div>
         <Row className={step}>
           <Col className='sign_up_1' xs='12'>
             <Row id="username"> 
-            <Col xs='12'>
+            <Col xs='6'>
               <p class="m-0">Username</p>
               <input
                 type="text"
@@ -35,7 +35,7 @@ const FormSignUp = (props) => {
             </Col>
           </Row>
           <Row id="email"> 
-            <Col xs='12'>
+            <Col xs='6'>
               <p class="m-0">Email</p>
               <input
                 type="email"
@@ -64,23 +64,21 @@ const FormSignUp = (props) => {
             </Col>
           </Row>
           <Row>
-            <Col xs='12'>
+            <Col className="button" xs='12'>
               <button type="button" onClick={nextStep}>Continue</button>
             </Col>
           </Row>
           </Col>
           <Col className='sign_up_2' xs='12'>
           <Row id="gender"> 
-            <Col xs='12'>
+            <Col xs='4'>
               <p class="m-0">Gender</p>
               <select name="gender" required>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
               </select>
             </Col>
-          </Row>
-          <Row id="weight"> 
-            <Col xs='12'>
+            <Col xs='4'>
               <p class="m-0">Weight</p>
               <input
                 type="number"
@@ -88,9 +86,7 @@ const FormSignUp = (props) => {
                 placeholder="weight"
                 required/>
             </Col>
-          </Row>
-          <Row>
-            <Col id="height" xs='6'>
+            <Col id="height" xs='4'>
             <p class="m-0">Height</p>
             <input
               type="number"
@@ -99,7 +95,9 @@ const FormSignUp = (props) => {
               placeholder="height"
               required/>
             </Col>
-            <Col id="confirm_password" xs='6'>
+          </Row>
+          <Row>
+            <Col id="disease" xs='6'>
             <p class="m-0">Congenital disease</p>
             <input
               type="disease"
@@ -109,13 +107,13 @@ const FormSignUp = (props) => {
             </Col>
           </Row>
           <Row>
-            <Col xs='12'>
+            <Col className="button" xs='12'>
               <button type="submit" onClick={onSubmit}>Submit</button>
             </Col>
           </Row>
           </Col>
         </Row>
-      </Container>
+      </div>
     
 
     </form>

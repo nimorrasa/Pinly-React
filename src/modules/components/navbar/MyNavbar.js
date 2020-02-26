@@ -35,7 +35,7 @@ const MyNavbar = (props) => {
 
   return (
     <div>
-      <Navbar className={'theme_'+theme} bg={theme} light={theme === 'light'} dark={theme === 'dark'}  expand="md">
+      <Navbar bg={theme} light={theme === 'light'} dark={theme === 'dark'}  expand="md">
         <NavbarBrand href="/">
             <Media className="App-header-logo"  src={logo}></Media>
         </NavbarBrand>

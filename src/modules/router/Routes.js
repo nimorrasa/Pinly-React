@@ -30,7 +30,7 @@ const Routes = (props) => {
 
   return (
     <main>
-        <MyNavbar theme={navbarTheme} onChangeTheme={handleNavbarThemeChange}></MyNavbar>
+      <MyNavbar theme={navbarTheme} onChangeTheme={handleNavbarThemeChange}></MyNavbar>
       <Redirect from="/" to="/home" />
       <Route path="/home">
         <Home theme={theme} handleThemeChange={handleNavbarThemeChange}></Home>
