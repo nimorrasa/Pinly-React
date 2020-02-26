@@ -35,12 +35,12 @@
 }
 
 .theme_light .dropdown-menu {
-    background-color: rgba(38,173,186,1);
+    background: linear-gradient(to right, #3dbacb , #4280f3);
     border-color: rgba(38,173,186,1);
 }
 
 .theme_dark .dropdown-menu {
-    background-color: rgba(38,173,186,1);
+    background: linear-gradient(to right, #3dbacb , #4280f3);
     border-color: rgba(38,173,186,1);
 }
 

@@ -74,30 +74,6 @@ body{
   width: 5vw;
 }
 
-/* .theme_dark .nav-item .btn-secondary:hover {
-  color: white;
-  background-color: rgba(38,173,186,1);
-  border-color: rgba(38,173,186,0);
-}
-
-.theme_light .nav-item .btn-secondary:hover {
-  color: white;
-  background-color: rgba(38,173,186,1);
-  border-color: rgba(38,173,186,0);
-}
-
-.theme_dark .nav-item .btn-secondary:active {
-  color: white;
-  background-color: rgba(38,173,186,1);
-  border-color: rgba(38,173,186,0);
-}
-
-.theme_light .nav-item .btn-secondary:active {
-  color: white;
-  background-color: rgba(38,173,186,1);
-  border-color: rgba(38,173,186,0);
-} */
-
 @media (max-width: 600px) {
   .App-logo {
     width: 30%;
