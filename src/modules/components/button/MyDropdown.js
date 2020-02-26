@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import './MyButton.css';
-import { Link } from 'react-router-dom';
+import MyLink from '../MyLink.js';
 
 const MyDropdown = (props) => {
   const [dropdownOpen,setDropdownOpen] = useState(false);
@@ -22,7 +22,7 @@ const MyDropdown = (props) => {
           {props.titleType === 'text' ? props.title : <i className={props.title}></i>}
         </DropdownToggle>
         <DropdownMenu  right={props.alignment === 'right'}>
-          {props.items.map((item,key) => <DropdownItem key={key}><Link to={'/'+item.toLowerCase().replace(' ','_')}>{item}</Link></DropdownItem>)}
+          {props.items.map((item,key) => <DropdownItem key={key}><MyLink destination={'/'+item.toLowerCase().replace(' ','_')} text={item}></MyLink></DropdownItem>)}
         </DropdownMenu>
       </Dropdown>
     );

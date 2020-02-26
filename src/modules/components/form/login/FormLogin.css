@@ -83,17 +83,16 @@ select {
 .Login .my-button {
     margin: 0;
     padding: 0;
-    background-color: transparent;
+    background: transparent;
 }
 
 .Login .my-button:hover {
-    background-color: transparent;
+    background: transparent;
 }
 
 .Login .my-button img:hover {
     opacity: 80%;
 }
-
 
 @media (max-width: 800px) {
     .Login .col_right{

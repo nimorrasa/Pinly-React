@@ -43,7 +43,7 @@
 
   .theme_light .dropdown .my-button[aria-expanded="true"]{
     color: black;
-    background-color: rgba(38,173,186,0);
+    background: transparent;
     border-color: rgba(38,173,186,0);
   }
 

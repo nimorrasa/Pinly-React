@@ -3,7 +3,7 @@ import { Button, Container, Row } from 'reactstrap';
 import logo from '../../images/logo.png';
 import '../css/MyTheme.css';
 import '../css/Home.css';
-import { Link } from 'react-router-dom';
+import MyLink from '../components/MyLink.js';
 
 const Home = (props) => {
   const [theme, setTheme] = useState(props.theme);
@@ -18,7 +18,7 @@ const Home = (props) => {
       <div>
         <Container className={"App-content "+theme}>
             <Row className="Link-padding">
-                <Link className="App-link" to='/login'>Login</Link> | <Link className="App-link" to='sign_up'>Sign Up</Link>
+                <MyLink className="App-link" destination='/login' text="Login"></MyLink> | <MyLink className="App-link" destination='sign_up' text="Sign Up"></MyLink>
             </Row>
             <Row>
                 <Button style={{borderWidth: 2, borderRadius: 20 }} className="App-button">GET STARTED</Button>

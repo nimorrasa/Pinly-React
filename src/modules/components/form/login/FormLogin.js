@@ -2,7 +2,7 @@ import React, { useState, useCallback } from "react";
 import { useForm } from "react-hook-form";
 import './FormLogin.css';
 import { Container, Row, Col } from "reactstrap";
-import { Link } from "react-router-dom";
+import MyLink from "../../MyLink.js";
 import facebook_logo from '../../../../images/facebook-512.png';
 import google_logo from '../../../../images/google-plus-512.png';
 
@@ -70,7 +70,7 @@ const FormLogin = (props) => {
           <Col lg='4' xs='4'>
           </Col>
           <Col lg='4' xs='4'>
-            <Link>Forgot Password?</Link>
+            <MyLink destination='?forgot_password' text='Forgot Password?'></MyLink>
           </Col>
         </Row>
         <Row>
