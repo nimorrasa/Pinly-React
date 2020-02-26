@@ -1,17 +1,17 @@
 .Sign_up {
-    padding-top: 15vh;
+    padding: 0;
 }
 
 .Sign_up .col_left{
-    background-color: rgb(76, 199, 195);
+    /* background-color: rgb(76, 199, 195); */
     padding: 5vh;
-    height: 60vh;
+    height: 100vh;
 }
 
 .Sign_up .col_right{
-    background-color: rgb(255, 255, 255);
+    /* background-color: rgb(255, 255, 255); */
     padding: 5vh;
-    height: 60vh;
+    height: 100vh;
 }
 
 .row{

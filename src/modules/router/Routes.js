@@ -30,21 +30,18 @@ const Routes = (props) => {
 
   return (
     <main>
+        <MyNavbar theme={navbarTheme} onChangeTheme={handleNavbarThemeChange}></MyNavbar>
       <Redirect from="/" to="/home" />
       <Route path="/home">
-        <MyNavbar theme={navbarTheme} onChangeTheme={handleNavbarThemeChange}></MyNavbar>
         <Home theme={theme} handleThemeChange={handleNavbarThemeChange}></Home>
       </Route>
       <Route path="/help">
-        <MyNavbar theme={navbarTheme} onChangeTheme={handleNavbarThemeChange}></MyNavbar>
         <Help theme={theme} handleThemeChange={handleNavbarThemeChange}></Help>
       </Route>
       <Route path="/setting">
-        <MyNavbar theme={navbarTheme} onChangeTheme={handleNavbarThemeChange}></MyNavbar>
         <Setting theme={theme} handleThemeChange={handleNavbarThemeChange}></Setting>
       </Route>
       <Route path="/profile">
-        <MyNavbar theme={navbarTheme} onChangeTheme={handleNavbarThemeChange}></MyNavbar>
         <Profile theme={theme} handleThemeChange={handleNavbarThemeChange}></Profile>
       </Route>
       <Route path="/login">
@@ -54,15 +51,12 @@ const Routes = (props) => {
         <SignUp theme={theme} handleThemeChange={handleNavbarThemeChange}></SignUp>
       </Route>
       <Route path="/sleep_form">
-        <MyNavbar theme={navbarTheme} onChangeTheme={handleNavbarThemeChange}></MyNavbar>
         <SleepForm theme={theme} handleThemeChange={handleNavbarThemeChange}></SleepForm>
       </Route>
       <Route path="/sleep_score">
-        <MyNavbar theme={navbarTheme} onChangeTheme={handleNavbarThemeChange}></MyNavbar>
         <SleepScore theme={theme} handleThemeChange={handleNavbarThemeChange}></SleepScore>
       </Route>
       <Route path="/voice_over">
-        <MyNavbar theme={navbarTheme} onChangeTheme={handleNavbarThemeChange}></MyNavbar>
         <VoiceOver theme={theme} handleThemeChange={handleNavbarThemeChange}></VoiceOver>
       </Route>
     </main>
