@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const MyLink = (props) => {
 
     return (
-        <Link style={{textDecoration: "none"}} to={props.destination}>{props.text}</Link>
+        <Link className="my-link" style={{textDecoration: "none", paddingLeft: "5px", paddingRight: "5px"}} to={props.destination}>{props.text}</Link>
     );
   }
 
