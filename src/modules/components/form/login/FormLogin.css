@@ -3,15 +3,16 @@
 }
 
 .Login .col_left{
-    /* background-color: rgb(76, 199, 195); */
-    padding: 5vh;
+    padding-left: 5vw;
+    padding-right: 10vw;
     padding-top: 15vh;
+    height: 100vh;
 }
 
 .Login .col_right{
     padding: 5vh;
     padding-top: 20vh;
-    height: 100vh;
+
 }
 
 .row{

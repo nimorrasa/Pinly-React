@@ -74,7 +74,7 @@ const FormLogin = (props) => {
           </Col>
         </Row>
         <Row>
-          <Col className="button" lg='9' xs='9'>
+          <Col className="button" lg='8' xs='8'>
           </Col>
           <Col className="button" lg='3' xs='3'>
               <button type="submit" onClick={onSubmit}>Submit</button>
