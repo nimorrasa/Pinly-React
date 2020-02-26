@@ -14,6 +14,7 @@ const ThemeSwitch = (props) => {
   return (
     <button className="icon-button">
       <input
+        style={{width: "auto"}}
         type="checkbox"
         className="checkbox"
         id="night-mode"

@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { Container, Row, Col } from 'reactstrap';
-import FormSignUp  from '../../modules/components/form/FormSignUp.js';
+import FormSignUp  from '../components/form/sign_up/FormSignUp.js';
 import logo from '../../images/logo.png';
 
 const SignUp = (props) => {
