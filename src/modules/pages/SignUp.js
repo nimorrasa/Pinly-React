@@ -3,10 +3,10 @@ import { Container, Row, Col } from 'reactstrap';
 import FormSignUp  from '../../modules/components/form/FormSignUp.js';
 
 const SignUp = (props) => {
-
+    props.handleThemeChange('light');
     const [theme,setTheme] = useState('theme_light');
 
-    useEffect(() => { setTheme(props.theme)});
+    useEffect(() => { setTheme('theme_light')});
 
     return (
         <div className={"App Sign_up theme_light"}>

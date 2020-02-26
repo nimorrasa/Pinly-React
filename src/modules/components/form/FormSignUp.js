@@ -4,9 +4,11 @@ import './FormSignUp.css';
 import { Container, Row, Col } from "reactstrap";
 import DatePicker from 'reactstrap-date-picker';
 
-const FormSignUp = () => {
+const FormSignUp = (props) => {
   const [step,setStep] = useState('sign_up_step_1');
   const { handleSubmit, register, errors } = useForm();
+
+  
 
   const nextStep = useCallback(() => {
     setStep('sign_up_step_2');
