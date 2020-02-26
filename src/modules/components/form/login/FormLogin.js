@@ -2,17 +2,18 @@ import React, { useState, useCallback } from "react";
 import { useForm } from "react-hook-form";
 import './FormLogin.css';
 import { Container, Row, Col } from "reactstrap";
-import DatePicker from 'reactstrap-date-picker';
+import { Link } from "react-router-dom";
+import facebook_logo from '../../../../images/facebook-512.png';
+import google_logo from '../../../../images/google-plus-512.png';
 
-const FormSignUp = (props) => {
-  const [step,setStep] = useState('sign_up_step_1');
+const FormLogin = (props) => {
+  const [step,setStep] = useState('login_with_email');
   const { handleSubmit, register, errors } = useForm();
 
   
 
-  const nextStep = useCallback(() => { setStep('sign_up_step_2'); },[setStep]);
-  const backStep = useCallback(() => { setStep('sign_up_step_1'); },[setStep]);
-
+  const handleSocial = useCallback(() => { setStep('login_with_social'); },[setStep]);
+  const backStep = useCallback(() => { setStep('login_with_email'); },[setStep]);
 
   const onSubmit = values => {
     console.log(values);
@@ -33,23 +34,12 @@ const FormSignUp = (props) => {
     years.push(i)
   }
 
-  console.log(dates);
-
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div>
-        <Row className={step}>
-          <Col className='sign_up_1' xs='12'>
-            <Row id="username"> 
-            <Col xs='6'>
-              <p class="m-0">Username</p>
-              <input
-                type="text"
-                name="username"
-                placeholder="username"
-                required/>
-            </Col>
-          </Row>
+      <Row className={step}>
+      <Col className="login" lg='12' xs='12'>
+        <Row>
+          <Col lg='12' xs='12'>
           <Row id="email"> 
             <Col xs='6'>
               <p class="m-0">Email</p>
@@ -61,7 +51,7 @@ const FormSignUp = (props) => {
             </Col>
           </Row>
           <Row>
-            <Col id="password" lg='4' xs='6'>
+            <Col id="password" lg='6' xs='6'>
             <p class="m-0">Password</p>
             <input
               type="password"
@@ -70,17 +60,51 @@ const FormSignUp = (props) => {
               placeholder="password"
               required/>
             </Col>
-            <Col id="confirm_password" lg='4' xs='6'>
-            <p class="m-0">Confirm Password</p>
-            <input
-              type="password"
-              name=""
-              placeholder="password"
-              required/>
+          </Row>
+          </Col>
+        </Row>
+        <Row>
+          <Col lg='4' xs='4'>
+            <p><input type="checkbox" name="" style={{width: "10px"}}/> Remember Me</p>
+          </Col>
+          <Col lg='4' xs='4'>
+          </Col>
+          <Col lg='4' xs='4'>
+            <Link>Forgot Password?</Link>
+          </Col>
+        </Row>
+        <Row>
+          <Col className="button" lg='9' xs='9'>
+          </Col>
+          <Col className="button" lg='3' xs='3'>
+              <button type="submit" onClick={onSubmit}>Submit</button>
+          </Col>
+        </Row>
+        <Row>
+          <Col lg='3' xs='3'>
+            <p>Or login with </p>
+          </Col>
+          <Col lg='2' xs='2'>
+            <button className="my-button" onClick={handleSocial}><img id="facebook_login" src={facebook_logo} width="50" height="50" alt=""/></button>
+          </Col>
+          <Col lg='2' xs='2'>
+            <button className="my-button" onClick={handleSocial}><img id="google_login" src={google_logo} width="50" height="50" alt=""/></button>
+          </Col>
+        </Row>
+        </Col>
+        <Col className='social_login' xs='12'>
+          <Row id="username"> 
+            <Col lg='6' md='6' xs='6'>
+              <p class="m-0">Username</p>
+              <input
+                type="text"
+                name="username"
+                placeholder="username"
+                required/>
             </Col>
           </Row>
           <Row> 
-            <Col id="bdate" lg='2' xs='2'>
+            <Col id="bdate" lg='3' md='4' xs='4'>
               <p class="m-0">Birthdate</p>
               <select value='1' name="bdate" min='12' max='31'required>
                 {dates.map((value, index) => {
@@ -88,7 +112,7 @@ const FormSignUp = (props) => {
                 })}
               </select>
             </Col>
-            <Col id="mdate" lg='3' xs='4'>
+            <Col id="mdate" lg='3' md='4' xs='4'>
               <p class="m-0" style={{color: "transparent"}}>Birthdate</p>
               <select value='1' name="bmonth" min='12' max='31'required>
                 {months.map((value, index) => {
@@ -96,7 +120,7 @@ const FormSignUp = (props) => {
                 })}
               </select>
             </Col>
-            <Col id="ydate" lg='3' xs='4'>
+            <Col id="ydate" lg='3' md='4' xs='4'>
               <p class="m-0" style={{color: "transparent"}}>Birthdate</p>
               <select value='1' name="byear" min='12' max='31'required>
                 {years.map((value, index) => {
@@ -105,22 +129,15 @@ const FormSignUp = (props) => {
               </select>
               </Col>
           </Row>
-          <Row>
-            <Col className="button" lg='3' xs='3'>
-              <button type="button" onClick={nextStep}>Continue</button>
-            </Col>
-          </Row>
-          </Col>
-          <Col className='sign_up_2' xs='12'>
           <Row> 
-            <Col id="gender" lg='2' xs='3'>
+            <Col id="gender" lg='2' md='4' xs='4'>
               <p class="m-0">Gender</p>
               <select name="gender" required>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
               </select>
             </Col>
-            <Col id="weight" lg='3' xs='4'>
+            <Col id="weight" lg='3' md='4' xs='4'>
               <p class="m-0">Weight</p>
               <input
                 type="number"
@@ -128,7 +145,7 @@ const FormSignUp = (props) => {
                 placeholder="weight"
                 required/>
             </Col>
-            <Col id="height" lg='3' xs='4'>
+            <Col id="height" lg='3' md='4' xs='4'>
             <p class="m-0">Height</p>
             <input
               type="number"
@@ -139,7 +156,7 @@ const FormSignUp = (props) => {
             </Col>
           </Row>
           <Row>
-            <Col id="disease" xs='4'>
+            <Col id="disease" lg='6' md='6' xs='6'>
             <p class="m-0">Congenital disease</p>
             <input
               type="disease"
@@ -157,12 +174,12 @@ const FormSignUp = (props) => {
             </Col>
           </Row>
           </Col>
-        </Row>
-      </div>
+ 
+      </Row>
     
 
     </form>
   );
 };
 
-export default FormSignUp;
+export default FormLogin;

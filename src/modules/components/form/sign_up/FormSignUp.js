@@ -2,7 +2,6 @@ import React, { useState, useCallback } from "react";
 import { useForm } from "react-hook-form";
 import './FormSignUp.css';
 import { Container, Row, Col } from "reactstrap";
-import DatePicker from 'reactstrap-date-picker';
 
 const FormSignUp = (props) => {
   const [step,setStep] = useState('sign_up_step_1');
@@ -32,8 +31,6 @@ const FormSignUp = (props) => {
   for (let i=2020; i>=1999; i--) {
     years.push(i)
   }
-
-  console.log(dates);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
