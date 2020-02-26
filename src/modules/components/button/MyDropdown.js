@@ -22,7 +22,7 @@ const MyDropdown = (props) => {
           {props.titleType === 'text' ? props.title : <i className={props.title}></i>}
         </DropdownToggle>
         <DropdownMenu  right={props.alignment === 'right'}>
-          {props.items.map((item,key) => <DropdownItem key={key}><MyLink destination={'/'+item.toLowerCase().replace(' ','_')} text={item}></MyLink></DropdownItem>)}
+          {props.items.map((item,key) => <DropdownItem key={key}><MyLink destination={'/'+item.toLowerCase().split(' ').join('_')} text={item}></MyLink></DropdownItem>)}
         </DropdownMenu>
       </Dropdown>
     );

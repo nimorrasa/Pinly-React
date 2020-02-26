@@ -55,7 +55,7 @@ const MyNavbar = (props) => {
               <Link to='/setting'><MyButton type="text" title="Setting"></MyButton></Link>
             </NavItem>
             <NavItem>
-              <MyDropdown theme={theme} alignment="left" titleType="icon" title="fa fa-question-circle" items={["sleep score","sleep form"]}></MyDropdown>
+              <MyDropdown theme={theme} alignment="left" titleType="icon" title="fa fa-question-circle" items={["How to Registeration","How to Sleeptest",'Assistant']}></MyDropdown>
             </NavItem>
           </Nav>
           <Nav className="mr-auto-right" navbar>
