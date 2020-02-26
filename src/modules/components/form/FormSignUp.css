@@ -9,8 +9,8 @@
 }
 
 .Sign_up .col_right{
-    /* background-color: rgb(255, 255, 255); */
     padding: 5vh;
+    padding-top: 15vh;
     height: 100vh;
 }
 
@@ -30,6 +30,7 @@ input {
 }
 
 select {
+    background-color: white;
     width: 100%;
     padding: 0px 12px;
     border-radius: 5px;
@@ -57,7 +58,26 @@ select {
     padding-top: 0;
     padding-left: 0;
   }
-  
+
+.Sign_up button {
+    display: inline-block;
+    font-weight: 400;
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+    background-color: rgb(76, 199, 195);
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    border-radius: 15px 15px;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    width: 100%;
+}
 
 @media (max-width: 600px) {
     .Sign_up .col_left{
