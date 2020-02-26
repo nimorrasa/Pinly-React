@@ -22,3 +22,19 @@ select {
     box-shadow: 0 0 0 2px transparent, 0 1px 0 rgba(0,0,0,0.08) inset;
     transition: all 0.3s;
 }
+
+.sign_up_step_1 .sign_up_1{
+    display: block;
+}
+
+.sign_up_step_1 .sign_up_2{
+    display: none;
+}
+
+.sign_up_step_2 .sign_up_1{
+    display: none;
+}
+
+.sign_up_step_2 .sign_up_2{
+    display: block;
+}

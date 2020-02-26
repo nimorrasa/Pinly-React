@@ -49,13 +49,13 @@ const MyNavbar = (props) => {
               <Link to='/profile'><MyButton type="text" title="Profile"></MyButton></Link>
             </NavItem>
             <NavItem>
-              <MyDropdown theme={theme} alignment="left" titleType="text" title="Sleep Test" items={["sleep score","sleep form"]}></MyDropdown>
+              <Link to='/help'><MyButton type="text" title="Sleep Test"></MyButton></Link>
             </NavItem>
             <NavItem>
               <Link to='/setting'><MyButton type="text" title="Setting"></MyButton></Link>
             </NavItem>
             <NavItem>
-              <Link to='/help'><MyButton type="icon" title="fa fa-question-circle"></MyButton></Link>
+              <MyDropdown theme={theme} alignment="left" titleType="icon" title="fa fa-question-circle" items={["sleep score","sleep form"]}></MyDropdown>
             </NavItem>
           </Nav>
           <Nav className="mr-auto-right" navbar>

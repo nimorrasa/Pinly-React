@@ -1,21 +1,27 @@
-import React from "react";
+import React, { useState, useCallback } from "react";
 import { useForm } from "react-hook-form";
 import './FormSignUp.css';
 import { Container, Row, Col } from "reactstrap";
 import DatePicker from 'reactstrap-date-picker';
 
 const FormSignUp = () => {
+  const [step,setStep] = useState('sign_up_step_1');
   const { handleSubmit, register, errors } = useForm();
+
+  const nextStep = useCallback(() => {
+    setStep('sign_up_step_2');
+  },[setStep]);
+
+
   const onSubmit = values => {
     console.log(values);
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-
       <Container>
-        <Row>
-          <Col id='sign_up_1' xs='12'>
+        <Row className={step}>
+          <Col className='sign_up_1' xs='12'>
             <Row id="username"> 
             <Col xs='12'>
               <p class="m-0">Username</p>
@@ -57,11 +63,11 @@ const FormSignUp = () => {
           </Row>
           <Row>
             <Col xs='12'>
-              <button type="button">Continue</button>
+              <button type="button" onClick={nextStep}>Continue</button>
             </Col>
           </Row>
           </Col>
-          <Col xs='12'>
+          <Col className='sign_up_2' xs='12'>
           <Row id="gender"> 
             <Col xs='12'>
               <p class="m-0">Gender</p>
@@ -102,7 +108,7 @@ const FormSignUp = () => {
           </Row>
           <Row>
             <Col xs='12'>
-              <button type="submit">Submit</button>
+              <button type="submit" onClick={onSubmit}>Submit</button>
             </Col>
           </Row>
           </Col>
