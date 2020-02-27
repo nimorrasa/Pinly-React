@@ -4,11 +4,12 @@ import './FormSignUp.css';
 import { Container, Row, Col } from "reactstrap";
 
 const FormSignUp = (props) => {
+  const [passwordShow,setPasswordShow] = useState(false);
   const [step,setStep] = useState('sign_up_step_1');
   const { handleSubmit, register, errors } = useForm();
 
   
-
+  let togglePassword = useCallback(() => { setPasswordShow(!passwordShow); });
   const nextStep = useCallback(() => { setStep('sign_up_step_2'); },[setStep]);
   const backStep = useCallback(() => { setStep('sign_up_step_1'); },[setStep]);
 
@@ -58,21 +59,25 @@ const FormSignUp = (props) => {
             </Col>
           </Row>
           <Row>
-            <Col id="password" lg='4' xs='6'>
+            <Col id="password" lg='5' xs='6' style={{paddingRight: "0"}}>
             <p class="m-0">Password</p>
             <input
-              type="password"
+              type={!passwordShow ? 'password' : 'text'}
               name="password"
               id="password"
               placeholder="password"
               required/>
             </Col>
-            <Col id="confirm_password" lg='4' xs='6'>
+            <Col id="password" lg='1' xs='1' style={{paddingLeft: "2px", top: "2px"}}>
+            <p class="m-0" style={{color: "transparent"}}>Password</p>
+            <span className={"fa fa-fw fa-eye field-icon toggle-password"} onClick={togglePassword}></span>
+            </Col>
+            <Col id="confirm_password" lg='5' xs='6'>
             <p class="m-0">Confirm Password</p>
             <input
-              type="password"
+              type={!passwordShow ? 'password' : 'text'}
               name=""
-              placeholder="password"
+              placeholder="Confirm password"
               required/>
             </Col>
           </Row>

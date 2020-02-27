@@ -7,11 +7,12 @@ import facebook_logo from '../../../../images/facebook-512.png';
 import google_logo from '../../../../images/google-plus-512.png';
 
 const FormLogin = (props) => {
+  const [passwordShow,setPasswordShow] = useState(false);
   const [step,setStep] = useState('login_with_email');
   const { handleSubmit, register, errors } = useForm();
 
   
-
+  let togglePassword = useCallback(() => { setPasswordShow(!passwordShow); });
   const handleSocial = useCallback(() => { setStep('login_with_social'); },[setStep]);
   const backStep = useCallback(() => { setStep('login_with_email'); },[setStep]);
 
@@ -41,7 +42,7 @@ const FormLogin = (props) => {
         <Row>
           <Col lg='12' xs='12'>
           <Row id="email"> 
-            <Col xs='6'>
+            <Col lg='6' xs='6' style={{paddingRight: "0"}}>
               <p class="m-0">Email</p>
               <input
                 type="email"
@@ -51,14 +52,18 @@ const FormLogin = (props) => {
             </Col>
           </Row>
           <Row>
-            <Col id="password" lg='6' xs='6'>
+            <Col id="password" lg='6' xs='6' style={{paddingRight: "0"}}>
             <p class="m-0">Password</p>
             <input
-              type="password"
+              type={!passwordShow ? 'password' : 'text'}
               name="password"
               id="password"
               placeholder="password"
               required/>
+            </Col>
+            <Col id="password" lg='1' xs='1' style={{paddingLeft: "2px", top: "2px"}}>
+            <p class="m-0" style={{color: "transparent"}}>Password</p>
+            <span className={"fa fa-fw fa-eye field-icon toggle-password"} onClick={togglePassword}></span>
             </Col>
           </Row>
           </Col>
