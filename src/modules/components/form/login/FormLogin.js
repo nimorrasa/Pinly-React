@@ -42,7 +42,7 @@ const FormLogin = (props) => {
         <Row>
           <Col lg='12' xs='12'>
           <Row id="email"> 
-            <Col lg='6' xs='6' style={{paddingRight: "0"}}>
+            <Col lg='8' xs='8' style={{paddingRight: "0"}}>
               <p class="m-0">Email</p>
               <input
                 type="email"
@@ -52,7 +52,7 @@ const FormLogin = (props) => {
             </Col>
           </Row>
           <Row>
-            <Col id="password" lg='6' xs='6' style={{paddingRight: "0"}}>
+            <Col id="password" lg='8' xs='8' style={{paddingRight: "0"}}>
             <p class="m-0">Password</p>
             <input
               type={!passwordShow ? 'password' : 'text'}
@@ -68,24 +68,24 @@ const FormLogin = (props) => {
           </Row>
           </Col>
         </Row>
-        <Row>
+        <Row style={{padding: "0"}}>
           <Col lg='4' xs='4'>
             <p><input type="checkbox" name="" style={{width: "10px"}}/> Remember Me</p>
           </Col>
-          <Col lg='4' xs='4'>
+          <Col lg='1' xs='1'>
           </Col>
-          <Col lg='4' xs='4'>
+          <Col lg='5' xs='5' >
             <MyLink destination='?forgot_password' text='Forgot Password?'></MyLink>
           </Col>
         </Row>
         <Row>
-          <Col className="button" lg='8' xs='8'>
+          <Col className="button" lg='5' xs='5'>
           </Col>
-          <Col className="button" lg='3' xs='3'>
-              <button type="submit" onClick={onSubmit}>Submit</button>
+          <Col className="button" lg='3' xs='3' style={{paddingRight: "0"}}>
+              <button type="submit" onClick={onSubmit}>Login</button>
           </Col>
         </Row>
-        <Row>
+        <Row style={{paddingTop: "10%"}}>
           <Col lg='3' xs='3'>
             <p>Or login with </p>
           </Col>
