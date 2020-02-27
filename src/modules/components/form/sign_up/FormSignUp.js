@@ -2,15 +2,32 @@ import React, { useState, useCallback } from "react";
 import { useForm } from "react-hook-form";
 import './FormSignUp.css';
 import { Form, Row, Col } from "reactstrap";
+import Firebase from '../../../firebase/Firebase.js';
 
 const FormSignUp = (props) => {
+  const [userData,setUserData] = useState({
+    username : '',
+    email : '',
+    birthdate : '',
+    gender : '',
+    weight : '',
+    height : ''
+  })
   const [gender,setGender] = useState('Male');
   const [passwordShow,setPasswordShow] = useState(false);
   const [step,setStep] = useState('sign_up_step_1');
   const { handleSubmit, register, errors } = useForm();
 
   const togglePassword = useCallback(() => { setPasswordShow(!passwordShow); });
-  const nextStep = useCallback(() => {
+  const nextStep = useCallback((data) => {
+    setUserData({
+      username : data.username,
+      email : data.email,
+      birthdate : data.bdate+'-'+data.bmonth+'-'+data.byear,
+      gender : userData.gender,
+      weight : userData.weight,
+      height : userData.height
+    });
     setStep('sign_up_step_2');
     props.onStepChange('sign_up_step_2');
   },[setStep]);
@@ -20,7 +37,21 @@ const FormSignUp = (props) => {
   },[setStep]);
 
   const onSubmit = values => {
-    console.log(values);
+
+    console.log(values); return;
+    Firebase.auth().createUserWithEmailAndPassword(values.email, values.password)
+    .then(function() {
+      alert('Success');
+    })
+    .catch(function(error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+
+      alert(errorMessage);
+      // ...
+    });
+    
   };
 
 
@@ -52,7 +83,7 @@ const FormSignUp = (props) => {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={onSubmit}>
       <div>
         <Row className={step}>
           <Col className='sign_up_1' xs='12'>
@@ -60,7 +91,7 @@ const FormSignUp = (props) => {
             <Col xs='6'>
               <p className="m-0">Username</p>
               <input
-                type="text"
+                type="email"
                 name="username"
                 placeholder="username"
                 required/>
@@ -127,7 +158,7 @@ const FormSignUp = (props) => {
           </Row>
           <Row>
             <Col className="button" lg='3' xs='3'>
-              <button type="button" onClick={nextStep}>Next</button>
+              <button type="submit" onClick={nextStep}>Next</button>
             </Col>
           </Row>
           </Col>
