@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { Container, Row, Col } from 'reactstrap';
-import SignUp1  from '../components/form/sign_up/SignUp1.js';
+import FormSignUp  from '../components/form/sign_up/FormSignUp.js';
 import logo from '../../images/logo.png';
 
 const SignUp = (props) => {
@@ -23,7 +23,7 @@ const SignUp = (props) => {
                 <Col className="col_right" lg="6" xs="12">
                     <h1>Welcome to PINLY</h1>
                     <p>PINLY is an application for sleep monitoring just for you.</p>
-                    <SignUp1 onStepChange={onStepChange}></SignUp1>
+                    <FormSignUp onStepChange={onStepChange}></FormSignUp>
                 </Col>
                 <Col className="col_right blank" lg="6" xs="12" style={{backgroundColor: "rgb(76, 199, 195)", display: (step == 'sign_up_step_2' ? 'block' : 'none')}}>
                 </Col>
