@@ -18,7 +18,7 @@ const ThemeSwitch = (props) => {
         type="checkbox"
         className="checkbox"
         id="night-mode"
-        value={isDark}
+        defaultValue={isDark}
         onChange={handleChange}
         defaultChecked={isDark}
         />

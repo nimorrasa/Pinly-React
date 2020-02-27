@@ -79,6 +79,10 @@ select {
     width: 100%;
 }
 
+.Sign_up input[type='radio'] {
+    width: 5%;
+}
+
 @media (max-width: 800px) {
     .Sign_up .col_left{
         display: none;

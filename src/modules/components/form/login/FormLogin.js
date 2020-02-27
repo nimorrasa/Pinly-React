@@ -7,6 +7,7 @@ import facebook_logo from '../../../../images/facebook-512.png';
 import google_logo from '../../../../images/google-plus-512.png';
 
 const FormLogin = (props) => {
+  const [gender,setGender] = useState('Male');
   const [passwordShow,setPasswordShow] = useState(false);
   const [step,setStep] = useState('login_with_email');
   const { handleSubmit, register, errors } = useForm();
@@ -20,6 +21,19 @@ const FormLogin = (props) => {
     console.log(values);
   };
 
+
+  const diseases = ['None',
+  'Insomnia',
+  'snoring',
+  'sleep Apnea',
+  'Parasomnia',
+  'sleep related breathing disorder',
+  'sleep related movement disorder',
+  'Central origin hypersomnolence',
+  'Circadien rhythm disorder',
+  'Narcolepsy',
+  'Migraine',
+  'Other'];
 
   const dates = []
 
@@ -43,7 +57,7 @@ const FormLogin = (props) => {
           <Col lg='12' xs='12'>
           <Row id="email"> 
             <Col lg='8' xs='8' style={{paddingRight: "0"}}>
-              <p class="m-0">Email</p>
+              <p className="m-0">Email</p>
               <input
                 type="email"
                 name="email"
@@ -53,7 +67,7 @@ const FormLogin = (props) => {
           </Row>
           <Row>
             <Col id="password" lg='8' xs='8' style={{paddingRight: "0"}}>
-            <p class="m-0">Password</p>
+            <p className="m-0">Password</p>
             <input
               type={!passwordShow ? 'password' : 'text'}
               name="password"
@@ -62,7 +76,7 @@ const FormLogin = (props) => {
               required/>
             </Col>
             <Col id="password" lg='1' xs='1' style={{paddingLeft: "2px", top: "2px"}}>
-            <p class="m-0" style={{color: "transparent"}}>Password</p>
+            <p className="m-0" style={{color: "transparent"}}>Password</p>
             <span className={"fa fa-fw fa-eye field-icon toggle-password"} onClick={togglePassword}></span>
             </Col>
           </Row>
@@ -100,7 +114,7 @@ const FormLogin = (props) => {
         <Col className='social_login' xs='12'>
           <Row id="username"> 
             <Col lg='6' md='6' xs='6'>
-              <p class="m-0">Username</p>
+              <p className="m-0">Username</p>
               <input
                 type="text"
                 name="username"
@@ -109,25 +123,25 @@ const FormLogin = (props) => {
             </Col>
           </Row>
           <Row> 
-            <Col id="bdate" lg='3' md='4' xs='4'>
-              <p class="m-0">Birthdate</p>
-              <select value='1' name="bdate" min='12' max='31'required>
+            <Col id="bdate" lg='2' xs='2'>
+              <p className="m-0">Birthdate</p>
+              <select defaultValue='1' name="bdate" min='12' max='31'required>
                 {dates.map((value, index) => {
                   return <option key={value}>{value}</option>;
                 })}
               </select>
             </Col>
-            <Col id="mdate" lg='3' md='4' xs='4'>
-              <p class="m-0" style={{color: "transparent"}}>Birthdate</p>
-              <select value='1' name="bmonth" min='12' max='31'required>
+            <Col id="mdate" lg='3' xs='4'>
+              <p className="m-0" style={{color: "transparent"}}>Birthdate</p>
+              <select defaultValue='1' name="bmonth" min='12' max='31'required>
                 {months.map((value, index) => {
                   return <option key={index+1}>{value}</option>;
                 })}
               </select>
             </Col>
-            <Col id="ydate" lg='3' md='4' xs='4'>
-              <p class="m-0" style={{color: "transparent"}}>Birthdate</p>
-              <select value='1' name="byear" min='12' max='31'required>
+            <Col id="ydate" lg='3' xs='4'>
+              <p className="m-0" style={{color: "transparent"}}>Birthdate</p>
+              <select defaultValue='1' name="byear" min='12' max='31'required>
                 {years.map((value, index) => {
                   return <option key={value}>{value}</option>;
                 })}
@@ -135,23 +149,16 @@ const FormLogin = (props) => {
               </Col>
           </Row>
           <Row> 
-            <Col id="gender" lg='2' md='4' xs='4'>
-              <p class="m-0">Gender</p>
-              <select name="gender" required>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-              </select>
-            </Col>
-            <Col id="weight" lg='3' md='4' xs='4'>
-              <p class="m-0">Weight</p>
+            <Col id="weight" lg='3' xs='4'>
+              <p className="m-0">Weight</p>
               <input
                 type="number"
                 name="weight"
                 placeholder="weight"
                 required/>
             </Col>
-            <Col id="height" lg='3' md='4' xs='4'>
-            <p class="m-0">Height</p>
+            <Col id="height" lg='3' xs='4'>
+            <p className="m-0">Height</p>
             <input
               type="number"
               name="height"
@@ -161,13 +168,19 @@ const FormLogin = (props) => {
             </Col>
           </Row>
           <Row>
-            <Col id="disease" lg='6' md='6' xs='6'>
-            <p class="m-0">Congenital disease</p>
-            <input
-              type="disease"
-              name="disease"
-              placeholder="Congenital disease"
-              required/>
+            <Col id="disease" xs='4'>
+            <p className="m-0">Congenital disease</p>
+            <select defaultValue='1' name="disease" min='12' max='31'required>
+                {diseases.map((value, index) => {
+                  return <option key={index}>{value}</option>;
+                })}
+              </select>
+            </Col>
+          </Row>
+          <Row>
+          <Col id="gender" lg='12' xs='12'>
+              <input type="radio" label="Male" defaultChecked={gender === 'Male'} defaultValue="Male" onClick={() => setGender('Male')} /> Male
+              <input type="radio" label="Female" defaultChecked={gender === 'Female'} defaultValue="Female" onClick={() => setGender('Female')} /> Female
             </Col>
           </Row>
           <Row>

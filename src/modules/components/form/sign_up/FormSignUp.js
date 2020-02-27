@@ -1,15 +1,15 @@
 import React, { useState, useCallback } from "react";
 import { useForm } from "react-hook-form";
 import './FormSignUp.css';
-import { Container, Row, Col } from "reactstrap";
+import { Form, Row, Col } from "reactstrap";
 
 const FormSignUp = (props) => {
+  const [gender,setGender] = useState('Male');
   const [passwordShow,setPasswordShow] = useState(false);
   const [step,setStep] = useState('sign_up_step_1');
   const { handleSubmit, register, errors } = useForm();
 
-  
-  let togglePassword = useCallback(() => { setPasswordShow(!passwordShow); });
+  const togglePassword = useCallback(() => { setPasswordShow(!passwordShow); });
   const nextStep = useCallback(() => { setStep('sign_up_step_2'); },[setStep]);
   const backStep = useCallback(() => { setStep('sign_up_step_1'); },[setStep]);
 
@@ -18,6 +18,19 @@ const FormSignUp = (props) => {
     console.log(values);
   };
 
+
+  const diseases = ['None',
+  'Insomnia',
+  'snoring',
+  'sleep Apnea',
+  'Parasomnia',
+  'sleep related breathing disorder',
+  'sleep related movement disorder',
+  'Central origin hypersomnolence',
+  'Circadien rhythm disorder',
+  'Narcolepsy',
+  'Migraine',
+  'Other'];
 
   const dates = []
 
@@ -40,7 +53,7 @@ const FormSignUp = (props) => {
           <Col className='sign_up_1' xs='12'>
             <Row id="username"> 
             <Col xs='6'>
-              <p class="m-0">Username</p>
+              <p className="m-0">Username</p>
               <input
                 type="text"
                 name="username"
@@ -50,7 +63,7 @@ const FormSignUp = (props) => {
           </Row>
           <Row id="email"> 
             <Col xs='6'>
-              <p class="m-0">Email</p>
+              <p className="m-0">Email</p>
               <input
                 type="email"
                 name="email"
@@ -60,7 +73,7 @@ const FormSignUp = (props) => {
           </Row>
           <Row>
             <Col id="password" lg='5' xs='6' style={{paddingRight: "0"}}>
-            <p class="m-0">Password</p>
+            <p className="m-0">Password</p>
             <input
               type={!passwordShow ? 'password' : 'text'}
               name="password"
@@ -69,11 +82,11 @@ const FormSignUp = (props) => {
               required/>
             </Col>
             <Col id="password" lg='1' xs='1' style={{paddingLeft: "2px", top: "2px"}}>
-            <p class="m-0" style={{color: "transparent"}}>Password</p>
+            <p className="m-0" style={{color: "transparent"}}>Password</p>
             <span className={"fa fa-fw fa-eye field-icon toggle-password"} onClick={togglePassword}></span>
             </Col>
             <Col id="confirm_password" lg='5' xs='6'>
-            <p class="m-0">Confirm Password</p>
+            <p className="m-0">Confirm Password</p>
             <input
               type={!passwordShow ? 'password' : 'text'}
               name=""
@@ -83,24 +96,24 @@ const FormSignUp = (props) => {
           </Row>
           <Row> 
             <Col id="bdate" lg='2' xs='2'>
-              <p class="m-0">Birthdate</p>
-              <select value='1' name="bdate" min='12' max='31'required>
+              <p className="m-0">Birthdate</p>
+              <select defaultValue='1' name="bdate" min='12' max='31'required>
                 {dates.map((value, index) => {
                   return <option key={value}>{value}</option>;
                 })}
               </select>
             </Col>
             <Col id="mdate" lg='3' xs='4'>
-              <p class="m-0" style={{color: "transparent"}}>Birthdate</p>
-              <select value='1' name="bmonth" min='12' max='31'required>
+              <p className="m-0" style={{color: "transparent"}}>Birthdate</p>
+              <select defaultValue='1' name="bmonth" min='12' max='31'required>
                 {months.map((value, index) => {
                   return <option key={index+1}>{value}</option>;
                 })}
               </select>
             </Col>
             <Col id="ydate" lg='3' xs='4'>
-              <p class="m-0" style={{color: "transparent"}}>Birthdate</p>
-              <select value='1' name="byear" min='12' max='31'required>
+              <p className="m-0" style={{color: "transparent"}}>Birthdate</p>
+              <select defaultValue='1' name="byear" min='12' max='31'required>
                 {years.map((value, index) => {
                   return <option key={value}>{value}</option>;
                 })}
@@ -109,21 +122,14 @@ const FormSignUp = (props) => {
           </Row>
           <Row>
             <Col className="button" lg='3' xs='3'>
-              <button type="button" onClick={nextStep}>Continue</button>
+              <button type="button" onClick={nextStep}>Next</button>
             </Col>
           </Row>
           </Col>
           <Col className='sign_up_2' xs='12'>
           <Row> 
-            <Col id="gender" lg='2' xs='3'>
-              <p class="m-0">Gender</p>
-              <select name="gender" required>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-              </select>
-            </Col>
             <Col id="weight" lg='3' xs='4'>
-              <p class="m-0">Weight</p>
+              <p className="m-0">Weight</p>
               <input
                 type="number"
                 name="weight"
@@ -131,7 +137,7 @@ const FormSignUp = (props) => {
                 required/>
             </Col>
             <Col id="height" lg='3' xs='4'>
-            <p class="m-0">Height</p>
+            <p className="m-0">Height</p>
             <input
               type="number"
               name="height"
@@ -142,12 +148,18 @@ const FormSignUp = (props) => {
           </Row>
           <Row>
             <Col id="disease" xs='4'>
-            <p class="m-0">Congenital disease</p>
-            <input
-              type="disease"
-              name="disease"
-              placeholder="Congenital disease"
-              required/>
+            <p className="m-0">Congenital disease</p>
+            <select defaultValue='1' name="disease" min='12' max='31'required>
+                {diseases.map((value, index) => {
+                  return <option key={index}>{value}</option>;
+                })}
+              </select>
+            </Col>
+          </Row>
+          <Row>
+          <Col id="gender" lg='12' xs='12'>
+              <input type="radio" label="Male" defaultChecked={gender === 'Male'} defaultValue="Male" onClick={() => setGender('Male')} /> Male
+              <input type="radio" label="Female" defaultChecked={gender === 'Female'} defaultValue="Female" onClick={() => setGender('Female')} /> Female
             </Col>
           </Row>
           <Row>

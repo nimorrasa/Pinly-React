@@ -94,6 +94,11 @@ select {
     opacity: 80%;
 }
 
+.Login input[type='radio'] {
+    width: 5%;
+}
+
+
 @media (max-width: 800px) {
     .Login .col_right{
         display: none;
