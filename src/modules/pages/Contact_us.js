@@ -1,16 +1,16 @@
 import React, { useState, useCallback, useEffect } from 'react';
 
-const Setting = (props) => {
+const Contact_us = (props) => {
 
     const [theme,setTheme] = useState(props.theme);
 
     useEffect(() => { setTheme(props.theme)});
 
     return (
-        <div className={"App Setting "+theme}>
-            Setting
+        <div className={"App Contact_us "+theme}>
+            Contact Us
         </div>
     );
 }
 
-export default Setting;
+export default Contact_us;

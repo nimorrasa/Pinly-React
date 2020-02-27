@@ -12,7 +12,7 @@ import Login from "../pages/Login.js";
 import SignUp from "../pages/SignUp.js";
 import Help from "../pages/Help.js";
 import Profile from "../pages/Profile.js";
-import Setting from "../pages/Setting";
+import Contact_us from "../pages/Contact_us";
 import VoiceOver from "../pages/VoiceOver";
 import SleepScore from "../pages/SleepScore";
 import SleepForm from "../pages/SleepForm";
@@ -38,8 +38,8 @@ const Routes = (props) => {
       <Route path="/help">
         <Help theme={theme} handleThemeChange={handleNavbarThemeChange}></Help>
       </Route>
-      <Route path="/setting">
-        <Setting theme={theme} handleThemeChange={handleNavbarThemeChange}></Setting>
+      <Route path="/contact_us">
+        <Contact_us theme={theme} handleThemeChange={handleNavbarThemeChange}></Contact_us>
       </Route>
       <Route path="/profile">
         <Profile theme={theme} handleThemeChange={handleNavbarThemeChange}></Profile>

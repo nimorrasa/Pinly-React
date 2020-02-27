@@ -1,5 +1,6 @@
 
 .my-button {
+    text-transform: uppercase;
     display: inline-block;
     font-weight: 400;
     color: #212529;
