@@ -10,9 +10,14 @@ const FormSignUp = (props) => {
   const { handleSubmit, register, errors } = useForm();
 
   const togglePassword = useCallback(() => { setPasswordShow(!passwordShow); });
-  const nextStep = useCallback(() => { setStep('sign_up_step_2'); },[setStep]);
-  const backStep = useCallback(() => { setStep('sign_up_step_1'); },[setStep]);
-
+  const nextStep = useCallback(() => {
+    setStep('sign_up_step_2');
+    props.onStepChange('sign_up_step_2');
+  },[setStep]);
+  const backStep = useCallback(() => {
+    setStep('sign_up_step_1');
+    props.onStepChange('sign_up_step_1');
+  },[setStep]);
 
   const onSubmit = values => {
     console.log(values);

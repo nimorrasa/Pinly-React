@@ -15,7 +15,7 @@ function App() {
 
 
   return (
-    <div className={"App "+theme}>
+    <div className={"App "+theme} style={{height: '100vh'}}>
       <Router>
         <Routes theme={theme} onChangeTheme={handleNavbarThemeChange}></Routes>
       </Router>
