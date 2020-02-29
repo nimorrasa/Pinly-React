@@ -104,16 +104,14 @@ const SignUp1 = (props) => {
             return;
         }
 
-        console.log(values); 
-        alert('ddd');
-        // setUserData({
-        //   username : data.username,
-        //   email : data.email,
-        //   birthdate : data.bdate+'-'+data.bmonth+'-'+data.byear,
-        //   gender : userData.gender,
-        //   weight : userData.weight,
-        //   height : userData.height
-        // });
+        props.onSuccess({
+            email : values.email,
+            username : values.username,
+            password : values.password,
+            bdate : values.bdate,
+            bmonth : values.bmonth,
+            byear : values.byear,
+        });
         props.onChangeStep('sign_up_step_2');
     };
 

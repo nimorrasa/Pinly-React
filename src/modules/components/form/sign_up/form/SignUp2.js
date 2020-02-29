@@ -58,6 +58,12 @@ const SignUp1 = (props) => {
 
         console.log(values); 
         alert('ddd');
+        props.onSuccess({
+            weight : values.weight,
+            height : values.height,
+            gender : values.is_male ? 'Male' : 'Female',
+            disease : values.disease
+        });return;
         history.push("/home");
         // setUserData({
         //   username : data.username,
