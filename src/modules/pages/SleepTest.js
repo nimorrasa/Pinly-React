@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import MyNavbar from '../components/navbar/MyNavbar.js';
 
-const Help = (props) => {
+const SleepTest = (props) => {
 
     const [theme,setTheme] = useState(props.theme);
     const [navbarTheme, setNavbarTheme] = useState(props.theme === 'theme_dark' ? 'dark' : 'light');
@@ -17,11 +17,11 @@ const Help = (props) => {
     return (
         <div>
             <MyNavbar theme={navbarTheme} onChangeTheme={handleNavbarThemeChange} hideThemeSwitch={false}></MyNavbar>
-            <div className={"App Help "+theme}>
-                Help
+            <div className={"App Sleep_test "+theme}>
+                Sleep Test
             </div>
         </div>
     );
 }
 
-export default Help;
+export default SleepTest;

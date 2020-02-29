@@ -25,6 +25,12 @@ const SignUp1 = (props) => {
         max: 15
     });
 
+    const handleUsername = useCallback((event) => { console.log(event.target.value); setUsername(event.target.value)},[setUsername]);
+    const handleEmail = useCallback((event) => { setEmail(event.target.value)},[setEmail]);
+    const handlePassword = useCallback((event) => { setPassword(event.target.value)},[setPassword]);
+    const handleConfirmPassword = useCallback((event) => { setConfirmPassword(event.target.value)},[setConfirmPassword]);
+
+
     useEffect(
         () => {
         if (!username) {
@@ -107,7 +113,7 @@ const SignUp1 = (props) => {
                     type="email"
                     name="username"
                     value={username}
-                    onChange={e => setUsername(e.target.value)}
+                    onChange={handleUsername}
                     placeholder="username"
                     required/>
                     <div className="error">{usernameError}</div>
@@ -120,7 +126,7 @@ const SignUp1 = (props) => {
                     type="email"
                     name="email"
                     value={email}
-                    onChange={e => setEmail(e.target.value)}
+                    onChange={handleEmail}
                     placeholder="Email"
                     ref={register({
                         required: 'Required',
@@ -140,7 +146,7 @@ const SignUp1 = (props) => {
                 type={!passwordShow ? 'password' : 'text'}
                 name="password"
                 value={password}
-                onChange={e => setPassword(e.target.value)}
+                onChange={handlePassword}
                 id="password"
                 placeholder="password"
                 ref={register({required: 'Required'})}
@@ -157,7 +163,7 @@ const SignUp1 = (props) => {
                 type={!passwordShow ? 'password' : 'text'}
                 name=""
                 value={confirmPassword}
-                onChange={e => setConfirmPassword(e.target.value)}
+                onChange={handleConfirmPassword}
                 placeholder="Confirm password"
                 ref={register({required: 'Required'})}
                 />

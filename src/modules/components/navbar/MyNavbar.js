@@ -49,7 +49,7 @@ const MyNavbar = (props) => {
               <Link to='/profile'><MyButton type="text" title="Profile"></MyButton></Link>
             </NavItem>
             <NavItem>
-              <Link to='/help'><MyButton type="text" title="Sleep Test"></MyButton></Link>
+              <Link to='/sleep_test'><MyButton type="text" title="Sleep Test"></MyButton></Link>
             </NavItem>
             <NavItem>
               <Link to='/contact_us'><MyButton type="text" title="Contact Us"></MyButton></Link>
@@ -59,7 +59,7 @@ const MyNavbar = (props) => {
             </NavItem>
           </Nav>
           <Nav className="mr-auto-right" navbar>
-            <NavItem>
+            <NavItem style={{display: (props.hideThemeSwitch ? 'none' : 'block')}}>
               <ThemeSwitch isDark={isDark} onChangeTheme={handleThemeChange}></ThemeSwitch>
             </NavItem>
             <NavItem>
