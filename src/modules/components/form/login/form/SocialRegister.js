@@ -4,8 +4,9 @@ import { Form, Row, Col } from "reactstrap";
 import { validateEmail } from "../../utils";
 import '../FormLogin.css';
 import { useHistory } from "react-router-dom";
-import BirthDateInput from '../../../../components/input/BirthdateInput.js';
+import BirthDateInput from '../../../input/BirthdateInput.js';
 import DiseaseInput from "../../../input/DiseaseInput";
+import GenderRadio from "../../../input/GenderRadio";
 
 const SocialRegister = (props) => {
     const history = useHistory();
@@ -71,13 +72,13 @@ const SocialRegister = (props) => {
   );
 
     function passVerified(){ 
-        alert('Check');
-        return usernameError === "" && weightError === "" && heightError === "";
+      alert('Check');
+      return usernameError === "" && weightError === "" && heightError === "";
     };
 
     const onSubmit = values => {
       console.log(values); return;
-        if(!passVerified()) {
+      if(!passVerified()) {
             alert('Please fix');
             return;
         }
@@ -100,7 +101,7 @@ const SocialRegister = (props) => {
         <div>
         <form onSubmit={handleSubmit(onSubmit)}>
         <Col className='social_login' xs='12'>
-          <Row id="username"> 
+        <Row id="username"> 
             <Col xs='6'>
               <p className="m-0">Username</p>
               <input
@@ -119,7 +120,7 @@ const SocialRegister = (props) => {
                   <div className="error">{usernameError}</div>
               </Col>
             </Row>
-          <BirthDateInput register={register}></BirthDateInput>
+            <BirthDateInput register={register}></BirthDateInput>
           <Row> 
             <Col id="weight" lg='3' xs='4'>
               <p className="m-0">Weight</p>
@@ -127,49 +128,26 @@ const SocialRegister = (props) => {
                 type="number"
                 name="weight"
                 placeholder="weight"
-                ref={register({required: 'Required'})}
-                />
+                ref={register({required: 'Required'})}/>
             </Col>
             <Col id="height" lg='3' xs='4'>
             <p className="m-0">Height</p>
             <input
               type="number"
-              ref={register({required: 'Required'})}
               name="height"
               id="height"
               placeholder="height"
-              required/>
+              ref={register({required: 'Required'})}/>
             </Col>
           </Row>
           <DiseaseInput register={register}></DiseaseInput>
-          <Row>
-          <Col id="gender" lg='12' xs='12'>
-              <input
-                type="radio"
-                name="is_male"
-                label="Male"
-                ref={register({required: 'Required'})}
-                defaultChecked={gender === 'Male'}
-                defaultValue="Male"
-                onClick={() => setGender('Male')}/>
-                Male
-              <input
-                type="radio"
-                name="is_female"
-                label="Female"
-                ref={register({required: 'Required'})}
-                defaultChecked={gender === 'Female'}
-                defaultValue="Female"
-                onClick={() => setGender('Female')}/>
-                Female
-            </Col>
-          </Row>
+          <GenderRadio register={register}></GenderRadio>
           <Row>
             <Col className="button" lg='3' xs='3'>
-              <button type="submit" onClick={backStep}>Back</button>
+              <button type="button" onClick={backStep}>Back</button>
             </Col>
             <Col className="button" lg='3' xs='3'>
-              <button type="submit" onClick={onSubmit}>Submit</button>
+              <button type="submit">Submit</button>
             </Col>
           </Row>
           </Col>

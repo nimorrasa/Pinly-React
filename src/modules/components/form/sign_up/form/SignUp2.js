@@ -15,8 +15,6 @@ const SignUp1 = (props) => {
     const [height, setHeight] = useState(0);
     const [heightError, setHeightError] = useState("");
 
-    const [gender,setGender] = useState(false);
-
     useEffect(
         () => {
         if (!weight) {
@@ -73,7 +71,6 @@ const SignUp1 = (props) => {
         
     };
 
-    const handleGenderChange = useCallback((event) => { setGender(event.target.value)},[setGender]);
     const backStep = useCallback(() => { props.onChangeStep('sign_up_step_1');});
 
     return (

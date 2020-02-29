@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { Form, Row, Col } from "reactstrap";
 import { validateEmail } from "../../utils.js";
 import MyLink from "../../../MyLink.js";
+import usePasswordValidator from "../../usePasswordValidator.js";
 import facebook_logo from '../../../../../images/facebook-512.png';
 import google_logo from '../../../../../images/google-plus-512.png';
 import { useHistory } from "react-router-dom";
@@ -13,13 +14,13 @@ const LoginEmail = (props) => {
     const { handleSubmit, register, errors } = useForm();
     const [email, setEmail] = useState("");
     const [emailError, setEmailError] = useState("");
-    
-    const [password, setPassword] = useState("");
-    const [passwordError, setPasswordError] = useState("");
-
     const [passwordShow,setPasswordShow] = useState(false);
 
     const togglePassword = useCallback(() => { setPasswordShow(!passwordShow); });
+    const [password, setPassword, passwordError] = usePasswordValidator({
+        min: 8,
+        max: 15
+    });
 
     const handleEmail = useCallback((event) => { setEmail(event.target.value)},[setEmail]);
     const handlePassword = useCallback((event) => { setPassword(event.target.value)},[setPassword]);
@@ -43,14 +44,15 @@ const LoginEmail = (props) => {
         return emailError === "" && passwordError === "";
     };
 
-    const onSubmit = values => {
-        // if(!passVerified()) {
-            // alert('Please fix');
-            // return;
-        // }
 
-        // console.log(values); 
-        alert('ddd');
+    const onSubmit = values => {
+        if(!passVerified()) {
+            alert('Please fix');
+            return;
+        }
+
+        console.log(values); 
+        alert('ddd');return;
         // setUserData({
         //   username : data.username,
         //   email : data.email,
@@ -67,13 +69,11 @@ const LoginEmail = (props) => {
     return (
         <div>
         <form onSubmit={handleSubmit(onSubmit)}>
-            <Col className="login" lg='12' xs='12'>
-                <Row>
-                <Col lg='12' xs='12'>
-                <Row id="email"> 
-                    <Col lg='8' xs='8' style={{paddingRight: "0"}}>
-                    <p className="m-0">Email</p>
-                    <input
+            <Col className='login' xs='12'>
+            <Row id="email"> 
+                <Col lg='8' xs='8' style={{paddingRight: "0"}}>
+                <p className="m-0">Email</p>
+                <input
                     type="email"
                     name="email"
                     value={email}
@@ -88,35 +88,33 @@ const LoginEmail = (props) => {
                         })}
                     />
                     <div className="error">{emailError}</div>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col id="password" lg='8' xs='8' style={{paddingRight: "0"}}>
-                    <p className="m-0">Password</p>
-                    <input
-                    type={!passwordShow ? 'password' : 'text'}
-                    name="password"
-                    value={password}
-                    onChange={handlePassword}
-                    id="password"
-                    placeholder="password"
-                    ref={register({required: 'Required'})}
-                    />
-                <div className="error">{passwordError}</div>
-                    </Col>
-                    <Col id="password" lg='1' xs='1' style={{paddingLeft: "2px", top: "2px"}}>
-                    <p className="m-0" style={{color: "transparent"}}>Password</p>
-                    <span className={"fa fa-fw fa-eye field-icon toggle-password"} onClick={togglePassword}></span>
-                    </Col>
-                </Row>
                 </Col>
-                </Row>
-                <Row style={{padding: "0"}}>
+            </Row>
+            <Row>
+            <Col id="password" lg='8' xs='8' style={{paddingRight: "0"}}>
+                <p className="m-0">Password</p>
+                <input
+                type={!passwordShow ? 'password' : 'text'}
+                name="password"
+                value={password}
+                onChange={handlePassword}
+                id="password"
+                placeholder="password"
+                ref={register({required: 'Required'})}
+                />
+                <div className="error">{passwordError}</div>
+                </Col>
+                <Col id="password" lg='1' xs='1' style={{paddingLeft: "2px", top: "2px"}}>
+                <p className="m-0" style={{color: "transparent"}}>Password</p>
+                <span className={"fa fa-fw fa-eye field-icon toggle-password"} onClick={togglePassword}></span>
+                </Col>
+            </Row>
+            <Row style={{padding: "0"}}>
                 <Col lg='4' xs='4'>
                     <p>
                         <input
                             type="checkbox"
-                            ref={register({required: 'Required'})}
+                            ref={register({})}
                             name="is_remember"
                             style={{width: "10px"}}/>
                             Remember Me
@@ -127,8 +125,8 @@ const LoginEmail = (props) => {
                 <Col lg='5' xs='5' >
                     <MyLink destination='?forgot_password' text='Forgot Password?'></MyLink>
                 </Col>
-                </Row>
-                <Row>
+            </Row>
+            <Row>
                 <Col className="button" lg='5' xs='5'>
                 </Col>
                 <Col className="button" lg='3' xs='3' style={{paddingRight: "0"}}>

@@ -61,6 +61,21 @@ const SignUp1 = (props) => {
         [email]
     );
 
+    // useEffect(
+    //     () => {
+    //     if (!password) {
+    //         setPasswordError("");
+    //     } else {
+    //         if (validatePassword(password)) {
+    //             setPasswordError("");
+    //         } else {
+    //             setPasswordError("Please enter a valid password.");
+    //         }
+    //     }
+    //     },
+    //     [password]
+    // );
+
     useEffect(
         () => {
         if (!confirmPassword || !password) {
