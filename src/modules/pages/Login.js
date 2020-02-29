@@ -7,6 +7,7 @@ import MyNavbar from '../components/navbar/MyNavbar.js';
 
 const Login = (props) => {
     props.onChangeTheme('theme_light');
+    const [step,setStep] = useState('login_with_email');
     const [theme,setTheme] = useState('theme_light');
     const [navbarTheme, setNavbarTheme] = useState('light');
 
@@ -15,8 +16,7 @@ const Login = (props) => {
     //   setTheme('theme_'+current_theme);
     //   props.onChangeTheme('theme_'+current_theme);
     },[setNavbarTheme,setTheme]);
-    
-    // useEffect(() => { setTheme('theme_light')});
+    const onStepChange = useCallback((step) => { setStep(step)},[setStep]);
 
     return (
         <div>
@@ -26,7 +26,7 @@ const Login = (props) => {
                     <Col className="col_left" lg="6" xs="12">
                         <h2 id="label" className="m-0 p-0"><b>LOGIN</b></h2>
                         <h4 className="general_section m-0 p-0">Don't have on account? <Link style={{textDecoration: 'none'}} to="/sign_up"><span style={{color: "#3cc7c3"}}>Create your account</span></Link></h4>
-                        <FormLogin></FormLogin>
+                        <FormLogin onChangeStep={onStepChange}></FormLogin>
                     </Col>
                     <Col className="col_right" lg="6" xs="12">
                         <header className="App-header">

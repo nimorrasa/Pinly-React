@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { Form, Row, Col } from "reactstrap";
-import { validateEmail } from "./utils";
-import usePasswordValidator from "./usePasswordValidator";
-import BirthDateInput from '../../input/BirthdateInput.js';
-import './FormSignUp.css';
+import { validateEmail } from "../../utils.js";
+import usePasswordValidator from "../../usePasswordValidator.js";
+import BirthDateInput from '../../../../components/input/BirthdateInput.js';
+import '../FormSignUp.css';
 
 const SignUp1 = (props) => {
     const { handleSubmit, register, errors } = useForm();

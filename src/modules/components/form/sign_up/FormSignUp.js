@@ -1,10 +1,9 @@
 import React, { useState, useCallback } from "react";
-import { useForm } from "react-hook-form";
 import './FormSignUp.css';
-import { Form, Row, Col } from "reactstrap";
 import Firebase from '../../../firebase/Firebase.js';
-import SignUp1  from './SignUp1.js';
-import SignUp2  from './SignUp2.js';
+import SignUp1  from './form/SignUp1.js';
+import SignUp2  from './form/SignUp2.js';
+// import { useForm } from "react-hook-form";
 
 const FormSignUp = (props) => {
   const [step,setStep] = useState('sign_up_step_1');

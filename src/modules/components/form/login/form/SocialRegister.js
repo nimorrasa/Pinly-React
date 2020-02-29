@@ -1,15 +1,19 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { Form, Row, Col } from "reactstrap";
-import { validateEmail } from "./utils";
-import usePasswordValidator from "./usePasswordValidator";
-import './FormSignUp.css';
+import { validateEmail } from "../../utils";
+import '../FormLogin.css';
 import { useHistory } from "react-router-dom";
-import DiseaseInput from "../../input/DiseaseInput";
+import BirthDateInput from '../../../../components/input/BirthdateInput.js';
+import DiseaseInput from "../../../input/DiseaseInput";
 
 const SignUp1 = (props) => {
     const history = useHistory();
     const { handleSubmit, register, errors } = useForm();
+
+    const [username, setUsername] = useState("");
+    const [usernameError, setUsernameError] = useState("");
+
     const [weight, setWeight] = useState(0);
     const [weightError, setWeightError] = useState("");
     
@@ -48,9 +52,27 @@ const SignUp1 = (props) => {
         [height]
     );
 
+    const backStep = useCallback(() => { props.onChangeStep('login_with_email'); },[]);
+    const handleUsername = useCallback((event) => { console.log(event.target.value); setUsername(event.target.value)},[setUsername]);
+
+    useEffect(
+      () => {
+      if (!username) {
+          setUsernameError("");
+      } else {
+          if (validateEmail(username)) {
+          setUsernameError("");
+          } else {
+          setUsernameError("Please enter a valid username.");
+          }
+      }
+      },
+      [username]
+  );
+
     function passVerified(){ 
         alert('Check');
-        return weightError === "" && heightError === "";
+        return usernameError === "" && weightError === "" && heightError === "";
     };
 
     const onSubmit = values => {
@@ -73,13 +95,24 @@ const SignUp1 = (props) => {
         // setStep('sign_up_step_2');
         
     };
-
-    const backStep = useCallback(() => { props.onChangeStep('sign_up_step_1');});
-
     return (
         <div>
         <form onSubmit={handleSubmit(onSubmit)}>
-        <Col className='sign_up_2' xs='12'>
+        <Col className='social_login' xs='12'>
+          <Row id="username"> 
+            <Col xs='6'>
+              <p className="m-0">Username</p>
+              <input
+                  type="email"
+                  name="username"
+                  value={username}
+                  onChange={handleUsername}
+                  placeholder="username"
+                  required/>
+                  <div className="error">{usernameError}</div>
+              </Col>
+            </Row>
+          <BirthDateInput register={register}></BirthDateInput>
           <Row> 
             <Col id="weight" lg='3' xs='4'>
               <p className="m-0">Weight</p>
@@ -108,10 +141,10 @@ const SignUp1 = (props) => {
           </Row>
           <Row>
             <Col className="button" lg='3' xs='3'>
-              <button type="button" onClick={backStep}>Back</button>
+              <button type="submit" onClick={backStep}>Back</button>
             </Col>
             <Col className="button" lg='3' xs='3'>
-              <button type="submit">Submit</button>
+              <button type="submit" onClick={onSubmit}>Submit</button>
             </Col>
           </Row>
           </Col>
