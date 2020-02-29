@@ -8,7 +8,7 @@ import google_logo from '../../../../../images/google-plus-512.png';
 import { useHistory } from "react-router-dom";
 import '../FormLogin.css';
 
-const SignUp1 = (props) => {
+const LoginEmail = (props) => {
     const history = useHistory();
     const { handleSubmit, register, errors } = useForm();
     const [email, setEmail] = useState("");
@@ -151,4 +151,4 @@ const SignUp1 = (props) => {
         </div>
     );
 }
-export default SignUp1;
+export default LoginEmail;

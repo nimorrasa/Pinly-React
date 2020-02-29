@@ -4,6 +4,7 @@ import { Form, Row, Col } from "reactstrap";
 import '../FormSignUp.css';
 import { useHistory } from "react-router-dom";
 import DiseaseInput from "../../../../components/input/DiseaseInput.js";
+import GenderRadio from "../../../input/GenderRadio";
 
 const SignUp1 = (props) => {
     const history = useHistory();
@@ -72,6 +73,7 @@ const SignUp1 = (props) => {
         
     };
 
+    const handleGenderChange = useCallback((event) => { setGender(event.target.value)},[setGender]);
     const backStep = useCallback(() => { props.onChangeStep('sign_up_step_1');});
 
     return (
@@ -85,7 +87,7 @@ const SignUp1 = (props) => {
                 type="number"
                 name="weight"
                 placeholder="weight"
-                required/>
+                ref={register({required: 'Required'})}/>
             </Col>
             <Col id="height" lg='3' xs='4'>
             <p className="m-0">Height</p>
@@ -94,16 +96,11 @@ const SignUp1 = (props) => {
               name="height"
               id="height"
               placeholder="height"
-              required/>
+              ref={register({required: 'Required'})}/>
             </Col>
           </Row>
           <DiseaseInput register={register}></DiseaseInput>
-          <Row>
-          <Col id="gender" lg='12' xs='12'>
-              <input type="radio" label="Male" defaultChecked={gender === 'Male'} defaultValue="Male" onClick={() => setGender('Male')} /> Male
-              <input type="radio" label="Female" defaultChecked={gender === 'Female'} defaultValue="Female" onClick={() => setGender('Female')} /> Female
-            </Col>
-          </Row>
+          <GenderRadio register={register}></GenderRadio>
           <Row>
             <Col className="button" lg='3' xs='3'>
               <button type="button" onClick={backStep}>Back</button>

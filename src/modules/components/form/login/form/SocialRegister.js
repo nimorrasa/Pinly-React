@@ -7,7 +7,7 @@ import { useHistory } from "react-router-dom";
 import BirthDateInput from '../../../../components/input/BirthdateInput.js';
 import DiseaseInput from "../../../input/DiseaseInput";
 
-const SignUp1 = (props) => {
+const SocialRegister = (props) => {
     const history = useHistory();
     const { handleSubmit, register, errors } = useForm();
 
@@ -76,6 +76,7 @@ const SignUp1 = (props) => {
     };
 
     const onSubmit = values => {
+      console.log(values); return;
         if(!passVerified()) {
             alert('Please fix');
             return;
@@ -108,7 +109,13 @@ const SignUp1 = (props) => {
                   value={username}
                   onChange={handleUsername}
                   placeholder="username"
-                  required/>
+                  ref={register({
+                    required: 'Required',
+                    pattern: {
+                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                        message: "invalid email address"
+                    }
+                    })}/>
                   <div className="error">{usernameError}</div>
               </Col>
             </Row>
@@ -120,12 +127,14 @@ const SignUp1 = (props) => {
                 type="number"
                 name="weight"
                 placeholder="weight"
-                required/>
+                ref={register({required: 'Required'})}
+                />
             </Col>
             <Col id="height" lg='3' xs='4'>
             <p className="m-0">Height</p>
             <input
               type="number"
+              ref={register({required: 'Required'})}
               name="height"
               id="height"
               placeholder="height"
@@ -135,8 +144,24 @@ const SignUp1 = (props) => {
           <DiseaseInput register={register}></DiseaseInput>
           <Row>
           <Col id="gender" lg='12' xs='12'>
-              <input type="radio" label="Male" defaultChecked={gender === 'Male'} defaultValue="Male" onClick={() => setGender('Male')} /> Male
-              <input type="radio" label="Female" defaultChecked={gender === 'Female'} defaultValue="Female" onClick={() => setGender('Female')} /> Female
+              <input
+                type="radio"
+                name="is_male"
+                label="Male"
+                ref={register({required: 'Required'})}
+                defaultChecked={gender === 'Male'}
+                defaultValue="Male"
+                onClick={() => setGender('Male')}/>
+                Male
+              <input
+                type="radio"
+                name="is_female"
+                label="Female"
+                ref={register({required: 'Required'})}
+                defaultChecked={gender === 'Female'}
+                defaultValue="Female"
+                onClick={() => setGender('Female')}/>
+                Female
             </Col>
           </Row>
           <Row>
@@ -152,4 +177,4 @@ const SignUp1 = (props) => {
         </div>
     );
 }
-export default SignUp1;
+export default SocialRegister;

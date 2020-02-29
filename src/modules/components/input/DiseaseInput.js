@@ -22,11 +22,11 @@ const DiseaseInput = (props) => {
 
   return (
         <Row> 
-        <Col id="bdate" lg='4' xs='4'>
+        <Col id="diesase" lg='4' xs='4'>
         <p className="m-0">Congenital disease</p>
         <select
             defaultValue='1'
-            name="bdate"
+            name="diesase"
             min='1'
             max='31'
             value={disease}

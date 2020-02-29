@@ -55,8 +55,7 @@ const BirthdateInput = (props) => {
             onChange={e => setBirthMonth(e.target.value)}
             ref={props.register({required: 'Required'})}
             min='12'
-            max='31'
-            required>
+            max='31'>
             {months.map((value, index) => {
             return <option key={index+1}>{value}</option>;
             })}
@@ -72,8 +71,7 @@ const BirthdateInput = (props) => {
             onChange={e => setBirthYear(e.target.value)}
             ref={props.register({required: 'Required'})}
             min='12'
-            max='31'
-            required>
+            max='31'>
             {years.map((value, index) => {
             return <option key={value}>{value}</option>;
             })}
