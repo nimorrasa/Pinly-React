@@ -51,20 +51,26 @@ const LoginEmail = (props) => {
             return;
         }
 
-        console.log(values); 
-        alert('ddd');return;
-        // setUserData({
-        //   username : data.username,
-        //   email : data.email,
-        //   birthdate : data.bdate+'-'+data.bmonth+'-'+data.byear,
-        //   gender : userData.gender,
-        //   weight : userData.weight,
-        //   height : userData.height
-        // });
-        history.push("/home");
+        props.onResult({
+            type : 'login_with_email',
+            email : values.email,
+            password : values.password
+        });
     };
 
-    const handleSocial = useCallback(() => { props.onChangeStep('login_with_social'); },[]);
+    const handleFacebook = useCallback(() => {
+        props.onResult({
+            type : 'facebook',
+        });
+    },[]);
+    
+    const handleGoogle = useCallback(() => {
+        props.onResult({
+            type : 'google',
+        });
+    },[]);
+    
+
 
     return (
         <div>
@@ -138,10 +144,10 @@ const LoginEmail = (props) => {
                     <p>Or login with </p>
                 </Col>
                 <Col lg='2' xs='2'>
-                    <button className="my-button" onClick={handleSocial}><img id="facebook_login" src={facebook_logo} width="50" height="50" alt=""/></button>
+                    <button className="my-button" type="button" onClick={handleFacebook}><img id="facebook_login" src={facebook_logo} width="50" height="50" alt=""/></button>
                 </Col>
                 <Col lg='2' xs='2'>
-                    <button className="my-button" onClick={handleSocial}><img id="google_login" src={google_logo} width="50" height="50" alt=""/></button>
+                    <button className="my-button" type="button" onClick={handleGoogle}><img id="google_login" src={google_logo} width="50" height="50" alt=""/></button>
                 </Col>
                 </Row>
             </Col>

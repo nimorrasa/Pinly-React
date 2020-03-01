@@ -16,12 +16,15 @@ import Contact_us from "../pages/Contact_us";
 import SleepTest from "../pages/SleepTest";
 
 const Routes = (props) => {
+  const [userId,setUserId] = useState('');
   const [theme,setTheme] = useState(props.theme);
 
   const handleNavbarThemeChange = useCallback((current_theme) => {
     setTheme(current_theme);
     props.onChangeTheme(current_theme);
   },[setTheme]);
+
+  const handleUserId = useCallback((newUserId) => { setUserId(newUserId); });
 
   return (
     <main>
@@ -36,13 +39,13 @@ const Routes = (props) => {
         <Contact_us theme={theme} onChangeTheme={handleNavbarThemeChange}></Contact_us>
       </Route>
       <Route path="/profile">
-        <Profile theme={theme} onChangeTheme={handleNavbarThemeChange}></Profile>
+        <Profile firebase={props.firebase} userId={userId} theme={theme} onChangeTheme={handleNavbarThemeChange}></Profile>
       </Route>
       <Route path="/login">
-        <Login theme={theme} onChangeTheme={handleNavbarThemeChange}></Login>
+        <Login firebase={props.firebase} onLogin={handleUserId} theme={theme} onChangeTheme={handleNavbarThemeChange}></Login>
       </Route>
       <Route path="/sign_up">
-        <SignUp theme={theme} onChangeTheme={handleNavbarThemeChange}></SignUp>
+        <SignUp firebase={props.firebase} theme={theme} onChangeTheme={handleNavbarThemeChange}></SignUp>
       </Route>
       <Route path="/sleep_test">
         <SleepTest theme={theme} onChangeTheme={handleNavbarThemeChange}></SleepTest>

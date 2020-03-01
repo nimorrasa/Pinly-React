@@ -1,15 +1,11 @@
 import React, { useState, useCallback } from "react";
 import './FormSignUp.css';
-import firebaseConfig from '../../../firebase/firebaseConfig.js';
-import firebase from 'firebase';
-import 'firebase/auth';
-
 import SignUp1  from './form/SignUp1.js';
 import SignUp2  from './form/SignUp2.js';
 // import { useForm } from "react-hook-form";
 
 const FormSignUp = (props) => {
-  const [isSuccess,setIsSuccess] = useState(false);
+  const firebase = props.firebase;
   const [userData,setUserData] = useState({
     email : '',
     username : '',
@@ -60,24 +56,21 @@ const FormSignUp = (props) => {
       disease : newData.disease
     };
     setUserData(registerData);
-  
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
 
-  firebase.auth().createUserWithEmailAndPassword(userData.email, userData.password).then(function(result) {
+    firebase.auth().createUserWithEmailAndPassword(registerData.email, registerData.password).then(function(result) {
 
 			const userId = result.user.uid;
 
-			const email = userData.email;
-      const username = userData.username;
-      const password = userData.password;
-			const gender = userData.gender;
-			const weight = userData.weight;
-			const height = userData.height;
-			const disease = userData.disease;
-			const bdate = userData.bdate;
-			const bmonth = userData.bmonth;
-			const byear = userData.byear;
+			const email = registerData.email;
+      const username = registerData.username;
+      const password = registerData.password;
+			const gender = registerData.gender;
+			const weight = registerData.weight;
+			const height = registerData.height;
+			const disease = registerData.disease;
+			const bdate = registerData.bdate;
+			const bmonth = registerData.bmonth;
+			const byear = registerData.byear;
 			const birthdate = bdate+"-"+bmonth+"-"+byear;
 
 			const posts = {

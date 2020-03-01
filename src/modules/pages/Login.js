@@ -7,6 +7,7 @@ import MyNavbar from '../components/navbar/MyNavbar.js';
 
 const Login = (props) => {
     props.onChangeTheme('theme_light');
+    const [userId,setUserId] = useState('');
     const [step,setStep] = useState('login_with_email');
     const [theme,setTheme] = useState('theme_light');
     const [navbarTheme, setNavbarTheme] = useState('light');
@@ -17,6 +18,10 @@ const Login = (props) => {
     //   props.onChangeTheme('theme_'+current_theme);
     },[setNavbarTheme,setTheme]);
     const onStepChange = useCallback((step) => { setStep(step)},[setStep]);
+    const handleUserId = useCallback((newUserId) => {
+        props.onLogin(newUserId);
+        setUserId(newUserId);
+    },['setUserId']);
 
     return (
         <div>
@@ -26,7 +31,7 @@ const Login = (props) => {
                     <Col className="col_left" lg="6" xs="12">
                         <h2 id="label" className="m-0 p-0"><b>LOGIN</b></h2>
                         <h4 className="general_section m-0 p-0">Don't have on account? <Link style={{textDecoration: 'none'}} to="/sign_up"><span style={{color: "#3cc7c3"}}>Create your account</span></Link></h4>
-                        <FormLogin onChangeStep={onStepChange}></FormLogin>
+                        <FormLogin firebase={props.firebase} onChangeStep={onStepChange} onLogin={handleUserId}></FormLogin>
                     </Col>
                     <Col className="col_right" lg="6" xs="12">
                         <header className="App-header">

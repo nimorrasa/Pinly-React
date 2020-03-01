@@ -19,9 +19,7 @@ const SignUp = (props) => {
     const [navbarTheme, setNavbarTheme] = useState(props.theme === 'theme_dark' ? 'dark' : 'light');
 
     const handleNavbarThemeChange = useCallback((current_theme) => {
-    //   setNavbarTheme(current_theme);
-    //   setTheme('theme_'+current_theme);
-    //   props.onChangeTheme('theme_'+current_theme);
+        // Do nothing
     },[setNavbarTheme,setTheme]);
   
     const onStepChange = useCallback((step) => { setStep(step); },[setStep]);
@@ -52,7 +50,7 @@ const SignUp = (props) => {
                     <Col className="col_right" lg="6" xs="12">
                         <h1>Welcome to PINLY</h1>
                         <p>PINLY is an application for sleep monitoring just for you.</p>
-                        <FormSignUp onStepChange={onStepChange} onSubmit={onSubmit}></FormSignUp>
+                        <FormSignUp firebase={props.firebase} onStepChange={onStepChange} onSubmit={onSubmit}></FormSignUp>
                     </Col>
                     <Col className="col_right blank" lg="6" xs="12" style={{backgroundColor: "rgb(76, 199, 195)", display: (step == 'sign_up_step_2' ? 'block' : 'none')}}>
                     </Col>

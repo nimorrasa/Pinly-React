@@ -58,6 +58,7 @@ const SignUp1 = (props) => {
 
         console.log(values); 
         alert('ddd');
+        
         props.onSuccess({
             weight : values.weight,
             height : values.height,

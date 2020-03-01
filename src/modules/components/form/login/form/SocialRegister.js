@@ -77,11 +77,21 @@ const SocialRegister = (props) => {
     };
 
     const onSubmit = values => {
-      console.log(values); return;
       if(!passVerified()) {
             alert('Please fix');
             return;
         }
+        props.onSuccess({
+          userId : props.userId,
+          username : values.username,
+          bdate : values.bdate,
+          bmonth : values.bmonth,
+          byear : values.byear,
+          weight : values.weight,
+          height : values.height,
+          gender : values.is_male ? 'Male' : 'Female',
+          disease : values.disease
+        });
 
         console.log(values); 
         alert('ddd');
@@ -97,6 +107,7 @@ const SocialRegister = (props) => {
         // setStep('sign_up_step_2');
         
     };
+
     return (
         <div>
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -154,5 +165,6 @@ const SocialRegister = (props) => {
         </form>
         </div>
     );
+
 }
 export default SocialRegister;

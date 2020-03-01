@@ -5,8 +5,16 @@ import './fonts/rsufont/RSU_BOLD.ttf'
 import './modules/css/App.css';
 import Routes from "./modules/router/Routes.js";
 import { BrowserRouter as Router } from 'react-router-dom';
+import firebaseConfig from './modules/firebase/firebaseConfig.js';
+import firebase from 'firebase';
+import 'firebase/auth';
+
+firebase.initializeApp(firebaseConfig);
+firebase.analytics();
 
 function App() {
+
+
   const [theme, setTheme] = useState('theme_dark');
 
   const handleNavbarThemeChange = useCallback((current_theme) => {
@@ -17,7 +25,7 @@ function App() {
   return (
     <div className={"App "+theme} style={{height: '100vh'}}>
       <Router>
-        <Routes theme={theme} onChangeTheme={handleNavbarThemeChange}></Routes>
+        <Routes firebase={firebase} theme={theme} onChangeTheme={handleNavbarThemeChange}></Routes>
       </Router>
     </div>
   );
