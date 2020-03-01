@@ -52,7 +52,7 @@ const MyNavbar = (props) => {
               <Link to='/sleep_test'><MyButton type="text" title="Sleep Test"></MyButton></Link>
             </NavItem>
             <NavItem>
-              <Link to='/contact_us'><MyButton type="text" title="Contact Us"></MyButton></Link>
+              <Link to='/contact_us'><MyButton type="text" title="Contact"></MyButton></Link>
             </NavItem>
             <NavItem>
               <MyDropdown theme={theme} alignment="left" titleType="icon" title="fa fa-question-circle" items={["How to Registeration","How to Sleeptest",'Assistant']}></MyDropdown>
