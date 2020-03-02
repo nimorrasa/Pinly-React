@@ -86,7 +86,7 @@ select {
     background: transparent;
 }
 
-.Login .my-button img:hover {
+.Login .button_image:hover {
     opacity: 80%;
 }
 
@@ -96,7 +96,20 @@ select {
 
 
 @media (max-width: 800px) {
+    p{
+        font-size: 1rem;
+    }
     .Login .col_right{
         display: none;
+    }
+    .Login .col_left {
+        padding-left: 5vw;
+        padding-right: 10vw;
+        padding-top: 0;
+        height: 0;
+    }
+
+    button{
+        min-width: 100px;
     }
 }

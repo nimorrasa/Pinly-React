@@ -77,7 +77,7 @@ const LoginEmail = (props) => {
         <form onSubmit={handleSubmit(onSubmit)}>
             <Col className='login' xs='12'>
             <Row id="email"> 
-                <Col lg='8' xs='8' style={{paddingRight: "0"}}>
+                <Col lg='8' xs='10' style={{paddingRight: "0"}}>
                 <p className="m-0">Email</p>
                 <input
                     type="email"
@@ -97,7 +97,7 @@ const LoginEmail = (props) => {
                 </Col>
             </Row>
             <Row>
-            <Col id="password" lg='8' xs='8' style={{paddingRight: "0"}}>
+            <Col id="password" lg='8' xs='10' style={{paddingRight: "0"}}>
                 <p className="m-0">Password</p>
                 <input
                 type={!passwordShow ? 'password' : 'text'}
@@ -116,7 +116,7 @@ const LoginEmail = (props) => {
                 </Col>
             </Row>
             <Row style={{padding: "0"}}>
-                <Col lg='4' xs='4'>
+                <Col lg='4' xs='6'>
                     <p>
                         <input
                             type="checkbox"
@@ -133,21 +133,21 @@ const LoginEmail = (props) => {
                 </Col>
             </Row>
             <Row>
-                <Col className="button" lg='5' xs='5'>
+                <Col className="button" lg='5' xs='7'>
                 </Col>
                 <Col className="button" lg='3' xs='3' style={{paddingRight: "0"}}>
                     <button type="submit">Login</button>
                 </Col>
                 </Row>
                 <Row style={{paddingTop: "10%"}}>
-                <Col lg='3' xs='3'>
+                <Col lg='3' xs='4'>
                     <p>Or login with </p>
                 </Col>
-                <Col lg='2' xs='2'>
-                    <button className="my-button" type="button" onClick={handleFacebook}><img id="facebook_login" src={facebook_logo} width="50" height="50" alt=""/></button>
+                <Col lg='2' xs='3'>
+                    <button className="my-button button_image" type="button" onClick={handleFacebook}><img id="facebook_login" src={facebook_logo} width="50" height="50" alt=""/></button>
                 </Col>
-                <Col lg='2' xs='2'>
-                    <button className="my-button" type="button" onClick={handleGoogle}><img id="google_login" src={google_logo} width="50" height="50" alt=""/></button>
+                <Col lg='2' xs='3'>
+                    <button className="my-button button_image" type="button" onClick={handleGoogle}><img id="google_login" src={google_logo} width="50" height="50" alt=""/></button>
                 </Col>
                 </Row>
             </Col>
