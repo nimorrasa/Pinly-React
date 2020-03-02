@@ -13,7 +13,7 @@ const SignUp = (props) => {
         gender : '',
         disease : ''
     });
-
+    const [userId,setUserId] = useState('');
     const [step,setStep] = useState('sign_up_step_1');
     const [theme,setTheme] = useState('theme_light');
     const [navbarTheme, setNavbarTheme] = useState(props.theme === 'theme_dark' ? 'dark' : 'light');
@@ -33,7 +33,9 @@ const SignUp = (props) => {
             gender : submitData.gender,
             disease : submitData.disease
         })
-    },[setUserData]);
+        setUserId(submitData.userId);
+        props.onLogin(submitData.userId);
+    },[setUserData,setUserId]);
 
     useEffect(() => { setTheme('theme_light')});
 

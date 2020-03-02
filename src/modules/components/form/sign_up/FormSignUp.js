@@ -2,9 +2,11 @@ import React, { useState, useCallback } from "react";
 import './FormSignUp.css';
 import SignUp1  from './form/SignUp1.js';
 import SignUp2  from './form/SignUp2.js';
+import { useHistory } from "react-router-dom";
 // import { useForm } from "react-hook-form";
 
 const FormSignUp = (props) => {
+  const history = useHistory();
   const firebase = props.firebase;
   const [userData,setUserData] = useState({
     email : '',
@@ -89,6 +91,8 @@ const FormSignUp = (props) => {
 				disease: disease
 			};
 
+      registerData.userId = userId;
+
       try {
         const database = await firebase.database();
         const result = await database.ref('/users').child(userId).set(posts);
@@ -100,7 +104,15 @@ const FormSignUp = (props) => {
         var errorMessage = error.message;
         alert(errorMessage);
 		  }
-      props.onSubmit(registerData);
+
+      let user = await firebase.database().ref('/users/' + userId).once('value');
+      if(user.val() != null) {
+        props.onSubmit(registerData);
+        history.push('/profile');
+      }
+      else{
+        setStep('login_with_email');
+      }
   });
 
   if(step === 'sign_up_step_1') return <SignUp1 onSuccess={handleStep1} onChangeStep={handleStep}></SignUp1>

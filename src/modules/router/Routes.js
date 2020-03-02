@@ -45,7 +45,7 @@ const Routes = (props) => {
         <Login firebase={props.firebase} onLogin={handleUserId} theme={theme} onChangeTheme={handleNavbarThemeChange}></Login>
       </Route>
       <Route path="/sign_up">
-        <SignUp firebase={props.firebase} theme={theme} onChangeTheme={handleNavbarThemeChange}></SignUp>
+        <SignUp firebase={props.firebase} onLogin={handleUserId} theme={theme} onChangeTheme={handleNavbarThemeChange}></SignUp>
       </Route>
       <Route path="/sleep_test">
         <SleepTest theme={theme} onChangeTheme={handleNavbarThemeChange}></SleepTest>
