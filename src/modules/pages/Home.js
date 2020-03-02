@@ -8,6 +8,7 @@ import MyNavbar from '../components/navbar/MyNavbar.js';
 
 const Home = (props) => {
   const [auth,setAuth] = useState(props.firebase.auth().currentUser);
+  const [userData,setUserData] = useState({});
   const [theme, setTheme] = useState(props.theme);
   const [navbarTheme, setNavbarTheme] = useState(props.theme === 'theme_dark' ? 'dark' : 'light');
 
@@ -20,8 +21,16 @@ const Home = (props) => {
 
   useEffect(() => { setTheme(props.theme)});
 
-  useEffect(() => {
-    setAuth(props.firebase.auth().currentUser);
+
+  useEffect(() => { 
+    async function fetchData() {
+        if(props.firebase.auth().currentUser != null) {
+            let user = await props.firebase.database().ref('/users/' + props.firebase.auth().currentUser.uid).once('value');
+            setUserData(user.val());
+            setAuth(props.firebase.auth().currentUser);
+        }
+      }
+      fetchData();
   },[props.firebase]);
 
 
