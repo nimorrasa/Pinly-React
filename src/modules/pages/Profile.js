@@ -18,14 +18,15 @@ const Profile = (props) => {
         setTheme(props.theme);
     },[props.theme]);
 
-
     useEffect(() => { 
         async function fetchData() {
-            let user = await firebase.database().ref('/users/' + props.userId).once('value');
-            setUserData(user.val());
+            if(props.firebase.auth().currentUser != null) {
+                let user = await firebase.database().ref('/users/' + props.firebase.auth().currentUser.uid).once('value');
+                setUserData(user.val());
+            }
           }
           fetchData();
-    },[props.userId]);
+    },[props.firebase]);
 
     return (
         <div>

@@ -19,11 +19,11 @@ const MySetting = (props) => {
       setDropdownOpen(false);
     },[setDropdownOpen]);
 
-    function handleLogout() {
-      props.firebase.auth().signOut();
+    async function handleLogout() {
+      alert('logout');
+      await props.firebase.auth().signOut();
       removeCookie('token');
     }
-
 
     useEffect(() => {
       setIsAuth(props.isAuth);
@@ -37,7 +37,7 @@ const MySetting = (props) => {
         </DropdownToggle>
         <DropdownMenu  right>
           <DropdownItem className='my-language'>Language <MyLink destination='/home?lang=th' text='TH'></MyLink>/<MyLink destination='/home?lang=en' text='EN'></MyLink></DropdownItem>
-          <DropdownItem style={{display : (isAuth ? 'block' : 'none' )}}><MyLink destination='/home?action=logout' text="Logout" onClick={handleLogout}></MyLink></DropdownItem>
+          <DropdownItem style={{display : (isAuth ? 'block' : 'none' )}}><a onClick={handleLogout}>Logout</a></DropdownItem>
         </DropdownMenu>
       </Dropdown>
     );

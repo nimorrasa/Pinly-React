@@ -22,7 +22,7 @@ const Home = (props) => {
 
   useEffect(() => {
     setAuth(props.firebase.auth().currentUser);
-  });
+  },[props.firebase]);
 
 
   return (

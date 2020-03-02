@@ -26,6 +26,12 @@ const Routes = (props) => {
 
   const handleUserId = useCallback((newUserId) => { setUserId(newUserId); });
 
+  useEffect(() => {
+    if(props.firebase.auth().currentUser != null) {
+      setUserId(props.firebase.auth().currentUser.uid);
+    }
+  },props.firebase);
+
   return (
     <main>
       <Redirect from="/" to="/home" />
