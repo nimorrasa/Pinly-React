@@ -61,10 +61,10 @@ const SocialRegister = (props) => {
       if (!username) {
           setUsernameError("");
       } else {
-          if (validateEmail(username)) {
+          if (username.length <= 30) {
           setUsernameError("");
           } else {
-          setUsernameError("Please enter a valid username.");
+          setUsernameError("Username cannot be longer than 30 characters");
           }
       }
       },
@@ -116,7 +116,7 @@ const SocialRegister = (props) => {
             <Col xs='6'>
               <p className="m-0">Username</p>
               <input
-                  type="email"
+                  type="text"
                   name="username"
                   value={username}
                   onChange={handleUsername}
@@ -124,8 +124,7 @@ const SocialRegister = (props) => {
                   ref={register({
                     required: 'Required',
                     pattern: {
-                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                        message: "invalid email address"
+                        message: "invalid username"
                     }
                     })}/>
                   <div className="error">{usernameError}</div>

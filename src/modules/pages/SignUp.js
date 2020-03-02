@@ -42,9 +42,9 @@ const SignUp = (props) => {
             <MyNavbar theme={navbarTheme} onChangeTheme={handleNavbarThemeChange} hideThemeSwitch={true}></MyNavbar>
             <div className={"App Sign_up theme_light"}>
                 <Row>
-                    <Col className="col_left" lg="6" xs="12" style={{display: (step == 'sign_up_step_1' ? 'block' : 'none')}}>
+                    <Col className="col_left" lg="6" xs="12">
                         <header className="App-header">
-                            <img src={logo} className="App-logo" alt="logo" />
+                            <img src={logo} className="App-logo" alt="logo" style={{display: (step == 'sign_up_step_1' ? 'block' : 'none')}}/>
                         </header>
                     </Col>
                     <Col className="col_right" lg="6" xs="12">

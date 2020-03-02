@@ -86,10 +86,6 @@ select {
     background: transparent;
 }
 
-.Login .my-button:hover {
-    background: transparent;
-}
-
 .Login .my-button img:hover {
     opacity: 80%;
 }
