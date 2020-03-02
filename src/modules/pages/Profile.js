@@ -29,7 +29,7 @@ const Profile = (props) => {
 
     return (
         <div>
-            <MyNavbar theme={navbarTheme} onChangeTheme={handleNavbarThemeChange} hideThemeSwitch={false}></MyNavbar>
+            <MyNavbar firebase={props.firebase} theme={navbarTheme} onChangeTheme={handleNavbarThemeChange} hideThemeSwitch={false}></MyNavbar>
             <div className={"App Profile "+theme}>
                 Profile {userData.username}
             </div>

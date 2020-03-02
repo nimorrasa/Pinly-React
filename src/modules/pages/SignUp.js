@@ -3,8 +3,10 @@ import { Container, Row, Col } from 'reactstrap';
 import FormSignUp  from '../components/form/sign_up/FormSignUp.js';
 import logo from '../../images/logo.png';
 import MyNavbar from '../components/navbar/MyNavbar.js';
+import { useHistory } from "react-router-dom";
 
 const SignUp = (props) => {
+    const history = useHistory();
     props.onChangeTheme('theme_light');
     const [userData,setUserData] = useState({
         email : '',
@@ -37,11 +39,16 @@ const SignUp = (props) => {
         props.onLogin(submitData.userId);
     },[setUserData,setUserId]);
 
-    useEffect(() => { setTheme('theme_light')});
+    useEffect(() => { 
+        if(props.firebase.auth().currentUser != null) {
+            setUserId(props.firebase.auth().currentUser.uid);
+        }
+        setTheme('theme_light');
+    });
 
     return (
         <div>
-            <MyNavbar theme={navbarTheme} onChangeTheme={handleNavbarThemeChange} hideThemeSwitch={true}></MyNavbar>
+            <MyNavbar firebase={props.firebase} theme={navbarTheme} onChangeTheme={handleNavbarThemeChange} hideThemeSwitch={true}></MyNavbar>
             <div className={"App Sign_up theme_light"}>
                 <Row>
                     <Col className="col_left" lg="6" xs="12">

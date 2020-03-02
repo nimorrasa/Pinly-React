@@ -5,10 +5,12 @@ import { Container, Row, Col, Alert } from "reactstrap";
 import { useHistory } from "react-router-dom";
 import LoginEmail  from './form/LoginEmail.js';
 import SocialRegister  from './form/SocialRegister.js';
+import { useCookies } from 'react-cookie';
 
 const FormLogin = (props) => {
 	const firebase = props.firebase;
 	const history = useHistory();
+	const [cookies, setCookie] = useCookies();
 	const [userId, setUserId] = useState('');
 
 	const [userData,setUserData] = useState({
@@ -46,7 +48,7 @@ const FormLogin = (props) => {
 		}else if(result.type == 'facebook') {
 			alert('login with facebook');
 			try{
-				const response = await firebase.auth().signInWithPopup(new firebase.auth.FacebookAuthProvider());
+				const response = await firebase.auth().signInWithRedirect(new firebase.auth.FacebookAuthProvider());
 				login_userId = response.user.uid;
 				setUserId(login_userId);
 			} catch(error) {
@@ -57,7 +59,7 @@ const FormLogin = (props) => {
 		}else if(result.type == 'google') {
 			try {
 				let google_provider = new firebase.auth.GoogleAuthProvider();
-				const response = await firebase.auth().signInWithPopup(google_provider);
+				const response = await firebase.auth().signInWithRedirect(google_provider);
 				login_userId = response.user.uid;
 				setUserId(login_userId);
 			} catch (error) {
@@ -70,6 +72,7 @@ const FormLogin = (props) => {
 		let user = await firebase.database().ref('/users/' + login_userId).once('value');
 		if(user.val() != null) {
 			props.onLogin(login_userId);
+			setCookie('token', login_userId);
 			history.push('/profile');
 		}
 		else{

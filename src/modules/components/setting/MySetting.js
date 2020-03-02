@@ -1,10 +1,13 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import './MySetting.css';
 import MyLink from '../MyLink.js';
+import { useCookies } from 'react-cookie';
 
 const MySetting = (props) => {
-  const [dropdownOpen,setDropdownOpen] = useState(false);
+    const [isAuth,setIsAuth] = useState(props.isAuth);
+    const [dropdownOpen,setDropdownOpen] = useState(false);
+    const [cookies, setCookie, removeCookie] = useCookies();
 
     const toggle = () => setDropdownOpen(!dropdownOpen);
 
@@ -16,6 +19,16 @@ const MySetting = (props) => {
       setDropdownOpen(false);
     },[setDropdownOpen]);
 
+    function handleLogout() {
+      props.firebase.auth().signOut();
+      removeCookie('token');
+    }
+
+
+    useEffect(() => {
+      setIsAuth(props.isAuth);
+    });
+
 
     return (
       <Dropdown className={props.theme} onMouseOver={onMouseEnter} onMouseLeave={onMouseLeave} isOpen={dropdownOpen} toggle={toggle}>
@@ -24,7 +37,7 @@ const MySetting = (props) => {
         </DropdownToggle>
         <DropdownMenu  right>
           <DropdownItem className='my-language'>Language <MyLink destination='/home?lang=th' text='TH'></MyLink>/<MyLink destination='/home?lang=en' text='EN'></MyLink></DropdownItem>
-          <DropdownItem><MyLink destination='/home?action=logout' text='Logout'></MyLink></DropdownItem>
+          <DropdownItem style={{display : (isAuth ? 'block' : 'none' )}}><MyLink destination='/home?action=logout' text="Logout" onClick={handleLogout}></MyLink></DropdownItem>
         </DropdownMenu>
       </Dropdown>
     );

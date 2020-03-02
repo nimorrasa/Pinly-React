@@ -16,7 +16,7 @@ const Help = (props) => {
 
     return (
         <div>
-            <MyNavbar theme={navbarTheme} onChangeTheme={handleNavbarThemeChange} hideThemeSwitch={false}></MyNavbar>
+            <MyNavbar firebase={props.firebase} theme={navbarTheme} onChangeTheme={handleNavbarThemeChange} hideThemeSwitch={false}></MyNavbar>
             <div className={"App Help "+theme}>
                 Help
             </div>

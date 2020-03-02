@@ -16,7 +16,7 @@ const SleepTest = (props) => {
 
     return (
         <div>
-            <MyNavbar theme={navbarTheme} onChangeTheme={handleNavbarThemeChange} hideThemeSwitch={false}></MyNavbar>
+            <MyNavbar firebase={props.firebase} theme={navbarTheme} onChangeTheme={handleNavbarThemeChange} hideThemeSwitch={false}></MyNavbar>
             <div className={"App Sleep_test "+theme}>
                 Sleep Test
             </div>

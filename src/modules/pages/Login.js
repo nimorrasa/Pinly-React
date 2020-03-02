@@ -4,8 +4,10 @@ import FormLogin  from '../components/form/login/FormLogin.js';
 import logo from '../../images/logo.png';
 import { Link } from 'react-router-dom';
 import MyNavbar from '../components/navbar/MyNavbar.js';
+import { useHistory } from "react-router-dom";
 
 const Login = (props) => {
+    const history = useHistory();
     props.onChangeTheme('theme_light');
     const [userId,setUserId] = useState('');
     const [step,setStep] = useState('login_with_email');
@@ -23,9 +25,15 @@ const Login = (props) => {
         setUserId(newUserId);
     },['setUserId']);
 
+    useEffect(() => {
+        if(props.firebase.auth().currentUser != null) {
+            setUserId(props.firebase.auth().currentUser.uid);
+        }
+    });
+
     return (
         <div>
-            <MyNavbar theme={navbarTheme} onChangeTheme={handleNavbarThemeChange} hideThemeSwitch={true}></MyNavbar>
+            <MyNavbar firebase={props.firebase} theme={navbarTheme} onChangeTheme={handleNavbarThemeChange} hideThemeSwitch={true}></MyNavbar>
             <div className={"App Login theme_light"}>
                 <Row>
                     <Col className="col_left" lg="6" xs="12">

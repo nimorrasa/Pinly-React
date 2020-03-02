@@ -30,13 +30,13 @@ const Routes = (props) => {
     <main>
       <Redirect from="/" to="/home" />
       <Route path="/home">
-        <Home theme={theme} onChangeTheme={handleNavbarThemeChange}></Home>
+        <Home firebase={props.firebase} theme={theme} onChangeTheme={handleNavbarThemeChange}></Home>
       </Route>
       <Route path="/help">
-        <Help theme={theme} onChangeTheme={handleNavbarThemeChange}></Help>
+        <Help firebase={props.firebase} theme={theme} onChangeTheme={handleNavbarThemeChange}></Help>
       </Route>
       <Route path="/contact_us">
-        <Contact_us theme={theme} onChangeTheme={handleNavbarThemeChange}></Contact_us>
+        <Contact_us firebase={props.firebase} theme={theme} onChangeTheme={handleNavbarThemeChange}></Contact_us>
       </Route>
       <Route path="/profile">
         <Profile firebase={props.firebase} userId={userId} theme={theme} onChangeTheme={handleNavbarThemeChange}></Profile>
@@ -48,7 +48,7 @@ const Routes = (props) => {
         <SignUp firebase={props.firebase} onLogin={handleUserId} theme={theme} onChangeTheme={handleNavbarThemeChange}></SignUp>
       </Route>
       <Route path="/sleep_test">
-        <SleepTest theme={theme} onChangeTheme={handleNavbarThemeChange}></SleepTest>
+        <SleepTest firebase={props.firebase} theme={theme} onChangeTheme={handleNavbarThemeChange}></SleepTest>
       </Route>
     </main>
     );

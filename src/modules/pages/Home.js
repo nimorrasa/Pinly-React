@@ -7,6 +7,7 @@ import MyLink from '../components/MyLink.js';
 import MyNavbar from '../components/navbar/MyNavbar.js';
 
 const Home = (props) => {
+  const [auth,setAuth] = useState(props.firebase.auth().currentUser);
   const [theme, setTheme] = useState(props.theme);
   const [navbarTheme, setNavbarTheme] = useState(props.theme === 'theme_dark' ? 'dark' : 'light');
 
@@ -19,17 +20,25 @@ const Home = (props) => {
 
   useEffect(() => { setTheme(props.theme)});
 
+  useEffect(() => {
+    setAuth(props.firebase.auth().currentUser);
+  });
+
+
   return (
     <div>
-      <MyNavbar theme={navbarTheme} onChangeTheme={handleNavbarThemeChange} hideThemeSwitch={false}></MyNavbar>
+      <MyNavbar firebase={props.firebase} theme={navbarTheme} onChangeTheme={handleNavbarThemeChange} hideThemeSwitch={false}></MyNavbar>
       <div className={"App Home "+theme}>
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
         </header>
         <div>
           <Container className={"App-content "+theme}>
-              <Row className="Link-padding">
+              <Row className="Link-padding" style={{display : (auth != null ? 'none' : 'block' )}}>
                   <MyLink className="App-link" destination='/login' text="Login"></MyLink> | <MyLink className="App-link" destination='sign_up' text="Sign Up"></MyLink>
+              </Row>
+              <Row className="Link-padding" style={{display : (auth != null ? 'block' : 'none' )}}>
+                  Hello, <MyLink className="App-link" destination='/profile' text={auth == null ? '' : auth.email}></MyLink>
               </Row>
               <Row>
                   <Button style={{borderWidth: 2, borderRadius: 20 }} className="App-button">GET STARTED</Button>

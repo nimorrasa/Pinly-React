@@ -17,6 +17,7 @@ import MyDropdown from '../button/MyDropdown.js';
 import MySetting from '../setting/MySetting.js';
 import MyButton from '../button/MyButton.js';
 import logo from '../../../images/logo.png';
+import { withCookies, Cookies } from 'react-cookie';
 
 
 const MyNavbar = (props) => {
@@ -63,7 +64,7 @@ const MyNavbar = (props) => {
               <ThemeSwitch isDark={isDark} onChangeTheme={handleThemeChange}></ThemeSwitch>
             </NavItem>
             <NavItem>
-              <MySetting theme={theme}></MySetting>
+              <MySetting firebase={props.firebase} theme={theme} isAuth={props.firebase.auth().currentUser != null}></MySetting>
             </NavItem>
           </Nav>
         </Collapse>
