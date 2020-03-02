@@ -108,7 +108,7 @@ const FormSignUp = (props) => {
       let user = await firebase.database().ref('/users/' + userId).once('value');
       if(user.val() != null) {
         props.onSubmit(registerData);
-        history.push('/home');
+        history.push('/profile');
       }
       else{
         setStep('login_with_email');

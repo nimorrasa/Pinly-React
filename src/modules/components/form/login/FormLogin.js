@@ -70,7 +70,7 @@ const FormLogin = (props) => {
 		let user = await firebase.database().ref('/users/' + login_userId).once('value');
 		if(user.val() != null) {
 			props.onLogin(login_userId);
-			history.push('/home');
+			history.push('/profile');
 		}
 		else{
 			setStep('login_with_social');
