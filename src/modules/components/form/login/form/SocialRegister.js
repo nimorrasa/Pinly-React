@@ -72,13 +72,12 @@ const SocialRegister = (props) => {
   );
 
     function passVerified(){ 
-      alert('Check');
       return usernameError === "" && weightError === "" && heightError === "";
     };
 
     const onSubmit = values => {
       if(!passVerified()) {
-            alert('Please fix');
+            alert('Please check error before submit!');
             return;
         }
         props.onSuccess({
@@ -92,20 +91,7 @@ const SocialRegister = (props) => {
           gender : values.is_male ? 'Male' : 'Female',
           disease : values.disease
         });
-
-        console.log(values); 
-        alert('ddd');
         history.push("/home");
-        // setUserData({
-        //   username : data.username,
-        //   email : data.email,
-        //   birthdate : data.bdate+'-'+data.bmonth+'-'+data.byear,
-        //   gender : userData.gender,
-        //   weight : userData.weight,
-        //   height : userData.height
-        // });
-        // setStep('sign_up_step_2');
-        
     };
 
     return (

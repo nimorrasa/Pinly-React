@@ -33,7 +33,6 @@ const FormLogin = (props) => {
 	});
 
   	const handleResult = useCallback( async (result) => {
-		alert('hanlde result '+result.type);
 		let login_userId = null;
 		if(result.type == 'login_with_email') {
 			try {
@@ -46,7 +45,6 @@ const FormLogin = (props) => {
 				alert('Email ' + errorMessage);
 			}
 		}else if(result.type == 'facebook') {
-			alert('login with facebook');
 			try{
 				const response = await firebase.auth().signInWithRedirect(new firebase.auth.FacebookAuthProvider());
 				login_userId = response.user.uid;

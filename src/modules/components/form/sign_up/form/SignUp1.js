@@ -97,7 +97,7 @@ const SignUp1 = (props) => {
 
     const nextStep = values => {
         if(!passVerified()) {
-            alert('Please fix');
+            alert('Please check error before submit!');
             return;
         }
 

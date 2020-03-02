@@ -47,7 +47,7 @@ const LoginEmail = (props) => {
 
     const onSubmit = values => {
         if(!passVerified()) {
-            alert('Please fix');
+            alert('Please check error before submit!');
             return;
         }
 

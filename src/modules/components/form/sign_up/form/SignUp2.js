@@ -46,36 +46,20 @@ const SignUp1 = (props) => {
     );
 
     function passVerified(){ 
-        alert('Check');
         return weightError === "" && heightError === "";
     };
 
     const onSubmit = values => {
         if(!passVerified()) {
-            alert('Please fix');
+            alert('Please check error before submit!');
             return;
-        }
-
-        console.log(values); 
-        alert('ddd');
-        
+        }        
         props.onSuccess({
             weight : values.weight,
             height : values.height,
             gender : values.is_male ? 'Male' : 'Female',
             disease : values.disease
-        });return;
-        history.push("/home");
-        // setUserData({
-        //   username : data.username,
-        //   email : data.email,
-        //   birthdate : data.bdate+'-'+data.bmonth+'-'+data.byear,
-        //   gender : userData.gender,
-        //   weight : userData.weight,
-        //   height : userData.height
-        // });
-        // setStep('sign_up_step_2');
-        
+        });
     };
 
     const backStep = useCallback(() => { props.onChangeStep('sign_up_step_1');});

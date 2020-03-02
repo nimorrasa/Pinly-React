@@ -20,7 +20,6 @@ const MySetting = (props) => {
     },[setDropdownOpen]);
 
     async function handleLogout() {
-      alert('logout');
       await props.firebase.auth().signOut();
       removeCookie('token');
     }
