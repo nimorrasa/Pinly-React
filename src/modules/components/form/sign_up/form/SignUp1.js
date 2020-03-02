@@ -25,7 +25,7 @@ const SignUp1 = (props) => {
         max: 15
     });
 
-    const handleUsername = useCallback((event) => { console.log(event.target.value); setUsername(event.target.value)},[setUsername]);
+    const handleUsername = useCallback((event) => { setUsername(event.target.value)},[setUsername]);
     const handleEmail = useCallback((event) => { setEmail(event.target.value)},[setEmail]);
     const handlePassword = useCallback((event) => { setPassword(event.target.value)},[setPassword]);
     const handleConfirmPassword = useCallback((event) => { setConfirmPassword(event.target.value)},[setConfirmPassword]);

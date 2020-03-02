@@ -54,7 +54,7 @@ const SocialRegister = (props) => {
     );
 
     const backStep = useCallback(() => { props.onChangeStep('login_with_email'); },[]);
-    const handleUsername = useCallback((event) => { console.log(event.target.value); setUsername(event.target.value)},[setUsername]);
+    const handleUsername = useCallback((event) => { setUsername(event.target.value)},[setUsername]);
 
     useEffect(
       () => {

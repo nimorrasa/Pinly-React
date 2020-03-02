@@ -42,7 +42,7 @@ const FormLogin = (props) => {
 			} catch(error) {
 				let errorCode = error.code;
 				let errorMessage = error.message;
-				alert('Email ' + errorMessage);
+				alert('Email :' + errorMessage);
 			}
 		}else if(result.type == 'facebook') {
 			try{
@@ -52,7 +52,7 @@ const FormLogin = (props) => {
 			} catch(error) {
 				let errorCode = error.code;
 				let errorMessage = error.message;
-				alert('Facebook '+errorMessage);
+				alert('Facebook : '+errorMessage);
 			}
 		}else if(result.type == 'google') {
 			try {
@@ -63,7 +63,7 @@ const FormLogin = (props) => {
 			} catch (error) {
 				let errorCode = error.code;
 				let errorMessage = error.message;
-				alert('google ' + errorMessage);
+				alert('Google : ' + errorMessage);
 			}
 		}
 
@@ -80,7 +80,6 @@ const FormLogin = (props) => {
 
 	
 	const handleRegister = useCallback(async (user) => {
-		// console.log(userData,userId);
 		let birthdate = user.bdate+"-"+user.bmonth+"-"+user.byear;
 		const posts = {
 			uid: user.userId,
