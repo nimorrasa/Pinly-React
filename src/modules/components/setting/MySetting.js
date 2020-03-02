@@ -3,8 +3,10 @@ import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap
 import './MySetting.css';
 import MyLink from '../MyLink.js';
 import { useCookies } from 'react-cookie';
+import { useHistory } from "react-router-dom";
 
 const MySetting = (props) => {
+    const history = useHistory();
     const [isAuth,setIsAuth] = useState(props.isAuth);
     const [dropdownOpen,setDropdownOpen] = useState(false);
     const [cookies, setCookie, removeCookie] = useCookies();
@@ -21,12 +23,14 @@ const MySetting = (props) => {
 
     async function handleLogout() {
       await props.firebase.auth().signOut();
+      setIsAuth(false);
       removeCookie('token');
+      window.location.reload();
     }
 
     useEffect(() => {
       setIsAuth(props.isAuth);
-    });
+    },[setIsAuth]);
 
 
     return (

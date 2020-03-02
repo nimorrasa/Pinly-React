@@ -47,7 +47,7 @@ const Home = (props) => {
                   <MyLink className="App-link" destination='/login' text="Login"></MyLink> | <MyLink className="App-link" destination='sign_up' text="Sign Up"></MyLink>
               </Row>
               <Row className="Link-padding" style={{display : (auth != null ? 'block' : 'none' )}}>
-                  Hello, <MyLink className="App-link" destination='/profile' text={auth == null ? '' : auth.email}></MyLink>
+                  {auth == null ? '' : 'Hello, '+auth.email}
               </Row>
               <Row>
                   <Button style={{borderWidth: 2, borderRadius: 20 }} className="App-button">GET STARTED</Button>
