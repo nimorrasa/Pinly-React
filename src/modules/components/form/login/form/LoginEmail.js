@@ -15,6 +15,8 @@ const LoginEmail = (props) => {
     const [email, setEmail] = useState("");
     const [emailError, setEmailError] = useState("");
     const [passwordShow,setPasswordShow] = useState(false);
+    const [isHoverFacebook,setIsHoverFacebook] = useState(false);
+    const [isHoverGoogle,setIsHoverGoogle] = useState(false);
 
     const togglePassword = useCallback(() => { setPasswordShow(!passwordShow); });
     const [password, setPassword, passwordError] = usePasswordValidator({
@@ -70,7 +72,11 @@ const LoginEmail = (props) => {
         });
     },[]);
     
+    const onMouseOverFacebook = useCallback(() => { setIsHoverFacebook(true); },[setIsHoverFacebook]);
+    const onMouseOutFacebook = useCallback(() => { setIsHoverFacebook(false); },[setIsHoverFacebook]);
 
+    const onMouseOverGoogle = useCallback(() => { setIsHoverGoogle(true); },[setIsHoverGoogle]);
+    const onMouseOutGoogle = useCallback(() => { setIsHoverGoogle(false); },[setIsHoverGoogle]);
 
     return (
         <div>
@@ -144,10 +150,10 @@ const LoginEmail = (props) => {
                     <p>Or login with </p>
                 </Col>
                 <Col lg='2' xs='3'>
-                    <button className="my-button button_image" type="button" onClick={handleFacebook}><img id="facebook_login" src={facebook_logo} width="50" height="50" alt=""/></button>
+                    <button className="my-button button_image" type="button" onClick={handleFacebook} onMouseOver={onMouseOverFacebook} onMouseOut={onMouseOutFacebook} style={{opacity : (isHoverFacebook ? '80%' : '100%')}}><img id="facebook_login" src={facebook_logo} width="50" height="50" alt=""/></button>
                 </Col>
                 <Col lg='2' xs='3'>
-                    <button className="my-button button_image" type="button" onClick={handleGoogle}><img id="google_login" src={google_logo} width="50" height="50" alt=""/></button>
+                    <button className="my-button button_image" type="button" onClick={handleGoogle} onMouseOver={onMouseOverGoogle} onMouseOut={onMouseOutGoogle} style={{opacity : (isHoverGoogle ? '80%' : '100%')}}><img id="google_login" src={google_logo} width="50" height="50" alt=""/></button>
                 </Col>
                 </Row>
             </Col>

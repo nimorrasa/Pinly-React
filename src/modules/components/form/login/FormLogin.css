@@ -86,9 +86,9 @@ select {
     background: transparent;
 }
 
-.Login .button_image:hover {
+/* .Login .button_image:hover {
     opacity: 80%;
-}
+} */
 
 .Login input[type='radio'] {
     width: 5%;
