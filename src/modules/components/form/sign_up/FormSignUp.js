@@ -42,7 +42,7 @@ const FormSignUp = (props) => {
     });
   });
 
-  const handleSubmit = useCallback((newData) => {
+  const handleSubmit = useCallback(async (newData) => {
     let registerData = {
       email : userData.email,
       username : userData.username,
@@ -57,9 +57,13 @@ const FormSignUp = (props) => {
     };
     setUserData(registerData);
 
-    firebase.auth().createUserWithEmailAndPassword(registerData.email, registerData.password).then(function(result) {
-
-			const userId = result.user.uid;
+    let userId = '';
+    try { 
+      let result = await firebase.auth().createUserWithEmailAndPassword(registerData.email, registerData.password);
+			userId = result.user.uid;
+    } catch(error) {
+      alert(error);
+    }
 
 			const email = registerData.email;
       const username = registerData.username;
@@ -85,22 +89,18 @@ const FormSignUp = (props) => {
 				disease: disease
 			};
 
-			const database = firebase.database();
-			const usersRef = database.ref('/users');
-			usersRef.child(userId).set(posts).then(function(result) {
+      try {
+        const database = await firebase.database();
+        const result = await database.ref('/users').child(userId).set(posts);
 				alert('Success');	  
 				localStorage.setItem("uid", userId);
-				
-			});
-		}).catch(function(error) {
-			// Handle Errors here.
-			var errorCode = error.code;
-			var errorMessage = error.message;
-			alert(errorMessage);
-		});
-		// });
-
-    props.onSubmit(registerData);
+      } catch(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        alert(errorMessage);
+		  }
+      props.onSubmit(registerData);
   });
 
   if(step === 'sign_up_step_1') return <SignUp1 onSuccess={handleStep1} onChangeStep={handleStep}></SignUp1>

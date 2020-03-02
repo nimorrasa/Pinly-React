@@ -92,9 +92,6 @@ const SignUp1 = (props) => {
     );
 
     function passVerified(){ 
-        alert('Check');
-        console.log(emailError,usernameError , passwordError , confirmPasswordError)
-        console.log(emailError === "",usernameError === "" , passwordError === "" , confirmPasswordError === "")
         return emailError === "" && usernameError === "" && passwordError === "" && confirmPasswordError === "";
     };
 
@@ -179,12 +176,12 @@ const SignUp1 = (props) => {
                 <Col id="confirm_password" lg='5' xs='6'>
                 <p className="m-0">Confirm Password</p>
                 <input
-                type={!passwordShow ? 'password' : 'text'}
-                name=""
-                value={confirmPassword}
-                onChange={handleConfirmPassword}
-                placeholder="Confirm password"
-                ref={register({required: 'Required'})}
+                    type={!passwordShow ? 'password' : 'text'}
+                    name="confirm_password"
+                    value={confirmPassword}
+                    onChange={handleConfirmPassword}
+                    placeholder="Confirm password"
+                    ref={register({required: 'Required'})}
                 />
                 <div className="error">{confirmPasswordError}</div>
                 </Col>
