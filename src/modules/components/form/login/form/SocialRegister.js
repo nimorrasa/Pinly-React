@@ -81,11 +81,8 @@ const SocialRegister = (props) => {
             return;
         }
         props.onSuccess({
-          userId : props.userId,
           username : values.username,
-          bdate : values.bdate,
-          bmonth : values.bmonth,
-          byear : values.byear,
+          birthdate : values.birthdate,
           weight : values.weight,
           height : values.height,
           gender : values.is_male ? 'Male' : 'Female',
@@ -99,7 +96,7 @@ const SocialRegister = (props) => {
         <form onSubmit={handleSubmit(onSubmit)}>
         <Col className='social_login' xs='12'>
         <Row id="username"> 
-            <Col xs='6'>
+            <Col lg="6" md="6" xs='10'>
               <p className="m-0">Username</p>
               <input
                   type="text"
@@ -118,7 +115,7 @@ const SocialRegister = (props) => {
             </Row>
             <BirthDateInput register={register}></BirthDateInput>
           <Row> 
-            <Col id="weight" lg='3' xs='4'>
+            <Col id="weight" lg='6' md="6" xs='6'>
               <p className="m-0">Weight</p>
               <input
                 type="number"
@@ -126,7 +123,7 @@ const SocialRegister = (props) => {
                 placeholder="weight"
                 ref={register({required: 'Required'})}/>
             </Col>
-            <Col id="height" lg='3' xs='4'>
+            <Col id="height" lg='6' md="6" xs='6'>
             <p className="m-0">Height</p>
             <input
               type="number"

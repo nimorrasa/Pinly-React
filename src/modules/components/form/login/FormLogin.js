@@ -46,7 +46,7 @@ const FormLogin = (props) => {
 			}
 		}else if(result.type == 'facebook') {
 			try{
-				const response = await firebase.auth().signInWithRedirect(new firebase.auth.FacebookAuthProvider());
+				const response = await firebase.auth().signInWithPopup(new firebase.auth.FacebookAuthProvider());
 				login_userId = response.user.uid;
 				setUserId(login_userId);
 			} catch(error) {
@@ -57,7 +57,7 @@ const FormLogin = (props) => {
 		}else if(result.type == 'google') {
 			try {
 				let google_provider = new firebase.auth.GoogleAuthProvider();
-				const response = await firebase.auth().signInWithRedirect(google_provider);
+				const response = await firebase.auth().signInWithPopup(google_provider);
 				login_userId = response.user.uid;
 				setUserId(login_userId);
 			} catch (error) {
