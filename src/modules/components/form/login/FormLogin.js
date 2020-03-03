@@ -6,9 +6,9 @@ import { useHistory } from "react-router-dom";
 import LoginEmail  from './form/LoginEmail.js';
 import SocialRegister  from './form/SocialRegister.js';
 import { useCookies } from 'react-cookie';
+import firebase from 'firebase';
 
 const FormLogin = (props) => {
-	const firebase = props.firebase;
 	const history = useHistory();
 	const [cookies, setCookie] = useCookies();
 	const [userId, setUserId] = useState('');

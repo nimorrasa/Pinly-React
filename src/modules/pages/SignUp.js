@@ -4,6 +4,7 @@ import FormSignUp  from '../components/form/sign_up/FormSignUp.js';
 import logo from '../../images/logo.png';
 import MyNavbar from '../components/navbar/MyNavbar.js';
 import { useHistory } from "react-router-dom";
+import firebase from 'firebase';
 
 const SignUp = (props) => {
     const history = useHistory();
@@ -40,15 +41,15 @@ const SignUp = (props) => {
     },[setUserData,setUserId]);
 
     useEffect(() => { 
-        if(props.firebase.auth().currentUser != null) {
-            setUserId(props.firebase.auth().currentUser.uid);
+        if(firebase.auth().currentUser != null) {
+            setUserId(firebase.auth().currentUser.uid);
         }
         setTheme('theme_light');
     });
 
     return (
         <div>
-            <MyNavbar firebase={props.firebase} theme={navbarTheme} onChangeTheme={handleNavbarThemeChange} hideThemeSwitch={true}></MyNavbar>
+            <MyNavbar theme={navbarTheme} onChangeTheme={handleNavbarThemeChange} hideThemeSwitch={true}></MyNavbar>
             <div className={"App Sign_up theme_light"}>
                 <Row>
                     <Col className="col_left" lg="6" xs="12">
@@ -59,7 +60,7 @@ const SignUp = (props) => {
                     <Col className="col_right" lg="6" xs="12">
                         <h1>Welcome to PINLY</h1>
                         <p>PINLY is an application for sleep monitoring just for you.</p>
-                        <FormSignUp firebase={props.firebase} onStepChange={onStepChange} onSubmit={onSubmit}></FormSignUp>
+                        <FormSignUp firebase={firebase} onStepChange={onStepChange} onSubmit={onSubmit}></FormSignUp>
                     </Col>
                     <Col className="col_right blank" lg="6" xs="12" style={{backgroundColor: "rgb(76, 199, 195)", display: (step == 'sign_up_step_2' ? 'block' : 'none')}}>
                     </Col>

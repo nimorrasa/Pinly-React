@@ -3,11 +3,10 @@ import './FormSignUp.css';
 import SignUp1  from './form/SignUp1.js';
 import SignUp2  from './form/SignUp2.js';
 import { useHistory } from "react-router-dom";
-// import { useForm } from "react-hook-form";
+import firebase from 'firebase';
 
 const FormSignUp = (props) => {
   const history = useHistory();
-  const firebase = props.firebase;
   const [userData,setUserData] = useState({
     email : '',
     username : '',

@@ -5,9 +5,10 @@ import '../css/MyTheme.css';
 import '../css/Home.css';
 import MyLink from '../components/MyLink.js';
 import MyNavbar from '../components/navbar/MyNavbar.js';
+import firebase from 'firebase';
 
 const Home = (props) => {
-  const [auth,setAuth] = useState(props.firebase.auth().currentUser);
+  const [auth,setAuth] = useState(firebase.auth().currentUser);
   const [userData,setUserData] = useState({});
   const [theme, setTheme] = useState(props.theme);
   const [navbarTheme, setNavbarTheme] = useState(props.theme === 'theme_dark' ? 'dark' : 'light');
@@ -24,19 +25,19 @@ const Home = (props) => {
 
   useEffect(() => { 
     async function fetchData() {
-        if(props.firebase.auth().currentUser != null) {
-            let user = await props.firebase.database().ref('/users/' + props.firebase.auth().currentUser.uid).once('value');
+        if(firebase.auth().currentUser != null) {
+            let user = await firebase.database().ref('/users/' + firebase.auth().currentUser.uid).once('value');
             setUserData(user.val());
-            setAuth(props.firebase.auth().currentUser);
+            setAuth(firebase.auth().currentUser);
         }
       }
       fetchData();
-  },[props.firebase]);
+  },[firebase]);
 
 
   return (
     <div>
-      <MyNavbar firebase={props.firebase} theme={navbarTheme} onChangeTheme={handleNavbarThemeChange} hideThemeSwitch={false}></MyNavbar>
+      <MyNavbar theme={navbarTheme} onChangeTheme={handleNavbarThemeChange} hideThemeSwitch={false}></MyNavbar>
       <div className={"App Home "+theme}>
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />

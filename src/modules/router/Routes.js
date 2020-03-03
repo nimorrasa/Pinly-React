@@ -14,6 +14,7 @@ import Help from "../pages/Help.js";
 import Profile from "../pages/Profile.js";
 import Contact_us from "../pages/Contact_us";
 import SleepTest from "../pages/SleepTest";
+import firebase from 'firebase';
 
 const Routes = (props) => {
   const [userId,setUserId] = useState('');
@@ -27,34 +28,34 @@ const Routes = (props) => {
   const handleUserId = useCallback((newUserId) => { setUserId(newUserId); });
 
   useEffect(() => {
-    if(props.firebase.auth().currentUser != null) {
-      setUserId(props.firebase.auth().currentUser.uid);
+    if(firebase.auth().currentUser != null) {
+      setUserId(firebase.auth().currentUser.uid);
     }
-  },props.firebase);
+  },firebase);
 
   return (
     <main>
       <Redirect from="/" to="/home" />
       <Route path="/home">
-        <Home firebase={props.firebase} theme={theme} onChangeTheme={handleNavbarThemeChange}></Home>
+        <Home theme={theme} onChangeTheme={handleNavbarThemeChange}></Home>
       </Route>
       <Route path="/help">
-        <Help firebase={props.firebase} theme={theme} onChangeTheme={handleNavbarThemeChange}></Help>
+        <Help theme={theme} onChangeTheme={handleNavbarThemeChange}></Help>
       </Route>
       <Route path="/contact_us">
-        <Contact_us firebase={props.firebase} theme={theme} onChangeTheme={handleNavbarThemeChange}></Contact_us>
+        <Contact_us theme={theme} onChangeTheme={handleNavbarThemeChange}></Contact_us>
       </Route>
       <Route path="/profile">
-        <Profile firebase={props.firebase} userId={userId} theme={theme} onChangeTheme={handleNavbarThemeChange}></Profile>
+        <Profile userId={userId} theme={theme} onChangeTheme={handleNavbarThemeChange}></Profile>
       </Route>
       <Route path="/login">
-        <Login firebase={props.firebase} onLogin={handleUserId} theme={theme} onChangeTheme={handleNavbarThemeChange}></Login>
+        <Login onLogin={handleUserId} theme={theme} onChangeTheme={handleNavbarThemeChange}></Login>
       </Route>
       <Route path="/sign_up">
-        <SignUp firebase={props.firebase} onLogin={handleUserId} theme={theme} onChangeTheme={handleNavbarThemeChange}></SignUp>
+        <SignUp onLogin={handleUserId} theme={theme} onChangeTheme={handleNavbarThemeChange}></SignUp>
       </Route>
       <Route path="/sleep_test">
-        <SleepTest firebase={props.firebase} theme={theme} onChangeTheme={handleNavbarThemeChange}></SleepTest>
+        <SleepTest theme={theme} onChangeTheme={handleNavbarThemeChange}></SleepTest>
       </Route>
     </main>
     );

@@ -4,10 +4,11 @@ import './MySetting.css';
 import MyLink from '../MyLink.js';
 import { useCookies } from 'react-cookie';
 import { useHistory } from "react-router-dom";
+import firebase from 'firebase';
 
 const MySetting = (props) => {
     const history = useHistory();
-    const [isAuth,setIsAuth] = useState(props.isAuth);
+    const [isAuth,setIsAuth] = useState(firebase.auth().currentUser != null);
     const [dropdownOpen,setDropdownOpen] = useState(false);
     const [cookies, setCookie, removeCookie] = useCookies();
 
@@ -22,14 +23,14 @@ const MySetting = (props) => {
     },[setDropdownOpen]);
 
     async function handleLogout() {
-      await props.firebase.auth().signOut();
+      await firebase.auth().signOut();
       setIsAuth(false);
       removeCookie('token');
       window.location.reload();
     }
 
     useEffect(() => {
-      setIsAuth(props.isAuth);
+      setIsAuth(firebase.auth().currentUser != null);
     },[setIsAuth]);
 
 

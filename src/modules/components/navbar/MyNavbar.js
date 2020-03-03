@@ -64,7 +64,7 @@ const MyNavbar = (props) => {
               <ThemeSwitch isDark={isDark} onChangeTheme={handleThemeChange}></ThemeSwitch>
             </NavItem>
             <NavItem>
-              <MySetting firebase={props.firebase} theme={theme} isAuth={props.firebase.auth().currentUser != null}></MySetting>
+              <MySetting theme={theme}></MySetting>
             </NavItem>
           </Nav>
         </Collapse>

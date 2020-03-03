@@ -16,7 +16,7 @@ const Contact_us = (props) => {
 
     return (
         <div>
-            <MyNavbar firebase={props.firebase} theme={navbarTheme} onChangeTheme={handleNavbarThemeChange} hideThemeSwitch={false}></MyNavbar>
+            <MyNavbar theme={navbarTheme} onChangeTheme={handleNavbarThemeChange} hideThemeSwitch={false}></MyNavbar>
             <div className={"App Contact_us "+theme}>
                 Contact Us
             </div>
