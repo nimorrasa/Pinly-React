@@ -5,11 +5,11 @@ import './fonts/rsufont/RSU_BOLD.ttf'
 import './modules/css/App.css';
 import Routes from "./modules/router/Routes.js";
 import { BrowserRouter as Router } from 'react-router-dom';
-import firebaseConfig from './modules/firebase/firebaseConfig.js';
+import config from './modules/firebase/config.js';
 import firebase from 'firebase';
 import 'firebase/auth';
 
-firebase.initializeApp(firebaseConfig);
+firebase.initializeApp(config);
 firebase.analytics();
 
 function App() {
