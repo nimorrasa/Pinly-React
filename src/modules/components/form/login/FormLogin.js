@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import './FormLogin.css';
 import { Container, Row, Col, Alert } from "reactstrap";
@@ -10,6 +10,7 @@ import firebase from 'firebase';
 
 const FormLogin = (props) => {
 	const history = useHistory();
+	const [isSocialRegister,setIsSocialRegister] = useState(false);
 	const [cookies, setCookie] = useCookies();
 	const [userId, setUserId] = useState('');
 
@@ -46,9 +47,9 @@ const FormLogin = (props) => {
 			}
 		}else if(result.type == 'facebook') {
 			try{
-				const response = await firebase.auth().signInWithPopup(new firebase.auth.FacebookAuthProvider());
-				login_userId = response.user.uid;
-				setUserId(login_userId);
+				const response = await firebase.auth().signInWithRedirect(new firebase.auth.FacebookAuthProvider());
+				// login_userId = response.user.uid;
+				// setUserId(login_userId);
 			} catch(error) {
 				let errorCode = error.code;
 				let errorMessage = error.message;
@@ -57,9 +58,9 @@ const FormLogin = (props) => {
 		}else if(result.type == 'google') {
 			try {
 				let google_provider = new firebase.auth.GoogleAuthProvider();
-				const response = await firebase.auth().signInWithPopup(google_provider);
-				login_userId = response.user.uid;
-				setUserId(login_userId);
+				const response = await firebase.auth().signInWithRedirect(google_provider);
+				// login_userId = response.user.uid;
+				// setUserId(login_userId);
 			} catch (error) {
 				let errorCode = error.code;
 				let errorMessage = error.message;
@@ -76,6 +77,30 @@ const FormLogin = (props) => {
 		else{
 			setStep('login_with_social');
 		}
+	},[]);
+
+	useEffect(() => {
+		async function fetchData (user_id) {
+			let user = await firebase.database().ref('/users/' + user_id).once('value');
+			return user.val();
+		}
+
+		async function isRedirect () {
+			let redirectResult = await firebase.auth().getRedirectResult();
+			console.log("Redirect :",redirectResult);
+			if(redirectResult.operationType == 'signIn'){
+				let get_user_data = fetchData(redirectResult.user.uid);
+				if(get_user_data == null) {
+					setIsSocialRegister(true);
+					setStep('login_with_social');
+				}else{
+					setUserData(get_user_data);
+					history.push('/profile');
+				}
+				setUserId(redirectResult.user.uid);
+			}
+		}
+		isRedirect();
 	},[]);
 
 	

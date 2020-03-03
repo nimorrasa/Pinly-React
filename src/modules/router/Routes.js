@@ -1,10 +1,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import {
   Route,
-  // BrowserRouter as Router,
-  // Link,
-  // useRouteMatch,
-  useLocation,
+  Switch,
   Redirect
 } from 'react-router-dom';
 import Home from "../pages/Home.js";
@@ -35,28 +32,30 @@ const Routes = (props) => {
 
   return (
     <main>
-      <Redirect from="/" to="/home" />
-      <Route path="/home">
-        <Home theme={theme} onChangeTheme={handleNavbarThemeChange}></Home>
-      </Route>
-      <Route path="/help">
-        <Help theme={theme} onChangeTheme={handleNavbarThemeChange}></Help>
-      </Route>
-      <Route path="/contact_us">
-        <Contact_us theme={theme} onChangeTheme={handleNavbarThemeChange}></Contact_us>
-      </Route>
-      <Route path="/profile">
-        <Profile userId={userId} theme={theme} onChangeTheme={handleNavbarThemeChange}></Profile>
-      </Route>
-      <Route path="/login">
-        <Login onLogin={handleUserId} theme={theme} onChangeTheme={handleNavbarThemeChange}></Login>
-      </Route>
-      <Route path="/sign_up">
-        <SignUp onLogin={handleUserId} theme={theme} onChangeTheme={handleNavbarThemeChange}></SignUp>
-      </Route>
-      <Route path="/sleep_test">
-        <SleepTest theme={theme} onChangeTheme={handleNavbarThemeChange}></SleepTest>
-      </Route>
+      <Switch>
+        <Redirect exact from="/" to="/home" />
+        <Route path="/home">
+          <Home theme={theme} onChangeTheme={handleNavbarThemeChange}></Home>
+        </Route>
+        <Route path="/help">
+          <Help theme={theme} onChangeTheme={handleNavbarThemeChange}></Help>
+        </Route>
+        <Route path="/contact_us">
+          <Contact_us theme={theme} onChangeTheme={handleNavbarThemeChange}></Contact_us>
+        </Route>
+        <Route path="/profile">
+          <Profile userId={userId} theme={theme} onChangeTheme={handleNavbarThemeChange}></Profile>
+        </Route>
+        <Route path="/login">
+          <Login onLogin={handleUserId} theme={theme} onChangeTheme={handleNavbarThemeChange}></Login>
+        </Route>
+        <Route path="/sign_up">
+          <SignUp onLogin={handleUserId} theme={theme} onChangeTheme={handleNavbarThemeChange}></SignUp>
+        </Route>
+        <Route path="/sleep_test">
+          <SleepTest theme={theme} onChangeTheme={handleNavbarThemeChange}></SleepTest>
+        </Route>
+        </Switch>
     </main>
     );
 }

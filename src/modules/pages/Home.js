@@ -23,16 +23,38 @@ const Home = (props) => {
   useEffect(() => { setTheme(props.theme)});
 
 
-  useEffect(() => { 
-    async function fetchData() {
-        if(firebase.auth().currentUser != null) {
-            let user = await firebase.database().ref('/users/' + firebase.auth().currentUser.uid).once('value');
-            setUserData(user.val());
-            setAuth(firebase.auth().currentUser);
-        }
-      }
-      fetchData();
-  },[firebase]);
+  // useEffect(() => { 
+  //   async function fetchData() {
+  //       if(firebase.auth().currentUser != null) {
+  //           let user = await firebase.database().ref('/users/' + firebase.auth().currentUser.uid).once('value');
+  //           setUserData(user.val());
+
+  //       }
+  //     }
+  //     fetchData();
+  // },[firebase]);
+
+
+  useEffect(() => {
+		async function fetchData (user_id) {
+			let user = await firebase.database().ref('/users/' + user_id).once('value');
+			return user.val();
+		}
+
+		async function isRedirect () {
+			let redirectResult = await firebase.auth().getRedirectResult();
+			console.log("Redirect :",redirectResult);
+			if(redirectResult.operationType == 'signIn'){
+				let get_user_data = fetchData(redirectResult.user.uid);
+				if(get_user_data != null) {
+          setUserData(get_user_data);
+          setAuth(firebase.auth().currentUser);
+				}
+			}
+		}
+		isRedirect();
+	},[]);
+
 
 
   return (
