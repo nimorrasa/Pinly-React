@@ -32,7 +32,7 @@ const Profile = (props) => {
         <div>
             <MyNavbar firebase={props.firebase} theme={navbarTheme} onChangeTheme={handleNavbarThemeChange} hideThemeSwitch={false}></MyNavbar>
             <div className={"App Profile "+theme}>
-                Profile {userData.username}
+                Profile {userData != null ? userData.username : ''}
             </div>
         </div>
 

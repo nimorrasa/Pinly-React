@@ -12,9 +12,10 @@ const FormSignUp = (props) => {
     email : '',
     username : '',
     password : '',
-    bdate : '',
-    bmonth : '',
-    byear : '',
+    birthdate : '',
+    // bdate : '',
+    // bmonth : '',
+    // byear : '',
     weight : '',
     height : '',
     gender : '',
@@ -30,13 +31,16 @@ const FormSignUp = (props) => {
   });
 
   const handleStep1 = useCallback((newData) => {
+    let array_birthdate = newData.birthdate.substring(0, 10).split('-');
+    let newBirthdate = array_birthdate[2]+'-'+array_birthdate[1]+'-'+array_birthdate[0];
     setUserData({
       email : newData.email,
       username : newData.username,
       password : newData.password,
-      bdate : newData.bdate,
-      bmonth : newData.bmonth,
-      byear : newData.byear,
+      birthdate :newBirthdate,
+      bdate : array_birthdate[2],
+      bmonth : array_birthdate[1],
+      byear : array_birthdate[0],
       weight : userData.weight,
       height : userData.height,
       gender : userData.gender,
@@ -49,6 +53,7 @@ const FormSignUp = (props) => {
       email : userData.email,
       username : userData.username,
       password : userData.password,
+      birthdate :userData.birthdate,
       bdate : userData.bdate,
       bmonth : userData.bmonth,
       byear : userData.byear,
@@ -74,10 +79,7 @@ const FormSignUp = (props) => {
 			const weight = registerData.weight;
 			const height = registerData.height;
 			const disease = registerData.disease;
-			const bdate = registerData.bdate;
-			const bmonth = registerData.bmonth;
-			const byear = registerData.byear;
-			const birthdate = bdate+"-"+bmonth+"-"+byear;
+			const birthdate = registerData.birthdate;
 
 			const posts = {
 				uid: userId,

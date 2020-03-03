@@ -11,6 +11,7 @@ const GenderRadio = (props) => {
     <Row>
         <Col id="gender" lg='12' xs='12'>
             <input
+                style={{margin: "10px"}}
                 name="is_male"
                 type="radio"
                 label="gender"
@@ -20,6 +21,7 @@ const GenderRadio = (props) => {
                 ref={props.register()}/>
                 Male
             <input
+                style={{margin: "10px"}}
                 name="is_female"
                 type="radio"
                 label="gender"

@@ -84,7 +84,16 @@ select {
 }
 
 @media (max-width: 800px) {
+    .Sign_up h1 {
+        font-size: 2rem;
+    }
     .Sign_up .col_left{
         display: none;
     }
+
+    .Sign_up .col_right {
+        padding-top: 0;
+        height: 0;
+    }
+
 }

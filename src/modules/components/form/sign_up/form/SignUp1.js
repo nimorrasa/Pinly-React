@@ -105,9 +105,7 @@ const SignUp1 = (props) => {
             email : values.email,
             username : values.username,
             password : values.password,
-            bdate : values.bdate,
-            bmonth : values.bmonth,
-            byear : values.byear,
+            birthdate : values.birthdate,
         });
         props.onChangeStep('sign_up_step_2');
     };
@@ -117,7 +115,7 @@ const SignUp1 = (props) => {
         <form onSubmit={handleSubmit(nextStep)}>
             <Col className='sign_up_1' xs='12'>
                 <Row id="username"> 
-                <Col xs='6'>
+                <Col lg="6" md="6" xs='10'>
                 <p className="m-0">Username</p>
                 <input
                     type="text"
@@ -136,7 +134,7 @@ const SignUp1 = (props) => {
                 </Col>
             </Row>
             <Row id="email"> 
-                <Col xs='6'>
+                <Col lg="6" md="6" xs='10'>
                 <p className="m-0">Email</p>
                 <input
                     type="email"
@@ -156,7 +154,7 @@ const SignUp1 = (props) => {
                 </Col>
             </Row>
             <Row>
-                <Col id="password" lg='5' xs='6' style={{paddingRight: "0"}}>
+                <Col id="password" lg='6' md="6" xs='10'>
                 <p className="m-0">Password</p>
                 <input
                 type={!passwordShow ? 'password' : 'text'}
@@ -169,11 +167,11 @@ const SignUp1 = (props) => {
                 />
                 <div className="error">{passwordError}</div>
                 </Col>
-                <Col id="password" lg='1' xs='1' style={{paddingLeft: "2px", top: "2px"}}>
+                <div id="password" style={{width: "3%"}}>
                 <p className="m-0" style={{color: "transparent"}}>Password</p>
                 <span className={"fa fa-fw fa-eye field-icon toggle-password"} onClick={togglePassword}></span>
-                </Col>
-                <Col id="confirm_password" lg='5' xs='6'>
+                </div>
+                <Col id="confirm_password" lg='5' md="5" xs='10'>
                 <p className="m-0">Confirm Password</p>
                 <input
                     type={!passwordShow ? 'password' : 'text'}
@@ -188,7 +186,7 @@ const SignUp1 = (props) => {
             </Row>
                 <BirthDateInput register={register}></BirthDateInput>
             <Row>
-                <Col className="button" lg='3' xs='3'>
+                <Col className="button" lg='3' md="3" xs='3'>
                 <button type="submit">Next</button>
                 </Col>
             </Row>
