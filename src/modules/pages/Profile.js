@@ -23,14 +23,16 @@ const Profile = (props) => {
 
     useEffect(() => {
 		async function fetchData (user_id) {
-			let user = await firebase.database().ref('/users/' + user_id).once('value');
+            let user = await firebase.database().ref('/users/' + user_id).once('value');
+            // if(user.val() == null) return null;
 			return user.val();
         }
     
-        firebase.auth().onAuthStateChanged(function(user) {
+        firebase.auth().onAuthStateChanged(async function(user) {
 			if (user) {
                 alert(user.uid);
-                setUserData(fetchData(user.uid));
+                let data = await fetchData(user.uid);
+                setUserData(data);
             }else{
                 history.push('/login');
             }

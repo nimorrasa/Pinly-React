@@ -70,9 +70,9 @@ const SignUp = (props) => {
 			</div>
             <div className={"App Sign_up theme_light"} style={{display : (isLoading ? 'none' : 'block' )}}>
                 <Row>
-                    <Col className="col_left" lg="6" xs="12">
+                    <Col className="col_left" lg="6" xs="12" style={{display: (step == 'sign_up_step_1' ? 'block' : 'none')}}>
                         <header className="App-header">
-                            <img src={logo} className="App-logo" alt="logo" style={{display: (step == 'sign_up_step_1' ? 'block' : 'none')}}/>
+                            <img src={logo} className="App-logo" alt="logo"/>
                         </header>
                     </Col>
                     <Col className="col_right" lg="6" xs="12">

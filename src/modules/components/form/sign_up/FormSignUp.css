@@ -50,6 +50,10 @@ select {
     display: none;
 }
 
+/* .Sign_up .col_left{
+    display: none;
+} */
+
 .sign_up_step_2 .sign_up_2{
     display: block;
 }
