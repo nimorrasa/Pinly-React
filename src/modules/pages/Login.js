@@ -10,6 +10,7 @@ import firebase from 'firebase';
 const Login = (props) => {
     const history = useHistory();
     props.onChangeTheme('theme_light');
+    const [isLoading,setIsLoading] = useState(true);
     const [userId,setUserId] = useState('');
     const [step,setStep] = useState('login_with_email');
     const [theme,setTheme] = useState('theme_light');
@@ -27,15 +28,29 @@ const Login = (props) => {
     },['setUserId']);
 
     useEffect(() => {
-        if(firebase.auth().currentUser != null) {
-            setUserId(firebase.auth().currentUser.uid);
+		async function fetchData (user_id) {
+			let user = await firebase.database().ref('/users/' + user_id).once('value');
+			return user.val();
         }
-    });
+    
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                setUserId(user);
+                history.push('/');
+            }
+            setIsLoading(false);
+        });
+    
+	},[]);
+
 
     return (
         <div>
             <MyNavbar theme={navbarTheme} onChangeTheme={handleNavbarThemeChange} hideThemeSwitch={true}></MyNavbar>
-            <div className={"App Login theme_light"}>
+            <div class="loading" style={{textAlign: "center",top: "30vh",height: "50vh",color: "white",display : (!isLoading ? 'none' : 'block' )}}>
+				<i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+			</div>
+            <div className={"App Login theme_light"} style={{display : (isLoading ? 'none' : 'block' )}}>
                 <Row>
                     <Col className="col_left" lg="6" xs="12">
                         <h2 id="label" className="m-0 p-0"><b>LOGIN</b></h2>

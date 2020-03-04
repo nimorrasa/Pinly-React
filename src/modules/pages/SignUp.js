@@ -9,6 +9,7 @@ import firebase from 'firebase';
 const SignUp = (props) => {
     const history = useHistory();
     props.onChangeTheme('theme_light');
+    const [isLoading,setIsLoading] = useState(true);
     const [userData,setUserData] = useState({
         email : '',
         username : '',
@@ -40,17 +41,34 @@ const SignUp = (props) => {
         props.onLogin(submitData.userId);
     },[setUserData,setUserId]);
 
-    useEffect(() => { 
-        if(firebase.auth().currentUser != null) {
-            setUserId(firebase.auth().currentUser.uid);
+
+    useEffect(() => {
+		async function fetchData (user_id) {
+			let user = await firebase.database().ref('/users/' + user_id).once('value');
+			return user.val();
         }
-        setTheme('theme_light');
-    });
+    
+        firebase.auth().onAuthStateChanged(function(user) {
+			if (user) {
+                setUserId(user);
+                history.push('/');
+                // setUserData(fetchData(user.uid));
+            }
+            setIsLoading(false);
+            setTheme('theme_light');
+        });
+    
+
+	},[]);
+
 
     return (
         <div>
             <MyNavbar theme={navbarTheme} onChangeTheme={handleNavbarThemeChange} hideThemeSwitch={true}></MyNavbar>
-            <div className={"App Sign_up theme_light"}>
+            <div class="loading" style={{textAlign: "center",top: "30vh",height: "50vh",color: "white",display : (!isLoading ? 'none' : 'block' )}}>
+				<i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+			</div>
+            <div className={"App Sign_up theme_light"} style={{display : (isLoading ? 'none' : 'block' )}}>
                 <Row>
                     <Col className="col_left" lg="6" xs="12">
                         <header className="App-header">

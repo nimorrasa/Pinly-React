@@ -8,6 +8,7 @@ import MyNavbar from '../components/navbar/MyNavbar.js';
 import firebase from 'firebase';
 
 const Home = (props) => {
+  const [isLoading,setIsLoading] = useState(true);
   const [auth,setAuth] = useState(firebase.auth().currentUser);
   const [userData,setUserData] = useState({});
   const [theme, setTheme] = useState(props.theme);
@@ -22,37 +23,21 @@ const Home = (props) => {
 
   useEffect(() => { setTheme(props.theme)});
 
-
-  // useEffect(() => { 
-  //   async function fetchData() {
-  //       if(firebase.auth().currentUser != null) {
-  //           let user = await firebase.database().ref('/users/' + firebase.auth().currentUser.uid).once('value');
-  //           setUserData(user.val());
-
-  //       }
-  //     }
-  //     fetchData();
-  // },[firebase]);
-
-
   useEffect(() => {
 		async function fetchData (user_id) {
 			let user = await firebase.database().ref('/users/' + user_id).once('value');
 			return user.val();
-		}
+    }
+    
+    firebase.auth().onAuthStateChanged(function(user) {
+			if (user) {
+        setAuth(user);
+        setUserData(fetchData(user.uid));
+      }
+      setIsLoading(false);
+    });
+    
 
-		async function isRedirect () {
-			let redirectResult = await firebase.auth().getRedirectResult();
-			console.log("Redirect :",redirectResult);
-			if(redirectResult.operationType == 'signIn'){
-				let get_user_data = fetchData(redirectResult.user.uid);
-				if(get_user_data != null) {
-          setUserData(get_user_data);
-          setAuth(firebase.auth().currentUser);
-				}
-			}
-		}
-		isRedirect();
 	},[]);
 
 
@@ -60,7 +45,10 @@ const Home = (props) => {
   return (
     <div>
       <MyNavbar theme={navbarTheme} onChangeTheme={handleNavbarThemeChange} hideThemeSwitch={false}></MyNavbar>
-      <div className={"App Home "+theme}>
+      <div class="loading" style={{textAlign: "center",top: "30vh",height: "50vh",color: "white",display : (!isLoading ? 'none' : 'block' )}}>
+				<i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+			</div>
+      <div className={"App Home "+theme} style={{display : (isLoading ? 'none' : 'block' )}}>
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
         </header>
