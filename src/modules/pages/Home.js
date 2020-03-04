@@ -32,7 +32,8 @@ const Home = (props) => {
     firebase.auth().onAuthStateChanged(function(user) {
 			if (user) {
         setAuth(user);
-        setUserData(fetchData(user.uid));
+        let user = await fetchData(user.uid);
+        setUserData(fetchData(user));
       }
       setIsLoading(false);
     });

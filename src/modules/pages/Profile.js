@@ -30,7 +30,6 @@ const Profile = (props) => {
     
         firebase.auth().onAuthStateChanged(async function(user) {
 			if (user) {
-                alert(user.uid);
                 let data = await fetchData(user.uid);
                 setUserData(data);
             }else{

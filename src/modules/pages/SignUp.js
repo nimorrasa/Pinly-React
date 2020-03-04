@@ -52,7 +52,6 @@ const SignUp = (props) => {
 			if (user) {
                 setUserId(user);
                 history.push('/');
-                // setUserData(fetchData(user.uid));
             }
             setIsLoading(false);
             setTheme('theme_light');
