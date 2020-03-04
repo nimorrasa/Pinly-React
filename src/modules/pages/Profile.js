@@ -46,8 +46,8 @@ const Profile = (props) => {
     return (
         <div>
             <MyNavbar theme={navbarTheme} onChangeTheme={handleNavbarThemeChange} hideThemeSwitch={false}></MyNavbar>
-            <div class="loading" style={{textAlign: "center",top: "30vh",height: "50vh",color: "white",display : (!isLoading ? 'none' : 'block' )}}>
-				<i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+            <div className="loading" style={{textAlign: "center",top: "30vh",height: "50vh",color: "white",display : (!isLoading ? 'none' : 'block' )}}>
+				<i className="fa fa-spinner fa-spin fa-3x fa-fw"></i>
 			</div>
             <div className={"App Profile "+theme} style={{display : (isLoading ? 'none' : 'block' )}}>
                 Profile {userData != null ? userData.username : ''}

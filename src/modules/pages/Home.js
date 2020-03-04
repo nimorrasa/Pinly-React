@@ -29,11 +29,11 @@ const Home = (props) => {
 			return user.val();
     }
     
-    firebase.auth().onAuthStateChanged(function(user) {
+    firebase.auth().onAuthStateChanged(async function(user) {
 			if (user) {
         setAuth(user);
-        let user = await fetchData(user.uid);
-        setUserData(fetchData(user));
+        let user_data = await fetchData(user.uid);
+        setUserData(user_data);
       }
       setIsLoading(false);
     });
@@ -46,8 +46,8 @@ const Home = (props) => {
   return (
     <div>
       <MyNavbar theme={navbarTheme} onChangeTheme={handleNavbarThemeChange} hideThemeSwitch={false}></MyNavbar>
-      <div class="loading" style={{textAlign: "center",top: "30vh",height: "50vh",color: "white",display : (!isLoading ? 'none' : 'block' )}}>
-				<i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+      <div className="loading" style={{textAlign: "center",top: "30vh",height: "50vh",color: "white",display : (!isLoading ? 'none' : 'block' )}}>
+				<i className="fa fa-spinner fa-spin fa-3x fa-fw"></i>
 			</div>
       <div className={"App Home "+theme} style={{display : (isLoading ? 'none' : 'block' )}}>
         <header className="App-header">

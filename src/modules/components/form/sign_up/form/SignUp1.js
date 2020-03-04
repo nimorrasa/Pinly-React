@@ -7,7 +7,7 @@ import BirthDateInput from '../../../../components/input/BirthdateInput.js';
 import '../FormSignUp.css';
 
 const SignUp1 = (props) => {
-    const { handleSubmit, register, errors } = useForm();
+    const { handleSubmit, register, setValue, errors } = useForm();
     const [email, setEmail] = useState("");
     const [emailError, setEmailError] = useState("");
     
@@ -184,7 +184,7 @@ const SignUp1 = (props) => {
                 <div className="error">{confirmPasswordError}</div>
                 </Col>
             </Row>
-                <BirthDateInput register={register}></BirthDateInput>
+                <BirthDateInput register={register} setValue={setValue}></BirthDateInput>
             <Row>
                 <Col className="button" lg='3' md="3" xs='3'>
                 <button type="submit">Next</button>

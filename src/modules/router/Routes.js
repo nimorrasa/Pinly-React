@@ -22,13 +22,13 @@ const Routes = (props) => {
     props.onChangeTheme(current_theme);
   },[setTheme]);
 
-  const handleUserId = useCallback((newUserId) => { setUserId(newUserId); });
+  const handleUserId = useCallback((newUserId) => { setUserId(newUserId); }, [setUserId]);
 
   useEffect(() => {
     if(firebase.auth().currentUser != null) {
       setUserId(firebase.auth().currentUser.uid);
     }
-  },firebase);
+  },[firebase]);
 
   return (
     <main>

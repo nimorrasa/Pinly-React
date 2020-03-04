@@ -9,7 +9,6 @@ import firebase from 'firebase';
 
 const Login = (props) => {
     const history = useHistory();
-    props.onChangeTheme('theme_light');
     const [isLoading,setIsLoading] = useState(true);
     const [userId,setUserId] = useState('');
     const [step,setStep] = useState('login_with_email');
@@ -32,6 +31,8 @@ const Login = (props) => {
 			let user = await firebase.database().ref('/users/' + user_id).once('value');
 			return user.val();
         }
+        
+        props.onChangeTheme('theme_light');
     
         firebase.auth().onAuthStateChanged(function(user) {
             if (user) {
@@ -47,8 +48,8 @@ const Login = (props) => {
     return (
         <div>
             <MyNavbar theme={navbarTheme} onChangeTheme={handleNavbarThemeChange} hideThemeSwitch={true}></MyNavbar>
-            <div class="loading" style={{textAlign: "center",top: "30vh",height: "50vh",color: "white",display : (!isLoading ? 'none' : 'block' )}}>
-				<i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+            <div className="loading" style={{textAlign: "center",top: "30vh",height: "50vh",color: "white",display : (!isLoading ? 'none' : 'block' )}}>
+				<i className="fa fa-spinner fa-spin fa-3x fa-fw"></i>
 			</div>
             <div className={"App Login theme_light"} style={{display : (isLoading ? 'none' : 'block' )}}>
                 <Row>

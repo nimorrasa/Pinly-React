@@ -1,25 +1,29 @@
-import React, { useState , useEffect } from "react";
+import React, { useCallback , useEffect } from "react";
 import { Row, Col } from "reactstrap";
+import { useForm } from 'react-hook-form'
 import '../form/sign_up/FormSignUp.css';
 import DatePicker from 'reactstrap-date-picker';
 
 const BirthdateInput = (props) => {
-  const [birthDate, setBirthDate] = useState(new Date().toISOString());
+  // const { setValue } = useForm()
+
+  useEffect(() => {
+    props.register({ name: "birthdate" });
+  }, [props.register]);
+
+  const onDateChange = useCallback(
+    value => {
+      props.setValue("birthdate", value);
+    },
+    [props.setValue]
+  );
+
 
   return (
     <Row>
       <Col id="bdate" lg='6' md="6" xs='10'>
         <p className="m-0">Birthdate</p>
-        <DatePicker
-          value={birthDate}
-          onChange={date => setBirthDate(date)}
-        />
-         <input
-                style={{display: "none"}}
-                name="birthdate"
-                type="text"
-                value={birthDate}
-                ref={props.register()}/>
+        <DatePicker onChange={onDateChange}/>
       </Col>
     </Row>
   );
