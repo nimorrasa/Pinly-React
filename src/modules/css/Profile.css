@@ -1,0 +1,12 @@
+.card {
+    height: 80vh;
+    margin-top: 5vh;
+}
+
+.Profile .left .card {
+    margin-right: 5vw;
+}
+
+.Profile .right .card {
+    margin-left: 5vw;
+}

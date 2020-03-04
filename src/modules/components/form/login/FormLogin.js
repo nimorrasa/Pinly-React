@@ -1,7 +1,6 @@
 import React, { useState, useCallback, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import './FormLogin.css';
-import { Container, Row, Col, Alert } from "reactstrap";
 import { useHistory } from "react-router-dom";
 import LoginEmail  from './form/LoginEmail.js';
 import SocialRegister  from './form/SocialRegister.js';

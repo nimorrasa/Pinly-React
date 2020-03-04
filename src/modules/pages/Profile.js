@@ -1,21 +1,24 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import MyNavbar from '../components/navbar/MyNavbar.js';
+import { Row, Col, CardBody, CardSubtitle, CardTitle, CardText, Button } from "reactstrap";
 import firebase from 'firebase';
 import { useHistory } from "react-router-dom";
+import ProfileForm from '../components/form/profile/ProfileForm.js';
+import '../css/Profile.css';
 
 const Profile = (props) => {
     const history = useHistory();
-    const [isLoading,setIsLoading] = useState(true);
-    const [userData,setUserData] = useState({});
-    const [theme,setTheme] = useState(props.theme);
-    const [navbarTheme, setNavbarTheme] = useState(props.theme === 'theme_dark' ? 'dark' : 'light');
+    const [ isLoading, setIsLoading ] = useState(true);
+    const [ userData, setUserData ] = useState({});
+    const [ theme, setTheme ] = useState(props.theme);
+    const [ navbarTheme, setNavbarTheme ] = useState(props.theme === 'theme_dark' ? 'dark' : 'light');
+    const [ step, setStep ] = useState('view_profile');
 
     const handleNavbarThemeChange = useCallback((current_theme) => {
       setNavbarTheme(current_theme);
       setTheme('theme_'+current_theme);
       props.onChangeTheme('theme_'+current_theme);
     },[setNavbarTheme,setTheme]);
-  
   
     useEffect(() => { 
         setTheme(props.theme);
@@ -50,7 +53,29 @@ const Profile = (props) => {
 				<i className="fa fa-spinner fa-spin fa-3x fa-fw"></i>
 			</div>
             <div className={"App Profile "+theme} style={{display : (isLoading ? 'none' : 'block' )}}>
-                Profile {userData != null ? userData.username : ''}
+                <Row>
+                    <Col sm="6">
+                    <CardBody className="left">
+                        <CardTitle>Card title<Button>Go somewhere</Button></CardTitle>
+                        <CardSubtitle>Card subtitle</CardSubtitle>
+                    </CardBody>
+                    <img width="100%" src="/assets/318x180.svg" alt="Card image cap" />
+                    <CardBody>
+                        <ProfileForm></ProfileForm>
+                        <CardText>Profile {userData != null ? userData.username : ''}</CardText>
+                    </CardBody>
+                    </Col>
+                    <Col sm="6">
+                        <CardBody className="right">
+                        <CardTitle>Special Title Treatment</CardTitle>
+                        <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
+                        
+                        </CardBody>
+                    </Col>
+                </Row>
+                        
+                
+                
             </div>
         </div>
 
