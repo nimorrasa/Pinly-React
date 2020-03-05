@@ -1,9 +1,12 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import MyNavbar from '../components/navbar/MyNavbar.js';
-import { Row, Col, CardBody, CardSubtitle, CardTitle, CardText, Button } from "reactstrap";
+import { Row, Col, CardBody, CardSubtitle, CardTitle, CardText, Button, Card } from "reactstrap";
 import firebase from 'firebase';
 import { useHistory } from "react-router-dom";
 import ProfileForm from '../components/form/profile/ProfileForm.js';
+import ProfileDetail from '../components/form/profile/ProfileDetail.js';
+import PieChart from '../components/graph/PieChart.js';
+import right_chevron from '../../images/icon/right_chevron.png';
 import '../css/Profile.css';
 
 const Profile = (props) => {
@@ -54,23 +57,41 @@ const Profile = (props) => {
 			</div>
             <div className={"App Profile "+theme} style={{display : (isLoading ? 'none' : 'block' )}}>
                 <Row>
-                    <Col sm="6">
-                    <CardBody className="left">
-                        <CardTitle>Card title<Button>Go somewhere</Button></CardTitle>
-                        <CardSubtitle>Card subtitle</CardSubtitle>
-                    </CardBody>
-                    <img width="100%" src="/assets/318x180.svg" alt="Card image cap" />
-                    <CardBody>
-                        <ProfileForm></ProfileForm>
-                        <CardText>Profile {userData != null ? userData.username : ''}</CardText>
-                    </CardBody>
+                    <Col className="profile left" lg="5" sm="6" >
+                        <Card>
+                            <CardTitle>
+                                <Row>
+                                    <Col lg="10"></Col>
+                                    <Col lg="2">
+                                        <Button className="edit_button">Edit</Button>
+                                    </Col>
+                                </Row>
+                            </CardTitle>
+                            <CardBody>
+                                <ProfileDetail userData={userData}></ProfileDetail>
+                            </CardBody>
+                        </Card>
+
                     </Col>
-                    <Col sm="6">
-                        <CardBody className="right">
-                        <CardTitle>Special Title Treatment</CardTitle>
-                        <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
-                        
-                        </CardBody>
+                    <Col lg="2" sm="0" style={{textAlign: "center", paddingTop: "35vh"}}>
+                    <img src={right_chevron}/>
+                    </Col>
+                    <Col className="profile left" lg="5" sm="6">
+                        <div className="center">
+                        <div><h1>Today</h1></div>
+                        <PieChart></PieChart>
+                        <h3>Your sleep score today is 95%</h3>
+                        <h3>67% for week</h3>
+                        <div>
+                            <Row>
+                                <Col lg="6" md="6" xs="12"><Button>MORE INFO</Button></Col>
+                                <Col lg="6" md="6" xs="12"><Button>HISTORY</Button></Col>
+                            </Row>
+                            <Row>
+                                <Button>SHARE</Button>
+                            </Row>
+                        </div>
+                        </div>
                     </Col>
                 </Row>
                         

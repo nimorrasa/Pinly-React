@@ -1,12 +1,39 @@
-.card {
+
+
+.Profile .card {
+    background-color: white;
     height: 80vh;
-    margin-top: 5vh;
+    padding: 8vh;
+    padding-top: 2vh;
+    margin: 3vh;
+    color: black;
+    border-radius: 15px 15px;
+}
+/* 
+.Profile .card .left {
+    margin-left: 10vh;
 }
 
-.Profile .left .card {
-    margin-right: 5vw;
+.Profile .card .right {
+    margin-right: 10vh;
+} */
+
+.Profile .edit_button {
+    background-color: transparent;
+    color: blue;
 }
 
-.Profile .right .card {
-    margin-left: 5vw;
+.Profile .center {
+    text-align: center;
+}
+ 
+.Profile .profile_button {
+    background-color: transparent;
+    width: 10vw;
+    height: 10vw;
+    border-radius: 5vw;
+}
+
+.apexcharts-toolbar {
+    display: none;
 }

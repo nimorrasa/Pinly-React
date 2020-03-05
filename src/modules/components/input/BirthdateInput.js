@@ -21,6 +21,9 @@ const BirthdateInput = (props) => {
 
   return (
     <Row>
+      <Col lg="2" md="2" xs="2">
+        <i class="fa fa-birthday-cake" aria-hidden="true"></i>
+      </Col>
       <Col id="bdate" lg='6' md="6" xs='10'>
         <p className="m-0">Birthdate</p>
         <DatePicker onChange={onDateChange}/>

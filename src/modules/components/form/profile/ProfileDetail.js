@@ -7,6 +7,9 @@ import DiseaseInput from "../../input/DiseaseInput.js";
 import GenderRadio from "../../input/GenderRadio";
 import BirthdateInput from '../../input/BirthdateInput';
 import profie_picture from '../../../../images/button/profie_picture.png';
+import { faBirthdayCake, faWeight, faRulerVertical, faStethoscope } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 
 const ProfileForm = (props) => {
     const history = useHistory();
@@ -69,6 +72,7 @@ const ProfileForm = (props) => {
     return (
         <div>
         <form onSubmit={handleSubmit(onSubmit)}>
+
         <Col className='sign_up_2' xs='12'>
             <div className="center">
                 <Button className="profile_button"><img width="100%" src={profie_picture} alt="Card image cap" /></Button>
@@ -76,38 +80,39 @@ const ProfileForm = (props) => {
                 <CardText>{props.userData != null ? props.userData.username : ''}</CardText>
             </div>
             <Row>
-                
-                <BirthdateInput register={register}></BirthdateInput>
+                <Col lg="2" md="2" xs="2">
+                    <FontAwesomeIcon icon={faBirthdayCake} />
+                </Col>
+                <Col id="bdate" lg='6' md="6" xs='10'>
+                    <p className="m-0">Birthdate</p>
+                    <p>{props.userData.birthdate}</p>
+                </Col>
             </Row>
           <Row> 
-            <Col id="weight" lg='3' xs='4'>
-              <p className="m-0">Weight</p>
-              <input
-                type="number"
-                name="weight"
-                placeholder="weight"
-                ref={register({required: 'Required'})}/>
-            </Col>
-            <Col id="height" lg='3' xs='4'>
+          <Col lg="2" md="2" xs="2">
+                    <FontAwesomeIcon icon={faWeight} />
+                </Col>
+                <Col id="bdate" lg='4' md="4" xs='14'>
+                    <p className="m-0">Weight</p>
+                    <p>{props.userData.weight}</p>
+                </Col>
+                <Col lg="2" md="2" xs="2">
+                    <FontAwesomeIcon icon={faRulerVertical} />
+                </Col>
+            <Col id="height" lg='4' md="4" xs='4'>
             <p className="m-0">Height</p>
-            <input
-              type="number"
-              name="height"
-              id="height"
-              placeholder="height"
-              ref={register({required: 'Required'})}/>
+            <p>{props.userData.height}</p>
             </Col>
-          </Row>
-          <DiseaseInput register={register}></DiseaseInput>
-          <GenderRadio register={register}></GenderRadio>
+            </Row>
           <Row>
-            <Col className="button" lg='3' xs='3'>
-              <button type="button" onClick={backStep}>Back</button>
-            </Col>
-            <Col className="button" lg='3' xs='3'>
-              <button type="submit">Submit</button>
-            </Col>
-          </Row>
+                <Col lg="2" md="2" xs="2">
+                    <FontAwesomeIcon icon={faStethoscope} />
+                </Col>
+                <Col id="bdate" lg='6' md="6" xs='10'>
+                    <p className="m-0">Disease</p>
+                    <p>{props.userData.disease}</p>
+                </Col>
+            </Row>
           </Col>
         </form>
         </div>
