@@ -1,0 +1,33 @@
+.Contact_us {
+    color: white;
+    padding-left: 20vw;
+    padding-right: 20vw;
+}
+
+.Contact_us i {
+    color: rgba(38,173,186,1);
+}
+
+.Contact_us .main {
+    margin: 5vw;
+    padding-top: 8vh;
+    background-color : transparent;
+    text-align : center;
+    border-color: white;
+    max-height: 40vh;
+}
+
+.Contact_us .footer {
+    background-color : transparent;
+    text-align : center;
+    border-color: transparent;
+    max-height: 10vh;
+}
+
+@media (max-width: 800px) {
+    .Contact_us {
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
+
+}

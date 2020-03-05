@@ -1,6 +1,8 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import MyNavbar from '../components/navbar/MyNavbar.js';
 import { Row, Col, CardBody, Card, CardSubtitle, CardTitle, CardText, Button } from "reactstrap";
+import '../css/Contact_us.css';
+
 
 const Contact_us = (props) => {
 
@@ -19,18 +21,24 @@ const Contact_us = (props) => {
         <div>
             <MyNavbar theme={navbarTheme} onChangeTheme={handleNavbarThemeChange} hideThemeSwitch={false}></MyNavbar>
             <div className={"App Contact_us "+theme}>
-                <Card style={{margin: "10vw", marginButtom: "0", padding: "10vh", background : "transparent", textAlign : "center", borderColor: "white", height: "40vh"}}>
+                <Card className="main">
                     <CardBody>
-                        <CardTitle>CONTACT</CardTitle>
-                        <CardText>Pinly.sleepapp@gmail.com</CardText>
-                        <CardText>(+66) 955419228</CardText>
+                        <CardTitle>
+                            <h1>CONTACT</h1>
+                        </CardTitle>
+                        <CardText>
+                            <span><i style={{fontSize: "20px",padding: "10px"}}class="fa fa-envelope"></i> Pinly.sleepapp@gmail.com</span>
+                        </CardText>
+                        <CardText>
+                            <span><i style={{fontSize: "23px",padding: "10px"}} class="fa fa-phone" aria-hidden="true"></i>(+66) 955419228</span>
+                        </CardText>
                     </CardBody>
                 </Card>
-                <Card style={{background : "transparent", textAlign : "center", height: "10vh"}}>
+                <Card className="footer">
                     <CardBody>
-                            <CardTitle>Powered by</CardTitle>
-                            <CardText>Pinly Sleepapp Developer</CardText>
-                            <CardText>Updated 2020-02-07</CardText>
+                        <CardTitle>Powered by</CardTitle>
+                        <CardText>Pinly Sleepapp Developer</CardText>
+                        <CardText>Updated 2020-02-07</CardText>
                     </CardBody>
                 </Card>
             </div>
