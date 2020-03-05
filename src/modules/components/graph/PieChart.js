@@ -33,7 +33,7 @@ const PieChart = (props) => {
             }
             },
             track: {
-            background: '#fff',
+            background: props.theme == 'dark' ? 'white' : 'black',
             strokeWidth: '67%',
             margin: 0, // margin is in pixels
             dropShadow: {
@@ -50,7 +50,7 @@ const PieChart = (props) => {
             name: {
                 offsetY: -10,
                 show: true,
-                color: 'white',
+                color: props.theme == 'dark' ? 'white' : 'black',
                 fontSize: '17px'
             },
             value: {

@@ -1,8 +1,8 @@
-.Contact_us .theme_light {
+.Contact_us .theme_light , .theme_light text {
     color: black;
 }
 
-.Contact_us .theme_dark {
+.Contact_us .theme_dark , .theme_dark text  {
     color: white;
 }
 

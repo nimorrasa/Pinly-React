@@ -79,7 +79,7 @@ const Profile = (props) => {
                     <Col className="profile left" lg="5" sm="6">
                         <div className="center">
                         <div><h1>Today</h1></div>
-                        <PieChart></PieChart>
+                        <PieChart theme={navbarTheme}></PieChart>
                         <h3>Your sleep score today is 95%</h3>
                         <h3>67% for week</h3>
                         <div>
