@@ -51,6 +51,11 @@ body{
   background: linear-gradient(to right, #3dbacb , #4280f3);
 }
 
+.App-button-outline {
+  border: 20px solid;
+  border-image: linear-gradient(to right, #3dbacb , #4280f3);
+}
+
 .Link-padding {
   padding: 15px 25px;
 }

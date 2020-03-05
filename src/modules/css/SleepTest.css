@@ -1,5 +1,9 @@
-.Sleep_test {
+.Sleep_test .theme_dark {
     color: white;
+}
+
+.Sleep_test .theme_light {
+    color: black;
 }
 
 

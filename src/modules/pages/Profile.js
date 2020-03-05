@@ -84,11 +84,11 @@ const Profile = (props) => {
                         <h3>67% for week</h3>
                         <div>
                             <Row>
-                                <Col lg="6" md="6" xs="12"><Button>MORE INFO</Button></Col>
-                                <Col lg="6" md="6" xs="12"><Button>HISTORY</Button></Col>
+                                <Col lg="6" md="6" xs="12"><Button className="moreinfo">MORE INFO</Button></Col>
+                                <Col lg="6" md="6" xs="12"><Button className="App-button">HISTORY</Button></Col>
                             </Row>
                             <Row>
-                                <Button>SHARE</Button>
+                                <Button className="App-button">SHARE</Button>
                             </Row>
                         </div>
                         </div>

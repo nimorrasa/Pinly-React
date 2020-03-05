@@ -9,14 +9,7 @@
     color: black;
     border-radius: 15px 15px;
 }
-/* 
-.Profile .card .left {
-    margin-left: 10vh;
-}
 
-.Profile .card .right {
-    margin-right: 10vh;
-} */
 
 .Profile .edit_button {
     background-color: transparent;
@@ -36,4 +29,20 @@
 
 .apexcharts-toolbar {
     display: none;
+}
+
+
+.Profile .moreinfo {
+    border: 2px solid;
+    border-color: #4280f3;
+    background: transparent;
+}
+
+
+.theme_light .moreinfo {
+    color: black;
+}
+
+.theme_dark .moreinfo {
+    color: white;
 }

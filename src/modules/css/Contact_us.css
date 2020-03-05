@@ -1,5 +1,12 @@
-.Contact_us {
+.Contact_us .theme_light {
+    color: black;
+}
+
+.Contact_us .theme_dark {
     color: white;
+}
+
+.Contact_us {
     padding-left: 20vw;
     padding-right: 20vw;
 }
@@ -25,6 +32,11 @@
     border-color: white;
     max-height: 40vh;
 }
+
+.theme_light .main {
+    border-color: black;
+}
+
 
 .Contact_us .footer {
     background-color : transparent;
