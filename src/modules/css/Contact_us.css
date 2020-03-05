@@ -8,6 +8,15 @@
     color: rgba(38,173,186,1);
 }
 
+
+.Contact_us .fa {
+    padding-right: 10px;
+}
+
+.Contact_us .fa-phone {
+    font-size: 2rem;
+}
+
 .Contact_us .main {
     margin: 5vw;
     padding-top: 8vh;
@@ -25,6 +34,10 @@
 }
 
 @media (max-width: 800px) {
+    .Contact_us .card-text .h4, .Contact_us .card-text h4 {
+        font-size: 1rem;
+    }
+
     .Contact_us {
         padding-left: 5vw;
         padding-right: 5vw;

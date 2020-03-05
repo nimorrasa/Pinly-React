@@ -27,10 +27,10 @@ const Contact_us = (props) => {
                             <h1>CONTACT</h1>
                         </CardTitle>
                         <CardText>
-                            <span><i style={{fontSize: "20px",padding: "10px"}}class="fa fa-envelope"></i> Pinly.sleepapp@gmail.com</span>
+                            <h4><i class="fa fa-envelope"></i>Pinly.sleepapp@gmail.com</h4>
                         </CardText>
                         <CardText>
-                            <span><i style={{fontSize: "23px",padding: "10px"}} class="fa fa-phone" aria-hidden="true"></i>(+66) 955419228</span>
+                            <h4><i class="fa fa-phone" aria-hidden="true"></i>(+66) 955419228</h4>
                         </CardText>
                     </CardBody>
                 </Card>
@@ -38,7 +38,7 @@ const Contact_us = (props) => {
                     <CardBody>
                         <CardTitle>Powered by</CardTitle>
                         <CardText>Pinly Sleepapp Developer</CardText>
-                        <CardText>Updated 2020-02-07</CardText>
+                        <CardText><b>Updated 2020-02-07</b></CardText>
                     </CardBody>
                 </Card>
             </div>
