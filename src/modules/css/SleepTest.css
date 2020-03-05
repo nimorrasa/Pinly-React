@@ -1,0 +1,39 @@
+.Sleep_test {
+    color: white;
+}
+
+
+.Sleep_test .card {
+    text-align: center;
+    padding: 20%;
+    background-color:  transparent;
+    /* width: 30vw; */
+    border: 0;
+}
+
+.Sleep_test .card-title {
+    font-size: 2rem;
+}
+
+.Sleep_test .button {
+    padding: 0;
+    margin: 0;
+    width: 20vw;
+    height: 20vw;
+    cursor: pointer;
+}
+
+
+.Sleep_test .button:hover {
+    opacity: 70%;
+}
+
+@media (max-width: 800px) {
+    .Sleep_test .card {
+        height: 30vh;
+    }
+
+    .Sleep_test .card-title {
+        font-size: 1rem;
+    }
+}
