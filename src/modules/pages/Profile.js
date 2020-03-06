@@ -45,7 +45,10 @@ const Profile = (props) => {
         });
     
 
-	},[firebase]);
+    },[firebase]);
+    
+
+    const goToSleep = useCallback(() => { history.push('/sleep_test')},[]);
 
 
 
@@ -61,8 +64,8 @@ const Profile = (props) => {
                         <Card>
                             <CardTitle>
                                 <Row>
-                                    <Col lg="10"></Col>
-                                    <Col lg="2">
+                                    <Col lg="10" md="10" xs="10"></Col>
+                                    <Col lg="2" md="2" xs="2">
                                         <Button className="edit_button">Edit</Button>
                                     </Col>
                                 </Row>
@@ -84,7 +87,7 @@ const Profile = (props) => {
                         <h3>67% for week</h3>
                         <div>
                             <Row>
-                                <Col lg="6" md="6" xs="12"><Button className="moreinfo">MORE INFO</Button></Col>
+                                <Col lg="6" md="6" xs="12"><Button className="App-button moreinfo" onClick={goToSleep}>MORE INFO</Button></Col>
                                 <Col lg="6" md="6" xs="12"><Button className="App-button">HISTORY</Button></Col>
                             </Row>
                             <Row>

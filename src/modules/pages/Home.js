@@ -62,7 +62,7 @@ const Home = (props) => {
                   {auth == null ? '' : 'Hello, '+auth.email}
               </Row>
               <Row>
-                  <Button style={{borderWidth: 2, borderRadius: 20 }} className="App-button">GET STARTED</Button>
+                  <Button style={{borderWidth: 2, borderRadius: 20 }} className="App-button" href="sleep_test">GET STARTED</Button>
               </Row>
           </Container>
         </div>
