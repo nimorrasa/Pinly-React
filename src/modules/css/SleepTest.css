@@ -27,11 +27,6 @@
     cursor: pointer;
 }
 
-
-.Sleep_test .button:hover {
-    opacity: 70%;
-}
-
 @media (max-width: 800px) {
     .Sleep_test .card {
         height: 30vh;

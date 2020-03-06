@@ -9,12 +9,20 @@ const SleepTest = (props) => {
 
     const [theme,setTheme] = useState(props.theme);
     const [navbarTheme, setNavbarTheme] = useState(props.theme === 'theme_dark' ? 'dark' : 'light');
+    const [isHoverSleepScore,setIsHoverSleepScore] = useState(false);
+    const [isHoverGoToSleep,setIsHoverGoToSleep] = useState(false);
 
     const handleNavbarThemeChange = useCallback((current_theme) => {
       setNavbarTheme(current_theme);
       setTheme('theme_'+current_theme);
       props.onChangeTheme('theme_'+current_theme);
     },[setNavbarTheme,setTheme]);
+
+    const onMouseOverSleepScore = useCallback(() => { setIsHoverSleepScore(true); },[setIsHoverSleepScore]);
+    const onMouseOutSleepScore = useCallback(() => { setIsHoverSleepScore(false); },[setIsHoverSleepScore]);
+
+    const onMouseOverGoToSleep = useCallback(() => { setIsHoverGoToSleep(true); },[setIsHoverGoToSleep]);
+    const onMouseOutGoToSleep = useCallback(() => { setIsHoverGoToSleep(false); },[setIsHoverGoToSleep]);
     
     useEffect(() => { setTheme(props.theme)});
 
@@ -27,7 +35,7 @@ const SleepTest = (props) => {
                         <Card>
                             <CardTitle>Show sleep score</CardTitle>
                             <CardBody>
-                                <a href="https://www.google.com"><img className="button"  src={sleep_score}></img></a>
+                                <a href="https://www.google.com" onMouseOver={onMouseOverSleepScore} onMouseOut={onMouseOutSleepScore} style={{opacity : (isHoverSleepScore ? '80%' : '100%')}}><img className="button"  src={sleep_score}></img></a>
                             </CardBody>
                         </Card>
                     </Col>
@@ -35,7 +43,7 @@ const SleepTest = (props) => {
                         <Card>
                             <CardTitle>Ready to Sleep?</CardTitle>
                             <CardBody>
-                                <a href="https://www.facebook.com"><img className="button"  src={go_to_sleep}></img></a>
+                                <a href="https://www.facebook.com" onMouseOver={onMouseOverGoToSleep} onMouseOut={onMouseOutGoToSleep} style={{opacity : (isHoverGoToSleep ? '80%' : '100%')}}><img className="button"  src={go_to_sleep}></img></a>
                             </CardBody>
                         </Card>
                     </Col>
