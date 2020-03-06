@@ -9,7 +9,7 @@ const PieChart = (props) => {
         chart: {
         type: 'radialBar',
         toolbar: {
-            show: true
+            show: false
         }
         },
         plotOptions: {
@@ -70,7 +70,7 @@ const PieChart = (props) => {
             shade: 'dark',
             type: 'horizontal',
             shadeIntensity: 0.5,
-            gradientToColors: ['#ABE5A1'],
+            gradientToColors: ['#3dbacb'],
             inverseColors: true,
             opacityFrom: 1,
             opacityTo: 1,
