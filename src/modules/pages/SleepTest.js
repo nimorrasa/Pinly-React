@@ -5,6 +5,9 @@ import '../css/SleepTest.css';
 import sleep_score from '../../images/button/sleep_score.png';
 import go_to_sleep from '../../images/button/go_to_sleep.png';
 
+import SleepScore from '../pages/SleepSc';
+import DailyTest from '../pages/dailytest';
+
 const SleepTest = (props) => {
 
     const [theme,setTheme] = useState(props.theme);
@@ -35,7 +38,8 @@ const SleepTest = (props) => {
                         <Card>
                             <CardTitle>Show sleep score</CardTitle>
                             <CardBody>
-                                <a href="https://www.google.com" onMouseOver={onMouseOverSleepScore} onMouseOut={onMouseOutSleepScore} style={{opacity : (isHoverSleepScore ? '80%' : '100%')}}><img className="button"  src={sleep_score}></img></a>
+                                <Link to="/sleep_score">
+                                <a href="./SleepSc" onMouseOver={onMouseOverSleepScore} onMouseOut={onMouseOutSleepScore} style={{opacity : (isHoverSleepScore ? '80%' : '100%')}}><img className="button"  src={sleep_score}></img></a></Link>
                             </CardBody>
                         </Card>
                     </Col>
@@ -43,7 +47,8 @@ const SleepTest = (props) => {
                         <Card>
                             <CardTitle>Ready to Sleep?</CardTitle>
                             <CardBody>
-                                <a href="https://www.facebook.com" onMouseOver={onMouseOverGoToSleep} onMouseOut={onMouseOutGoToSleep} style={{opacity : (isHoverGoToSleep ? '80%' : '100%')}}><img className="button"  src={go_to_sleep}></img></a>
+                                  <Link to="/daily_test">
+                                <a href="./dailytest" onMouseOver={onMouseOverGoToSleep} onMouseOut={onMouseOutGoToSleep} style={{opacity : (isHoverGoToSleep ? '80%' : '100%')}}><img className="button"  src={go_to_sleep}></img></a></Link>
                             </CardBody>
                         </Card>
                     </Col>

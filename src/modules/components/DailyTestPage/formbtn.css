@@ -1,0 +1,85 @@
+.btn-default {
+    font-size: 20px;
+    color : #fff;
+    letter-spacing: 1px;
+    line-height: 15px;
+   /* border: 2px solid #141313;
+    background: transparent;*/
+    border-radius: 40px;
+    background-image: linear-gradient(to right ,#3cc7c3 , #437af7);
+    transition: all 0.3s ease 0s;
+    padding: 15px 32px;
+  }
+
+  .btn-padding-top {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .btn-padding-left{
+    padding-left: 50px;
+  }
+
+  .btn-stb {
+    font-size: 20px;
+    color : #fff;
+    letter-spacing: 1px;
+    line-height: 15px;
+    border: 2px inear-gradient(to right ,#3cc7c3 , #437af7);
+    background: transparent;
+    border-radius: 40px;
+    /*background-image: linear-gradient(to right ,#8D929C , #141313);*/
+    transition: all 0.3s ease 0s;
+    padding: 15px 32px;
+  }
+
+  .btn-gray {
+    font-size: 20px;
+    color : #141313;
+    letter-spacing: 1px;
+    line-height: 15px;
+    border: 2px inear-gradient(to right ,#3cc7c3 , #437af7);
+    background: transparent;
+    border-radius: 40px;
+    /*background-image: linear-gradient(to right ,#8D929C , #141313);*/
+    transition: all 0.3s ease 0s;
+    padding: 15px 32px;
+  }
+
+  .button_storke{
+      color : #3cc7c3;
+      position: relative;
+      border: 2px solid white;
+      border-radius: 50%;
+      height: 3rem;
+      width: 3rem;
+      margin: 0 0.5rem;
+      overflow: hidden;
+      text-align: center;
+      display: inline-flex;
+      justify-content: center;
+      transition: 250ms  ease;
+      
+  }
+
+  .count {
+    font-size: 2.5em;
+    margin: 20px 0; 
+  }
+
+  .Bg-color{
+    background-color: #141313;
+    
+  }
+
+  .btn-trans {
+    font-size: 20px;
+    color :transparent;
+    letter-spacing: 1px;
+    line-height: 15px;
+    border: 2px solid #141313;
+    background: transparent;
+    border-radius: 40px;
+    background-image: transparent;
+    transition: all 0.3s ease 0s;
+    padding: 15px 32px;
+  }
