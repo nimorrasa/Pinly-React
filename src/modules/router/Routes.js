@@ -13,6 +13,18 @@ import Contact_us from "../pages/Contact_us";
 import SleepTest from "../pages/SleepTest";
 import firebase from 'firebase';
 
+//Neeya's Edit Zone
+import SleepScore from '../pages/SleepSc';
+import DailyTest from '../pages/dailytest';
+import WaitToSleep from '../pages/Waittosleep';
+import Wakeup from '../pages/Wakeup';
+
+import HowToRegister from '../pages/howtoregis';
+import History from '../pages/history';
+
+import NotFound from '../pages/notfound';
+//End Neeya's Edit Zone 
+
 const Routes = (props) => {
   const [userId,setUserId] = useState('');
   const [theme,setTheme] = useState(props.theme);
@@ -55,6 +67,30 @@ const Routes = (props) => {
         <Route path="/sleep_test">
           <SleepTest theme={theme} onChangeTheme={handleNavbarThemeChange}></SleepTest>
         </Route>
+        //Neeya's Edit
+        <Route path="/sleep_score">
+          <SleepSc theme={theme} onChangeTheme={handleNavbarThemeChange}></SleepSc>
+        </Route>
+        <Route path="/daily_test">
+          <DailyTest theme={theme} onChangeTheme={handleNavbarThemeChange}></DailyTest>
+        </Route>
+        <Route path="/wait_to_sleep">
+          <WaitToSleep theme={theme} onChangeTheme={handleNavbarThemeChange}></WaitToSleep>
+        </Route>
+        <Route path="/wake_up">
+          <Wakeup theme={theme} onChangeTheme={handleNavbarThemeChange}></Wakeup>
+        </Route>
+        <Route path="/how_to_register">
+          <HowToRegister theme={theme} onChangeTheme={handleNavbarThemeChange}></HowToRegister>
+        </Route>
+        <Route path="/how_to_sleep">
+          <HowToSleep theme={theme} onChangeTheme={handleNavbarThemeChange}></HowToSleep>
+        </Route>
+        <Route path="/history">
+          <History theme={theme} onChangeTheme={handleNavbarThemeChange}></History>
+        </Route>
+        <Route  component={NoMatch} />
+        //End Neeya's Edit
         </Switch>
     </main>
     );
