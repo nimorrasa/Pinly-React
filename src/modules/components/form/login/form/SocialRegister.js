@@ -5,6 +5,7 @@ import { validateEmail } from "../../utils";
 import '../FormLogin.css';
 import { useHistory } from "react-router-dom";
 import BirthDateInput from '../../../input/BirthdateInput.js';
+import MacAddressInput from '../../../../components/input/MacAddressinput.js';
 import DiseaseInput from "../../../input/DiseaseInput";
 import GenderRadio from "../../../input/GenderRadio";
 
@@ -20,8 +21,6 @@ const SocialRegister = (props) => {
     
     const [height, setHeight] = useState(0);
     const [heightError, setHeightError] = useState("");
-
-    const [gender,setGender] = useState(false);
 
     useEffect(
         () => {
@@ -86,7 +85,8 @@ const SocialRegister = (props) => {
           weight : values.weight,
           height : values.height,
           gender : values.is_male ? 'Male' : 'Female',
-          disease : values.disease
+          disease : values.disease,
+          macAddress : values.mac_address
         });
         history.push("/home");
     };
@@ -114,6 +114,7 @@ const SocialRegister = (props) => {
               </Col>
             </Row>
             <BirthDateInput register={register} setValue={setValue}></BirthDateInput>
+            <MacAddressInput register={register}></MacAddressInput>
           <Row> 
             <Col id="weight" lg='6' md="6" xs='6'>
               <p className="m-0">Weight</p>

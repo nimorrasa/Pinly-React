@@ -9,7 +9,6 @@ import firebase from 'firebase';
 
 const FormLogin = (props) => {
 	const history = useHistory();
-	const [isSocialRegister,setIsSocialRegister] = useState(false);
 	const [cookies, setCookie] = useCookies();
 	const [userId, setUserId] = useState('');
 
@@ -19,6 +18,7 @@ const FormLogin = (props) => {
 		bdate : '',
 		bmonth : '',
 		byear : '',
+		macAddress : '',
 		weight : '',
 		height : '',
 		gender : '',
@@ -90,6 +90,7 @@ const FormLogin = (props) => {
 			weight: user.weight,
 			height: user.height,
 			birthdate: newBirthdate,
+			macAddress : user.macAddress,
 			disease: user.disease
 		};
 

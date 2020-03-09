@@ -91,6 +91,7 @@ const SignUp1 = (props) => {
             username : values.username,
             password : values.password,
             birthdate : values.birthdate,
+            macAddress : values.mac_address,
         });
         props.onChangeStep('sign_up_step_2');
     };
