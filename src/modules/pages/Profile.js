@@ -59,13 +59,13 @@ const Profile = (props) => {
 			</div>
             <div className={"App Profile "+theme} style={{display : (isLoading ? 'none' : 'block' )}}>
                 <Row>
-                    <Col className="profile left" lg="5" sm="6" >
+                    <Col className="profile card left" lg="5" sm="6" >
                        <ProfileMain></ProfileMain>
                     </Col>
                     <Col lg="2" sm="0" style={{textAlign: "center", paddingTop: "35vh"}}>
                     <img src={right_chevron}/>
                     </Col>
-                    <Col className="profile left" lg="5" sm="6">
+                    <Col className="profile right" lg="5" sm="6">
                         <div className="center">
                         <div><h1>Today</h1></div>
                         <PieChart theme={navbarTheme}></PieChart>

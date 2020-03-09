@@ -5,11 +5,10 @@
     height: 80vh;
     padding: 8vh;
     padding-top: 2vh;
-    margin: 3vh;
+    margin-top: 3vh;
     color: black;
     border-radius: 15px 15px;
 }
-
 
 .Profile .edit_button {
     background-color: transparent;
