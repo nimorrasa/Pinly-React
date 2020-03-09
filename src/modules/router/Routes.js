@@ -20,6 +20,8 @@ import WaitToSleep from '../pages/Waittosleep';
 import Wakeup from '../pages/Wakeup';
 
 import HowToRegister from '../pages/howtoregis';
+import HowToSleep from '../pages/howtosleep';
+import Assistant from '../pages/asst';
 import History from '../pages/history';
 
 import NotFound from '../pages/notfound';
