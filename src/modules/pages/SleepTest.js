@@ -35,7 +35,7 @@ const SleepTest = (props) => {
                         <Card>
                             <CardTitle>Show sleep score</CardTitle>
                             <CardBody>
-                                <a href="https://www.google.com" onMouseOver={onMouseOverSleepScore} onMouseOut={onMouseOutSleepScore} style={{opacity : (isHoverSleepScore ? '80%' : '100%')}}><img className="button"  src={sleep_score}></img></a>
+                                <a href="./SleepSc" onMouseOver={onMouseOverSleepScore} onMouseOut={onMouseOutSleepScore} style={{opacity : (isHoverSleepScore ? '80%' : '100%')}}><img className="button"  src={sleep_score}></img></a>
                             </CardBody>
                         </Card>
                     </Col>
@@ -43,7 +43,7 @@ const SleepTest = (props) => {
                         <Card>
                             <CardTitle>Ready to Sleep?</CardTitle>
                             <CardBody>
-                                <a href="https://www.facebook.com" onMouseOver={onMouseOverGoToSleep} onMouseOut={onMouseOutGoToSleep} style={{opacity : (isHoverGoToSleep ? '80%' : '100%')}}><img className="button"  src={go_to_sleep}></img></a>
+                                <a href="./dailytest" onMouseOver={onMouseOverGoToSleep} onMouseOut={onMouseOutGoToSleep} style={{opacity : (isHoverGoToSleep ? '80%' : '100%')}}><img className="button"  src={go_to_sleep}></img></a>
                             </CardBody>
                         </Card>
                     </Col>
