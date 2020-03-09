@@ -1,0 +1,42 @@
+.positionbar{
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+}
+.progress-bar {
+    width: 250px;
+    height: 25px;
+    border-radius: 50px;
+    border: 2px solid #3cc7c3;
+    background : linear-gradient(to right ,#fff , #fff);
+    margin-bottom: 5px;
+    margin: auto;
+}
+    
+
+.range {
+    background: linear-gradient(to right ,#3cc7c3 , #437af7);
+    height: 100%;
+    border-radius: inherit;
+    
+}
+
+.toggle-buttons button {
+     color: white;
+    margin: 0 5px;
+
+    border-radius: 5px;
+    outline: 0;
+    cursor: pointer;
+}
+
+.fontwhite {
+    font-size: 20px;
+    color : #fff;
+    text-align: center;
+}
+
+.toggle-buttons button:hover {
+    color: #3cc7c3;
+    background: transparent;
+}

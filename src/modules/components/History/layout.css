@@ -1,0 +1,21 @@
+.layout {
+  width: 70%;
+  height: auto;
+  margin: auto; 
+}
+
+.WhiteFont{
+  color: #fff;
+  
+}
+.slide-container {
+  width: 100%;
+  margin: auto; }
+
+.each-slide > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  height: 570px;
+}
