@@ -21,7 +21,7 @@ var colorfont ={
 const SleepScore = (props) => {
   return (
     <div className="textcenter">
-    <Container className="themed-container" fluid={true}>
+    <Container className="themed-container" fluid="true">
         <Row> {/* Centre */}
         <Col>
             <div className="textsize">

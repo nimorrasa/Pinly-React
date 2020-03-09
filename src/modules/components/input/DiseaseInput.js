@@ -30,11 +30,11 @@ const DiseaseInput = (props) => {
 			<Col id="disease" lg='6' md="6" xs='10'>
 			<p className="m-0">Congenital disease</p>
 			<select
-				defaultValue='1'
+				// defaultValue={disease}
 				name="disease"
 				min='1'
 				max='31'
-				value={disease}
+				// value=
 				onChange={e => setDisease(e.target.value)}
 				ref={props.register({required: 'Required'})}
 				>

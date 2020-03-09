@@ -39,7 +39,7 @@ var ButtonSize ={
     return(
         <div className="App">    
         <div className="Bg-color">
-            <Container className="themed-container" fluid={true}>
+            <Container className="themed-container" fluid="true">
             <Switch>
             <Route path="/dailytest" component={dailytest}/>
             </Switch>
@@ -57,14 +57,13 @@ var ButtonSize ={
                 </div>
               </div>
               
-              <Link to="/dailytest">
-              <a href="dailytest" target="dailytest"><img src={Btn_gotosleep} alt="Button Go To Sleep _Daily Test" style={ButtonSize}></img></a></Link>
+              <a href="dailytest" target="dailytest"><img src={Btn_gotosleep} alt="Button Go To Sleep _Daily Test" style={ButtonSize}></img></a>
               </div>
                 </div>
                 </Col>
                 </Row>
                 </Container>
-                <Container className="themed-container" fluid={true}>
+                <Container className="themed-container" fluid="true">
                 <div className=" wpb_column vc_col-sm-5 text-center mt-3">
                 <div className="App-link">
                 {/*<a href ="#" className="App-link"> <h1>More info</h1></a>*/}
@@ -98,7 +97,7 @@ var ButtonSize ={
                 {/* SUMMARY AND SHARED BUTTON  */}
                     <div className="btn-padding-top-bottom">
                     <div className="container">
-                    <div class="row justify-content-md-center">
+                    <div className="row justify-content-md-center">
                     <BtnSummary/>
                     <BtnShare/>
                     </div>

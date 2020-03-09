@@ -7,7 +7,7 @@ class BtnConti extends React.Component {
 
       return (
         <div> 
-            <a href="./Waittosleep"><button class="btn-default">Continue ></button></a>
+            <a href="./Waittosleep"><button className="btn-default">Continue ></button></a>
         </div>
       );
     }

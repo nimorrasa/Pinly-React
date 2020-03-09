@@ -26,12 +26,12 @@ const Contact_us = (props) => {
                         <CardTitle>
                             <h1>CONTACT</h1>
                         </CardTitle>
-                        <CardText>
-                            <h4><i class="fa fa-envelope"></i>Pinly.sleepapp@gmail.com</h4>
-                        </CardText>
-                        <CardText>
-                            <h4><i class="fa fa-phone" aria-hidden="true"></i>(+66) 955419228</h4>
-                        </CardText>
+                        <div className="card-text">
+                            <h4><i className="fa fa-envelope"></i>Pinly.sleepapp@gmail.com</h4>
+                        </div>
+                        <div className="card-text">
+                            <h4><i className="fa fa-phone" aria-hidden="true"></i>(+66) 955419228</h4>
+                        </div>
                     </CardBody>
                 </Card>
                 <Card className="footer">

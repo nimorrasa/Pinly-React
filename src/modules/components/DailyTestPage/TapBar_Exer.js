@@ -43,7 +43,7 @@ export const TapBar_Exer = () => {
   let [percentRange, setProgress] = useState(0);
 
   return (
-      <div className="themed-container" fluid={true}>
+      <div className="themed-container" fluid="true">
       <div className="fontwhite">
       <h1>{percentRange == 500 ? `500 Mins ! Too Much!!` : `Exercise :  ${percentRange} Mins`}</h1>
       <div className="positionbar">

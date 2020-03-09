@@ -47,7 +47,7 @@ const MacAddressInput = (props) => {
                 value={macAddress}
                 onChange={handleMacAddress}
                 size="17"
-                maxlength="25"
+                maxLength="25"
                 placeholder="Mac Address"
                 ref={props.register({
                     required: 'Required',

@@ -24,7 +24,7 @@ const Wakeup = (props) => {
   return (
     <div className="Bg-color">
     <div className="textcenter">
-    <a href="./SleepSc"><Container className="themed-container" fluid={true}>
+    <a href="./SleepSc"><Container className="themed-container" fluid="true">
         <Row> {/* Centre */}
         <Col>
             <div className="textsize">
