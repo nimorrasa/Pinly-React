@@ -10,6 +10,13 @@ const MacAddressInput = (props) => {
 
     useEffect(
         () => {
+            props.setValue('mac_address' , props.value);
+        },
+        []
+    )
+
+    useEffect(
+        () => {
             if(!macAddress) {
                 setMacAddressError('');
             }else{

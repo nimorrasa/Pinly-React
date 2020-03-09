@@ -3,17 +3,29 @@ import { useForm } from "react-hook-form";
 import { Row, Col, CardBody, CardSubtitle, CardTitle, CardText, Button, Card } from "reactstrap";
 import { useHistory } from "react-router-dom";
 import DiseaseInput from "../../input/DiseaseInput.js";
-import GenderRadio from "../../input/GenderRadio";
+import MacAddressInput from '../../input/MacAddressinput';
 import BirthdateInput from '../../input/BirthdateInput';
 import profie_picture from '../../../../images/button/profie_picture.png';
-import { faBirthdayCake, faWeight, faRulerVertical, faStethoscope } from "@fortawesome/free-solid-svg-icons";
+import { faBirthdayCake, faWeight, faRulerVertical, faStethoscope, faAddressCard } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
 const ProfileForm = (props) => {
     const history = useHistory();
-    const { handleSubmit, register, errors } = useForm();
+    const { handleSubmit, register, setValue, errors } = useForm();
     const toggleEdit = useCallback(() => { props.onChangeStep('view_profile');});
+
+    useEffect(
+        () => {
+            let array_birthdate = props.userData.birthdate.split('-');
+            let date_rearrange = array_birthdate[2]+'-'+array_birthdate[1]+'-'+array_birthdate[0];
+            setValue('birthdate', new Date(date_rearrange));
+            setValue('weight', props.userData.weight);
+            setValue('height', props.userData.height);
+            setValue('mac_address',props.userData.mac_address);
+        },
+        []
+    );
 
     return (
         <div>
@@ -32,8 +44,8 @@ const ProfileForm = (props) => {
                 <Col lg="2" md="2" xs="2">
                     <FontAwesomeIcon icon={faBirthdayCake} />
                 </Col>
-                <Col id="bdate" lg='6' md="6" xs='10'>
-                <BirthdateInput register={register} value={props.userData == null ? '' : props.userData.birthdate}></BirthdateInput>
+                <Col id="bdate" lg='10' md="10" xs='10'>
+                <BirthdateInput setValue={setValue} register={register} value={props.userData == null ? '' : props.userData.birthdate}></BirthdateInput>
                 </Col>
             </Row>
           <Row> 
@@ -43,7 +55,6 @@ const ProfileForm = (props) => {
                 <Col id="bdate" lg='4' md="4" xs='14'>
                     <p className="m-0">Weight</p>
                     <input
-                        value={props.userData == null ? '' : props.userData.weight}
                         type="number"
                         name="weight"
                         placeholder="weight"
@@ -55,7 +66,6 @@ const ProfileForm = (props) => {
             <Col id="height" lg='4' md="4" xs='4'>
                 <p className="m-0">Height</p>
                 <input
-                    value={props.userData == null ? '' : props.userData.height}
                     type="number"
                     name="height"
                     id="height"
@@ -67,7 +77,17 @@ const ProfileForm = (props) => {
                 <Col lg="2" md="2" xs="2">
                     <FontAwesomeIcon icon={faStethoscope} />
                 </Col>
-                <DiseaseInput register={register} value={props.userData == null ? '' : props.userData.disease}></DiseaseInput>
+                <Col id="disease" lg='10' md="10" xs='10'>
+                    <DiseaseInput setValue={setValue} register={register} value={props.userData == null ? '' : props.userData.disease}></DiseaseInput>
+                </Col>
+            </Row>
+            <Row>
+                <Col lg="2" md="2" xs="2">
+                    <FontAwesomeIcon icon={faAddressCard} />
+                </Col>
+                <Col id="bdate" lg='10' md="10" xs='10'>
+                    <MacAddressInput setValue={setValue} register={register} value={props.userData == null ? '' : props.userData.mac_address}></MacAddressInput>
+                </Col>
             </Row>
           </Col>
         </div>
