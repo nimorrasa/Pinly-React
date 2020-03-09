@@ -52,7 +52,7 @@ const ProfileForm = (props) => {
           <Col lg="2" md="2" xs="2">
                     <FontAwesomeIcon icon={faWeight} />
                 </Col>
-                <Col id="bdate" lg='4' md="4" xs='14'>
+                <Col id="bdate" lg='5' md="5" xs='12'>
                     <p className="m-0">Weight</p>
                     <input
                         type="number"
@@ -60,7 +60,7 @@ const ProfileForm = (props) => {
                         placeholder="weight"
                         ref={register({required: 'Required'})}/>
                 </Col>
-                <Col lg="2" md="2" xs="2">
+                <Col lg="1" md="1" xs="1">
                     <FontAwesomeIcon icon={faRulerVertical} />
                 </Col>
             <Col id="height" lg='4' md="4" xs='4'>
