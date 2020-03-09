@@ -1,18 +1,18 @@
 import React from 'react';
 import { Container, Row, Col } from 'reactstrap';
-import './App.css';
+import '../css/App.css';
 
 //import components 
-import BtnCaffeine from './components/DailyTestPage/BtnCaffeine';
-import BtnSmoking from './components/DailyTestPage/BtnSmoking';
-import BtnAlcohol from './components/DailyTestPage/BtnAlcohol';
-import BtnStress from './components/DailyTestPage/BtnStress';
+import BtnCaffeine from '../components/DailyTestPage/BtnCaffeine';
+import BtnSmoking from '../components/DailyTestPage/BtnSmoking';
+import BtnAlcohol from '../components/DailyTestPage/BtnAlcohol';
+import BtnStress from '../components/DailyTestPage/BtnStress';
 
-import TapBar_Nap from './components/DailyTestPage/TapBar_Nap';
-import TapBar_Work from './components/DailyTestPage/TapBar_Work';
-import TapBar_Exer from './components/DailyTestPage/TapBar_Exer';
+import TapBar_Nap from '../components/DailyTestPage/TapBar_Nap';
+import TapBar_Work from '../components/DailyTestPage/TapBar_Work';
+import TapBar_Exer from '../components/DailyTestPage/TapBar_Exer';
 
-import BtnConti from './components/DailyTestPage/BtnConti';
+import BtnConti from '../components/DailyTestPage/BtnConti';
 
 
 class dailytest extends React.Component {

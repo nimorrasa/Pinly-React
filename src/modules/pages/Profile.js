@@ -3,8 +3,7 @@ import MyNavbar from '../components/navbar/MyNavbar.js';
 import { Row, Col, CardBody, CardSubtitle, CardTitle, CardText, Button, Card } from "reactstrap";
 import firebase from 'firebase';
 import { useHistory } from "react-router-dom";
-import ProfileForm from '../components/form/profile/ProfileForm.js';
-import ProfileDetail from '../components/form/profile/ProfileDetail.js';
+import ProfileMain from '../components/form/profile/ProfileMain.js';
 import PieChart from '../components/graph/PieChart.js';
 import right_chevron from '../../images/icon/right_chevron.png';
 import '../css/Profile.css';
@@ -61,20 +60,7 @@ const Profile = (props) => {
             <div className={"App Profile "+theme} style={{display : (isLoading ? 'none' : 'block' )}}>
                 <Row>
                     <Col className="profile left" lg="5" sm="6" >
-                        <Card>
-                            <CardTitle>
-                                <Row>
-                                    <Col lg="10" md="10" xs="10"></Col>
-                                    <Col lg="2" md="2" xs="2">
-                                        <Button className="edit_button">Edit</Button>
-                                    </Col>
-                                </Row>
-                            </CardTitle>
-                            <CardBody>
-                                <ProfileDetail userData={userData}></ProfileDetail>
-                            </CardBody>
-                        </Card>
-
+                       <ProfileMain></ProfileMain>
                     </Col>
                     <Col lg="2" sm="0" style={{textAlign: "center", paddingTop: "35vh"}}>
                     <img src={right_chevron}/>

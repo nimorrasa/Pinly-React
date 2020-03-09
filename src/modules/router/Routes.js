@@ -14,15 +14,15 @@ import SleepTest from "../pages/SleepTest";
 import firebase from 'firebase';
 
 //Neeya's Edit Zone
-import SleepScore from '../pages/SleepSc';
+import SleepSc from '../pages/SleepSc';
 import DailyTest from '../pages/dailytest';
 import WaitToSleep from '../pages/Waittosleep';
 import Wakeup from '../pages/Wakeup';
 
-import HowToRegister from '../pages/howtoregis';
-import HowToSleep from '../pages/howtosleep';
-import Assistant from '../pages/asst';
-import History from '../pages/history';
+// import HowToRegister from '../pages/howtoregis';
+// import HowToSleep from '../pages/howtosleep';
+// import Assistant from '../pages/asst';
+// import History from '../pages/history';
 
 import NotFound from '../pages/notfound';
 //End Neeya's Edit Zone 
@@ -69,7 +69,7 @@ const Routes = (props) => {
         <Route path="/sleep_test">
           <SleepTest theme={theme} onChangeTheme={handleNavbarThemeChange}></SleepTest>
         </Route>
-        //Neeya's Edit
+        {/* //Neeya's Edit */}
         <Route path="/sleep_score">
           <SleepSc theme={theme} onChangeTheme={handleNavbarThemeChange}></SleepSc>
         </Route>
@@ -82,17 +82,17 @@ const Routes = (props) => {
         <Route path="/wake_up">
           <Wakeup theme={theme} onChangeTheme={handleNavbarThemeChange}></Wakeup>
         </Route>
-        <Route path="/how_to_register">
+        {/* <Route path="/how_to_register">
           <HowToRegister theme={theme} onChangeTheme={handleNavbarThemeChange}></HowToRegister>
         </Route>
         <Route path="/how_to_sleep">
           <HowToSleep theme={theme} onChangeTheme={handleNavbarThemeChange}></HowToSleep>
-        </Route>
-        <Route path="/history">
+        </Route> */}
+        {/* <Route path="/history">
           <History theme={theme} onChangeTheme={handleNavbarThemeChange}></History>
-        </Route>
-        <Route  component={NoMatch} />
-        //End Neeya's Edit
+        </Route> */}
+        <Route  component={NotFound} />
+        {/* //End Neeya's Edit */}
         </Switch>
     </main>
     );

@@ -1,27 +1,22 @@
-import React, {Component} from 'react'
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-
 import React, { useState, useCallback, useEffect } from 'react';
-import MyNavbar from '../components/navbar/MyNavbar.js';
-
+import '../css/App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import dailytest from './dailytest';
 
 //import Component and Function
-import RadialBars from './components/SleepScorePage/RadialBars';
-import Bar from './components/SleepScorePage/Bar';
-import SleepScore from './components/SleepScorePage/SleepScore';  //show content SleepScore
-import Btn_gotosleep from './components/SleepScorePage/btngotosleep.png';
-import BtnSummary from './components/SleepScorePage/BtnSummary';
-import BtnShare from './components/SleepScorePage/BtnShare';
-import HRSensor from './components/SleepScorePage/HRSensor';
-import Temp from './components/SleepScorePage/Temp';
-
+import RadialBars from '../components/SleepScorePage/RadialBars';
+import Bar from '../components/SleepScorePage/Bar';
+import SleepScore from '../components/SleepScorePage/SleepScore';  //show content SleepScore
+import Btn_gotosleep from '../components/SleepScorePage/btngotosleep.png';
+import BtnSummary from '../components/SleepScorePage/BtnSummary';
+import BtnShare from '../components/SleepScorePage/BtnShare';
+import HRSensor from '../components/SleepScorePage/HRSensor';
+import Temp from '../components/SleepScorePage/Temp';
+import { Row, Col , Container } from "reactstrap";
 import { Route, Switch,BrowserRouter, Link } from 'react-router-dom';
 
-
 //Create Component - JSX 
-class SleepSc extends Component{
+const SleepSc = (props) => {
   
     const [theme,setTheme] = useState(props.theme);
     const [navbarTheme, setNavbarTheme] = useState(props.theme === 'theme_dark' ? 'dark' : 'light');
@@ -34,7 +29,6 @@ class SleepSc extends Component{
   
     useEffect(() => { setTheme(props.theme)});
 
-  render(){
 
 var ButtonSize ={
   width: "50%",
@@ -115,7 +109,5 @@ var ButtonSize ={
             
     );
   }
-}
-
 
 export default SleepSc;

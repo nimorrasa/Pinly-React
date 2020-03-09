@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { Row, Col, CardBody, CardSubtitle, CardTitle, CardText, Button, Card } from "reactstrap";
-import './FormProfile.css';
 import { useHistory } from "react-router-dom";
 import DiseaseInput from "../../input/DiseaseInput.js";
 import GenderRadio from "../../input/GenderRadio";
@@ -69,7 +68,7 @@ const ProfileForm = (props) => {
     return (
         <div>
         <form onSubmit={handleSubmit(onSubmit)}>
-        <Col className='sign_up_2' xs='12'>
+        <Col className='Profile_step_2' xs='12'>
             <div className="center">
                 <Button className="profile_button"><img width="100%" src={profie_picture} alt="Card image cap" /></Button>
                 {/* <input type="file"></input> */}

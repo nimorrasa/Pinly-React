@@ -1,5 +1,5 @@
 import React from 'react';
-import './components/text.css';
+import '../css/text.css';
 import { Container, Row, Col } from 'reactstrap';
 
 var colorheader ={

@@ -2,9 +2,9 @@ import React, { useState, useCallback, useEffect } from 'react';
 import MyNavbar from '../components/navbar/MyNavbar.js';
 import { Row, Col, CardBody, Card, CardSubtitle, CardTitle, CardText, Button } from "reactstrap";
 
-import IconWaittosleep from './components/WaittoSleepPage/ic_waitsleep.png'
-import './components/text.css';
-import './App.css';
+import IconWaittosleep from '../components/WaittoSleepPage/ic_waitsleep.png'
+import '../css/text.css';
+import '../css/App.css';
 
 var colorheader ={
   color: '#ffffff',

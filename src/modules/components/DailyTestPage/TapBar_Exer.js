@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import './text.css';
+import '../../css/text.css';
 import './formbtn.css';
 import "./progress-bar.css";
 

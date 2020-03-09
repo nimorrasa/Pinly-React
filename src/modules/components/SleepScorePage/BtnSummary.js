@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
-import { MDBBtn } from "mdbreact";
+// import { MDBBtn } from "mdbreact";
 import './formbtn.css';
-import './text.css';
+import '../../css/text.css';
 
 class BtnSummary extends React.Component {
     render() {

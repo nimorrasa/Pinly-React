@@ -1,5 +1,6 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import MyNavbar from '../components/navbar/MyNavbar.js';
+import { Link } from 'react-router-dom';
 import { Row, Col, CardBody, Card, CardTitle, CardText, Button, Media } from "reactstrap";
 import '../css/SleepTest.css';
 import sleep_score from '../../images/button/sleep_score.png';

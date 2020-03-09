@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import './formbtn.css';
-import './text.css';
+import '../../css/text.css';
 
 class BtnConti extends React.Component {    
     render() {

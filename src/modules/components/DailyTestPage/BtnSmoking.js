@@ -1,5 +1,5 @@
 import React from 'react';
-import './text.css';
+import '../../css/text.css';
 import './formbtn.css';
 
 import Btn_smk from './btn_smk.png';
