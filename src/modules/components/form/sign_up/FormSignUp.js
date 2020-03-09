@@ -12,6 +12,7 @@ const FormSignUp = (props) => {
     username : '',
     password : '',
     birthdate : '',
+    macAddress : '',
     // bdate : '',
     // bmonth : '',
     // byear : '',
@@ -37,6 +38,7 @@ const FormSignUp = (props) => {
       username : newData.username,
       password : newData.password,
       birthdate :newBirthdate,
+      macAddress : newData.macAddress,
       bdate : array_birthdate[2],
       bmonth : array_birthdate[1],
       byear : array_birthdate[0],
@@ -53,6 +55,7 @@ const FormSignUp = (props) => {
       username : userData.username,
       password : userData.password,
       birthdate :userData.birthdate,
+      macAddress : userData.macAddress,
       bdate : userData.bdate,
       bmonth : userData.bmonth,
       byear : userData.byear,
@@ -78,7 +81,8 @@ const FormSignUp = (props) => {
 			const weight = registerData.weight;
 			const height = registerData.height;
 			const disease = registerData.disease;
-			const birthdate = registerData.birthdate;
+      const birthdate = registerData.birthdate;
+      const macAddress = registerData.macAddress;
 
 			const posts = {
 				uid: userId,
@@ -88,7 +92,8 @@ const FormSignUp = (props) => {
 				gender: gender,
 				weight: weight,
 				height: height,
-				birthdate: birthdate,
+        birthdate: birthdate,
+        mac_address : macAddress,
 				disease: disease
 			};
 

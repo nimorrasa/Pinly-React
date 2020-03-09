@@ -4,6 +4,7 @@ import { Form, Row, Col } from "reactstrap";
 import { validateEmail } from "../../utils.js";
 import usePasswordValidator from "../../usePasswordValidator.js";
 import BirthDateInput from '../../../../components/input/BirthdateInput.js';
+import MacAddressInput from '../../../../components/input/MacAddressinput.js';
 import '../FormSignUp.css';
 
 const SignUp1 = (props) => {
@@ -29,7 +30,6 @@ const SignUp1 = (props) => {
     const handleEmail = useCallback((event) => { setEmail(event.target.value)},[setEmail]);
     const handlePassword = useCallback((event) => { setPassword(event.target.value)},[setPassword]);
     const handleConfirmPassword = useCallback((event) => { setConfirmPassword(event.target.value)},[setConfirmPassword]);
-
 
     useEffect(
         () => {
@@ -61,21 +61,6 @@ const SignUp1 = (props) => {
         [email]
     );
 
-    // useEffect(
-    //     () => {
-    //     if (!password) {
-    //         setPasswordError("");
-    //     } else {
-    //         if (validatePassword(password)) {
-    //             setPasswordError("");
-    //         } else {
-    //             setPasswordError("Please enter a valid password.");
-    //         }
-    //     }
-    //     },
-    //     [password]
-    // );
-
     useEffect(
         () => {
         if (!confirmPassword || !password) {
@@ -96,7 +81,7 @@ const SignUp1 = (props) => {
     };
 
     const nextStep = values => {
-        if(!passVerified()) {
+        if(!passVerified() || values.birthdate == null) {
             alert('Please check error before submit!');
             return;
         }
@@ -184,7 +169,8 @@ const SignUp1 = (props) => {
                 <div className="error">{confirmPasswordError}</div>
                 </Col>
             </Row>
-                <BirthDateInput register={register} setValue={setValue}></BirthDateInput>
+            <BirthDateInput register={register} setValue={setValue}></BirthDateInput>
+            <MacAddressInput register={register}></MacAddressInput>
             <Row>
                 <Col className="button" lg='3' md="3" xs='3'>
                 <button type="submit">Next</button>
