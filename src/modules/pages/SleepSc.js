@@ -1,7 +1,9 @@
 import React, {Component} from 'react'
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Row, Col } from 'reactstrap';
+
+import React, { useState, useCallback, useEffect } from 'react';
+import MyNavbar from '../components/navbar/MyNavbar.js';
 
 import dailytest from './dailytest';
 
@@ -20,6 +22,18 @@ import { Route, Switch,BrowserRouter, Link } from 'react-router-dom';
 
 //Create Component - JSX 
 class SleepSc extends Component{
+  
+    const [theme,setTheme] = useState(props.theme);
+    const [navbarTheme, setNavbarTheme] = useState(props.theme === 'theme_dark' ? 'dark' : 'light');
+
+    const handleNavbarThemeChange = useCallback((current_theme) => {
+      setNavbarTheme(current_theme);
+      setTheme('theme_'+current_theme);
+      props.onChangeTheme('theme_'+current_theme);
+    },[setNavbarTheme,setTheme]);
+  
+    useEffect(() => { setTheme(props.theme)});
+
   render(){
 
 var ButtonSize ={
