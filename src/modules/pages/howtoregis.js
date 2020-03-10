@@ -30,7 +30,7 @@ const howtoregis = (props) => {
         <Row> {/* Centre */}
         <Col>
             <div className="textsize">
-            <h1 style={colorheader}>HOW TO REGISTER</h1>
+            <h1>HOW TO REGISTER</h1>
             </div>
             <CarouselHowtoRsg/>
         </Col>

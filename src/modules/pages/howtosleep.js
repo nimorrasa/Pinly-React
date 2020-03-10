@@ -30,7 +30,7 @@ const howtosleep = (props) => {
         <Row> {/* Centre */}
         <Col>
             <div className="textsize">
-            <h1 style={colorheader}>HOW TO USE SLEEP TEST</h1>
+            <h1>HOW TO USE SLEEP TEST</h1>
             </div>
             <CarouselHowtoSLT/>
         </Col>
