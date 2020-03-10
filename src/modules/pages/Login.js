@@ -55,7 +55,7 @@ const Login = (props) => {
                     <Col className="col_left" lg="6" xs="12">
                         <h2 id="label" className="m-0 p-0"><b>LOGIN</b></h2>
                         <h4 className="general_section m-0 p-0">Don't have on account? <Link style={{textDecoration: 'none'}} to="/sign_up"><span style={{color: "#3cc7c3"}}>Create your account</span></Link></h4>
-                        <FormLogin firebase={firebase} onChangeStep={onStepChange} onLogin={handleUserId}></FormLogin>
+                        <FormLogin setIsLoading={setIsLoading} firebase={firebase} onChangeStep={onStepChange} onLogin={handleUserId}></FormLogin>
                     </Col>
                     <Col className="col_right" lg="6" xs="12">
                         <header className="App-header">

@@ -11,7 +11,6 @@ const FormLogin = (props) => {
 	const history = useHistory();
 	const [cookies, setCookie] = useCookies();
 	const [userId, setUserId] = useState('');
-	const [ isLoading, setIsLoading ] = useState(true);
 
 	const [userData,setUserData] = useState({
 		email : '',
@@ -88,8 +87,9 @@ const FormLogin = (props) => {
 				setUserId(redirectResult.user.uid);
 			}
 		}
+		props.setIsLoading(true);
 		isRedirect();
-		setIsLoading(false);
+		props.setIsLoading(false);
 	},[]);
 
 	const handleRegister = useCallback(async (user) => {
@@ -113,13 +113,7 @@ const FormLogin = (props) => {
 		history.push('/profile');
 	},[]);
 
-	if(isLoading){
-		return (
-		<div className="loading" style={{textAlign: "center",top: "30vh",height: "50vh",color: "white"}}>
-			<i className="fa fa-spinner fa-spin fa-3x fa-fw"></i>
-		</div>
-		);
-	}else if(step == 'login_with_email') return <LoginEmail onResult={handleResult} onChangeStep={handleStep}></LoginEmail>;
+	if(step == 'login_with_email') return <LoginEmail onResult={handleResult} onChangeStep={handleStep}></LoginEmail>;
 	return <SocialRegister userId={userId} onSuccess={handleRegister} onChangeStep={handleStep}></SocialRegister>;
 
 	};
