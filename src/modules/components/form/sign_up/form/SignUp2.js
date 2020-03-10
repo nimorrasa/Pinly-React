@@ -8,7 +8,7 @@ import GenderRadio from "../../../input/GenderRadio";
 
 const SignUp1 = (props) => {
     const history = useHistory();
-    const { handleSubmit, register, errors } = useForm();
+    const { handleSubmit, register, setValue, errors } = useForm();
     const [weight, setWeight] = useState(0);
     const [weightError, setWeightError] = useState("");
     
@@ -87,7 +87,7 @@ const SignUp1 = (props) => {
               ref={register({required: 'Required'})}/>
             </Col>
           </Row>
-          <DiseaseInput register={register}></DiseaseInput>
+          <DiseaseInput setValue={setValue} register={register}></DiseaseInput>
           <GenderRadio register={register}></GenderRadio>
           <Row>
             <Col className="button" lg='3' xs='3'>

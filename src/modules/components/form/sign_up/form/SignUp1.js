@@ -171,7 +171,7 @@ const SignUp1 = (props) => {
                 </Col>
             </Row>
             <BirthDateInput register={register} setValue={setValue}></BirthDateInput>
-            <MacAddressInput register={register}></MacAddressInput>
+            <MacAddressInput register={register} setValue={setValue}></MacAddressInput>
             <Row>
                 <Col className="button" lg='3' md="3" xs='3'>
                 <button type="submit">Next</button>

@@ -114,7 +114,7 @@ const SocialRegister = (props) => {
               </Col>
             </Row>
             <BirthDateInput register={register} setValue={setValue}></BirthDateInput>
-            <MacAddressInput register={register}></MacAddressInput>
+            <MacAddressInput register={register}  setValue={setValue}></MacAddressInput>
           <Row> 
             <Col id="weight" lg='6' md="6" xs='6'>
               <p className="m-0">Weight</p>
@@ -134,7 +134,7 @@ const SocialRegister = (props) => {
               ref={register({required: 'Required'})}/>
             </Col>
           </Row>
-          <DiseaseInput register={register}></DiseaseInput>
+          <DiseaseInput setValue={setValue} register={register}></DiseaseInput>
           <GenderRadio register={register}></GenderRadio>
           <Row>
             <Col className="button" lg='3' xs='3'>
