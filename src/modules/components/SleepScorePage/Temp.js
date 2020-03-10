@@ -3,7 +3,6 @@ import './text.css';
 import { Container, Row, Col } from 'reactstrap';
 
 var colorheader ={
-  color: '#ffffff',
   padding: 20
 }
 var colorLight ={

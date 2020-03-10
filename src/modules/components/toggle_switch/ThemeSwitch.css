@@ -1,49 +1,69 @@
 .label {
-  background-color: skyblue;
+  background-color: #c4c7cb;
   display: flex;
   height: 30px;
   border-radius: 50px;
-  width: 100px;
+  width: 70px;
   justify-content: space-between;
   align-items: center;
   position: relative;
-  padding: 0 15px;
+  padding: 0 3px;
   transition: all .5s ease-in-out;
   cursor: pointer;
-  border: 2px solid black;
+  border: 3px solid #c4c7cb;
 }
 
 .label .fa-moon-o {
-  color: rgb(250, 250, 250);
+  color: #2b2828;
+  padding-left: 20px;
+
 }
 label .fa-sun-o {
-  color: rgb(250, 250, 250);
+  color: #2b2828;
+  padding-right: 5px;
+
 }
 .blob {
   position: absolute;
-  left: 50%;
-  width: 50%;
-  height: 100%;
-  background: rgb(99, 110, 110);
+  left: 70%;
+  width: 30%;
+  height: 80%;
+  background:#7b7b7c;
   border-radius: 50px;
   transition: .5s ease all;
 }
 .checkbox {
   opacity: 0;
   position: absolute;
+  left: 50%;
+
 }
 .info {
   display: block;
   margin-top: 50px;
+
 }
 .info.night {
-  color: white;
+  color: #c4c7cb;
 }
 .checkbox:checked + .label .blob {
   left: 0;
 }
 .checkbox:checked + .label {
-  background-color: darkblue;
+  background-color: #141313;
+  border: 3px solid #7b7b7c;
+}
+
+.checkbox:checked + .label .fa-moon-o {
+  color:  #7b7b7c;
+  padding-left: 20px;
+  
+
+}
+.checkbox:checked + .label .fa-sun-o {
+  color:  #7b7b7c;
+  padding-right: 5px;
+  padding-left: -2px;
 }
 
 .nav-item button {

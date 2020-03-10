@@ -1,13 +1,13 @@
 import React, { Fragment } from "react";
 import './formbtn.css';
-import '../../css/text.css';
+import './text.css';
 
 class BtnConti extends React.Component {    
     render() {
 
       return (
         <div> 
-            <a href="./Waittosleep"><button className="btn-default">Continue ></button></a>
+            <a href="/wait_to_sleep"><button className="btn-default">Continue ></button></a>
         </div>
       );
     }

@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
+import MyNavbar from '../components/navbar/MyNavbar.js';
 import { Container, Row, Col } from 'reactstrap';
 import '../css/App.css';
-
 //import components 
 import BtnCaffeine from '../components/DailyTestPage/BtnCaffeine';
 import BtnSmoking from '../components/DailyTestPage/BtnSmoking';
@@ -15,11 +15,22 @@ import TapBar_Exer from '../components/DailyTestPage/TapBar_Exer';
 import BtnConti from '../components/DailyTestPage/BtnConti';
 
 
-class dailytest extends React.Component {
-  render(){
-        return(
-  <div className="App">    
-        <div className="Bg-color">
+const dailytest = (props) => {
+
+      const [theme,setTheme] = useState(props.theme);
+      const [navbarTheme, setNavbarTheme] = useState(props.theme === 'theme_dark' ? 'dark' : 'light');
+  
+      const handleNavbarThemeChange = useCallback((current_theme) => {
+        setNavbarTheme(current_theme);
+        setTheme('theme_'+current_theme);
+        props.onChangeTheme('theme_'+current_theme);
+      },[setNavbarTheme,setTheme]);
+    
+      useEffect(() => { setTheme(props.theme)});
+  
+      return (
+          <div>
+              <MyNavbar theme={navbarTheme} onChangeTheme={handleNavbarThemeChange} hideThemeSwitch={false}></MyNavbar>      
         <div className="container-fluid text-center">
          <div className="row">
              <div className="col-md-8">
@@ -42,12 +53,10 @@ class dailytest extends React.Component {
          </div>
         </div>
         </div>
-        </div>
 
 
 
     );
   }
-}
     
     export default dailytest;

@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../css/text.css';
+import './text.css';
 import './formbtn.css';
 import Btn_str from './btn_str.png';
 
@@ -8,7 +8,6 @@ var colorLightNR ={
   fontSize: 25
 }
 var colorfont ={
-  color: '#ffffff',
   fontSize: 30
 }
 var ButtonSize ={
@@ -29,12 +28,9 @@ class BtnStress extends React.Component {
     render() {
       return (
         <div className="container">
-            <div className ="Bg-color">
             <button  className ="btn btn-link" onClick={this.increment}><img src={Btn_str} alt="Caffeine Button Counter " style={ButtonSize} ></img></button>
            {/* <button className="button_storke" onClick={this.decrement}>-</button>*/}
-            
- 
-          </div>
+        
           <h1 style={colorfont}> Stress <span style={colorLightNR}>(1-10 Levels)</span> : {this.state.count} 
           <button className="btn btn-link"onClick={this.reset}> <span style={colorLightNR}>Reset</span> </button></h1>
           

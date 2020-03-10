@@ -50,9 +50,9 @@ const Home = (props) => {
 				<i className="fa fa-spinner fa-spin fa-3x fa-fw"></i>
 			</div>
       <div className={"App Home "+theme} style={{display : (isLoading ? 'none' : 'block' )}}>
-        <header className="App-header">
+        <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-        </header>
+        </div>
         <div>
           <Container className={"App-content "+theme}>
               <Row className="Link-padding" style={{display : (auth != null ? 'none' : 'block' )}}>

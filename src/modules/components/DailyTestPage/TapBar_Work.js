@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import '../../css/text.css';
+import './text.css';
 import './formbtn.css';
 import "./progress-bar.css";
 
@@ -44,7 +44,7 @@ export const TapBar_Work = () => {
 
   return (
       <div className="themed-container" fluid="true">
-      <div className="fontwhite">
+      <div>
       <h1>{percentRange == 500 ? `500 Mins ! Too Much!!` : `Working :  ${percentRange} Mins`}</h1>
       <div className="positionbar">
         <ProgressBar percentRange={percentRange}/>

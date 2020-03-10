@@ -9,20 +9,19 @@ import Login from "../pages/Login.js";
 import SignUp from "../pages/SignUp.js";
 import Help from "../pages/Help.js";
 import Profile from "../pages/Profile.js";
-import Contact_us from "../pages/Contact_us";
-import SleepTest from "../pages/SleepTest";
+import Contact_us from "../pages/Contact_us.js";
+import SleepTest from "../pages/SleepTest.js";
 import firebase from 'firebase';
 
 //Neeya's Edit Zone
-import SleepSc from '../pages/SleepSc';
-import DailyTest from '../pages/dailytest';
-import WaitToSleep from '../pages/Waittosleep';
-import Wakeup from '../pages/Wakeup';
-
-// import HowToRegister from '../pages/howtoregis';
-// import HowToSleep from '../pages/howtosleep';
-// import Assistant from '../pages/asst';
-// import History from '../pages/history';
+import SleepScore from '../pages/SleepSc.js';
+import DailyTest from '../pages/dailytest.js';
+import WaitToSleep from '../pages/Waittosleep.js';
+import Wakeup from '../pages/Wakeup.js';
+import HowToRegister from '../pages/howtoregis.js';
+import HowToSleep from '../pages/howtosleep.js';
+import Assistant from '../pages/asst.js';
+import History from '../pages/history.js';
 
 import NotFound from '../pages/notfound';
 //End Neeya's Edit Zone 
@@ -69,9 +68,10 @@ const Routes = (props) => {
         <Route path="/sleep_test">
           <SleepTest theme={theme} onChangeTheme={handleNavbarThemeChange}></SleepTest>
         </Route>
-        {/* //Neeya's Edit */}
-        <Route path="/sleep_score">
-          <SleepSc theme={theme} onChangeTheme={handleNavbarThemeChange}></SleepSc>
+
+          {/*Neeya's Edit*/}
+          <Route path="/sleep_score">
+          <SleepScore theme={theme} onChangeTheme={handleNavbarThemeChange}></SleepScore>
         </Route>
         <Route path="/daily_test">
           <DailyTest theme={theme} onChangeTheme={handleNavbarThemeChange}></DailyTest>
@@ -82,17 +82,19 @@ const Routes = (props) => {
         <Route path="/wake_up">
           <Wakeup theme={theme} onChangeTheme={handleNavbarThemeChange}></Wakeup>
         </Route>
-        {/* <Route path="/how_to_register">
+        <Route path="/how_to_registeration">
           <HowToRegister theme={theme} onChangeTheme={handleNavbarThemeChange}></HowToRegister>
         </Route>
-        <Route path="/how_to_sleep">
+        <Route path="/how_to_sleeptest">
           <HowToSleep theme={theme} onChangeTheme={handleNavbarThemeChange}></HowToSleep>
-        </Route> */}
-        {/* <Route path="/history">
+        </Route>
+        <Route path="/assistant">
+          <Assistant theme={theme} onChangeTheme={handleNavbarThemeChange}></Assistant>
+        </Route>
+        <Route path="/history">
           <History theme={theme} onChangeTheme={handleNavbarThemeChange}></History>
-        </Route> */}
+        </Route>
         <Route  component={NotFound} />
-        {/* //End Neeya's Edit */}
         </Switch>
     </main>
     );

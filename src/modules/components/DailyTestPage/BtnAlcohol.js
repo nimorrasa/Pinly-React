@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../css/text.css';
+import './text.css';
 import './formbtn.css';
 import Btn_al from './btn_al.png';
 
@@ -9,7 +9,6 @@ var colorLightNR ={
   fontSize: 25
 }
 var colorfont ={
-  color: '#ffffff',
   fontSize: 30
 }
 var ButtonSize ={
@@ -30,12 +29,10 @@ class BtnAlcohol extends React.Component {
     render() {
       return (
         <div className="container">
-            <div className ="Bg-color">
+            
             <button  className ="btn btn-link" onClick={this.increment}><img src={Btn_al} alt="Caffeine Button Counter " style={ButtonSize} ></img></button>
            {/* <button className="button_storke" onClick={this.decrement}>-</button>*/}
-            
- 
-          </div>
+
           <h1 style={colorfont}> Alcohol Drink <span style={colorLightNR}>(bottle)</span> : {this.state.count}
           <button className="btn btn-link"onClick={this.reset}> <span style={colorLightNR}>Reset</span> </button></h1>
           

@@ -3,7 +3,6 @@ import './text.css';
 import { Container, Row, Col } from 'reactstrap';
 
 var colorheader ={
-  color: '#ffffff',
   padding: 20
 }
 var colorLight ={
@@ -15,7 +14,6 @@ var colorLightNR ={
   fontSize: 30
 }
 var colorfont ={
-  color: '#ffffff',
   fontSize: 30
 }
 const SleepScore = (props) => {

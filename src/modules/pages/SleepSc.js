@@ -1,7 +1,9 @@
 import React, { useState, useCallback, useEffect } from 'react';
+import MyNavbar from '../components/navbar/MyNavbar.js';
+import dailytest from './dailytest';
+import { Container, Row, Col } from 'reactstrap';
 import '../css/App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import dailytest from './dailytest';
 
 //import Component and Function
 import RadialBars from '../components/SleepScorePage/RadialBars';
@@ -12,23 +14,23 @@ import BtnSummary from '../components/SleepScorePage/BtnSummary';
 import BtnShare from '../components/SleepScorePage/BtnShare';
 import HRSensor from '../components/SleepScorePage/HRSensor';
 import Temp from '../components/SleepScorePage/Temp';
-import { Row, Col , Container } from "reactstrap";
+
 import { Route, Switch,BrowserRouter, Link } from 'react-router-dom';
+
 
 //Create Component - JSX 
 const SleepSc = (props) => {
   
-    const [theme,setTheme] = useState(props.theme);
-    const [navbarTheme, setNavbarTheme] = useState(props.theme === 'theme_dark' ? 'dark' : 'light');
+  const [theme,setTheme] = useState(props.theme);
+  const [navbarTheme, setNavbarTheme] = useState(props.theme === 'theme_dark' ? 'dark' : 'light');
 
-    const handleNavbarThemeChange = useCallback((current_theme) => {
-      setNavbarTheme(current_theme);
-      setTheme('theme_'+current_theme);
-      props.onChangeTheme('theme_'+current_theme);
-    },[setNavbarTheme,setTheme]);
-  
-    useEffect(() => { setTheme(props.theme)});
+  const handleNavbarThemeChange = useCallback((current_theme) => {
+    setNavbarTheme(current_theme);
+    setTheme('theme_'+current_theme);
+    props.onChangeTheme('theme_'+current_theme);
+  },[setNavbarTheme,setTheme]);
 
+  useEffect(() => { setTheme(props.theme)});
 
 var ButtonSize ={
   width: "50%",
@@ -37,8 +39,9 @@ var ButtonSize ={
   
 }
     return(
-        <div className="App">    
-        <div className="Bg-color">
+
+      <div>
+      <MyNavbar theme={navbarTheme} onChangeTheme={handleNavbarThemeChange} hideThemeSwitch={false}></MyNavbar>
             <Container className="themed-container" fluid="true">
             <Switch>
             <Route path="/dailytest" component={dailytest}/>
@@ -48,7 +51,7 @@ var ButtonSize ={
           <SleepScore/>
         </Col>
         <Col xs={6}>
-        <div className="WhiteFont">
+        <div>
         {/* GO TO SLEEP BUTTON */}
         <div className=" wpb_column vc_col-sm-5 text-center mt-3">
               <div className="g-cols offset_small ">
@@ -57,7 +60,7 @@ var ButtonSize ={
                 </div>
               </div>
               
-              <a href="dailytest" target="dailytest"><img src={Btn_gotosleep} alt="Button Go To Sleep _Daily Test" style={ButtonSize}></img></a>
+              <Link to="/daily_test"><img src={Btn_gotosleep} alt="Button Go To Sleep _Daily Test" style={ButtonSize}></img></Link>
               </div>
                 </div>
                 </Col>
@@ -102,11 +105,11 @@ var ButtonSize ={
                     <BtnShare/>
                     </div>
                     </div>
-                    </div>
-                </div> 
-                </div>
-            
+                    </div>   
+            </div>
     );
   }
+
+
 
 export default SleepSc;
