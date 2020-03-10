@@ -13,9 +13,6 @@ const FormSignUp = (props) => {
     password : '',
     birthdate : '',
     macAddress : '',
-    // bdate : '',
-    // bmonth : '',
-    // byear : '',
     weight : '',
     height : '',
     gender : '',
@@ -31,17 +28,13 @@ const FormSignUp = (props) => {
   });
 
   const handleStep1 = useCallback((newData) => {
-    let array_birthdate = newData.birthdate.substring(0, 10).split('-');
-    let newBirthdate = array_birthdate[2]+'-'+array_birthdate[1]+'-'+array_birthdate[0];
+    let newBirthdate = newData.birthdate;
     setUserData({
       email : newData.email,
       username : newData.username,
       password : newData.password,
       birthdate :newBirthdate,
       macAddress : newData.macAddress,
-      bdate : array_birthdate[2],
-      bmonth : array_birthdate[1],
-      byear : array_birthdate[0],
       weight : userData.weight,
       height : userData.height,
       gender : userData.gender,
@@ -56,9 +49,6 @@ const FormSignUp = (props) => {
       password : userData.password,
       birthdate :userData.birthdate,
       macAddress : userData.macAddress,
-      bdate : userData.bdate,
-      bmonth : userData.bmonth,
-      byear : userData.byear,
       weight : newData.weight,
       height : newData.height,
       gender : newData.gender,

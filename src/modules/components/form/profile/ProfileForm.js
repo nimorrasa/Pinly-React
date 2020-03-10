@@ -13,13 +13,21 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const ProfileForm = (props) => {
     const history = useHistory();
     const { handleSubmit, register, setValue, errors } = useForm();
-    const toggleEdit = useCallback(() => { props.onChangeStep('view_profile');});
+
+    const onSubmit = values => {
+        props.onSuccess({
+            birthdate : values.birthdate,
+            mac_address : values.mac_address,
+            weight : values.weight,
+            height : values.height,
+            disease : values.disease
+        });
+        props.onChangeStep('view_profile');
+    };
 
     useEffect(
         () => {
-            let array_birthdate = props.userData.birthdate.split('-');
-            let date_rearrange = array_birthdate[2]+'-'+array_birthdate[1]+'-'+array_birthdate[0];
-            setValue('birthdate', new Date(date_rearrange));
+            setValue('birthdate',props.userData.birthdate);
             setValue('weight', props.userData.weight);
             setValue('height', props.userData.height);
             setValue('mac_address',props.userData.mac_address);
@@ -29,10 +37,11 @@ const ProfileForm = (props) => {
 
     return (
         <div>
+        <form onSubmit={handleSubmit(onSubmit)}>
         <Row>
             <Col lg="10" md="10" xs="10"></Col>
             <Col lg="2" md="2" xs="2">
-                <Button className="edit_button" onClick={toggleEdit}>SAVE</Button>
+                <Button type="submit" className="edit_button">SAVE</Button>
             </Col>
         </Row>
         <Col className='Profile_step_1' xs='12'>
@@ -44,7 +53,7 @@ const ProfileForm = (props) => {
                 <Col lg="2" md="2" xs="2">
                     <FontAwesomeIcon icon={faBirthdayCake} />
                 </Col>
-                <Col id="bdate" lg='10' md="10" xs='10'>
+                <Col id="birthdate" lg='10' md="10" xs='10'>
                 <BirthdateInput setValue={setValue} register={register} value={props.userData == null ? '' : props.userData.birthdate}></BirthdateInput>
                 </Col>
             </Row>
@@ -52,7 +61,7 @@ const ProfileForm = (props) => {
           <Col lg="2" md="2" xs="2">
                     <FontAwesomeIcon icon={faWeight} />
                 </Col>
-                <Col id="bdate" lg='5' md="5" xs='12'>
+                <Col id="weight" lg='5' md="5" xs='12'>
                     <p className="m-0">Weight</p>
                     <input
                         type="number"
@@ -85,11 +94,12 @@ const ProfileForm = (props) => {
                 <Col lg="2" md="2" xs="2">
                     <FontAwesomeIcon icon={faAddressCard} />
                 </Col>
-                <Col id="bdate" lg='10' md="10" xs='10'>
+                <Col id="mac_address" lg='10' md="10" xs='10'>
                     <MacAddressInput setValue={setValue} register={register} value={props.userData == null ? '' : props.userData.mac_address}></MacAddressInput>
                 </Col>
             </Row>
           </Col>
+        </form>
         </div>
     );
 }

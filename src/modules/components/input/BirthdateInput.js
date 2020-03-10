@@ -5,25 +5,24 @@ import '../form/sign_up/FormSignUp.css';
 import DatePicker from 'reactstrap-date-picker';
 
 const BirthdateInput = (props) => {
-  // const { setValue } = useForm()
-
   useEffect(() => {
+    props.setValue('birthdate',props.value);
     props.register({ name: "birthdate" });
   }, [props.register]);
 
   const onDateChange = useCallback(
     value => {
+      console.log(value, '<DS<AADS<SDA')
       props.setValue("birthdate", value);
     },
     [props.setValue]
   );
 
-
   return (
     <Row>
-      <Col id="bdate" lg='6' md="6" xs='10'>
+      <Col id="birthdate" lg='6' md="6" xs='10'>
         <p className="m-0">Birthdate</p>
-        <DatePicker onChange={onDateChange}/>
+        <DatePicker onChange={onDateChange} autoComplete="off" defaultValue={props.value} dateFormat="DD-MM-YYYY" />
       </Col>
     </Row>
   );

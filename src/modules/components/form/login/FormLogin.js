@@ -15,9 +15,6 @@ const FormLogin = (props) => {
 	const [userData,setUserData] = useState({
 		email : '',
 		username : '',
-		bdate : '',
-		bmonth : '',
-		byear : '',
 		macAddress : '',
 		weight : '',
 		height : '',
@@ -79,8 +76,7 @@ const FormLogin = (props) => {
 	},[]);
 	
 	const handleRegister = useCallback(async (user) => {
-		let array_birthdate = user.birthdate.substring(0, 10).split('-');
-		let newBirthdate = array_birthdate[2]+'-'+array_birthdate[1]+'-'+array_birthdate[0];
+		let newBirthdate = user.birthdate;
 		let current_userid = firebase.auth().currentUser.uid;
 		const posts = {
 			uid: current_userid,

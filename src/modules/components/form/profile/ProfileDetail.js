@@ -7,8 +7,23 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
 const ProfileDetail = (props) => {
+    const [dateFormat,setDateFormat] = useState('');
     const history = useHistory();
     const toggleEdit = useCallback(() => { props.onChangeStep('edit_profile');});
+
+    useEffect(
+        () => {
+            if(props.userData.birthdate != null) {
+                let array_birthdate = props.userData.birthdate.substring(0, 10).split('-');
+                let newBirthdate = array_birthdate[2]+'-'+array_birthdate[1]+'-'+array_birthdate[0];
+                setDateFormat(newBirthdate);
+            }else{
+                setDateFormat('');
+            }
+
+        },
+        [props.userData.birthdate]
+    )
 
     return (
         <div>
@@ -27,16 +42,16 @@ const ProfileDetail = (props) => {
                 <Col lg="2" md="2" xs="2">
                     <FontAwesomeIcon icon={faBirthdayCake} />
                 </Col>
-                <Col id="bdate" lg='6' md="6" xs='10'>
+                <Col id="birthdate" lg='6' md="6" xs='10'>
                     <p className="m-0">Birthdate</p>
-                    <p>{props.userData == null ? 'None' : props.userData.birthdate}</p>
+                    <p>{dateFormat}</p>
                 </Col>
             </Row>
           <Row> 
           <Col lg="2" md="2" xs="2">
                     <FontAwesomeIcon icon={faWeight} />
                 </Col>
-                <Col id="bdate" lg='4' md="4" xs='14'>
+                <Col id="weight" lg='4' md="4" xs='14'>
                     <p className="m-0">Weight</p>
                     <p>{props.userData == null ? 'None' : props.userData.weight}</p>
                 </Col>
@@ -52,7 +67,7 @@ const ProfileDetail = (props) => {
                 <Col lg="2" md="2" xs="2">
                     <FontAwesomeIcon icon={faStethoscope} />
                 </Col>
-                <Col id="bdate" lg='6' md="6" xs='10'>
+                <Col id="disease" lg='6' md="6" xs='10'>
                     <p className="m-0">Disease</p>
                     <p>{props.userData == null ? 'None' : props.userData.disease}</p>
                 </Col>
@@ -61,7 +76,7 @@ const ProfileDetail = (props) => {
                 <Col lg="2" md="2" xs="2">
                     <FontAwesomeIcon icon={faAddressCard} />
                 </Col>
-                <Col id="bdate" lg='6' md="6" xs='10'>
+                <Col id="mac_address" lg='6' md="6" xs='10'>
                     <p className="m-0">Mac Address</p>
                     <p>{props.userData == null ? 'None' : props.userData.mac_address}</p>
                 </Col>
