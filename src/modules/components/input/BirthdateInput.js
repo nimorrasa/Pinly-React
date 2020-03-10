@@ -20,7 +20,7 @@ const BirthdateInput = (props) => {
 
   return (
     <Row>
-      <Col id="birthdate" lg='6' md="6" xs='10'>
+      <Col id="birthdate" lg='6' md="10" xs='10'>
         <p className="m-0">Birthdate</p>
         <DatePicker onChange={onDateChange} autoComplete="off" defaultValue={props.value} dateFormat="DD-MM-YYYY" />
       </Col>

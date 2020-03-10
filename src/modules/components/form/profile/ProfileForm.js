@@ -39,8 +39,8 @@ const ProfileForm = (props) => {
         <div>
         <form onSubmit={handleSubmit(onSubmit)}>
         <Row>
-            <Col lg="10" md="10" xs="10"></Col>
-            <Col lg="2" md="2" xs="2">
+            <Col lg="10" md="9" xs="10"></Col>
+            <Col lg="2" md="3" xs="2" style={{padding: 0, margin: 0}}>
                 <Button type="submit" className="edit_button">SAVE</Button>
             </Col>
         </Row>
@@ -59,9 +59,9 @@ const ProfileForm = (props) => {
             </Row>
           <Row> 
           <Col lg="2" md="2" xs="2">
-                    <FontAwesomeIcon icon={faWeight} />
+                <FontAwesomeIcon icon={faWeight} />
                 </Col>
-                <Col id="weight" lg='5' md="5" xs='12'>
+                <Col id="weight" lg='5' md="10" xs='10'>
                     <p className="m-0">Weight</p>
                     <input
                         type="number"
@@ -69,10 +69,10 @@ const ProfileForm = (props) => {
                         placeholder="weight"
                         ref={register({required: 'Required'})}/>
                 </Col>
-                <Col lg="1" md="1" xs="1">
+                <Col lg="1" md="2" xs="1">
                     <FontAwesomeIcon icon={faRulerVertical} />
                 </Col>
-            <Col id="height" lg='4' md="4" xs='4'>
+            <Col id="height" lg='4' md="10" xs='10'>
                 <p className="m-0">Height</p>
                 <input
                     type="number"

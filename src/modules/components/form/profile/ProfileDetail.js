@@ -28,8 +28,8 @@ const ProfileDetail = (props) => {
     return (
         <div>
         <Row>
-            <Col lg="10" md="10" xs="10"></Col>
-            <Col lg="2" md="2" xs="2">
+            <Col lg="10" md="9" xs="10"></Col>
+            <Col lg="2" md="3" xs="2" style={{padding: 0, margin: 0}}>
                 <Button className="edit_button" onClick={toggleEdit}>Edit</Button>
             </Col>
         </Row>

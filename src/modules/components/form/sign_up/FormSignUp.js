@@ -66,7 +66,6 @@ const FormSignUp = (props) => {
 
 			const email = registerData.email;
       const username = registerData.username;
-      const password = registerData.password;
 			const gender = registerData.gender;
 			const weight = registerData.weight;
 			const height = registerData.height;
@@ -78,7 +77,6 @@ const FormSignUp = (props) => {
 				uid: userId,
 				email: email,
         username: username,
-        password : password,
 				gender: gender,
 				weight: weight,
 				height: height,

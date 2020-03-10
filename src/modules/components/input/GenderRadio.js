@@ -9,7 +9,7 @@ const GenderRadio = (props) => {
 
   return (
     <Row>
-        <Col id="gender" lg='12' xs='12'>
+        <Col id="gender" lg='12' md="12" xs='12'>
             <input
                 style={{margin: "10px"}}
                 name="is_male"

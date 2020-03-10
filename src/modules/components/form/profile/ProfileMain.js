@@ -39,35 +39,29 @@ const ProfileMain = (props) => {
 	});
 
 	const handleSubmit = useCallback(async (newData) => {
-		const userId = newData.uid;
+		const userId = userData.uid;
+		const weight = newData.weight;
+		const height = newData.height;
+		const disease = newData.disease;
+		const birthdate = newData.birthdate;
+		const mac_address = newData.mac_address;
 		
 		let registerData = {
-		  birthdate :newData.birthdate,
-		  macAddress : newData.macAddress,
-		  weight : newData.weight,
-		  height : newData.height,
-		  gender : newData.gender,
-		  disease : newData.disease
+		  uid : userId,
+		  email : userData.email,
+		  username : userData.username,
+		  birthdate :birthdate,
+		  mac_address : mac_address,
+		  weight : weight,
+		  height : height,
+		  gender : userData.gender,
+		  disease : disease
 		};
 		setUserData(registerData);
-
-		const weight = registerData.weight;
-		const height = registerData.height;
-		const disease = registerData.disease;
-		const birthdate = registerData.birthdate;
-		const macAddress = registerData.macAddress;
-	
-		const posts = {
-			weight: weight,
-			height: height,
-			birthdate: birthdate,
-			mac_address : macAddress,
-			disease: disease
-		};
 	
 		try {
 			const database = await firebase.database();
-			const result = await database.ref('/users').child(userId).set(posts);
+			const result = await database.ref('/users').child(userId).set(registerData);
 			alert('Success');	  
 			localStorage.setItem("uid", userId);
 		} catch(error) {
