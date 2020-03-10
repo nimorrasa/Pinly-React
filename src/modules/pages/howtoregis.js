@@ -5,7 +5,7 @@ import '../css/App.css';
 import { Container, Row, Col } from 'reactstrap';
 import CarouselHowtoRsg from '../components/HowtoregisterPage/SlideShow.js'
 var colorheader ={
-  color: '#ffffff',
+  // color: '#ffffff',
   padding: 20
 }
 
@@ -30,7 +30,7 @@ const howtoregis = (props) => {
         <Row> {/* Centre */}
         <Col>
             <div className="textsize">
-            <h1>HOW TO REGISTER</h1>
+            <h1 style={colorheader}>HOW TO REGISTER</h1>
             </div>
             <CarouselHowtoRsg/>
         </Col>

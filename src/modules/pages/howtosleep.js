@@ -4,7 +4,7 @@ import '../components/text.css';
 import { Container, Row, Col } from 'reactstrap';
 import CarouselHowtoSLT from '../components/HowtoSleeptestPage/SlideShow.js'
 var colorheader ={
-  color: '#ffffff',
+  // color: '#ffffff',
   padding: 20
 }
 
@@ -30,7 +30,7 @@ const howtosleep = (props) => {
         <Row> {/* Centre */}
         <Col>
             <div className="textsize">
-            <h1>HOW TO USE SLEEP TEST</h1>
+            <h1 style={colorheader}>HOW TO USE SLEEP TEST</h1>
             </div>
             <CarouselHowtoSLT/>
         </Col>
