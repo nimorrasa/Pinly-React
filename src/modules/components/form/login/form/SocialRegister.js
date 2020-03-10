@@ -86,9 +86,8 @@ const SocialRegister = (props) => {
           height : values.height,
           gender : values.is_male ? 'Male' : 'Female',
           disease : values.disease,
-          macAddress : values.mac_address
+          mac_address : values.mac_address
         });
-        history.push("/home");
     };
 
     return (

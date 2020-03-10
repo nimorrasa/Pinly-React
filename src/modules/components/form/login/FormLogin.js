@@ -11,11 +11,12 @@ const FormLogin = (props) => {
 	const history = useHistory();
 	const [cookies, setCookie] = useCookies();
 	const [userId, setUserId] = useState('');
+	const [ isLoading, setIsLoading ] = useState(true);
 
 	const [userData,setUserData] = useState({
 		email : '',
 		username : '',
-		macAddress : '',
+		mac_address : '',
 		weight : '',
 		height : '',
 		gender : '',
@@ -36,6 +37,7 @@ const FormLogin = (props) => {
 				const response = await firebase.auth().signInWithEmailAndPassword(result.email, result.password);
 				login_userId = response.user.uid;
 				setUserId(login_userId);
+				history.push('/home');
 			} catch(error) {
 				let errorCode = error.code;
 				let errorMessage = error.message;
@@ -64,17 +66,32 @@ const FormLogin = (props) => {
 			}
 		}
 
-		let user = await firebase.database().ref('/users/' + login_userId).once('value');
-		if(user.val() != null) {
-			props.onLogin(login_userId);
-			setCookie('token', login_userId);
-			history.push('/profile');
-		}
-		else{
-			setStep('login_with_social');
-		}
 	},[]);
-	
+
+	useEffect(() => {
+		async function fetchData (user_id) {
+			let user = await firebase.database().ref('/users/' + user_id).once('value');
+			return user.val();
+		}
+
+		async function isRedirect () {
+			let redirectResult = await firebase.auth().getRedirectResult();
+			console.log("Redirect :",redirectResult);
+			if(redirectResult.operationType == 'signIn'){
+				let get_user_data = await fetchData(redirectResult.user.uid);
+				if(get_user_data == null) {
+					setStep('login_with_social');
+				}else{
+					setUserData(get_user_data);
+					history.push('/profile');
+				}
+				setUserId(redirectResult.user.uid);
+			}
+		}
+		isRedirect();
+		setIsLoading(false);
+	},[]);
+
 	const handleRegister = useCallback(async (user) => {
 		let newBirthdate = user.birthdate;
 		let current_userid = firebase.auth().currentUser.uid;
@@ -86,17 +103,23 @@ const FormLogin = (props) => {
 			weight: user.weight,
 			height: user.height,
 			birthdate: newBirthdate,
-			macAddress : user.macAddress,
+			mac_address : user.mac_address,
 			disease: user.disease
 		};
-
 		const database = await firebase.database();
 		const usersRef = await database.ref('/users');
 		const response = await usersRef.child(current_userid).set(posts);
 		setUserData(posts);
+		history.push('/profile');
 	},[]);
 
-	if(step == 'login_with_email') return <LoginEmail onResult={handleResult} onChangeStep={handleStep}></LoginEmail>;
+	if(isLoading){
+		return (
+		<div className="loading" style={{textAlign: "center",top: "30vh",height: "50vh",color: "white"}}>
+			<i className="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+		</div>
+		);
+	}else if(step == 'login_with_email') return <LoginEmail onResult={handleResult} onChangeStep={handleStep}></LoginEmail>;
 	return <SocialRegister userId={userId} onSuccess={handleRegister} onChangeStep={handleStep}></SocialRegister>;
 
 	};

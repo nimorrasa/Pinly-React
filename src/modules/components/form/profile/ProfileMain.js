@@ -24,7 +24,7 @@ const ProfileMain = (props) => {
 			let data = await fetchData(user.uid);
 				setUserData(data);
 			}else{
-					history.push('/login');
+				history.push('/login');
 			}
 			setIsLoading(false);
 		});

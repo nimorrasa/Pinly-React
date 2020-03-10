@@ -31,7 +31,7 @@ const SignUp = (props) => {
             email : submitData.email,
             username : submitData.username,
             birthdate : submitData.birthdate,
-            macAddress : submitData.macAddress,
+            mac_address : submitData.mac_address,
             weight : submitData.weight,
             height : submitData.height,
             gender : submitData.gender,

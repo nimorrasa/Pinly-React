@@ -37,7 +37,6 @@ const Login = (props) => {
         firebase.auth().onAuthStateChanged(function(user) {
             if (user) {
                 setUserId(user);
-                history.push('/');
             }
             setIsLoading(false);
         });
