@@ -2,9 +2,11 @@ import React, { useState, useCallback, useEffect } from 'react';
 import { useHistory } from "react-router-dom";
 import MyNavbar from '../components/navbar/MyNavbar.js';
 import firebase from 'firebase';
+import { useCookies } from 'react-cookie';
 
 const Assistant = (props) => {
     const history = useHistory();
+    const [cookies, setCookie, removeCookie] = useCookies(['theme']);
     const [isLoading,setIsLoading] = useState(true);
     const [theme,setTheme] = useState(props.theme);
     const [navbarTheme, setNavbarTheme] = useState(props.theme === 'theme_dark' ? 'dark' : 'light');
@@ -19,6 +21,7 @@ const Assistant = (props) => {
 
 
   useEffect(() => {
+    handleNavbarThemeChange(cookies.theme);
     async function fetchData (user_id) {
         let user = await firebase.database().ref('/users/' + user_id).once('value');
         return user.val();
@@ -43,7 +46,7 @@ const Assistant = (props) => {
             <div className="loading" style={{textAlign: "center",top: "30vh",height: "50vh",color: "white",display : (!isLoading ? 'none' : 'block' )}}>
 				<i className="fa fa-spinner fa-spin fa-3x fa-fw"></i>
 			</div>
-            <div className={"App Assist "+theme}>
+            <div className={"App Assist "+theme} style={{display : (isLoading ? 'none' : 'block' )}}>
                 Assist
             </div>
         </div>

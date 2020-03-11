@@ -5,6 +5,7 @@ import { Container, Row, Col } from 'reactstrap';
 import IconWaittosleep from '../../images/icon/ic_waitsleep.png'
 import '../css/App.css';
 import firebase from 'firebase';
+import { useCookies } from 'react-cookie';
 
 var colorheader ={
   color: '#ffffff',
@@ -12,8 +13,8 @@ var colorheader ={
 }
 const Waittosleep = (props) => {
   const history = useHistory();
+  const [cookies, setCookie, removeCookie] = useCookies(['theme']);
   const [ userData, setUserData ] = useState({});
-  const [ isLoading, setIsLoading ] = useState(true);
 
   useEffect(() => {
 		async function fetchData (user_id) {
@@ -28,7 +29,6 @@ const Waittosleep = (props) => {
             }else{
                 history.push('/login');
             }
-            setIsLoading(false);
         });
     
 

@@ -4,6 +4,8 @@ import '../components/text.css';
 import '../css/App.css';
 import { Container, Row, Col } from 'reactstrap';
 import CarouselHowtoRsg from '../components/HowtoregisterPage/SlideShow.js'
+import { useCookies } from 'react-cookie';
+
 var colorheader ={
   // color: '#ffffff',
   padding: 20
@@ -11,6 +13,7 @@ var colorheader ={
 
 
 const howtoregis = (props) => {
+  const [cookies, setCookie, removeCookie] = useCookies(['theme']);
   const [theme,setTheme] = useState(props.theme);
   const [navbarTheme, setNavbarTheme] = useState(props.theme === 'theme_dark' ? 'dark' : 'light');
 
@@ -20,7 +23,9 @@ const howtoregis = (props) => {
     props.onChangeTheme('theme_'+current_theme);
   },[setNavbarTheme,setTheme]);
 
-  useEffect(() => { setTheme(props.theme)});
+  useEffect(() => {
+      handleNavbarThemeChange(cookies.theme);
+  },[cookies.theme]);
 
   return (
       <div>

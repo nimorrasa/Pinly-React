@@ -6,8 +6,10 @@ import '../css/Home.css';
 import MyLink from '../components/MyLink.js';
 import MyNavbar from '../components/navbar/MyNavbar.js';
 import firebase from 'firebase';
+import { useCookies } from 'react-cookie';
 
 const Home = (props) => {
+  const [cookies, setCookie, removeCookie] = useCookies(['theme']);
   const [isLoading,setIsLoading] = useState(true);
   const [auth,setAuth] = useState(firebase.auth().currentUser);
   const [userData,setUserData] = useState({});
@@ -24,6 +26,7 @@ const Home = (props) => {
   useEffect(() => { setTheme(props.theme)});
 
   useEffect(() => {
+    handleNavbarThemeChange(cookies.theme);
 		async function fetchData (user_id) {
 			let user = await firebase.database().ref('/users/' + user_id).once('value');
 			return user.val();

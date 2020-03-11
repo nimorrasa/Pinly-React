@@ -1,6 +1,7 @@
 import React from 'react';
 import '../components/text.css';
 import { Container, Row, Col } from 'reactstrap';
+import { useCookies } from 'react-cookie';
 
 var colorheader ={
   color: '#ffffff',
@@ -20,6 +21,8 @@ var colorfont ={
 }
 
 const SleepScore = (props) => {
+  const [cookies, setCookie, removeCookie] = useCookies(['theme']);
+
   return (
  
     <div className="textcenter">

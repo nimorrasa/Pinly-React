@@ -13,10 +13,10 @@ import TapBar_Work from '../components/DailyTestPage/TapBar_Work';
 import TapBar_Exer from '../components/DailyTestPage/TapBar_Exer';
 
 import BtnConti from '../components/DailyTestPage/BtnConti';
-
+import { useCookies } from 'react-cookie';
 
 const dailytest = (props) => {
-
+      const [cookies, setCookie, removeCookie] = useCookies(['theme']);
       const [theme,setTheme] = useState(props.theme);
       const [navbarTheme, setNavbarTheme] = useState(props.theme === 'theme_dark' ? 'dark' : 'light');
   
@@ -26,7 +26,9 @@ const dailytest = (props) => {
         props.onChangeTheme('theme_'+current_theme);
       },[setNavbarTheme,setTheme]);
     
-      useEffect(() => { setTheme(props.theme)});
+      useEffect(() => {
+          handleNavbarThemeChange(cookies.theme);
+      },[cookies.theme]);
   
       return (
           <div>

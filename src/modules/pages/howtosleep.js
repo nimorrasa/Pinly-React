@@ -3,6 +3,8 @@ import MyNavbar from '../components/navbar/MyNavbar.js';
 import '../components/text.css';
 import { Container, Row, Col } from 'reactstrap';
 import CarouselHowtoSLT from '../components/HowtoSleeptestPage/SlideShow.js'
+import { useCookies } from 'react-cookie';
+
 var colorheader ={
   // color: '#ffffff',
   padding: 20
@@ -10,7 +12,8 @@ var colorheader ={
 
 
 const howtosleep = (props) => {
-  const [theme,setTheme] = useState(props.theme);
+    const [cookies, setCookie, removeCookie] = useCookies(['theme']);
+    const [theme,setTheme] = useState(props.theme);
       const [navbarTheme, setNavbarTheme] = useState(props.theme === 'theme_dark' ? 'dark' : 'light');
   
       const handleNavbarThemeChange = useCallback((current_theme) => {
@@ -19,7 +22,9 @@ const howtosleep = (props) => {
         props.onChangeTheme('theme_'+current_theme);
       },[setNavbarTheme,setTheme]);
     
-      useEffect(() => { setTheme(props.theme)});
+      useEffect(() => {
+          handleNavbarThemeChange(cookies.theme);
+      },[cookies.theme]);
   
       return (
           <div>

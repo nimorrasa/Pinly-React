@@ -16,13 +16,14 @@ import BtnShare from '../components/SleepScorePage/BtnShare';
 import HRSensor from '../components/SleepScorePage/HRSensor';
 import Temp from '../components/SleepScorePage/Temp';
 import firebase from 'firebase';
-
+import { useCookies } from 'react-cookie';
 import { Route, Switch,BrowserRouter, Link } from 'react-router-dom';
 
 
 //Create Component - JSX 
 const SleepSc = (props) => {
   const history = useHistory();
+  const [cookies, setCookie, removeCookie] = useCookies(['theme']);
   const [ userData, setUserData ] = useState({});
   const [ isLoading, setIsLoading ] = useState(true);
   const [theme,setTheme] = useState(props.theme);
@@ -34,9 +35,13 @@ const SleepSc = (props) => {
     props.onChangeTheme('theme_'+current_theme);
   },[setNavbarTheme,setTheme]);
 
-  useEffect(() => { setTheme(props.theme)});
 
   useEffect(() => {
+      handleNavbarThemeChange(cookies.theme);
+  },[cookies.theme]);
+
+  useEffect(() => {
+    handleNavbarThemeChange(cookies.theme);
 		async function fetchData (user_id) {
             let user = await firebase.database().ref('/users/' + user_id).once('value');
 			return user.val();

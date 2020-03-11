@@ -18,12 +18,13 @@ import MySetting from '../setting/MySetting.js';
 import MyButton from '../button/MyButton.js';
 import logo from '../../../images/logo.png';
 import firebase from 'firebase';
-
+import { useCookies } from 'react-cookie';
 
 const MyNavbar = (props) => {
+    const [cookies, setCookie, removeCookie] = useCookies(['theme']);
 	const [isOpen, setIsOpen] = useState(false);
-	const [isDark, setIsDark] = useState((props.theme === 'dark'));
-	const [theme, setTheme] = useState(props.theme);
+	const [isDark, setIsDark] = useState((cookies.theme === 'dark'));
+	const [theme, setTheme] = useState(cookies.theme);
 
 	const toggle = () => setIsOpen(!isOpen);
 
@@ -31,12 +32,15 @@ const MyNavbar = (props) => {
 
 	const handleThemeChange = useCallback((new_theme) => {
 		const current_theme = new_theme ? 'dark' : 'light';
+		setCookie('theme',current_theme);
 		setIsDark(new_theme);
 		setTheme(current_theme);
 		props.onChangeTheme(current_theme);
 	},[setIsDark,setTheme]);
 
 	useEffect(() => {
+		setIsDark(cookies.theme == 'dark');
+		setTheme(cookies.theme);
 		async function fetchData (user_id) {
 				let user = await firebase.database().ref('/users/' + user_id).once('value');
 				return user.val();

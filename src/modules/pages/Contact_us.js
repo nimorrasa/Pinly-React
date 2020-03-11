@@ -2,12 +2,13 @@ import React, { useState, useCallback, useEffect } from 'react';
 import MyNavbar from '../components/navbar/MyNavbar.js';
 import { Row, Col, CardBody, Card, CardSubtitle, CardTitle, CardText, Button } from "reactstrap";
 import '../css/Contact_us.css';
-
+import { useCookies } from 'react-cookie';
 
 const Contact_us = (props) => {
-
-    const [theme,setTheme] = useState(props.theme);
-    const [navbarTheme, setNavbarTheme] = useState(props.theme === 'theme_dark' ? 'dark' : 'light');
+    const [cookies, setCookie, removeCookie] = useCookies(['theme']);
+    const [isLoading,setIsLoading] = useState(false);
+    const [theme,setTheme] = useState(cookies.theme);
+    const [navbarTheme, setNavbarTheme] = useState(cookies.theme === 'theme_dark' ? 'dark' : 'light');
 
     const handleNavbarThemeChange = useCallback((current_theme) => {
       setNavbarTheme(current_theme);
@@ -15,12 +16,17 @@ const Contact_us = (props) => {
       props.onChangeTheme('theme_'+current_theme);
     },[setNavbarTheme,setTheme]);
   
-    useEffect(() => { setTheme(props.theme)});
+    useEffect(() => {
+        handleNavbarThemeChange(cookies.theme);
+    },[cookies.theme]);
 
     return (
         <div>
             <MyNavbar theme={navbarTheme} onChangeTheme={handleNavbarThemeChange} hideThemeSwitch={false}></MyNavbar>
-            <div className={"App Contact_us "+theme}>
+            <div className="loading" style={{textAlign: "center",top: "30vh",height: "50vh",color: "white",display : (!isLoading ? 'none' : 'block' )}}>
+				<i className="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+			</div>
+            <div className={"App Contact_us "+theme} style={{display : (isLoading ? 'none' : 'block' )}}>
                 <Card className="main">
                     <CardBody>
                         <CardTitle>

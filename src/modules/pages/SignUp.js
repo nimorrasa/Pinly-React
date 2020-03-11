@@ -5,9 +5,11 @@ import logo from '../../images/logo.png';
 import MyNavbar from '../components/navbar/MyNavbar.js';
 import { useHistory } from "react-router-dom";
 import firebase from 'firebase';
+import { useCookies } from 'react-cookie';
 
 const SignUp = (props) => {
     const history = useHistory();
+    const [cookies, setCookie, removeCookie] = useCookies(['theme']);
     const [isLoading,setIsLoading] = useState(true);
     const [userData,setUserData] = useState({
         email : '',

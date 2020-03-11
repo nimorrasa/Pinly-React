@@ -7,9 +7,11 @@ import ProfileMain from '../components/form/profile/ProfileMain.js';
 import PieChart from '../components/graph/PieChart.js';
 import right_chevron from '../../images/icon/right_chevron.png';
 import '../css/Profile.css';
+import { useCookies } from 'react-cookie';
 
 const Profile = (props) => {
     const history = useHistory();
+    const [cookies, setCookie, removeCookie] = useCookies(['theme']);
     const [ isLoading, setIsLoading ] = useState(true);
     const [ userData, setUserData ] = useState({});
     const [ theme, setTheme ] = useState(props.theme);
@@ -23,10 +25,11 @@ const Profile = (props) => {
     },[setNavbarTheme,setTheme]);
   
     useEffect(() => { 
-        setTheme(props.theme);
-    },[props.theme]);
+        handleNavbarThemeChange(cookies.theme);
+    },[cookies.theme]);
 
     useEffect(() => {
+        handleNavbarThemeChange(cookies.theme);
 		async function fetchData (user_id) {
             let user = await firebase.database().ref('/users/' + user_id).once('value');
             // if(user.val() == null) return null;

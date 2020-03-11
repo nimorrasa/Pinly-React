@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import '../components/text.css';
 import { Container, Row, Col } from 'reactstrap';
 import firebase from 'firebase';
+import { useCookies } from 'react-cookie';
 
 import './SleepSc';
 
@@ -13,8 +14,8 @@ var colorheader ={
 
 const Wakeup = (props) => {
   const history = useHistory();
+  const [cookies, setCookie, removeCookie] = useCookies(['theme']);
   const [ userData, setUserData ] = useState({});
-  const [ isLoading, setIsLoading ] = useState(true);
   
   useEffect(() => {
 		async function fetchData (user_id) {
@@ -29,7 +30,6 @@ const Wakeup = (props) => {
             }else{
                 history.push('/login');
             }
-            setIsLoading(false);
         });
     
 
