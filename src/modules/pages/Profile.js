@@ -47,7 +47,7 @@ const Profile = (props) => {
     },[firebase]);
     
 
-    const goToSleep = useCallback(() => { history.push('/sleep_test')},[]);
+    const goToSleepScore = useCallback(() => { history.push('/sleep_score')},[]);
 
 
 
@@ -73,7 +73,7 @@ const Profile = (props) => {
                         <h3>67% for week</h3>
                         <div>
                             <Row>
-                                <Col lg="6" md="6" xs="12"><Button className="App-button moreinfo" onClick={goToSleep}>MORE INFO</Button></Col>
+                                <Col lg="6" md="6" xs="12"><Button className="App-button moreinfo" onClick={goToSleepScore}>MORE INFO</Button></Col>
                                 <Col lg="6" md="6" xs="12"><Button className="App-button">HISTORY</Button></Col>
                             </Row>
                             <Row>
