@@ -73,6 +73,9 @@ const FormSignUp = (props) => {
       const birthdate = registerData.birthdate;
       const mac_address = registerData.mac_address;
 
+      let birthdate_data = new Date(birthdate);
+      let byear = birthdate_data.getFullYear();
+      
 			const posts = {
 				uid: userId,
 				email: email,
@@ -81,7 +84,7 @@ const FormSignUp = (props) => {
 				weight: weight,
 				height: height,
         birthdate: birthdate,
-        byear : birthdate.getFullYear(),
+        byear : byear,
         mac_address : mac_address,
 				disease: disease
 			};

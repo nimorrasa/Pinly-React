@@ -45,13 +45,16 @@ const ProfileMain = (props) => {
 		const disease = newData.disease;
 		const birthdate = newData.birthdate;
 		const mac_address = newData.mac_address;
+
+		let birthdate_data = new Date(birthdate);
+		let byear = birthdate_data.getFullYear();
 		
 		let registerData = {
 		  uid : userId,
 		  email : userData.email,
 		  username : userData.username,
 		  birthdate :birthdate,
-		  byear : birthdate.getFullYear(),
+		  byear : byear,
 		  mac_address : mac_address,
 		  weight : weight,
 		  height : height,

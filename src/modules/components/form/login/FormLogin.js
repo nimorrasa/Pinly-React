@@ -95,6 +95,10 @@ const FormLogin = (props) => {
 	const handleRegister = useCallback(async (user) => {
 		let newBirthdate = user.birthdate;
 		let current_userid = firebase.auth().currentUser.uid;
+
+		let birthdate = new Date(newBirthdate);
+		let byear = birthdate.getFullYear();
+
 		const posts = {
 			uid: current_userid,
 			email: user.username,
@@ -103,7 +107,7 @@ const FormLogin = (props) => {
 			weight: user.weight,
 			height: user.height,
 			birthdate: newBirthdate,
-			byear : newBirthdate.getFullYear(),
+			byear : byear,
 			mac_address : user.mac_address,
 			disease: user.disease
 		};
