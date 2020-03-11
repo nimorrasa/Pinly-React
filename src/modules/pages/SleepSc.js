@@ -1,4 +1,5 @@
 import React, { useState, useCallback, useEffect } from 'react';
+import { useHistory } from "react-router-dom";
 import MyNavbar from '../components/navbar/MyNavbar.js';
 import dailytest from './dailytest';
 import { Container, Row, Col } from 'reactstrap';
@@ -14,13 +15,16 @@ import BtnSummary from '../components/SleepScorePage/BtnSummary';
 import BtnShare from '../components/SleepScorePage/BtnShare';
 import HRSensor from '../components/SleepScorePage/HRSensor';
 import Temp from '../components/SleepScorePage/Temp';
+import firebase from 'firebase';
 
 import { Route, Switch,BrowserRouter, Link } from 'react-router-dom';
 
 
 //Create Component - JSX 
 const SleepSc = (props) => {
-  
+  const history = useHistory();
+  const [ userData, setUserData ] = useState({});
+  const [ isLoading, setIsLoading ] = useState(true);
   const [theme,setTheme] = useState(props.theme);
   const [navbarTheme, setNavbarTheme] = useState(props.theme === 'theme_dark' ? 'dark' : 'light');
 
@@ -31,6 +35,26 @@ const SleepSc = (props) => {
   },[setNavbarTheme,setTheme]);
 
   useEffect(() => { setTheme(props.theme)});
+
+  useEffect(() => {
+		async function fetchData (user_id) {
+            let user = await firebase.database().ref('/users/' + user_id).once('value');
+			return user.val();
+        }
+    
+        firebase.auth().onAuthStateChanged(async function(user) {
+			if (user) {
+                let data = await fetchData(user.uid);
+                setUserData(data);
+            }else{
+                history.push('/login');
+            }
+            setIsLoading(false);
+        });
+    
+
+    },[]);
+    
 
 var ButtonSize ={
   width: "50%",

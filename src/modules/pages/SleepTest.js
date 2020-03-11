@@ -1,14 +1,18 @@
 import React, { useState, useCallback, useEffect } from 'react';
+import { useHistory } from "react-router-dom";
 import MyNavbar from '../components/navbar/MyNavbar.js';
 import { Row, Col, CardBody, Card, CardTitle, CardText, Button, Media } from "reactstrap";
 import { Route, Switch,BrowserRouter, Link } from 'react-router-dom';
+import firebase from 'firebase';
 
 import '../css/SleepTest.css';
 import sleep_score from '../../images/button/sleep_score.png';
 import go_to_sleep from '../../images/button/go_to_sleep.png';
 
 const SleepTest = (props) => {
-
+    const history = useHistory();
+    const [ userData, setUserData ] = useState({});
+    const [ isLoading, setIsLoading ] = useState(true);
     const [theme,setTheme] = useState(props.theme);
     const [navbarTheme, setNavbarTheme] = useState(props.theme === 'theme_dark' ? 'dark' : 'light');
     const [isHoverSleepScore,setIsHoverSleepScore] = useState(false);
@@ -20,7 +24,24 @@ const SleepTest = (props) => {
       props.onChangeTheme('theme_'+current_theme);
     },[setNavbarTheme,setTheme]);
 
+    useEffect(() => {
+		async function fetchData (user_id) {
+            let user = await firebase.database().ref('/users/' + user_id).once('value');
+			return user.val();
+        }
+    
+        firebase.auth().onAuthStateChanged(async function(user) {
+			if (user) {
+                let data = await fetchData(user.uid);
+                setUserData(data);
+            }else{
+                history.push('/login');
+            }
+            setIsLoading(false);
+        });
+    
 
+    },[]);
     
     useEffect(() => { setTheme(props.theme)});
 
