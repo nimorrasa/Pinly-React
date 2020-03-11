@@ -13,8 +13,8 @@ const Home = (props) => {
   const [isLoading,setIsLoading] = useState(true);
   const [auth,setAuth] = useState(firebase.auth().currentUser);
   const [userData,setUserData] = useState({});
-  const [theme, setTheme] = useState(props.theme);
-  const [navbarTheme, setNavbarTheme] = useState(props.theme === 'theme_dark' ? 'dark' : 'light');
+  const [theme, setTheme] = useState(cookies.theme);
+  const [navbarTheme, setNavbarTheme] = useState(cookies.theme === 'theme_dark' ? 'dark' : 'light');
 
   const handleNavbarThemeChange = useCallback((current_theme) => {
     setNavbarTheme(current_theme);
