@@ -30,10 +30,23 @@ const MySetting = (props) => {
     }
 
     useEffect(() => {
-      setIsAuth(firebase.auth().currentUser != null);
-    },[setIsAuth]);
-
-
+      async function fetchData (user_id) {
+          let user = await firebase.database().ref('/users/' + user_id).once('value');
+          return user.val();
+        }
+      
+        firebase.auth().onAuthStateChanged(async function(user) {
+          if (user) {
+              let data = await fetchData(user.uid);
+              setIsAuth(true);
+            }else{
+              setIsAuth(false)
+            }
+          });
+        
+  
+    },[firebase]);
+  
     return (
       <Dropdown className={props.theme} onMouseOver={onMouseEnter} onMouseLeave={onMouseLeave} isOpen={dropdownOpen} toggle={toggle}>
         <DropdownToggle tag="button" type="button" className="my-button my-setting">

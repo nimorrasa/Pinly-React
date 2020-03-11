@@ -66,17 +66,17 @@ const MyNavbar = (props) => {
 				<NavItem>
 				<Link to='/home'><MyButton type="text" title="Home"></MyButton></Link>
 				</NavItem>
-				<NavItem style={{display : (isAuth ? 'block' : 'none')}}>
+				<NavItem>
 				<Link to='/profile'><MyButton type="text" title="Profile"></MyButton></Link>
 				</NavItem>
-				<NavItem style={{display : (isAuth ? 'block' : 'none')}}>
+				<NavItem>
 				<Link to='/sleep_test'><MyButton type="text" title="Sleep Test"></MyButton></Link>
 				</NavItem>
 				<NavItem>
 				<Link to='/contact_us'><MyButton type="text" title="Contact"></MyButton></Link>
 				</NavItem>
 				<NavItem>
-				<MyDropdown theme={theme} alignment="left" titleType="icon" title="fa fa-question-circle" items={(isAuth ? ["How to Registeration","How to Sleeptest","Assistant"] : ["How to Registeration","How to Sleeptest"])}></MyDropdown>
+				<MyDropdown theme={theme} alignment="left" titleType="icon" title="fa fa-question-circle" items={["How to Registeration","How to Sleeptest","Assistant"] }></MyDropdown>
 				</NavItem>
 			</Nav>
 			<Nav className="mr-auto-right" navbar>
