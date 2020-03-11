@@ -51,6 +51,7 @@ const ProfileMain = (props) => {
 		  email : userData.email,
 		  username : userData.username,
 		  birthdate :birthdate,
+		  byear : birthdate.getFullYear(),
 		  mac_address : mac_address,
 		  weight : weight,
 		  height : height,

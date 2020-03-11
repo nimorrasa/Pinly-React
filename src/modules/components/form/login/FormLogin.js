@@ -103,6 +103,7 @@ const FormLogin = (props) => {
 			weight: user.weight,
 			height: user.height,
 			birthdate: newBirthdate,
+			byear : newBirthdate.getFullYear(),
 			mac_address : user.mac_address,
 			disease: user.disease
 		};

@@ -81,6 +81,7 @@ const FormSignUp = (props) => {
 				weight: weight,
 				height: height,
         birthdate: birthdate,
+        byear : birthdate.getFullYear(),
         mac_address : mac_address,
 				disease: disease
 			};
