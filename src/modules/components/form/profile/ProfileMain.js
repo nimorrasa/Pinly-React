@@ -3,6 +3,7 @@ import './FormProfile.css';
 import ProfileDetail  from './ProfileDetail.js';
 import ProfileForm  from './ProfileForm.js';
 import { useHistory } from "react-router-dom";
+import { updateMacAddress } from '../../../helpers';
 import firebase from 'firebase';
 
 const ProfileMain = (props) => {
@@ -31,7 +32,6 @@ const ProfileMain = (props) => {
 	
 
 	},[firebase]);
-
 
 	const handleStep = useCallback((step) => {
 		setStep(step);
@@ -66,6 +66,8 @@ const ProfileMain = (props) => {
 		try {
 			const database = await firebase.database();
 			const result = await database.ref('/users').child(userId).set(registerData);
+			const res = await updateMacAddress(registerData.uid, registerData.mac_address);
+			console.log(res);
 			alert('Success');	  
 			localStorage.setItem("uid", userId);
 		} catch(error) {

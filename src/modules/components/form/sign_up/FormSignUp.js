@@ -3,6 +3,7 @@ import './FormSignUp.css';
 import SignUp1  from './form/SignUp1.js';
 import SignUp2  from './form/SignUp2.js';
 import { useHistory } from "react-router-dom";
+import { createMacAddress } from '../../../helpers';
 import firebase from 'firebase';
 
 const FormSignUp = (props) => {
@@ -59,7 +60,8 @@ const FormSignUp = (props) => {
     let userId = '';
     try { 
       let result = await firebase.auth().createUserWithEmailAndPassword(registerData.email, registerData.password);
-			userId = result.user.uid;
+      userId = result.user.uid;
+      await createMacAddress(userId, registerData.mac_address);
     } catch(error) {
       alert(error);
     }

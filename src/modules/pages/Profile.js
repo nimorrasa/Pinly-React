@@ -48,7 +48,6 @@ const Profile = (props) => {
     
 
     },[firebase]);
-    
 
     const goToSleepScore = useCallback(() => { history.push('/sleep_score')},[]);
 

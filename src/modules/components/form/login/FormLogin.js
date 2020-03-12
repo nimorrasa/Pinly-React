@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom";
 import LoginEmail  from './form/LoginEmail.js';
 import SocialRegister  from './form/SocialRegister.js';
 import { useCookies } from 'react-cookie';
+import { createMacAddress } from '../../../helpers';
 import firebase from 'firebase';
 
 const FormLogin = (props) => {
@@ -28,6 +29,11 @@ const FormLogin = (props) => {
 		setStep(step);
 		props.onChangeStep(step);
 	});
+
+	async function createMacAddress(uid,mac_address) {
+        const response = await fetch('http://35.247.149.111:5000/user_create?uid='+uid+'&mac_address='+mac_address)
+		return response;
+    }
 
   	const handleResult = useCallback( async (result) => {
 		let login_userId = null;
@@ -114,6 +120,7 @@ const FormLogin = (props) => {
 		const database = await firebase.database();
 		const usersRef = await database.ref('/users');
 		const response = await usersRef.child(current_userid).set(posts);
+		const res = await createMacAddress(posts.uid, posts.mac_address);
 		setUserData(posts);
 		history.push('/profile');
 	},[]);
