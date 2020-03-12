@@ -16,6 +16,6 @@ npm run build
 ```bash
 npm cache clean -
 rm -rf node_modules package-lock.json
-ืnpm install
+npm install
 npm start
 ```
