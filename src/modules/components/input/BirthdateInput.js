@@ -12,7 +12,6 @@ const BirthdateInput = (props) => {
 
   const onDateChange = useCallback(
     value => {
-      console.log(value, '<DS<AADS<SDA')
       props.setValue("birthdate", value);
     },
     [props.setValue]
