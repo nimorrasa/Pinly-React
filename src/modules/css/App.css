@@ -97,3 +97,7 @@ body{
   background-color: #141313;
   height: 100%;
 }
+
+.toast-body{
+  background: darkturquoise;
+ }
