@@ -8,7 +8,7 @@ import MacAddressInput from '../../../../components/input/MacAddressinput.js';
 import '../FormSignUp.css';
 
 const SignUp1 = (props) => {
-    const { handleSubmit, register, setValue, errors } = useForm();
+    const { handleSubmit, register, setValue, getValues,  errors } = useForm();
     const [email, setEmail] = useState("");
     const [emailError, setEmailError] = useState("");
     
@@ -170,7 +170,7 @@ const SignUp1 = (props) => {
                 <div className="error">{confirmPasswordError}</div>
                 </Col>
             </Row>
-            <BirthDateInput register={register} setValue={setValue}></BirthDateInput>
+            <BirthDateInput register={register} setValue={setValue} getValues={getValues}></BirthDateInput>
             <MacAddressInput register={register} setValue={setValue}></MacAddressInput>
             <Row>
                 <Col className="button" lg='3' md="3" xs='3'>

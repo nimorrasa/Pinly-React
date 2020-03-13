@@ -11,7 +11,7 @@ import GenderRadio from "../../../input/GenderRadio";
 
 const SocialRegister = (props) => {
     const history = useHistory();
-    const { handleSubmit, register, setValue , errors } = useForm();
+    const { handleSubmit, register, setValue , getValues, errors } = useForm();
 
     const [username, setUsername] = useState("");
     const [usernameError, setUsernameError] = useState("");
@@ -112,7 +112,7 @@ const SocialRegister = (props) => {
                   <div className="error">{usernameError}</div>
               </Col>
             </Row>
-            <BirthDateInput register={register} setValue={setValue}></BirthDateInput>
+            <BirthDateInput register={register} setValue={setValue} getValues={getValues}></BirthDateInput>
             <MacAddressInput register={register}  setValue={setValue}></MacAddressInput>
           <Row> 
             <Col id="weight" lg='6' md="6" xs='6'>

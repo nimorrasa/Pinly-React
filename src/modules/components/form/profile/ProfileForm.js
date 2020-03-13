@@ -12,7 +12,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ProfileForm = (props) => {
     const history = useHistory();
-    const { handleSubmit, register, setValue, errors } = useForm();
+    const { handleSubmit, register, setValue, getValues ,errors } = useForm();
 
     const onSubmit = values => {
         props.onSuccess({
@@ -54,7 +54,7 @@ const ProfileForm = (props) => {
                     <FontAwesomeIcon icon={faBirthdayCake} />
                 </Col>
                 <Col id="birthdate" lg='10' md="10" xs='10'>
-                <BirthdateInput setValue={setValue} register={register} value={props.userData == null ? '' : props.userData.birthdate}></BirthdateInput>
+                <BirthdateInput setValue={setValue} register={register} getValues={getValues} value={props.userData == null ? '' : props.userData.birthdate}></BirthdateInput>
                 </Col>
             </Row>
           <Row> 
