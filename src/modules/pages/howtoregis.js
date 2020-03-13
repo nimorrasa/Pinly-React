@@ -31,7 +31,7 @@ const howtoregis = (props) => {
       <div>
           <MyNavbar theme={navbarTheme} onChangeTheme={handleNavbarThemeChange} hideThemeSwitch={false}></MyNavbar>      
     <div className="textcenter">
-    <Container className="themed-container" fluid="true">
+    <Container className="container" fluid="true">
         <Row> {/* Centre */}
         <Col>
             <div className="textsize">

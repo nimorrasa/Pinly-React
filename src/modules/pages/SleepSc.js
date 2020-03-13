@@ -69,73 +69,45 @@ var ButtonSize ={
 }
     return(
 
-      <div>
-      <MyNavbar theme={navbarTheme} onChangeTheme={handleNavbarThemeChange} hideThemeSwitch={false}></MyNavbar>
-            <Container className="themed-container" fluid="true">
-            <Switch>
-            <Route path="/dailytest" component={dailytest}/>
-            </Switch>
-        <Row> {/* Centre */}
-        <Col xs={6}>
-          <SleepScore/>
-        </Col>
-        <Col xs={6}>
-        <div>
-        {/* GO TO SLEEP BUTTON */}
-        <div className=" wpb_column vc_col-sm-5 text-center mt-3">
-              <div className="g-cols offset_small ">
-                <div className="vc_col-sm-12 wpb_column mt-2">
-                  <h1>Ready to Sleep?</h1>
-                </div>
-              </div>
-              
-              <Link to="/daily_test"><img src={Btn_gotosleep} alt="Button Go To Sleep _Daily Test" style={ButtonSize}></img></Link>
-              </div>
-                </div>
-                </Col>
+      	<div>
+      		<MyNavbar theme={navbarTheme} onChangeTheme={handleNavbarThemeChange} hideThemeSwitch={false}></MyNavbar>
+      		<Container style={{textAlign: "center"}}>
+          		<Row>
+          			<Col lg="6" md="6" xs="12">
+						<Row>
+							  <SleepScore/>
+						</Row>
+						  <Row>
+						  	<RadialBars/>
+						  </Row>
+						  <Row>
+						  	<Temp/>
+						  </Row>
+							<Row>
+								<BtnSummary/>
+							</Row>
+        			</Col>
+					<Col lg="6" md="6" xs="12">
+						<Row>
+							<Col lg="12" md="12" xs="12">
+								<h1>Ready to Sleep?</h1>
+							</Col>
+							<Link to="/daily_test"><img src={Btn_gotosleep} alt="Button Go To Sleep _Daily Test" style={ButtonSize}></img></Link>
+						</Row>
+						<Row>
+							<h1>Snor (1 Bar : 1 hr)</h1>
+                        	<Bar/>
+						</Row>
+						<Row>
+							<HRSensor/>
+						</Row>
+						<Row>
+							<BtnShare/>
+						</Row>
+                	</Col>
                 </Row>
-                </Container>
-                <Container className="themed-container" fluid="true">
-                <div className=" wpb_column vc_col-sm-5 text-center mt-3">
-                <div className="App-link">
-                {/*<a href ="#" className="App-link"> <h1>More info</h1></a>*/}
-                </div>
-                </div>
-                </Container>
-                {/* RADIALBAR AND BAR*/}
-                    <div className="container">
-                    <div className="row">
-                        <div className="col-sm">
-                        <RadialBars/>
-                        </div>
-                        <div className="col-sm">
-                        <Bar/>
-                        </div>
-                    </div>
-                    </div>
-                {/* TEMP AND HR Sensor */}
-                    <div className=" wpb_column vc_col-sm-5 text-center mt-3">
-                    <div className="container">
-                    <div className="row">
-                    <div className="col-sm">
-                    <Temp/>
-                    </div>
-                    <div className="col-sm">
-                    <HRSensor/>
-                    </div>
-                    </div>
-                    </div>
-                    </div>
-                {/* SUMMARY AND SHARED BUTTON  */}
-                    <div className="btn-padding-top-bottom">
-                    <div className="container">
-                    <div className="row justify-content-md-center">
-                    <BtnSummary/>
-                    <BtnShare/>
-                    </div>
-                    </div>
-                    </div>   
-            </div>
+			</Container>
+        </div>
     );
   }
 

@@ -51,6 +51,8 @@ const Profile = (props) => {
 
     const goToSleepScore = useCallback(() => { history.push('/sleep_score')},[]);
 
+    const goToHistory = useCallback(() => { history.push('/history')},[]);
+
 
 
     return (
@@ -76,7 +78,7 @@ const Profile = (props) => {
                         <div>
                             <Row>
                                 <Col lg="6" md="6" xs="12"><Button className="App-button moreinfo" onClick={goToSleepScore}>MORE INFO</Button></Col>
-                                <Col lg="6" md="6" xs="12"><Button className="App-button">HISTORY</Button></Col>
+                                <Col lg="6" md="6" xs="12"><Button className="App-button" onClick={goToHistory}>HISTORY</Button></Col>
                             </Row>
                             <Row>
                                 <Button className="App-button">SHARE</Button>

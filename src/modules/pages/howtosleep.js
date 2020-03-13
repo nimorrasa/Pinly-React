@@ -31,7 +31,7 @@ const howtosleep = (props) => {
               <MyNavbar theme={navbarTheme} onChangeTheme={handleNavbarThemeChange} hideThemeSwitch={false}></MyNavbar>
               <div className={"App Sleep_test "+theme}>
     <div className="textcenter">
-    <Container className="themed-container" fluid="true">
+    <Container className="container" fluid="true">
         <Row> {/* Centre */}
         <Col>
             <div className="textsize">

@@ -220,18 +220,14 @@ class RadialBars extends Component {
 
   render() {
     return (
-      <div className="app">
-        
-          <div className="col radial-chart">
-            <Chart
-              options={this.state.optionsRadial}
-              series={this.state.seriesRadial}
-              type="radialBar"
-              width="400"
-            />
-          </div>
-        </div>
-        
+    <div className="col radial-chart">
+      <Chart
+        options={this.state.optionsRadial}
+        series={this.state.seriesRadial}
+        type="radialBar"
+        width="400"
+      />
+    </div>
     );
   }
 }

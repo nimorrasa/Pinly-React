@@ -26,7 +26,7 @@ const SleepScore = (props) => {
   return (
  
     <div className="textcenter">
-    <Container className="themed-container" fluid="true">
+    <Container className="container" fluid="true">
         <Row> {/* Centre */}
         <Col>
             <h1 style={colorLight}>404 NOT FOUND</h1>

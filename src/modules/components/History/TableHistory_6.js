@@ -4,28 +4,30 @@ import './layout.css';
 import { Table } from 'reactstrap';
 import { UncontrolledCollapse, Button, CardBody, Card } from 'reactstrap';
 
-const TableHistory = (props) => {
+const TableHistory_6 = (props) => {
   return (
     <div className="layout">
-         <Button color="secondary" size="lg" id="toggler" block style={{ marginBottom: '1rem' }}>
-      28/02/2020
+         <Button color="secondary" size="lg" id="toggler6" block style={{ marginBottom: '1rem' }}>
+         04/03/2020
     </Button>
-    <UncontrolledCollapse toggler="#toggler">
+    <UncontrolledCollapse toggler="#toggler6">
     <Table striped>
       <thead>
         <tr>
-          <th className="WhiteFont">TOTAL</th>
-          <th className="WhiteFont">STATE</th>
+          <th className="WhiteFont">SLEEP SCORE</th>
+          <th className="WhiteFont">TOTAL SLEEP HOUR</th>
           <th className="WhiteFont">SNOR</th>
+          <th className="WhiteFont">TEMPERATURE</th>
           <th className="WhiteFont">HEART RATE</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <th className="WhiteFont" scope="row">98</th>
-          <td className="WhiteFont">GOOD</td>
-          <td className="WhiteFont">25</td>
-          <td className="WhiteFont">80</td>
+          <td className="WhiteFont">12 hrs</td>
+          <td className="WhiteFont">BAD</td>
+          <td className="WhiteFont">27 c</td>
+          <td className="WhiteFont">55 bpm</td>
         </tr>
       </tbody>
 
@@ -36,4 +38,4 @@ const TableHistory = (props) => {
   );
 }
 
-export default TableHistory;
+export default TableHistory_6;

@@ -38,7 +38,7 @@ const Wakeup = (props) => {
   return (
     <div className="Bg-color">
     <div className="textcenter">
-    <a href="/sleep_score"><Container className="themed-container" fluid="true">
+    <a href="/sleep_score"><Container className="container" fluid="true">
         <Row> {/* Centre */}
         <Col>
             <div className="textsize">

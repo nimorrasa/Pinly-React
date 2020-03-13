@@ -12,16 +12,12 @@ var colorLight ={
 
 const HRSensor = (props) => {
   return (
-    <div className="textcenter">
-    <Container className="themed-container" fluid="true">
-        <Row> {/* Centre */}
-            <div className="textsize">
-            <h1 style={colorheader}>Heart rate</h1>
-            </div>
-            <h1 style={colorLight}>55 bpm</h1>
-      </Row>
-    </Container>
-    </div>
+    <Row> {/* Centre */}
+        <div className="textsize">
+        <h1 style={colorheader}>Heart rate</h1>
+        </div>
+        <h1 style={colorLight}>55 bpm</h1>
+    </Row>
       );
     }
     
