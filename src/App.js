@@ -48,7 +48,7 @@ function App() {
         <Routes firebase={firebase} theme={theme} onChangeTheme={handleNavbarThemeChange}></Routes>
       </Router>
       <Toast isOpen={show}>
-        <ToastHeader toggle={toggle}>Alert</ToastHeader>
+        <ToastHeader toggle={toggle}>PINLY</ToastHeader>
         <ToastBody>
           <font color="black">Time to sleep</font>
         </ToastBody>
