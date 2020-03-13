@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { Row, Col } from "reactstrap";
+import { isMACAddress } from 'validator';
 import '../form/sign_up/FormSignUp.css';
 
 const MacAddressInput = (props) => {
@@ -20,7 +21,7 @@ const MacAddressInput = (props) => {
             if(!macAddress) {
                 setMacAddressError('');
             }else{
-                if(!macAddress.match(/^([A-F0-9]{2}:){5}[A-F0-9]{2}$/i)) setMacAddressError("Please enter a valid mac address")
+                if(!isMACAddress(macAddress)) setMacAddressError("Please enter a valid mac address")
                 else setMacAddressError('');
             }
         },
@@ -49,13 +50,7 @@ const MacAddressInput = (props) => {
                 size="17"
                 maxLength="25"
                 placeholder="Mac Address"
-                ref={props.register({
-                    required: 'Required',
-                    pattern: {
-                        value: /^([0-9A-F]{2}[:-]){5}([0-9A-F]{2})$/,
-                        message: "invalid mac address"
-                    }
-                    })}
+                ref={props.register({required: 'Required'})}
                 />
                 <div className="error">{macAddressError}</div>
             </Col>
