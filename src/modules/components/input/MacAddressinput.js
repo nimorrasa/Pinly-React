@@ -18,12 +18,10 @@ const MacAddressInput = (props) => {
 
     useEffect(
         () => {
-            if(!macAddress) {
-                setMacAddressError('');
-            }else{
-                if(!isMACAddress(macAddress)) setMacAddressError("Please enter a valid mac address")
-                else setMacAddressError('');
-            }
+            let errorMacAddress = '';
+            if(macAddress && !isMACAddress(macAddress)) errorMacAddress = "Please enter a valid mac address";
+            setMacAddressError(errorMacAddress);
+            props.updateMacAddressError(errorMacAddress);
         },
         [macAddress]
     )

@@ -20,6 +20,8 @@ const SignUp1 = (props) => {
 
     const [passwordShow,setPasswordShow] = useState(false);
 
+    const [macAddressError,setMacAddressError] = useState('');
+
     const togglePassword = useCallback(() => { setPasswordShow(!passwordShow); });
     const [password, setPassword, passwordError] = usePasswordValidator({
         min: 8,
@@ -96,6 +98,14 @@ const SignUp1 = (props) => {
         props.onChangeStep('sign_up_step_2');
     };
 
+    
+  const handleErrorMacAddressError = useCallback(
+    (value) => {
+      setMacAddressError(value);
+    },
+    []
+  )
+
     return (
         <div>
         <form onSubmit={handleSubmit(nextStep)}>
@@ -171,7 +181,7 @@ const SignUp1 = (props) => {
                 </Col>
             </Row>
             <BirthDateInput register={register} setValue={setValue} getValues={getValues}></BirthDateInput>
-            <MacAddressInput register={register} setValue={setValue}></MacAddressInput>
+            <MacAddressInput updateMacAddressError={handleErrorMacAddressError} register={register} setValue={setValue}></MacAddressInput>
             <Row>
                 <Col className="button" lg='3' md="3" xs='3'>
                 <button type="submit">Next</button>

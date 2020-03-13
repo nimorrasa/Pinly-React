@@ -14,6 +14,8 @@ const ProfileForm = (props) => {
     const history = useHistory();
     const { handleSubmit, register, setValue, getValues ,errors } = useForm();
 
+    const [macAddressError,setMacAddressError] = useState('');
+
     const onSubmit = values => {
         props.onSuccess({
             birthdate : values.birthdate,
@@ -34,6 +36,14 @@ const ProfileForm = (props) => {
         },
         []
     );
+
+
+  const handleErrorMacAddressError = useCallback(
+    (value) => {
+      setMacAddressError(value);
+    },
+    []
+  )
 
     return (
         <div>
@@ -95,7 +105,7 @@ const ProfileForm = (props) => {
                     <FontAwesomeIcon icon={faAddressCard} />
                 </Col>
                 <Col id="mac_address" lg='10' md="10" xs='10'>
-                    <MacAddressInput setValue={setValue} register={register} value={props.userData == null ? '' : props.userData.mac_address}></MacAddressInput>
+                    <MacAddressInput updateMacAddressError={handleErrorMacAddressError} setValue={setValue} register={register} value={props.userData == null ? '' : props.userData.mac_address}></MacAddressInput>
                 </Col>
             </Row>
           </Col>

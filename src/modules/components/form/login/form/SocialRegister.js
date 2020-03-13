@@ -22,6 +22,8 @@ const SocialRegister = (props) => {
     const [height, setHeight] = useState(0);
     const [heightError, setHeightError] = useState("");
 
+    const [macAddressError,setMacAddressError] = useState('');
+
     useEffect(
         () => {
         if (!weight) {
@@ -70,6 +72,13 @@ const SocialRegister = (props) => {
       [username]
   );
 
+  const handleErrorMacAddressError = useCallback(
+    (value) => {
+      setMacAddressError(value);
+    },
+    []
+  )
+
     function passVerified(){ 
       return usernameError === "" && weightError === "" && heightError === "";
     };
@@ -113,7 +122,7 @@ const SocialRegister = (props) => {
               </Col>
             </Row>
             <BirthDateInput register={register} setValue={setValue} getValues={getValues}></BirthDateInput>
-            <MacAddressInput register={register}  setValue={setValue}></MacAddressInput>
+            <MacAddressInput updateMacAddressError={handleErrorMacAddressError} register={register}  setValue={setValue}></MacAddressInput>
           <Row> 
             <Col id="weight" lg='6' md="6" xs='6'>
               <p className="m-0">Weight</p>
