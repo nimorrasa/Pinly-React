@@ -3,7 +3,7 @@ import { Row, Col } from "reactstrap";
 import '../form/sign_up/FormSignUp.css';
 
 const GenderRadio = (props) => {
-  const [gender,setGender] = useState('');
+  const [gender,setGender] = useState(props.getValues && props.getValues().gender);
 
   const handleGenderChange = useCallback((event) => { setGender(event.target.value)},[setGender])
 
@@ -16,7 +16,7 @@ const GenderRadio = (props) => {
                 type="radio"
                 label="gender"
                 onChange={handleGenderChange}
-                checked={gender === 'Male'}
+                checked={gender && gender === 'Male'}
                 value='Male'
                 ref={props.register()}/>
                 Male
@@ -26,7 +26,7 @@ const GenderRadio = (props) => {
                 type="radio"
                 label="gender"
                 onChange={handleGenderChange}
-                checked={gender === 'Female'}
+                checked={gender && gender === 'Female'}
                 value='Female'
                 ref={props.register()}/>
                 Female

@@ -97,7 +97,7 @@ const ProfileForm = (props) => {
                     <FontAwesomeIcon icon={faStethoscope} />
                 </Col>
                 <Col id="disease" lg='10' md="10" xs='10'>
-                    <DiseaseInput setValue={setValue} register={register} value={props.userData == null ? '' : props.userData.disease}></DiseaseInput>
+                    <DiseaseInput getValues={getValues} setValue={setValue} register={register} value={props.userData == null ? '' : props.userData.disease}></DiseaseInput>
                 </Col>
             </Row>
             <Row>

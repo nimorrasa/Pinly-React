@@ -4,7 +4,7 @@ import { isMACAddress } from 'validator';
 import '../form/sign_up/FormSignUp.css';
 
 const MacAddressInput = (props) => {
-    const [macAddress,setMacAddress] = useState('');
+    const [macAddress,setMacAddress] = useState(props.getValues && props.getValues().mac_address);
     const [macAddressError,setMacAddressError] = useState('');
 
     const handleMacAddress = useCallback((event) => { setMacAddress(formatMAC(event.target.value))},[setMacAddress]);

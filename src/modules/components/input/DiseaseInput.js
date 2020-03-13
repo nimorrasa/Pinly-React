@@ -3,7 +3,7 @@ import { Row, Col } from "reactstrap";
 import '../form/sign_up/FormSignUp.css';
 
 const DiseaseInput = (props) => {
-	const [disease,setDisease] = useState('');
+	const [disease,setDisease] = useState(props.getValues && props.getValues().disease);
 
 	const diseases = [
 		'Insomnia',

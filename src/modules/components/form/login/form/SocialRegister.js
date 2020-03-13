@@ -142,8 +142,8 @@ const SocialRegister = (props) => {
               ref={register({required: 'Required'})}/>
             </Col>
           </Row>
-          <DiseaseInput setValue={setValue} register={register}></DiseaseInput>
-          <GenderRadio register={register}></GenderRadio>
+          <DiseaseInput getValues={getValues} setValue={setValue} register={register}></DiseaseInput>
+          <GenderRadio getValues={getValues} register={register}></GenderRadio>
           <Row>
             <Col className="button" lg='3' xs='3'>
               <button type="button" onClick={backStep}>Back</button>
