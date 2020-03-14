@@ -25,14 +25,23 @@ const Waittosleep = (props) => {
 
 	const submitWakeUp = useCallback(
 		async () => {
+			let timestamp = new Date();
 			let userId = userData.uid;
+			let current_sleep = new Date(userData.current_sleep);
 			let sleepData = {};
-			sleepData.current_wakeup = new Date();
+			sleepData.current_wakeup = timestamp;
 			sleepData.sleep_status = 2;
+			sleepData.sleep_period = Math.round(( timestamp - current_sleep ) / 60000);
+
+			let sleepLog = {
+				sleep_status : 2,
+				timestamp : timestamp
+			};
 
 			try {
 				const database = await firebase.database();
 				const result = await database.ref('/users').child(userId).update(sleepData);
+				await database.ref('/sleep_log').child(userId).set(sleepLog);
 				alert('Success');	
 				history.push("/wake_up");  
 			} catch(error) {
