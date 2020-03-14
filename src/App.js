@@ -15,6 +15,12 @@ firebase.initializeApp(config);
 firebase.analytics();
 
 function App() {
+  const notification_at = "22:01";
+
+  const times = notification_at.split(":");
+  const hour = parseInt(times[0]);
+  const minute = parseInt(times[1]);
+
   const [theme, setTheme] = useState('theme_dark');
 
   const [show, setShow] = useState(false)
@@ -25,7 +31,7 @@ function App() {
 
   useInterval(() => {
     const date = new Date()
-    if (date.getHours() === 22 && !isAlreadyShow) {
+    if (date.getHours() === hour && date.getMinutes() === minute && !isAlreadyShow) {
       setShow(true)
       setIsAlreadyShow(true)
     }
@@ -33,7 +39,7 @@ function App() {
 
   useInterval(() => {
     const date = new Date()
-    if (date.getHours() !== 22 && isAlreadyShow) {
+    if (date.getHours() !== hour && date.getMinutes() !== minute && isAlreadyShow) {
       setIsAlreadyShow(false)
     }
   }, 1000)
@@ -47,7 +53,7 @@ function App() {
       <Router>
         <Routes firebase={firebase} theme={theme} onChangeTheme={handleNavbarThemeChange}></Routes>
       </Router>
-      <Toast isOpen={show}>
+      <Toast isOpen={show} style={{borderRadius : "15px 15px"}}>
         <ToastHeader toggle={toggle}>PINLY</ToastHeader>
         <ToastBody>
           <font color="black">Time to sleep</font>

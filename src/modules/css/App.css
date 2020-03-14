@@ -100,14 +100,22 @@ body{
 
 .toast{
   margin-top: -100px; 
-  margin-left: -100px;
+  margin-left: -150px;
   top:50%;
   left:50%;
   position: fixed;
   min-width: 200px;
+  height: 150px;
+  width: 300px;
   text-align: center;
 }
 
+.toast-header {
+  font-size: 2rem;
+}
 .toast-body{
+  height: 100%;
+  padding-top: 15px;
+  font-size: 2rem;
   background: darkturquoise;
  }
