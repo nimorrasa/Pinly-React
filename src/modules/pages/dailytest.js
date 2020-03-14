@@ -40,20 +40,22 @@ const dailytest = (props) => {
 			let timestamp = new Date();
 			let userId = userData.uid;
 			let sleepData = {};
-			sleepData.alcohol_drink = newData.alcohol;
-			sleepData.caffeine = newData.caffeine;
-			sleepData.smoking = newData.smoking;
-			sleepData.stress = newData.stress;
-			sleepData.nap = newData.nap;
-			sleepData.working = newData.working;
-			sleepData.exercise = newData.exercise;
+			let daily_test = {};
+			daily_test.alcohol = newData.alcohol;
+			daily_test.caffeine = newData.caffeine;
+			daily_test.smoking = newData.smoking;
+			daily_test.stress = newData.stress;
+			daily_test.nap = newData.nap;
+			daily_test.working = newData.working;
+			daily_test.exercise = newData.exercise;
 			sleepData.current_sleep = timestamp;
 			sleepData.sleep_status = 1;
 			sleepData.sleep_period = 0;
 
 			try {
 				const database = await firebase.database();
-				const result = await database.ref('/users').child(userId).update(sleepData);
+				const result1 = await database.ref('/users').child(userId).update(sleepData);
+				const result2 = await database.ref('/users').child(userId).child('daily_test').update(daily_test);
 				alert('Success');	
 				history.push("/wait_to_sleep");  
 			} catch(error) {
