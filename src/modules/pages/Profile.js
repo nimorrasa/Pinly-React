@@ -8,13 +8,19 @@ import PieChart from '../components/graph/PieChart.js';
 import right_chevron from '../../images/icon/right_chevron.png';
 import '../css/Profile.css';
 import { useCookies } from 'react-cookie';
+import { getDetail } from '../helpers';
 
 const Profile = (props) => {
     const history = useHistory();
     const [cookies, setCookie, removeCookie] = useCookies(['theme']);
     const [ isLoading, setIsLoading ] = useState(true);
-    const [ userData, setUserData ] = useState({});
+    const [ userData, setUserData ] = useState(null);
     const [ theme, setTheme ] = useState(props.theme);
+    const [sleepScoreToday,setSleepScoreToday] = useState(0);
+    const [sleepScoreWeekly,setSleepScoreWeekly] = useState(0);
+    const [currentSleep,setCurrentSleep] = useState(new Date());
+    const [currentWakeUp,setCurrentWakeUp] = useState(new Date());
+    const [totalSleep,setTotalSleep] = useState(0);
     const [ navbarTheme, setNavbarTheme ] = useState(props.theme === 'theme_dark' ? 'dark' : 'light');
     const [ step, setStep ] = useState('view_profile');
 
@@ -53,6 +59,27 @@ const Profile = (props) => {
 
     const goToHistory = useCallback(() => { history.push('/history')},[]);
 
+    const fetchData = useCallback(async (userData) => {
+        const res = await getDetail(userData.mac_address);
+        const sleepData = res.doc;
+
+        setSleepScoreToday(sleepData.Sleep_Score_Today * 100 / 10);
+        setSleepScoreWeekly(!userData.sleep_score_weekly ? 0 : userData.sleep_score_weekly * 100 / 10); 
+        setTotalSleep(userData.sleep_period);
+
+        setCurrentSleep(userData.current_sleep);
+        setCurrentWakeUp(userData.current_wakeup);
+    }, [])
+
+    useEffect(
+        () => {
+            if (userData) {
+                fetchData(userData)
+            }
+        },
+        [userData]
+    )
+
 
 
     return (
@@ -72,9 +99,9 @@ const Profile = (props) => {
                     <Col className="profile right" lg="5" sm="6">
                         <div className="center">
                         <div><h1>Today</h1></div>
-                        <PieChart theme={navbarTheme}></PieChart>
-                        <h3>Your sleep score today is 95%</h3>
-                        <h3>67% for week</h3>
+                        <PieChart theme={navbarTheme} totalSleep={totalSleep} currentSleep={currentSleep} currentWakeUp={currentWakeUp} value={sleepScoreToday}></PieChart>
+                        <h3>Your sleep score today is {parseInt(sleepScoreToday)}%</h3>
+                        <h3>{parseInt(sleepScoreWeekly)}% for week</h3>
                         <div>
                             <Row>
                                 <Col lg="6" md="6" xs="12"><Button className="App-button moreinfo" onClick={goToSleepScore}>MORE INFO</Button></Col>

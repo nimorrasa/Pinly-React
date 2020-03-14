@@ -4,7 +4,8 @@ import ReactApexChart from "react-apexcharts";
 
 
 const PieChart = (props) => {
-    const series= [75];
+    const series= [props.value];
+
     const options= {
         chart: {
         type: 'radialBar',
@@ -55,7 +56,7 @@ const PieChart = (props) => {
             },
             value: {
                 formatter: function(val) {
-                return "0:30AM-6.00AM";
+                return `${new Date(props.currentSleep).toLocaleTimeString('en-US')} - ${new Date(props.currentWakeUp).toLocaleTimeString('en-US')}`;
                 },
                 color: 'grey',
                 fontSize: '16px',
@@ -80,7 +81,7 @@ const PieChart = (props) => {
         stroke: {
         lineCap: 'round'
         },
-        labels: ['6h 30m'],
+        labels: [parseInt(props.totalSleep / 60) +"h "+ parseInt(props.totalSleep % 60)+ " m"],
     }
     
     return (
