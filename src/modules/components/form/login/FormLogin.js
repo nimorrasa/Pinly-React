@@ -30,11 +30,6 @@ const FormLogin = (props) => {
 		props.onChangeStep(step);
 	});
 
-	async function createMacAddress(uid,mac_address) {
-        const response = await fetch('http://34.87.8.207:5000/user_create?uid='+uid+'&mac_address='+mac_address)
-		return response;
-    }
-
   	const handleResult = useCallback( async (result) => {
 		let login_userId = null;
 		if(result.type == 'login_with_email') {
