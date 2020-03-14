@@ -6,18 +6,16 @@ const DiseaseInput = (props) => {
 	const [disease,setDisease] = useState('');
 
 	const diseases = [
-		'None',
 		'Insomnia',
-		'snoring',
-		'sleep Apnea',
+		'Insufficient sleep syndrome',
+		'Insomnia secondary to medical problems',
+		'Central origin of hypersomnolence',
+		'Circadian rhythm disorder',
 		'Parasomnia',
-		'sleep related breathing disorder',
-		'sleep related movement disorder',
-		'Central origin hypersomnolence',
-		'Circadien rhythm disorder',
-		'Narcolepsy',
-		'Migraine',
-		'Other'
+		'Sleep related breathing disorder',
+		'Sleep related movement disorder',
+		'Idiopathic insomnia',
+		'None'
 	];
 
 	useEffect(() => {
