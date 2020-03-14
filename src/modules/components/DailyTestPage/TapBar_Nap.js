@@ -39,8 +39,22 @@ function EffectedFn() {
   );
 }
 
-export const TapBar_Nap = () => {
+export const TapBar_Nap = (props) => {
   let [percentRange, setProgress] = useState(0);
+
+  useEffect(
+		() => {
+			props.register({ name: "nap" });
+		},
+		[props.register]
+	);
+
+	useEffect(
+		() => {
+			props.setValue('nap', percentRange);
+		},
+		[percentRange]
+	)
 
   return (
       <div className="container" fluid="true">
@@ -50,9 +64,9 @@ export const TapBar_Nap = () => {
         <ProgressBar percentRange={percentRange}/>
         </div>
       <div className="toggle-buttons button">
-        <button className="btn btn-link" onClick={() => setProgress(percentRange < 500 ? percentRange - 10 : 500) }><h1>-</h1></button>
-        <button className="btn btn-link" onClick={() => setProgress(percentRange < 500 ? percentRange + 10 : 500) }><h1>+</h1></button>
-        <button className="btn btn-link" onClick={() => setProgress(0)}><span>Reset</span></button>
+        <button type="button" className="btn btn-link" onClick={() => setProgress(percentRange < 500 ? percentRange - 10 : 500) }><h1>-</h1></button>
+        <button type="button" className="btn btn-link" onClick={() => setProgress(percentRange < 500 ? percentRange + 10 : 500) }><h1>+</h1></button>
+        <button type="button" className="btn btn-link" onClick={() => setProgress(0)}><span>Reset</span></button>
       </div>
       </div>
       </div>

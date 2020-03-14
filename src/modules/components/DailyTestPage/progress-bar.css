@@ -22,13 +22,19 @@
 }
 
 .toggle-buttons button {
-     color: white;
+    color: white;
     margin: 0 5px;
 
     border-radius: 5px;
     outline: 0;
     cursor: pointer;
 }
+
+
+.theme_light .toggle-buttons button {
+    color: black;
+}
+
 
 .fontwhite {
     font-size: 20px;

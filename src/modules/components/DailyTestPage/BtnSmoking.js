@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useState, useEffect} from 'react';
 import './text.css';
 import './formbtn.css';
 
@@ -17,30 +17,56 @@ var ButtonSize ={
     
     
   }
-class BtnSmoking extends React.Component {
+const BtnSmoking = (props) => {
 
-    state = { count: 0};
+	const [count,setCount] = useState(0);
 
-    increment = () => this.setState({count: this.state.count + 1});
-    decrement = () => this.state.count > 0 && this.setState({count: this.state.count - 1});
-    reset = () => this.state.count !== 0 && this.setState({count: 0});
-  
-    render() {
-      return (
-        <div className="container">
-  
-            <button  className ="btn btn-link" onClick={this.increment}><img src={Btn_smk} alt="Caffeine Button Counter " style={ButtonSize} ></img></button>
-           {/* <button className="button_storke" onClick={this.decrement}>-</button>*/}
-            
+	const increment = useCallback(
+		() => {
+			setCount(count + 1)
+		},
+		[count]
+	) 
+	const decrement = useCallback(
+		() => {
+			setCount(count - 1)
+		},
+		[count]
+	) 
+	const reset = useCallback(
+		() => {
+			setCount(count - 1)
+		},
+		[count]
+	) 
 
-          <h1 style={colorfont}> Smoking <span style={colorLightNR}>(roll)</span> : {this.state.count}
-          <button className="btn btn-link"onClick={this.reset}> <span style={colorLightNR}>Reset</span> </button></h1>
-          
-          
-        </div>
-    
-      )
-    }
-  };
+	useEffect(
+		() => {
+			props.register({ name: "smoking" });
+		},
+		[props.register]
+	);
+
+	useEffect(
+		() => {
+			props.setValue('smoking', count);
+		},
+		[count]
+	)
+	
+	return (
+		<div className="container">
+
+			<button type="button" className ="btn btn-link" onClick={increment}><img src={Btn_smk} alt="Caffeine Button Counter " style={ButtonSize} ></img></button>
+			{/* <button className="button_storke" onClick={decrement}>-</button>*/}
+			
+
+			<h1 style={colorfont}> Smoking <span style={colorLightNR}>(roll)</span> : {count}
+			<button type="button" className="btn btn-link"onClick={reset}> <span style={colorLightNR}>Reset</span> </button></h1>
+			
+			
+		</div>
+	)
+}
 
     export default BtnSmoking;
