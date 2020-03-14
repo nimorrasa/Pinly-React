@@ -23,26 +23,26 @@ function App() {
 
   const [theme, setTheme] = useState('theme_dark');
 
-  const [show, setShow] = useState(false)
+  const [show, setShow] = useState(true)
 
-  const [isAlreadyShow, setIsAlreadyShow] = useState(false)
+  const [isAlreadyShow, setIsAlreadyShow] = useState(true)
 
   const toggle = () => setShow(!show)
 
-  useInterval(() => {
-    const date = new Date()
-    if (date.getHours() === hour && date.getMinutes() === minute && !isAlreadyShow) {
-      setShow(true)
-      setIsAlreadyShow(true)
-    }
-  }, 1000)
+  // useInterval(() => {
+  //   const date = new Date()
+  //   if (date.getHours() === hour && date.getMinutes() === minute && !isAlreadyShow) {
+  //     setShow(true)
+  //     setIsAlreadyShow(true)
+  //   }
+  // }, 1000)
 
-  useInterval(() => {
-    const date = new Date()
-    if (date.getHours() !== hour && date.getMinutes() !== minute && isAlreadyShow) {
-      setIsAlreadyShow(false)
-    }
-  }, 1000)
+  // useInterval(() => {
+  //   const date = new Date()
+  //   if (date.getHours() !== hour && date.getMinutes() !== minute && isAlreadyShow) {
+  //     setIsAlreadyShow(false)
+  //   }
+  // }, 1000)
 
   const handleNavbarThemeChange = useCallback((current_theme) => {
     setTheme(current_theme);
@@ -55,7 +55,7 @@ function App() {
       </Router>
       <Toast isOpen={show} style={{borderRadius : "15px 15px"}}>
         <ToastHeader toggle={toggle}>PINLY</ToastHeader>
-        <ToastBody>
+        <ToastBody style={{paddingTop : "30px"}}>
           <font color="black">Time to sleep</font>
         </ToastBody>
       </Toast>
