@@ -60,7 +60,7 @@ const ProfileMain = (props) => {
 		  height : height,
 		  gender : userData.gender,
 		  disease : disease,
-		  Sleep_Status : 2
+		  sleep_status : 2
 		};
 		setUserData(registerData);
 	

@@ -39,15 +39,15 @@ const dailytest = (props) => {
 		async (newData) => {
 			let userId = userData.uid;
 			let sleepData = {};
-			sleepData.Alcohol_Drink = newData.alcohol;
-			sleepData.Caffeine = newData.caffeine;
-			sleepData.Smoking = newData.smoking;
-			sleepData.Stress = newData.stress;
-			sleepData.Nap = newData.nap;
-			sleepData.Working = newData.working;
-			sleepData.Exercise = newData.exercise;
+			sleepData.alcohol_drink = newData.alcohol;
+			sleepData.caffeine = newData.caffeine;
+			sleepData.smoking = newData.smoking;
+			sleepData.stress = newData.stress;
+			sleepData.nap = newData.nap;
+			sleepData.working = newData.working;
+			sleepData.exercise = newData.exercise;
 			sleepData.current_sleep = new Date();
-			sleepData.Sleep_Status = 1;
+			sleepData.sleep_status = 1;
 
 			try {
 				const database = await firebase.database();

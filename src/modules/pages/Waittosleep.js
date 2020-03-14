@@ -28,7 +28,7 @@ const Waittosleep = (props) => {
 			let userId = userData.uid;
 			let sleepData = {};
 			sleepData.current_wakeup = new Date();
-			sleepData.Sleep_Status = 2;
+			sleepData.sleep_status = 2;
 
 			try {
 				const database = await firebase.database();
