@@ -51,15 +51,9 @@ const dailytest = (props) => {
 			sleepData.sleep_status = 1;
 			sleepData.sleep_period = 0;
 
-			let sleepLog = {
-				sleep_status : 1,
-				timestamp : timestamp
-			};
-
 			try {
 				const database = await firebase.database();
 				const result = await database.ref('/users').child(userId).update(sleepData);
-				await database.ref('/sleep_log').child(userId).set(sleepLog);
 				alert('Success');	
 				history.push("/wait_to_sleep");  
 			} catch(error) {
