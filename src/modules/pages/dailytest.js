@@ -37,31 +37,24 @@ const dailytest = (props) => {
 
 	const submitSleep = useCallback(
 		async (newData) => {
-			console.log(userData)
-			console.log('Submit',newData);
 			let userId = userData.uid;
-
-			console.log(userId);
-
 			let sleepData = {};
-			sleepData.alcohol = newData.alcohol;
-			sleepData.caffeine = newData.caffeine;
-			sleepData.smoking = newData.smoking;
-			sleepData.stress = newData.stress;
-			sleepData.nap = newData.nap;
-			sleepData.working = newData.working;
-			sleepData.exercise = newData.exercise;
+			sleepData.Alcohol_Drink = newData.alcohol;
+			sleepData.Caffeine = newData.caffeine;
+			sleepData.Smoking = newData.smoking;
+			sleepData.Stress = newData.stress;
+			sleepData.Nap = newData.nap;
+			sleepData.Working = newData.working;
+			sleepData.Exercise = newData.exercise;
+			sleepData.current_sleep = new Date();
+			sleepData.Sleep_Status = 1;
 
-
-			console.log(sleepData)
-		  	// setUserData(sleepData);
-	  
 			try {
 				const database = await firebase.database();
 				const result = await database.ref('/users').child(userId).update(sleepData);
-				alert('Success');	  
+				alert('Success');	
+				history.push("/wait_to_sleep");  
 			} catch(error) {
-				// Handle Errors here.
 				var errorCode = error.code;
 				var errorMessage = error.message;
 				alert(errorMessage);
