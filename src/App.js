@@ -23,26 +23,26 @@ function App() {
 
   const [theme, setTheme] = useState('theme_dark');
 
-  const [show, setShow] = useState(true)
+  const [show, setShow] = useState(false)
 
-  const [isAlreadyShow, setIsAlreadyShow] = useState(true)
+  const [isAlreadyShow, setIsAlreadyShow] = useState(false)
 
   const toggle = () => setShow(!show)
 
-  // useInterval(() => {
-  //   const date = new Date()
-  //   if (date.getHours() === hour && date.getMinutes() === minute && !isAlreadyShow) {
-  //     setShow(true)
-  //     setIsAlreadyShow(true)
-  //   }
-  // }, 1000)
+  useInterval(() => {
+    const date = new Date()
+    if (date.getHours() === hour && date.getMinutes() === minute && !isAlreadyShow) {
+      setShow(true)
+      setIsAlreadyShow(true)
+    }
+  }, 1000)
 
-  // useInterval(() => {
-  //   const date = new Date()
-  //   if (date.getHours() !== hour && date.getMinutes() !== minute && isAlreadyShow) {
-  //     setIsAlreadyShow(false)
-  //   }
-  // }, 1000)
+  useInterval(() => {
+    const date = new Date()
+    if (date.getHours() !== hour && date.getMinutes() !== minute && isAlreadyShow) {
+      setIsAlreadyShow(false)
+    }
+  }, 1000)
 
   const handleNavbarThemeChange = useCallback((current_theme) => {
     setTheme(current_theme);
