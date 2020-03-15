@@ -1,30 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './text.css';
 import { Container, Row, Col } from 'reactstrap';
 
 var colorheader ={
-  padding: 20
+	padding: 20
 }
 var colorLight ={
-  color: '#3cc7c3',
-  fontSize: "10rem"
+	color: '#3cc7c3',
+	fontSize: "10rem"
 }
 var colorLightNR ={
-  color: '#3cc7c3',
-  // fontSize: "3rem"
+	color: '#3cc7c3',
+	// fontSize: "3rem"
 }
 var colorfont ={
-  // fontSize: "3rem"
+	// fontSize: "3rem"
 }
+
 const SleepScore = (props) => {
+	const [sleepScoreToday,setSleepScoreToday] = useState(90);
+	const [sleepScoreYesterday,setSleepScoreYesterday] = useState(81);
+
+
   return (
     <Row>
       <Col>
           <div className="textsize">
           <h1 style={colorheader}>Sleep Score</h1>
           </div>
-          <h1 style={colorLight}>98</h1>
-          <h1 style={colorfont}>Is'<span style={colorLightNR}>6</span> point higher than yesterday</h1>
+          <h1 style={colorLight}>{sleepScoreToday}</h1>
+          <h1 style={colorfont}>Is'<span style={colorLightNR}>{(sleepScoreToday - sleepScoreYesterday )}</span> point {sleepScoreToday >= sleepScoreYesterday ? 'higher' : 'lower' } than yesterday</h1>
       </Col>
     </Row>
       );

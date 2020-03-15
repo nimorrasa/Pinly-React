@@ -75,7 +75,7 @@ var ButtonSize ={
           		<Row>
           			<Col lg="6" md="6" xs="12">
 						<Row>
-							  <SleepScore/>
+							<SleepScore/>
 						</Row>
 						  <Row>
 						  	<RadialBars/>

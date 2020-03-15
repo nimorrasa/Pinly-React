@@ -61,7 +61,7 @@ const BtnCaffeine  = (props) => {
           <button type="button" className ="btn btn-link" onClick={increment}><img src={Btn_cff} alt="Caffeine Button Counter " style={ButtonSize} ></img></button>
          {/* <button className="button_storke" onClick={decrement}>-</button>*/}
 
-        <h1 style={colorfont}> Caffeine <span style={colorLightNR}>(cup)</span> : {count}
+        <h1 style={colorfont}> Coffee <span style={colorLightNR}>(cup)</span> : {count}
         <button type="button" className="btn btn-link"onClick={reset}> <span style={colorLightNR}>Reset</span> </button></h1>
         
         
