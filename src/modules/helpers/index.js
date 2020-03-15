@@ -27,3 +27,8 @@ export async function get_sleep_data_by_macaddress(uid,mac_address) {
     const response = await fetch('http://34.87.8.207:5000/sleep_score_weekly?uid='+uid+'&mac_address='+mac_address)
     return response.json();
 }
+
+export async function get_mic_summary(date,mac_address) {
+    const response = await fetch('http://34.87.8.207:5000/mic_summary?date='+date+'&mac_address='+mac_address)
+    return response.json();
+}

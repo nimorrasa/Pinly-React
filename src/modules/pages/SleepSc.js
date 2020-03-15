@@ -18,12 +18,21 @@ import Temp from '../components/SleepScorePage/Temp';
 import firebase from 'firebase';
 import { useCookies } from 'react-cookie';
 import { Route, Switch,BrowserRouter, Link } from 'react-router-dom';
-
+import { get_mic_summary } from '../helpers';
 
 //Create Component - JSX 
 const SleepSc = (props) => {
   const history = useHistory();
   const [cookies, setCookie, removeCookie] = useCookies(['theme']);
+
+  const [sleepScoreToday,setSleepScoreToday] = useState(70);
+  const [sleepScoreYesterday,setSleepScoreYesterday] = useState(50);
+  const [temp,setTemp] = useState(25);
+  const [summaryMics,setSummaryMics] = useState({
+	  hours : [],
+	  series : []
+  });
+  const [hearthRate,setHearthRate] = useState(85);
   const [ userData, setUserData ] = useState({});
   const [ isLoading, setIsLoading ] = useState(true);
   const [theme,setTheme] = useState(props.theme);
@@ -40,17 +49,31 @@ const SleepSc = (props) => {
       handleNavbarThemeChange(cookies.theme);
   },[cookies.theme]);
 
+  const goToHistory = useCallback(() => { history.push('/history'); },[]);
+
   useEffect(() => {
     handleNavbarThemeChange(cookies.theme);
 		async function fetchData (user_id) {
             let user = await firebase.database().ref('/users/' + user_id).once('value');
 			return user.val();
-        }
+		}
+		
+
+		async function fetchDataMic (mac_address) {
+			let date = (new Date()).toISOString();
+			date = date.substring(0, 10);
+			let mics = await get_mic_summary(date,mac_address);
+			console.log(mics);
+			return !mics.doc ? null : formatMicData(mics.doc);
+		}
     
         firebase.auth().onAuthStateChanged(async function(user) {
 			if (user) {
-                let data = await fetchData(user.uid);
-                setUserData(data);
+				let data = await fetchData(user.uid);
+				setUserData(data);
+				let micData = await fetchDataMic(data.mac_address);
+				setSummaryMics(micData);
+
             }else{
                 history.push('/login');
             }
@@ -58,15 +81,32 @@ const SleepSc = (props) => {
         });
     
 
-    },[]);
-    
+	},[]);
 
-var ButtonSize ={
-  width: "50%",
-  height: "50%",
-  padding: 20,
-  
-}
+	function formatMicData (array) {
+		let hours = [];
+		let series = [];
+
+		console.log(array)
+
+		for (let index = 0; index < array.length; index++) {
+			const element = array[index];
+			hours.push(element['Hour_num']);
+			series.push(element['Mic']);
+		}
+		return {
+			hours : hours,
+			series : series
+		};
+	}
+
+	var ButtonSize ={
+	width: "50%",
+	height: "50%",
+	padding: 20,
+	
+	}
+
     return(
 
       	<div>
@@ -75,17 +115,14 @@ var ButtonSize ={
           		<Row>
           			<Col lg="6" md="6" xs="12">
 						<Row>
-							<SleepScore/>
+							<SleepScore sleepScoreToday={sleepScoreToday} sleepScoreYesterday={sleepScoreYesterday}/>
 						</Row>
 						  <Row>
-						  	<RadialBars/>
+						  	<RadialBars value={sleepScoreToday}/>
 						  </Row>
 						  <Row>
-						  	<Temp/>
+						  	<Temp value={temp}/>
 						  </Row>
-							<Row>
-								<BtnSummary/>
-							</Row>
         			</Col>
 					<Col lg="6" md="6" xs="12">
 						<Row>
@@ -96,16 +133,20 @@ var ButtonSize ={
 						</Row>
 						<Row>
 							<h1>Snor (1 Bar : 1 hr)</h1>
-                        	<Bar/>
+                        	<Bar values={summaryMics}/>
 						</Row>
 						<Row>
-							<HRSensor/>
-						</Row>
-						<Row>
-							<BtnShare/>
+							<HRSensor value={hearthRate}/>
 						</Row>
                 	</Col>
                 </Row>
+				<Row>
+					<Col md="12" lg="12" xs="12">
+						<button type="button" onClick={goToHistory} className="btn-default" data-toggle="modal" data-target="#myModal">
+							SUMMARY
+						</button>
+					</Col>
+				</Row>
 			</Container>
         </div>
     );

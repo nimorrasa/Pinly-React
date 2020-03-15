@@ -128,7 +128,7 @@ class RadialBars extends Component {
         },
         labels: ["Percent"]
       },
-      seriesRadial: [45],
+      seriesRadial: [props.value],
       optionsBar: {
         chart: {
           stacked: true,
