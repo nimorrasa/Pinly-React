@@ -21,6 +21,14 @@ const SleepScore = (props) => {
 	const [sleepScoreToday,setSleepScoreToday] = useState(props.sleepScoreToday);
 	const [sleepScoreYesterday,setSleepScoreYesterday] = useState(props.sleepScoreYesterday);
 
+	useEffect(
+		() => {
+			setSleepScoreToday(props.sleepScoreToday);
+			setSleepScoreYesterday(props.sleepScoreYesterday);
+		},
+		[props.sleepScoreToday,props.sleepScoreYesterday]
+	)
+
 	return (
 		<Row>
 			<Col>

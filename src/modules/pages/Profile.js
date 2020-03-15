@@ -8,7 +8,7 @@ import PieChart from '../components/graph/PieChart.js';
 import right_chevron from '../../images/icon/right_chevron.png';
 import '../css/Profile.css';
 import { useCookies } from 'react-cookie';
-import { getDetail, get_sleep_data_by_macaddress } from '../helpers';
+import { getDetail, get_sleep_data_by_macaddress, get_today_string, toPercent } from '../helpers';
 
 const Profile = (props) => {
     const history = useHistory();
@@ -41,11 +41,31 @@ const Profile = (props) => {
             // if(user.val() == null) return null;
 			return user.val();
         }
+
+        async function fetchDataScore (mac_address) {
+            let res = await getDetail(get_today_string(),mac_address);
+            return res;
+        }
+
+
+        async function fetchDataWeekly (user_id,mac_address) {
+            const sleep_data = await get_sleep_data_by_macaddress(user_id,mac_address);
+            return sleep_data;
+        }
     
         firebase.auth().onAuthStateChanged(async function(user) {
 			if (user) {
                 let data = await fetchData(user.uid);
                 setUserData(data);
+
+                let hardwares = await fetchDataScore(data.mac_address);
+                if(hardwares.doc && hardwares.doc.Sleep_Score_Today > 0) setSleepScoreToday(toPercent(hardwares.doc.Sleep_Score_Today));
+                setTotalSleep(data.sleep_period);
+                setCurrentSleep(data.current_sleep);
+                setCurrentWakeUp(data.current_wakeup);
+
+                let weeklyScore = await fetchDataWeekly(user.uid, data.mac_address);
+                if(weeklyScore.doc) setSleepScoreWeekly(toPercent(getWeekly(weeklyScore.doc)));
             }else{
                 history.push('/login');
             }
@@ -55,51 +75,19 @@ const Profile = (props) => {
 
     },[firebase]);
 
-    const get_score_weekly = useCallback(
-        async (user_id,mac_address) => {
-            const sleep_data = await get_sleep_data_by_macaddress(user_id,mac_address);
-            
-            // console.log(sleep_data)
-            let sum_score = 0;
-            let count = 0;
-
-            for (const property in sleep_data.doc) {
-                count++;
-                sum_score += sleep_data.doc[property]['Sleep_Score_Today'];
-            }
-            
-            let score = Math.ceil(sum_score/count);
-            console.log(sum_score,count,score);
-            setSleepScoreWeekly(score);
-        },
-        []
-    );
+    function getWeekly(datas) {
+        let sum_score = 0;
+        let count = 0;
+        for (const property in datas) {
+            count++;
+            sum_score += datas[property]['Sleep_Score_Today'];
+        }
+        return count == 0 ? 0 : Math.ceil(sum_score/count);
+    }
 
     const goToSleepScore = useCallback(() => { history.push('/sleep_score')},[]);
 
     const goToHistory = useCallback(() => { history.push('/history')},[]);
-
-    const fetchData = useCallback(async (userData) => {
-        const res = await getDetail(userData.mac_address);
-        const sleepData = res.doc;
-        await get_score_weekly(userData.uid,userData.mac_address);
-
-        if(sleepData && sleepData.Sleep_Score_Today > 0) setSleepScoreToday(sleepData.Sleep_Score_Today * 100 / 10);
-        setTotalSleep(userData.sleep_period);
-        setCurrentSleep(userData.current_sleep);
-        setCurrentWakeUp(userData.current_wakeup);
-    }, [])
-
-    useEffect(
-        () => {
-            if (userData) {
-                fetchData(userData)
-            }
-        },
-        [userData]
-    )
-
-
 
     return (
         <div>

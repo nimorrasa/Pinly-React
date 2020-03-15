@@ -36,13 +36,13 @@ const history = (props) => {
             </div>
         </Col>
       </Row>
-      <Row justify-content-md-center><Day7/></Row>
-      <Row justify-content-md-center><Day6/></Row>
-      <Row justify-content-md-center><Day5/></Row>
-      <Row justify-content-md-center><Day4/></Row>
-      <Row justify-content-md-center><Day3/></Row>
-      <Row justify-content-md-center><Day2/></Row>
-      <Row justify-content-md-center><Day1/></Row>
+      <Row justify-content-md-center="true"><Day7/></Row>
+      <Row justify-content-md-center="true"><Day6/></Row>
+      <Row justify-content-md-center="true"><Day5/></Row>
+      <Row justify-content-md-center="true"><Day4/></Row>
+      <Row justify-content-md-center="true"><Day3/></Row>
+      <Row justify-content-md-center="true"><Day2/></Row>
+      <Row justify-content-md-center="true"><Day1/></Row>
 
     </Container>
     </div>

@@ -18,15 +18,15 @@ import Temp from '../components/SleepScorePage/Temp';
 import firebase from 'firebase';
 import { useCookies } from 'react-cookie';
 import { Route, Switch,BrowserRouter, Link } from 'react-router-dom';
-import { get_mic_summary } from '../helpers';
+import { get_mic_summary, getDetail, get_today_string, toPercent, get_date_string } from '../helpers';
 
 //Create Component - JSX 
 const SleepSc = (props) => {
   const history = useHistory();
   const [cookies, setCookie, removeCookie] = useCookies(['theme']);
 
-  const [sleepScoreToday,setSleepScoreToday] = useState(70);
-  const [sleepScoreYesterday,setSleepScoreYesterday] = useState(50);
+  const [sleepScoreToday,setSleepScoreToday] = useState(0);
+  const [sleepScoreYesterday,setSleepScoreYesterday] = useState(0);
   const [temp,setTemp] = useState(25);
   const [summaryMics,setSummaryMics] = useState({
 	  hours : [],
@@ -57,11 +57,14 @@ const SleepSc = (props) => {
             let user = await firebase.database().ref('/users/' + user_id).once('value');
 			return user.val();
 		}
-		
 
+		async function fetchDataHardware (date,mac_address) {
+			let hardwares = await getDetail(date,mac_address);
+			return !hardwares.doc ? null : hardwares.doc;
+		}
+		
 		async function fetchDataMic (mac_address) {
-			let date = (new Date()).toISOString();
-			date = date.substring(0, 10);
+			let date = get_today_string();
 			let mics = await get_mic_summary(date,mac_address);
 			console.log(mics);
 			return !mics.doc ? null : formatMicData(mics.doc);
@@ -71,6 +74,18 @@ const SleepSc = (props) => {
 			if (user) {
 				let data = await fetchData(user.uid);
 				setUserData(data);
+
+				let today_data = await fetchDataHardware(get_today_string(),data.mac_address);
+				setSleepScoreToday(toPercent(today_data.Sleep_Score_Today));
+
+
+				let date = new Date();
+				date.setDate(date.getDate() - 1);
+
+				// console.log(date);
+				let yesterday_data = await fetchDataHardware(get_date_string(date),data.mac_address);
+				if(yesterday_data && yesterday_data.doc) setSleepScoreYesterday(toPercent(yesterday_data.Sleep_Score_Today));
+
 				let micData = await fetchDataMic(data.mac_address);
 				setSummaryMics(micData);
 

@@ -16,7 +16,7 @@ const HRSensor = (props) => {
         <div className="textsize">
         <h1 style={colorheader}>Heart rate</h1>
         </div>
-        <h1 style={colorLight}>55 bpm</h1>
+        <h1 style={colorLight}>{props.value} bpm</h1>
     </Row>
       );
     }

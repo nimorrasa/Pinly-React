@@ -44,14 +44,14 @@ const Assistant = (props) => {
         </div>
         </Col>
       </Row>
-      <Row justify-content-md-center><Coffee/></Row>
-      <Row justify-content-md-center><Alcohol/></Row>
-      <Row justify-content-md-center><Smoke/></Row>
-      <Row justify-content-md-center><Tea/></Row>
-      <Row justify-content-md-center><Nap/></Row>
-      <Row justify-content-md-center><Exercise/></Row>
-      <Row justify-content-md-center><Work/></Row>
-      <Row justify-content-md-center><BtnScore/></Row>
+      <Row justify-content-md-center="true"><Coffee/></Row>
+      <Row justify-content-md-center="true"><Alcohol/></Row>
+      <Row justify-content-md-center="true"><Smoke/></Row>
+      <Row justify-content-md-center="true"><Tea/></Row>
+      <Row justify-content-md-center="true"><Nap/></Row>
+      <Row justify-content-md-center="true"><Exercise/></Row>
+      <Row justify-content-md-center="true"><Work/></Row>
+      <Row justify-content-md-center="true"><BtnScore/></Row>
     
     </Container>
     
