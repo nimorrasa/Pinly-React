@@ -16,11 +16,13 @@ import TapBar_Exer from '../components/DailyTestPage/TapBar_Exer';
 import BtnConti from '../components/DailyTestPage/BtnConti';
 import { useCookies } from 'react-cookie';
 import firebase from 'firebase';
+import { log_data } from '../helpers';
 
 const dailytest = (props) => {
     const history = useHistory();
 	const { handleSubmit, register, setValue , getValues, errors } = useForm();
 
+	const [ isLoading, setIsLoading ] = useState(true);
 	const [userData,setUserData] = useState({});
 	const [cookies, setCookie, removeCookie] = useCookies(['theme']);
 	const [theme,setTheme] = useState(props.theme);
@@ -56,6 +58,7 @@ const dailytest = (props) => {
 				const database = await firebase.database();
 				const result1 = await database.ref('/users').child(userId).update(sleepData);
 				const result2 = await database.ref('/users').child(userId).child('daily_test').update(daily_test);
+				log_data(userId,userData.mac_address,1,timestamp);
 				alert('Success');	
 				history.push("/wait_to_sleep");  
 			} catch(error) {
@@ -78,6 +81,8 @@ const dailytest = (props) => {
 				if (user) {
 					let data = await fetchData(user.uid);
 					setUserData(data);
+					if(data.sleep_status == 1) history.push('/wait_to_sleep');
+					setIsLoading(false);
 				}
 			});
 		},
@@ -94,8 +99,11 @@ const dailytest = (props) => {
 
 	return (
 		<div>
-			<MyNavbar theme={navbarTheme} onChangeTheme={handleNavbarThemeChange} hideThemeSwitch={false}></MyNavbar>      
-			<form onSubmit={handleSubmit(submitSleep)}>
+			<MyNavbar theme={navbarTheme} onChangeTheme={handleNavbarThemeChange} hideThemeSwitch={false}></MyNavbar>  
+			<div className="loading" style={{textAlign: "center",top: "30vh",height: "50vh",color: "white",display : (!isLoading ? 'none' : 'block' )}}>
+				<i className="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+			</div>    
+			<form onSubmit={handleSubmit(submitSleep)}  style={{display : (isLoading ? 'none' : 'block' )}}>
 				<div className="container-fluid text-center">
 					<div className="row">
 						<div className="col-md-8">

@@ -6,6 +6,7 @@ import IconWaittosleep from '../../images/icon/ic_waitsleep.png'
 import '../css/App.css';
 import firebase from 'firebase';
 import { useCookies } from 'react-cookie';
+import { log_data } from '../helpers';
 
 var colorheader ={
   color: '#ffffff',
@@ -36,6 +37,7 @@ const Waittosleep = (props) => {
 			try {
 				const database = await firebase.database();
 				const result = await database.ref('/users').child(userId).update(sleepData);
+				log_data(userId,userData.mac_address,2,timestamp);
 				alert('Success');	
 				history.push("/wake_up");  
 			} catch(error) {

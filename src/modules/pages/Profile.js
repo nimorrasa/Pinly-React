@@ -8,7 +8,7 @@ import PieChart from '../components/graph/PieChart.js';
 import right_chevron from '../../images/icon/right_chevron.png';
 import '../css/Profile.css';
 import { useCookies } from 'react-cookie';
-import { getDetail } from '../helpers';
+import { getDetail, get_sleep_data_by_macaddress } from '../helpers';
 
 const Profile = (props) => {
     const history = useHistory();
@@ -55,6 +55,26 @@ const Profile = (props) => {
 
     },[firebase]);
 
+    const get_score_weekly = useCallback(
+        async (user_id,mac_address) => {
+            const sleep_data = await get_sleep_data_by_macaddress(user_id,mac_address);
+            
+            // console.log(sleep_data)
+            let sum_score = 0;
+            let count = 0;
+
+            for (const property in sleep_data.doc) {
+                count++;
+                sum_score += sleep_data.doc[property]['Sleep_Score_Today'];
+            }
+            
+            let score = Math.ceil(sum_score/count);
+            console.log(sum_score,count,score);
+            setSleepScoreWeekly(score);
+        },
+        []
+    );
+
     const goToSleepScore = useCallback(() => { history.push('/sleep_score')},[]);
 
     const goToHistory = useCallback(() => { history.push('/history')},[]);
@@ -62,11 +82,10 @@ const Profile = (props) => {
     const fetchData = useCallback(async (userData) => {
         const res = await getDetail(userData.mac_address);
         const sleepData = res.doc;
+        await get_score_weekly(userData.uid,userData.mac_address);
 
-        setSleepScoreToday(sleepData.Sleep_Score_Today * 100 / 10);
-        setSleepScoreWeekly(!userData.sleep_score_weekly ? 0 : userData.sleep_score_weekly * 100 / 10); 
+        if(sleepData && sleepData.Sleep_Score_Today > 0) setSleepScoreToday(sleepData.Sleep_Score_Today * 100 / 10);
         setTotalSleep(userData.sleep_period);
-
         setCurrentSleep(userData.current_sleep);
         setCurrentWakeUp(userData.current_wakeup);
     }, [])
@@ -101,7 +120,7 @@ const Profile = (props) => {
                         <div><h1>Today</h1></div>
                         <PieChart theme={navbarTheme} totalSleep={totalSleep} currentSleep={currentSleep} currentWakeUp={currentWakeUp} value={sleepScoreToday}></PieChart>
                         <h3>Your sleep score today is {parseInt(sleepScoreToday)}%</h3>
-                        <h3>{parseInt(sleepScoreWeekly)}% for week</h3>
+                        <h3>{sleepScoreWeekly}% for week</h3>
                         <div>
                             <Row>
                                 <Col lg="6" md="6" xs="12"><Button className="App-button moreinfo" onClick={goToSleepScore}>MORE INFO</Button></Col>
