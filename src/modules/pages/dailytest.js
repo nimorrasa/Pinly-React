@@ -9,7 +9,7 @@ import btn_smk from '../../modules/components/DailyTestPage/btn_smk.png';
 import btn_al from '../../modules/components/DailyTestPage/btn_al.png';
 import btn_cf from '../../modules/components/DailyTestPage/btn_cf.png';
 
-import TapBar_Nap from '../components/DailyTestPage/TapBar_Nap';
+import TapBar from '../components/DailyTestPage/TapBar';
 import TapBar_Work from '../components/DailyTestPage/TapBar_Work';
 import TapBar_Exer from '../components/DailyTestPage/TapBar_Exer';
 
@@ -116,16 +116,16 @@ const dailytest = (props) => {
 								<Col lg="6" md="6" xs="6"><DailyButton name="stress" title="Tea" unit="levels" image={btn_tea} setValue={setValue} register={register} /></Col>
 							</div>
 						</Col>
-						<Col lg="3" md="3" xs="3" className="layoutcenter">
-							<TapBar_Nap setValue={setValue} register={register} />
-							<TapBar_Work setValue={setValue} register={register} />
-							<TapBar_Exer setValue={setValue} register={register} />
+						<Col lg="3" md="3" xs="3" style={{paddingTop: "10px"}}>
+							<TapBar name="nap" title="Nap" setValue={setValue} register={register} />
+							<TapBar name="working" title="Work" setValue={setValue} register={register} />
+							<TapBar name="exercise" title="Exercise" setValue={setValue} register={register} />
 						</Col>
 					</Row>
-					<Row className="text-center"> 
-						<br></br> 
-						<BtnConti register={register} />
-						<br></br> 
+					<Row style={{textAlign: "center"}}> 
+						<Col lg="12" md="12" xs="12">
+							<a href="/wait_to_sleep"><button className="btn-default">Continue ></button></a>
+						</Col>
 					</Row>
 				</Container>
 			</form>
