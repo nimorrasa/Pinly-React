@@ -3,6 +3,7 @@ import './text.css';
 import './formbtn.css';
 
 import Btn_smk from './btn_smk.png';
+import { Container, Row, Col } from 'reactstrap';
 
 var colorLightNR ={
   color: '#3cc7c3',
@@ -55,7 +56,7 @@ const BtnSmoking = (props) => {
 	)
 	
 	return (
-		<div className="container">
+		<Row>
 
 			<button type="button" className ="btn btn-link" onClick={increment}><img src={Btn_smk} alt="Caffeine Button Counter " style={ButtonSize} ></img></button>
 			{/* <button className="button_storke" onClick={decrement}>-</button>*/}
@@ -65,7 +66,7 @@ const BtnSmoking = (props) => {
 			<button type="button" className="btn btn-link"onClick={reset}> <span style={colorLightNR}>Reset</span> </button></h1>
 			
 			
-		</div>
+		</Row>
 	)
 }
 

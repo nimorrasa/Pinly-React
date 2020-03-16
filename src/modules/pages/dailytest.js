@@ -4,10 +4,10 @@ import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import '../css/App.css';
 //import components 
-import BtnCaffeine from '../components/DailyTestPage/BtnCaffeine';
-import BtnSmoking from '../components/DailyTestPage/BtnSmoking';
-import BtnAlcohol from '../components/DailyTestPage/BtnAlcohol';
-import BtnStress from '../components/DailyTestPage/BtnStress';
+import btn_tea from '../../modules/components/DailyTestPage/btn_tea.png';
+import btn_smk from '../../modules/components/DailyTestPage/btn_smk.png';
+import btn_al from '../../modules/components/DailyTestPage/btn_al.png';
+import btn_cf from '../../modules/components/DailyTestPage/btn_cf.png';
 
 import TapBar_Nap from '../components/DailyTestPage/TapBar_Nap';
 import TapBar_Work from '../components/DailyTestPage/TapBar_Work';
@@ -17,6 +17,8 @@ import BtnConti from '../components/DailyTestPage/BtnConti';
 import { useCookies } from 'react-cookie';
 import firebase from 'firebase';
 import { log_data } from '../helpers';
+import { Container, Row, Col } from 'reactstrap';
+import DailyButton from '../components/DailyTestPage/DailyButton.js';
 
 const dailytest = (props) => {
     const history = useHistory();
@@ -104,31 +106,28 @@ const dailytest = (props) => {
 				<i className="fa fa-spinner fa-spin fa-3x fa-fw"></i>
 			</div>    
 			<form onSubmit={handleSubmit(submitSleep)}  style={{display : (isLoading ? 'none' : 'block' )}}>
-				<div className="container-fluid text-center">
-					<div className="row">
-						<div className="col-md-8">
+				<Container>
+					<Row>
+						<Col lg="9" md="9" xs="9">
 							<div className="row">
-								<div className="col"><BtnCaffeine setValue={setValue} register={register} /></div>
-								<div className="col"><BtnAlcohol setValue={setValue} register={register} /></div>
-								<div className="w-100"></div>
-								<div className="col"><BtnSmoking setValue={setValue} register={register} /></div>
-								<div className="col"><BtnStress setValue={setValue} register={register} /></div>
+								<Col lg="6" md="6" xs="6"><DailyButton name="caffeine" title="Coffee" unit="cups" image={btn_cf} setValue={setValue} register={register} /></Col>
+								<Col lg="6" md="6" xs="6"><DailyButton name="alcohol" title="Alcohol Drink" unit="bottle" image={btn_al} setValue={setValue} register={register} /></Col>
+								<Col lg="6" md="6" xs="6"><DailyButton name="smoking" title="Smoking" unit="rolls" image={btn_smk} setValue={setValue} register={register} /></Col>
+								<Col lg="6" md="6" xs="6"><DailyButton name="stress" title="Tea" unit="levels" image={btn_tea} setValue={setValue} register={register} /></Col>
 							</div>
-						</div>
-						<div className="col-md-4" >
-							<div className="layoutcenter">
-								<TapBar_Nap setValue={setValue} register={register} />
-								<TapBar_Work setValue={setValue} register={register} />
-								<TapBar_Exer setValue={setValue} register={register} />
-							</div>
-						</div>
-					</div>
-					<div className="container-fluid text-center"> 
+						</Col>
+						<Col lg="3" md="3" xs="3" className="layoutcenter">
+							<TapBar_Nap setValue={setValue} register={register} />
+							<TapBar_Work setValue={setValue} register={register} />
+							<TapBar_Exer setValue={setValue} register={register} />
+						</Col>
+					</Row>
+					<Row className="text-center"> 
 						<br></br> 
 						<BtnConti register={register} />
 						<br></br> 
-					</div>
-				</div>
+					</Row>
+				</Container>
 			</form>
 		</div>
 	);

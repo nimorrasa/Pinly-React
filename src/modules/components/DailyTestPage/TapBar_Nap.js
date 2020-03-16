@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import './text.css';
 import './formbtn.css';
 import "./progress-bar.css";
+import { Container, Row, Col } from 'reactstrap';
 
 //https://alligator.io/react/react-hooks/
 // pass percentRange state through props to Range an ProgressBar components
@@ -57,7 +58,7 @@ export const TapBar_Nap = (props) => {
 	)
 
   return (
-      <div className="container" fluid="true">
+      <Row>
       <div>
       <h1>{percentRange == 500 ? `500 Mins ! Too Much!!` : `Nap :  ${percentRange} Mins`}</h1>
       <div className="positionbar">
@@ -69,7 +70,7 @@ export const TapBar_Nap = (props) => {
         <button type="button" className="btn btn-link" onClick={() => setProgress(0)}><span>Reset</span></button>
       </div>
       </div>
-      </div>
+      </Row>
     
   );
 };

@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import './text.css';
 import './formbtn.css';
-import Btn_cff from './btn_cf.png';
+
 import { Container, Row, Col } from 'reactstrap';
 
 var colorLightNR ={
@@ -18,7 +18,7 @@ var ButtonSize ={
     
     
   }
-const BtnCaffeine  = (props) => {
+const DailyButton = (props) => {
 
 	const [count,setCount] = useState(0);
 
@@ -43,32 +43,28 @@ const BtnCaffeine  = (props) => {
 
 	useEffect(
 		() => {
-			props.register({ name: "caffeine" });
+			props.register({ name: props.name });
 		},
 		[props.register]
 	);
 
-
 	useEffect(
 		() => {
-			props.setValue('caffeine', count);
+			props.setValue( props.name, count);
 		},
 		[count]
 	)
   
-    return (
-      <Row>
+	return (
+		<Row style={{textAlign: "center"}}>
+            <Col lg="12" md="12" xs="12">
+                <button type="button" className ="btn btn-link" onClick={increment}><img src={props.image} alt={`${props.title} Button Counter`} style={ButtonSize} ></img></button>
+                <h1 style={colorfont}>{props.title} <span style={colorLightNR}>(1-10 {props.unit})</span> : {count} 
+                <button type="button" className="btn btn-link"onClick={reset}> <span style={colorLightNR}>Reset</span> </button></h1>
+            </Col>
+		</Row>
+	
+	);
+  }
 
-          <button type="button" className ="btn btn-link" onClick={increment}><img src={Btn_cff} alt="Caffeine Button Counter " style={ButtonSize} ></img></button>
-         {/* <button className="button_storke" onClick={decrement}>-</button>*/}
-
-        <h1 style={colorfont}> Coffee <span style={colorLightNR}>(cup)</span> : {count}
-        <button type="button" className="btn btn-link"onClick={reset}> <span style={colorLightNR}>Reset</span> </button></h1>
-        
-        
-      </Row>
-  
-    )
-  };
-
-export default BtnCaffeine;
+export default DailyButton ;

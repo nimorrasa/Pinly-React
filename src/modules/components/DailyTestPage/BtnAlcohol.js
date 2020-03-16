@@ -2,6 +2,7 @@ import React ,{ useState, useCallback, useEffect } from 'react';
 import './text.css';
 import './formbtn.css';
 import Btn_al from './btn_al.png';
+import { Container, Row, Col } from 'reactstrap';
 
 
 var colorLightNR ={
@@ -58,7 +59,7 @@ const BtnAlcohol  = (props) => {
     )
   
     return (
-		<div className="container">
+		<Row>
 			
 			<button type="button" className ="btn btn-link" onClick={increment}><img src={Btn_al} alt="Caffeine Button Counter " style={ButtonSize} ></img></button>
 			{/* <button className="button_storke" onClick={decrement}>-</button>*/}
@@ -67,7 +68,7 @@ const BtnAlcohol  = (props) => {
 			<button type="button" className="btn btn-link"onClick={reset}> <span style={colorLightNR}>Reset</span> </button></h1>
 			
 			
-		</div>
+		</Row>
     )
 }
 
