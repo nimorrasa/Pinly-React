@@ -76,7 +76,7 @@ const SleepSc = (props) => {
 				setUserData(data);
 
 				let today_data = await fetchDataHardware(get_today_string(),data.mac_address);
-				setSleepScoreToday(toPercent(today_data.Sleep_Score_Today));
+				if(today_data && today_data.Sleep_Score_Today) setSleepScoreToday(toPercent(today_data.Sleep_Score_Today));
 
 
 				let date = new Date();
