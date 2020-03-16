@@ -10,10 +10,6 @@ import btn_al from '../../modules/components/DailyTestPage/btn_al.png';
 import btn_cf from '../../modules/components/DailyTestPage/btn_cf.png';
 
 import TapBar from '../components/DailyTestPage/TapBar';
-import TapBar_Work from '../components/DailyTestPage/TapBar_Work';
-import TapBar_Exer from '../components/DailyTestPage/TapBar_Exer';
-
-import BtnConti from '../components/DailyTestPage/BtnConti';
 import { useCookies } from 'react-cookie';
 import firebase from 'firebase';
 import { log_data } from '../helpers';
