@@ -1,6 +1,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import MyNavbar from '../components/navbar/MyNavbar.js';
 import '../components/text.css';
+import '../css/Assistant.css';
 import { Container, Row, Col } from 'reactstrap';
 import { useHistory } from "react-router-dom";
 import AsstData from '../components/AssistantPage/AsstData.js';
@@ -8,7 +9,7 @@ import firebase from 'firebase';
 
 const Assistant = (props) => {
 	const history = useHistory();
-	const datas = ['Alcohol','Coffee','Smoke','Tea','Nap','Exercise','Work'];
+	const datas = {'asst_alcohol' : 'Alcohol','asst_coffee' : 'Coffee','asst_smoking' : 'Smoke','asst_stress': 'Tea','asst_nap' : 'Nap','asst_exercise' :'Exercise','asst_working' :'Work'};
 	const [isLoading,setIsLoading] = useState(true);
 	const [showData,setShowData] = useState([]);
 	const [userData,setUserData] = useState({});
@@ -27,7 +28,7 @@ const Assistant = (props) => {
 		(assistant) => {
 			let result = [];
 			for( let index in assistant) {
-				result.push(<Row justify-content-md-center="true"><AsstData title={index} detail={assistant[index]}/></Row>)
+				result.push(<Row ><AsstData title={datas[index]} detail={assistant[index]}/></Row>)
 			}
 			return result;
 		},
@@ -59,23 +60,23 @@ const Assistant = (props) => {
 	)
 
     return (
-        <div className={"App Assistant "+theme}>
+        <div>
         <MyNavbar theme={navbarTheme} onChangeTheme={handleNavbarThemeChange} hideThemeSwitch={false}></MyNavbar> 
-			<Container className="container" fluid="true">
-				<Row> {/* Centre */}
-				<Col>
-				<div className="textcenter">
-					<div className="textsize">
-					<h1>Assistant</h1>
-					</div>
+		<div className={"App Assistant "+theme}>
+			<Row> {/* Centre */}
+			<Col>
+			<div className="textcenter">
+				<div className="textsize">
+				<h1>Assistant</h1>
 				</div>
-				</Col>
-			</Row>
-			{createAsstData(showData)}
-			<Row justify-content-md-center="true">
-				<button type="button" onClick={goToSleepScore}className="btn-default" data-toggle="modal" data-target="#exampleModalCenter">SHOW SCORE</button>
-			</Row>
-			</Container>
+			</div>
+			</Col>
+		</Row>
+		{createAsstData(showData)}
+		<Row >
+			<button type="button" onClick={goToSleepScore}className="btn-default" data-toggle="modal" data-target="#exampleModalCenter">SHOW SCORE</button>
+		</Row>
+		</div>
     	</div>
     );
 }

@@ -1,0 +1,16 @@
+.Assistant {
+    padding: 0;
+    padding-left: 10vw;
+    font-size: 1rem;
+}
+
+.Assistant .content{
+    height: 85vh;
+}
+
+
+@media (max-width: 600px) {
+    .Assistant {
+        font-size: 0.8rem;
+    }
+  }
