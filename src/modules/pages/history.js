@@ -100,7 +100,12 @@ const history = (props) => {
 				</div>
 			</Col>
 			</Row>
-			{createTable(hardwareData)}
+			<Row className="scrollable" style={{height: "70vh",overflowY : "scroll"}}>
+				<Col>
+				{createTable(hardwareData)}
+				</Col>
+			</Row>
+
 
 		</Container>
 		</div>

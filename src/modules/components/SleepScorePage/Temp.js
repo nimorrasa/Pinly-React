@@ -23,7 +23,7 @@ const Temp = (props) => {
             <div className="textsize">
             <h1 style={colorheader}>Temperature</h1>
             </div>
-            <h1 style={colorLight}>{props.value} C</h1>
+            <h1 className="middlesize" style={colorLight}>{props.value} C</h1>
       </Row>
       );
     }

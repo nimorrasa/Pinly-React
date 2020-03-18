@@ -60,7 +60,7 @@ const Bar = (props) => {
           }
         ]}
         type="bar"
-        width="500"
+        style={{width: "30vw", height: "auto", maxHeight: "10vh"}}
       />
     </Col>
   );

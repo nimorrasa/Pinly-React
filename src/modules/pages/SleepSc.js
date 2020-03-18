@@ -123,7 +123,7 @@ const SleepSc = (props) => {
 			</div>
             <div className={"App Sleep_score "+theme} style={{display : (isLoading ? 'none' : 'block' )}}>
 				<Row className="content">
-          			<Col lg="6" md="6" xs="12">
+          			<Col lg="6" md="6" xs="6">
 						<Row style={{paddingLeft: "25%"}}>
 							<SleepScore sleepScoreToday={sleepScoreToday} sleepScoreYesterday={sleepScoreYesterday}/>
 						</Row>
@@ -134,11 +134,11 @@ const SleepSc = (props) => {
 						  	<Temp value={temp}/>
 						  </Row>
         			</Col>
-					<Col lg="6" md="6" xs="12">
+					<Col lg="6" md="6" xs="6">
 						<Row style={{textAlign: "center"}}>
 							<Col lg="12" md="12" xs="12">
 								<h1>Ready to Sleep?</h1>
-								<Link to="/daily_test"><img src={Btn_gotosleep} alt="Button Go To Sleep _Daily Test" style={{width: "30%"}}></img></Link>
+								<Link to="/daily_test"><img src={Btn_gotosleep} alt="Button Go To Sleep _Daily Test" style={{ maxHeight: "22vh"}}></img></Link>
 							</Col>
 						</Row>
 						<Row style={{textAlign: "center"}}>

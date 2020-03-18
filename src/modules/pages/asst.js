@@ -9,7 +9,7 @@ import firebase from 'firebase';
 
 const Assistant = (props) => {
 	const history = useHistory();
-	const datas = {'asst_alcohol' : 'Alcohol','asst_coffee' : 'Coffee','asst_smoking' : 'Smoke','asst_stress': 'Tea','asst_nap' : 'Nap','asst_exercise' :'Exercise','asst_working' :'Work'};
+	const datas = {'asst_alcohol' : 'Alcohol','asst_coffee' : 'Coffee','asst_smoking' : 'Smoke','asst_tea': 'Tea','asst_nap' : 'Nap','asst_exercise' :'Exercise','asst_working' :'Work'};
 	const [isLoading,setIsLoading] = useState(true);
 	const [showData,setShowData] = useState([]);
 	const [userData,setUserData] = useState({});
@@ -72,7 +72,12 @@ const Assistant = (props) => {
 			</div>
 			</Col>
 		</Row>
-		{createAsstData(showData)}
+		<Row className="scrollable">
+			<Col>
+				{createAsstData(showData)}
+			</Col>
+		</Row>
+
 		<Row >
 			<button type="button" onClick={goToSleepScore}className="btn-default" data-toggle="modal" data-target="#exampleModalCenter">SHOW SCORE</button>
 		</Row>

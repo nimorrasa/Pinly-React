@@ -43,17 +43,17 @@ const RadialBars = (props) => {
             dataLabels: {
               //showOn: "always",
               name: {
-                offsetY: -20,
+                offsetY: -10,
                 show: true,
                 color: "#fff",
-                fontSize: "20px"
+                fontSize: "10px"
               },
               value: {
                // formatter: function(val) {
                 //  return val;
                 //},
                 color: "#3cc7c3", // color font percent
-                fontSize: "50px",
+                fontSize: "25px",
                 show: true
               }
             }
@@ -92,7 +92,7 @@ const RadialBars = (props) => {
         options={optionsRadial}
         series={seriesRadial}
         type="radialBar"
-        width="400"
+        style={{width: "20vw", height: "auto", maxHeight: "10vh"}}
       />
     </div>
     );

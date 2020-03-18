@@ -8,6 +8,11 @@
     height: 85vh;
 }
 
+.Assistant .scrollable {
+    height: 75vh;
+    overflow-y: scroll;
+}
+
 
 @media (max-width: 600px) {
     .Assistant {
