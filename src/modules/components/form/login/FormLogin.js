@@ -10,6 +10,7 @@ import firebase from 'firebase';
 
 const FormLogin = (props) => {
 	const history = useHistory();
+	const [isLoading,setIsLoading] = useState(true);
 	const [cookies, setCookie] = useCookies();
 	const [userId, setUserId] = useState('');
 
@@ -91,9 +92,11 @@ const FormLogin = (props) => {
 		props.setIsLoading(true);
 		isRedirect();
 		props.setIsLoading(false);
+		setIsLoading(false);
 	},[]);
 
 	const handleRegister = useCallback(async (user) => {
+		setIsLoading(true);
 		let newBirthdate = user.birthdate;
 		let current_userid = firebase.auth().currentUser.uid;
 
@@ -120,7 +123,7 @@ const FormLogin = (props) => {
 		history.push('/profile');
 	},[]);
 
-	if(step == 'login_with_email') return <LoginEmail onResult={handleResult} onChangeStep={handleStep}></LoginEmail>;
+	if(step == 'login_with_email') return <LoginEmail onResult={handleResult} onChangeStep={handleStep} style={{isLoading ? 'hide' : 'block'}}></LoginEmail>;
 	return <SocialRegister userId={userId} onSuccess={handleRegister} onChangeStep={handleStep}></SocialRegister>;
 
 	};
