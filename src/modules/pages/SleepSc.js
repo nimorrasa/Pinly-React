@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import MyNavbar from '../components/navbar/MyNavbar.js';
 import dailytest from './dailytest';
 import { Container, Row, Col } from 'reactstrap';
-import '../css/App.css';
+import '../css/Sleep_score.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 //import Component and Function
@@ -115,54 +115,55 @@ const SleepSc = (props) => {
 		};
 	}
 
-	var ButtonSize ={
-	width: "50%",
-	height: "50%",
-	padding: 20,
-	
-	}
-
     return(
-
-      	<div>
-      		<MyNavbar theme={navbarTheme} onChangeTheme={handleNavbarThemeChange} hideThemeSwitch={false}></MyNavbar>
-      		<Container style={{textAlign: "center"}}>
-          		<Row>
+<div>
+            <MyNavbar theme={navbarTheme} onChangeTheme={handleNavbarThemeChange} hideThemeSwitch={false}></MyNavbar>
+            <div className="loading" style={{textAlign: "center",top: "30vh",height: "50vh",color: "white",display : (!isLoading ? 'none' : 'block' )}}>
+				<i className="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+			</div>
+            <div className={"App Sleep_score "+theme} style={{display : (isLoading ? 'none' : 'block' )}}>
+				<Row className="content">
           			<Col lg="6" md="6" xs="12">
-						<Row>
+						<Row style={{paddingLeft: "25%"}}>
 							<SleepScore sleepScoreToday={sleepScoreToday} sleepScoreYesterday={sleepScoreYesterday}/>
 						</Row>
-						  <Row>
+						  <Row style={{paddingLeft: "25%"}}>
 						  	<RadialBars value={sleepScoreToday}/>
 						  </Row>
-						  <Row>
+						  <Row style={{paddingLeft: "30%"}}>
 						  	<Temp value={temp}/>
 						  </Row>
         			</Col>
 					<Col lg="6" md="6" xs="12">
-						<Row>
+						<Row style={{textAlign: "center"}}>
 							<Col lg="12" md="12" xs="12">
 								<h1>Ready to Sleep?</h1>
+								<Link to="/daily_test"><img src={Btn_gotosleep} alt="Button Go To Sleep _Daily Test" style={{width: "30%"}}></img></Link>
 							</Col>
-							<Link to="/daily_test"><img src={Btn_gotosleep} alt="Button Go To Sleep _Daily Test" style={ButtonSize}></img></Link>
 						</Row>
-						<Row>
-							<h1>Snor (1 Bar : 1 hr)</h1>
-                        	<Bar values={summaryMics}/>
+						<Row style={{textAlign: "center"}}>
+							<Col lg="12" md="12" xs="12">
+								<h1 style={{textAlign: "left"}}>Snor (1 Bar : 1 hr)</h1>
+								<Bar values={summaryMics}/>
+							</Col>
 						</Row>
-						<Row>
+						<Row style={{paddingLeft: "20%"}}>
 							<HRSensor value={hearthRate}/>
 						</Row>
                 	</Col>
                 </Row>
-				<Row>
-					<Col md="12" lg="12" xs="12">
+				<Row className="button">
+					<Col md="4" lg="4" xs="4">
+					</Col>
+					<Col md="4" lg="4" xs="4" style={{padding: 0, textAlign: "center", width: "100%"}}>
 						<button type="button" onClick={goToHistory} className="btn-default" data-toggle="modal" data-target="#myModal">
 							SUMMARY
 						</button>
 					</Col>
+					<Col md="4" lg="4" xs="4">
+					</Col>
 				</Row>
-			</Container>
+            </div>
         </div>
     );
   }

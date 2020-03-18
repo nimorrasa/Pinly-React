@@ -1,0 +1,13 @@
+.Sleep_score {
+    padding: 0;
+}
+
+.Sleep_score .content{
+    height: 85vh;
+}
+
+
+
+.Sleep_score .col, .Sleep_score .row {
+    text-align: center;
+}

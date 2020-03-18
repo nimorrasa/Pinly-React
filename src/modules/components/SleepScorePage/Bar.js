@@ -1,5 +1,6 @@
 
 import React, { Component, useState, useEffect } from "react";
+import { Col } from 'reactstrap';
 import Chart from "react-apexcharts";
 
 const Bar = (props) => {
@@ -33,7 +34,7 @@ const Bar = (props) => {
   )
 
   return (
-    <div className="mixed-chart">
+    <Col lg="12" md="12" xs="12" style={{paddingLeft: "15%"}}>
       <Chart
         options={ {
           chart: {
@@ -61,7 +62,7 @@ const Bar = (props) => {
         type="bar"
         width="500"
       />
-    </div>
+    </Col>
   );
 }
 
