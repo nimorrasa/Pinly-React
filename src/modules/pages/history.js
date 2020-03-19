@@ -30,7 +30,7 @@ const history = (props) => {
 		() => {
 			let res = [];
 			var current_date = new Date();
-			current_date.setHours(0,0,0);
+			// current_date.setHours(0,0,0);
 			for(let i = 7; i>0 ; i--) {
 				res[current_date.toISOString().substr(0,10)] = [];
 				current_date.setDate(current_date.getDate() - 1);
