@@ -123,7 +123,7 @@ const FormLogin = (props) => {
 		history.push('/profile');
 	},[]);
 
-	if(step == 'login_with_email') return <LoginEmail onResult={handleResult} onChangeStep={handleStep} style={{isLoading ? 'hide' : 'block'}}></LoginEmail>;
+	if(step == 'login_with_email') return <LoginEmail onResult={handleResult} onChangeStep={handleStep} style={{display: (isLoading ? "hide" : 'block')}}></LoginEmail>;
 	return <SocialRegister userId={userId} onSuccess={handleRegister} onChangeStep={handleStep}></SocialRegister>;
 
 	};

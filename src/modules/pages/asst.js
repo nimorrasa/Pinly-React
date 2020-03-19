@@ -6,6 +6,7 @@ import { Container, Row, Col } from 'reactstrap';
 import { useHistory } from "react-router-dom";
 import AsstData from '../components/AssistantPage/AsstData.js';
 import firebase from 'firebase';
+import AssistantModal from '../components/Modal/AssistantModal.js';
 
 const Assistant = (props) => {
 	const history = useHistory();
@@ -79,7 +80,7 @@ const Assistant = (props) => {
 		</Row>
 
 		<Row >
-			<button type="button" onClick={goToSleepScore}className="btn-default" data-toggle="modal" data-target="#exampleModalCenter">SHOW SCORE</button>
+			<AssistantModal buttonLabel="SHOW SCORE" value={userData}></AssistantModal>
 		</Row>
 		</div>
     	</div>
