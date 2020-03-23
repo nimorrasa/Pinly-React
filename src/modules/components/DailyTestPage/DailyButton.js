@@ -21,6 +21,7 @@ var ButtonSize ={
 const DailyButton = (props) => {
 
 	const [count,setCount] = useState(0);
+	const [isHover,setIsHover] = useState(false);
 
 	const increment = useCallback(
 		() => {
@@ -54,11 +55,14 @@ const DailyButton = (props) => {
 		},
 		[count]
 	)
+
+	const onMouseOver= useCallback(() => { setIsHover(true); },[setIsHover]);
+    const onMouseOut = useCallback(() => { setIsHover(false); },[setIsHover]);
   
 	return (
 		<Row style={{textAlign: "center"}}>
             <Col lg="12" md="12" xs="12">
-                <button type="button" className ="btn btn-link" onClick={increment}><img src={props.image} alt={`${props.title} Button Counter`} style={ButtonSize} ></img></button>
+                <button type="button" style={{opacity : (isHover ? "50%" : "100%")}} onMouseOver={onMouseOver} onMouseOut={onMouseOut} className ="btn btn-link" onClick={increment}><img src={props.image} alt={`${props.title} Button Counter`} style={ButtonSize} ></img></button>
                 <h1 style={colorfont}>{props.title} <span style={colorLightNR}>(1-10 {props.unit})</span> : {count} 
                 <button type="button" className="btn btn-link"onClick={reset}> <span style={colorLightNR}>Reset</span> </button></h1>
             </Col>

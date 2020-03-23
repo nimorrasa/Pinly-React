@@ -50,7 +50,7 @@ const MySetting = (props) => {
     return (
       <Dropdown className={props.theme} onMouseOver={onMouseEnter} onMouseLeave={onMouseLeave} isOpen={dropdownOpen} toggle={toggle}>
         <DropdownToggle tag="button" type="button" className="my-button my-setting">
-          <i className="fa fa-cog"></i>
+          <i className="fa fa-cog" style={{fontSize: "25px"}}></i>
         </DropdownToggle>
         <DropdownMenu  right>
           <DropdownItem className='my-language'>Language <MyLink destination='/home?lang=th' text='TH'></MyLink>/<MyLink destination='/home?lang=en' text='EN'></MyLink></DropdownItem>
