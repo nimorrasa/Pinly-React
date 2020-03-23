@@ -71,7 +71,7 @@ const MyNavbar = (props) => {
 			<NavbarToggler onClick={toggle} />
 			<Collapse isOpen={isOpen} navbar>
 			<Nav className="mr-auto" navbar>
-				<NavItem>
+				<NavItem style={{display: (isAuth ? 'none' : 'block')}}>
 				<Link to='/home'><MyButton type="text" title="Home"></MyButton></Link>
 				</NavItem>
 				<NavItem>

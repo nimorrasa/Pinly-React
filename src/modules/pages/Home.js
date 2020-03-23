@@ -7,8 +7,10 @@ import MyLink from '../components/MyLink.js';
 import MyNavbar from '../components/navbar/MyNavbar.js';
 import firebase from 'firebase';
 import { useCookies } from 'react-cookie';
+import { useHistory } from "react-router-dom";
 
 const Home = (props) => {
+  const history = useHistory();
   const [cookies, setCookie, removeCookie] = useCookies(['theme']);
   const [isLoading,setIsLoading] = useState(true);
   const [auth,setAuth] = useState(firebase.auth().currentUser);
@@ -37,6 +39,7 @@ const Home = (props) => {
         setAuth(user);
         let user_data = await fetchData(user.uid);
         setUserData(user_data);
+        history.push('/sleep_score');
       }
       setIsLoading(false);
     });

@@ -37,7 +37,7 @@ const DailyButton = (props) => {
 	) 
 	const reset = useCallback(
 		() => {
-			setCount(count - 1)
+			setCount(0)
 		},
 		[count]
 	)

@@ -109,7 +109,7 @@ const FormSignUp = (props) => {
       let user = await firebase.database().ref('/users/' + userId).once('value');
       if(user.val() != null) {
         props.onSubmit(registerData);
-        history.push('/profile');
+        history.push('/sleep_score');
       }
       else{
         setStep('login_with_email');

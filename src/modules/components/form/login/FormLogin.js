@@ -38,7 +38,7 @@ const FormLogin = (props) => {
 				const response = await firebase.auth().signInWithEmailAndPassword(result.email, result.password);
 				login_userId = response.user.uid;
 				setUserId(login_userId);
-				history.push('/home');
+				history.push('/sleep_score');
 			} catch(error) {
 				let errorCode = error.code;
 				let errorMessage = error.message;
@@ -84,7 +84,7 @@ const FormLogin = (props) => {
 					setStep('login_with_social');
 				}else{
 					setUserData(get_user_data);
-					history.push('/profile');
+					history.push('/sleep_score');
 				}
 				setUserId(redirectResult.user.uid);
 			}
@@ -120,7 +120,7 @@ const FormLogin = (props) => {
 		const response = await usersRef.child(current_userid).set(posts);
 		const res = await createMacAddress(posts.uid, posts.mac_address);
 		setUserData(posts);
-		history.push('/profile');
+		history.push('/sleep_score');
 	},[]);
 
 	if(step == 'login_with_email') return <LoginEmail onResult={handleResult} onChangeStep={handleStep} style={{display: (isLoading ? "hide" : 'block')}}></LoginEmail>;
