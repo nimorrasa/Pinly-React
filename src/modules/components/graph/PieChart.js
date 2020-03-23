@@ -59,7 +59,7 @@ const PieChart = (props) => {
                 return `${new Date(props.currentSleep).toLocaleTimeString('en-US')} - ${new Date(props.currentWakeUp).toLocaleTimeString('en-US')}`;
                 },
                 color: 'grey',
-                fontSize: '16px',
+                fontSize: props.timeSize ? props.timeSize : '16px',
                 show: true,
             }
             }

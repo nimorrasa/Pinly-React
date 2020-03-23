@@ -1,8 +1,8 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { useHistory } from "react-router-dom";
 import MyNavbar from '../components/navbar/MyNavbar.js';
+import { Link } from 'react-router-dom';
 import { Row, Col, CardBody, Card, CardTitle, CardText, Button, Media } from "reactstrap";
-import { Route, Switch,BrowserRouter, Link } from 'react-router-dom';
 import '../css/SleepTest.css';
 import sleep_score from '../../images/button/sleep_score.png';
 import go_to_sleep from '../../images/button/go_to_sleep.png';
@@ -25,6 +25,12 @@ const SleepTest = (props) => {
       props.onChangeTheme('theme_'+current_theme);
     },[setNavbarTheme,setTheme]);
 
+    const onMouseOverSleepScore = useCallback(() => { setIsHoverSleepScore(true); },[setIsHoverSleepScore]);
+    const onMouseOutSleepScore = useCallback(() => { setIsHoverSleepScore(false); },[setIsHoverSleepScore]);
+
+    const onMouseOverGoToSleep = useCallback(() => { setIsHoverGoToSleep(true); },[setIsHoverGoToSleep]);
+    const onMouseOutGoToSleep = useCallback(() => { setIsHoverGoToSleep(false); },[setIsHoverGoToSleep]);
+    
     useEffect(() => {
         handleNavbarThemeChange(cookies.theme);
 		async function fetchData (user_id) {
@@ -44,10 +50,8 @@ const SleepTest = (props) => {
     
 
     },[]);
-    
-    useEffect(() => { setTheme(props.theme)});
 
-    
+    useEffect(() => { setTheme(props.theme)});
     var ButtonSize ={
         width: "100%",
         height: "100%",
@@ -66,8 +70,9 @@ const SleepTest = (props) => {
                         <Card>
                             <CardTitle>Show sleep score</CardTitle>
                             <CardBody>
-                            <Link to="/sleep_score">
-                            <img src={sleep_score} alt="Button Go To Sleep_Score" style={{opacity : (isHoverSleepScore ? '80%' : '100%')},ButtonSize}></img></Link>
+                                <Link to="/sleep_score">
+                                    <a href="sleep_score" onMouseOver={onMouseOverSleepScore} onMouseOut={onMouseOutSleepScore} style={{opacity : (isHoverSleepScore ? '50%' : '100%')}}><img className="button"  src={sleep_score}></img></a>
+                                </Link>
                             </CardBody>
                         </Card>
                     </Col>
@@ -75,7 +80,9 @@ const SleepTest = (props) => {
                         <Card>
                             <CardTitle>Ready to Sleep?</CardTitle>
                             <CardBody>
-                                <Link to="/daily_test"><img src={go_to_sleep} alt="Button Go To Sleep _Daily Test" style={{opacity : (isHoverSleepScore ? '80%' : '100%')},ButtonSize}></img></Link>
+                                <Link to="/daily_test">
+                                    <a href="daily_test" onMouseOver={onMouseOverGoToSleep} onMouseOut={onMouseOutGoToSleep} style={{opacity : (isHoverGoToSleep ? '50%' : '100%')}}><img className="button"  src={go_to_sleep}></img></a>
+                                </Link>
                             </CardBody>
                         </Card>
                     </Col>

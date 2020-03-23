@@ -1,6 +1,6 @@
 
 import React, { Component, useState, useEffect } from "react";
-import { Col } from 'reactstrap';
+import { Row, Col } from 'reactstrap';
 import Chart from "react-apexcharts";
 
 const Bar = (props) => {
@@ -34,35 +34,49 @@ const Bar = (props) => {
   )
 
   return (
-    <Col lg="12" md="12" xs="12" style={{paddingLeft: "15%"}}>
-      <Chart
-        options={ {
-          chart: {
-            id: "basic-bar",
-            toolbar: {
-              show: true
+    <Row>
+    <Row>
+      <Col lg="2" md="2" xs="2">
+
+      </Col>
+      <Col lg="18" md="8" xs="8">
+      <Row>
+          <strong>Snore Level (dB)</strong>
+        </Row>
+        <Row>
+          <p>0 - no sound, 100 - very loud</p>
+        </Row>
+        <Chart
+          options={ {
+            chart: {
+              id: "basic-bar",
+              toolbar: {
+                show: true
+              }
+            },
+            stroke: {
+              width: [2, 0, 0]
+            },
+    
+            xaxis: {
+              categories: hours
+              
             }
-          },
-          stroke: {
-            width: [2, 0, 0]
-          },
-  
-          xaxis: {
-            categories: hours
-            
-          }
-        }}
-        series={[
-          {
-            name: "series-1",
-            background: "#141313",
-            data: series,
-          }
-        ]}
-        type="bar"
-        style={{width: "30vw", height: "auto", maxHeight: "10vh"}}
-      />
-    </Col>
+          }}
+          series={[
+            {
+              name: "series-1",
+              background: "#141313",
+              data: series,
+            }
+          ]}
+          type="bar"
+          style={{width: "30vw", height: "auto", maxHeight: "10vh"}}
+        />
+      </Col>
+
+    </Row>
+    </Row>
   );
 }
 

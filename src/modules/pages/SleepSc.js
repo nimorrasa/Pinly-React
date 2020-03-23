@@ -7,10 +7,10 @@ import '../css/Sleep_score.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 //import Component and Function
-import RadialBars from '../components/SleepScorePage/RadialBars';
+import PieChart from '../components/graph/PieChart.js';
 import Bar from '../components/SleepScorePage/Bar';
 import SleepScore from '../components/SleepScorePage/SleepScore';  //show content SleepScore
-import Btn_gotosleep from '../components/SleepScorePage/btngotosleep.png';
+import go_to_sleep from '../components/SleepScorePage/btngotosleep.png';
 import BtnSummary from '../components/SleepScorePage/BtnSummary';
 import BtnShare from '../components/SleepScorePage/BtnShare';
 import HRSensor from '../components/SleepScorePage/HRSensor';
@@ -37,6 +37,11 @@ const SleepSc = (props) => {
   const [ isLoading, setIsLoading ] = useState(true);
   const [theme,setTheme] = useState(props.theme);
   const [navbarTheme, setNavbarTheme] = useState(props.theme === 'theme_dark' ? 'dark' : 'light');
+  const [isHoverGoToSleep,setIsHoverGoToSleep] = useState(false);
+
+  const [currentSleep,setCurrentSleep] = useState(new Date());
+  const [currentWakeUp,setCurrentWakeUp] = useState(new Date());
+  const [totalSleep,setTotalSleep] = useState(0);
 
   const handleNavbarThemeChange = useCallback((current_theme) => {
     setNavbarTheme(current_theme);
@@ -77,6 +82,10 @@ const SleepSc = (props) => {
 
 				let today_data = await fetchDataHardware(get_today_string(),data.mac_address);
 				if(today_data && today_data.Sleep_Score_Today) setSleepScoreToday(toPercent(today_data.Sleep_Score_Today));
+                setTotalSleep(data.sleep_period);
+                setCurrentSleep(data.current_sleep);
+                setCurrentWakeUp(data.current_wakeup);
+
 
 
 				let date = new Date();
@@ -115,6 +124,9 @@ const SleepSc = (props) => {
 		};
 	}
 
+	const onMouseOverGoToSleep = useCallback(() => { setIsHoverGoToSleep(true); },[setIsHoverGoToSleep]);
+    const onMouseOutGoToSleep = useCallback(() => { setIsHoverGoToSleep(false); },[setIsHoverGoToSleep]);
+
     return(
 <div>
             <MyNavbar theme={navbarTheme} onChangeTheme={handleNavbarThemeChange} hideThemeSwitch={false}></MyNavbar>
@@ -128,7 +140,7 @@ const SleepSc = (props) => {
 							<SleepScore sleepScoreToday={sleepScoreToday} sleepScoreYesterday={sleepScoreYesterday}/>
 						</Row>
 						  <Row style={{paddingLeft: "25%"}}>
-						  	<RadialBars value={sleepScoreToday}/>
+						  <PieChart timeSize="10px" theme={navbarTheme} totalSleep={totalSleep} currentSleep={currentSleep} currentWakeUp={currentWakeUp} value={sleepScoreToday}></PieChart>
 						  </Row>
 						  <Row style={{paddingLeft: "30%"}}>
 						  	<Temp value={temp}/>
@@ -138,13 +150,14 @@ const SleepSc = (props) => {
 						<Row style={{textAlign: "center"}}>
 							<Col lg="12" md="12" xs="12">
 								<h1>Ready to Sleep?</h1>
-								<Link to="/daily_test"><img src={Btn_gotosleep} alt="Button Go To Sleep _Daily Test" style={{ maxHeight: "22vh"}}></img></Link>
+								<Link to="/daily_test"><img src={go_to_sleep} onMouseOver={onMouseOverGoToSleep} onMouseOut={onMouseOutGoToSleep} alt="Button Go To Sleep _Daily Test" style={{ opacity: (isHoverGoToSleep ? "50%" : "100%"), maxHeight: "22vh"}}></img></Link>
 							</Col>
 						</Row>
 						<Row style={{textAlign: "center"}}>
 							<Col lg="12" md="12" xs="12">
-								<h1 style={{textAlign: "left"}}>Snor (1 Bar : 1 hr)</h1>
+								{/* <h1 style={{textAlign: "left"}}>Snore Level (dB)</h1> */}
 								<Bar values={summaryMics}/>
+								<strong style={{textAlign: "center"}}>Hour Times (hr)</strong>
 							</Col>
 						</Row>
 						<Row style={{paddingLeft: "20%"}}>
@@ -157,7 +170,7 @@ const SleepSc = (props) => {
 					</Col>
 					<Col md="4" lg="4" xs="4" style={{padding: 0, textAlign: "center", width: "100%"}}>
 						<button type="button" onClick={goToHistory} className="btn-default" data-toggle="modal" data-target="#myModal">
-							SUMMARY
+							HISTORY
 						</button>
 					</Col>
 					<Col md="4" lg="4" xs="4">
