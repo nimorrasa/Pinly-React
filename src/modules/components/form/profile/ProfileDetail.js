@@ -53,14 +53,14 @@ const ProfileDetail = (props) => {
                 </Col>
                 <Col id="weight" lg='4' md="4" xs='14'>
                     <p className="m-0">Weight</p>
-                    <p>{props.userData == null ? 'None' : props.userData.weight}</p>
+                    <p>{props.userData == null ? 'None' : props.userData.weight+' kg'}</p>
                 </Col>
                 <Col lg="2" md="2" xs="2">
                     <FontAwesomeIcon icon={faRulerVertical} />
                 </Col>
             <Col id="height" lg='4' md="4" xs='4'>
             <p className="m-0">Height</p>
-            <p>{props.userData == null ? 'None' : props.userData.height}</p>
+            <p>{props.userData == null ? 'None' : props.userData.height+' cm'}</p>
             </Col>
             </Row>
           <Row>
@@ -77,7 +77,7 @@ const ProfileDetail = (props) => {
                     <FontAwesomeIcon icon={faAddressCard} />
                 </Col>
                 <Col id="mac_address" lg='6' md="6" xs='10'>
-                    <p className="m-0">Mac Address</p>
+                    <p className="m-0">Pillow Mac Address</p>
                     <p>{props.userData == null ? 'None' : props.userData.mac_address}</p>
                 </Col>
             </Row>

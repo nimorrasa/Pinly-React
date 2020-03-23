@@ -39,7 +39,7 @@ const MacAddressInput = (props) => {
     return (
         <Row id="mac_address"> 
             <Col lg="6" md="10" xs='10'>
-            <p className="m-0">Mac Address</p>
+            <p className="m-0">Pillow Mac Address</p>
             <input
                 type="text"
                 name="mac_address"

@@ -72,24 +72,44 @@ const ProfileForm = (props) => {
                 <FontAwesomeIcon icon={faWeight} />
                 </Col>
                 <Col id="weight" lg='5' md="10" xs='10'>
-                    <p className="m-0">Weight</p>
-                    <input
-                        type="number"
-                        name="weight"
-                        placeholder="weight"
-                        ref={register({required: 'Required'})}/>
+                    <Row>
+                        <p className="m-0">Weight</p>
+                    </Row>
+                    <Row>
+                        <Col lg="10" md="10" xs="10" style={{paddingRight: 0}}>
+                            <input
+                            style={{width: "80%"}}
+                            type="number"
+                            name="weight"
+                            placeholder="weight"
+                            ref={register({required: 'Required'})}/>
+                        </Col>
+                        <Col lg="2" md="2" xs="2" style={{padding: 0}}>
+                            <p className="m-0">kg</p>
+                        </Col>
+                    </Row>
                 </Col>
                 <Col lg="1" md="2" xs="1">
                     <FontAwesomeIcon icon={faRulerVertical} />
                 </Col>
             <Col id="height" lg='4' md="10" xs='10'>
-                <p className="m-0">Height</p>
-                <input
-                    type="number"
-                    name="height"
-                    id="height"
-                    placeholder="height"
-                    ref={register({required: 'Required'})}/>
+                <Row>
+                    <p className="m-0">Height</p>
+                </Row>
+                <Row>
+                    <Col lg="10" md="10" xs="10" style={{paddingRight: 0}}>
+                        <input
+                        style={{width: "80%"}}
+                        type="number"
+                        name="height"
+                        id="height"
+                        placeholder="height"
+                        ref={register({required: 'Required'})}/>
+                    </Col>
+                    <Col lg="2" md="2" xs="2" style={{padding: 0}}>
+                        <p className="m-0">cm</p>
+                    </Col>
+                </Row>
             </Col>
             </Row>
           <Row>

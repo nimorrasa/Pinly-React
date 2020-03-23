@@ -101,7 +101,7 @@ const Profile = (props) => {
                        <ProfileMain></ProfileMain>
                     </Col>
                     <Col lg="2" sm="0" style={{textAlign: "center", paddingTop: "35vh"}}>
-                    <img src={right_chevron}/>
+
                     </Col>
                     <Col className="profile right" lg="5" sm="6">
                         <div className="center">
