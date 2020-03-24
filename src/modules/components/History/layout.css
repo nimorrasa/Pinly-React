@@ -32,11 +32,3 @@ th, tr{
 .theme_light th {
   color: rgba(0, 0, 0, 0.8);
 }
-
-.theme_dark tr {
-  color: rgba(255, 255, 255, 0.8);
-}
-
-.theme_light tr {
-  color: rgba(0, 0, 0, 0.8);
-}

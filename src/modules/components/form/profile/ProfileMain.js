@@ -38,11 +38,21 @@ const ProfileMain = (props) => {
 		// props.onStepChange(step);
 	});
 
+
+	function valueData(options) {
+		let datas = [];
+		for(const data of options) {
+			datas.push(data.value);
+		}
+		return datas.toString();
+	}
+
+
 	const handleSubmit = useCallback(async (newData) => {
 		const userId = userData.uid;
 		const weight = newData.weight;
 		const height = newData.height;
-		const disease = newData.disease;
+		const disease = valueData(newData.disease);
 		const birthdate = newData.birthdate;
 		const mac_address = newData.mac_address;
 
