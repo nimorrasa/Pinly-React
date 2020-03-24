@@ -32,3 +32,7 @@ th, tr{
 .theme_light th {
   color: rgba(0, 0, 0, 0.8);
 }
+
+.history .btn-secondary {
+  background-color: rgba(0, 0, 0, 0);
+}

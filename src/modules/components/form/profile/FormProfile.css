@@ -63,7 +63,7 @@ select {
     padding-left: 0;
   }
 
-.Profile button {
+.Profile .button {
     display: inline-block;
     font-weight: 400;
     color: white;

@@ -90,11 +90,11 @@ const SignUp1 = (props) => {
           <DiseaseInput getValues={getValues} setValue={setValue} register={register}></DiseaseInput>
           <GenderRadio getValues={getValues} register={register}></GenderRadio>
           <Row>
-            <Col className="button" lg='3' xs='3'>
-              <button type="button" onClick={backStep}>Back</button>
+            <Col lg='3' xs='3'>
+              <button className="button"  type="button" onClick={backStep}>Back</button>
             </Col>
-            <Col className="button" lg='3' xs='3'>
-              <button type="submit">Submit</button>
+            <Col lg='3' xs='3'>
+              <button className="button" type="submit">Submit</button>
             </Col>
           </Row>
           </Col>

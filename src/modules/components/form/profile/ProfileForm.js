@@ -51,7 +51,7 @@ const ProfileForm = (props) => {
         <Row>
             <Col lg="10" md="9" xs="10"></Col>
             <Col lg="2" md="3" xs="2" style={{padding: 0, margin: 0}}>
-                <Button type="submit" className="edit_button">SAVE</Button>
+                <Button type="submit" className="button edit_button">SAVE</Button>
             </Col>
         </Row>
         <Col className='Profile_step_1' xs='12'>

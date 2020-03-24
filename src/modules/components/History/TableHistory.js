@@ -9,14 +9,6 @@ const TableHistory = (props) => {
 	const [toggleLabel,setToggleLabel] = useState(props.toggleLabel);
 	const [dateLabel,setDateLabel] = useState('');
 	const [datas,setDatas] = useState([]);
-	const [theme,setTheme] = useState(props.theme);
-	const [navbarTheme, setNavbarTheme] = useState(props.theme === 'theme_dark' ? 'dark' : 'light');
-
-	const handleNavbarThemeChange = useCallback((current_theme) => {
-		setNavbarTheme(current_theme);
-		setTheme('theme_'+current_theme);
-		props.onChangeTheme('theme_'+current_theme);
-	},[setNavbarTheme,setTheme]);
 
 	useEffect(
 		() => {
@@ -28,10 +20,10 @@ const TableHistory = (props) => {
 		[props.date,props.data]
 	)
 
-	const createRow = useCallback((datas) => {
-
+	const createRow = useCallback((datas,theme) => {
+		console.log(theme);
 		return (
-			<tr style={{color : (theme == 'light' ? 'black' : 'white')}}>
+			<tr style={{color : (theme == 'theme_light' ? 'black' : 'white')}}>
 			<th scope="row">{datas['Sleep_Score_Today']}</th>
 			<td >{datas['Time_Hr']} hrs {datas['Time_Min']} min</td>
 			<td >{datas['Mic']}</td>
@@ -41,7 +33,7 @@ const TableHistory = (props) => {
 		);
 	})
 
-	const createTable = useCallback((datas) => {
+	const createTable = useCallback((datas,theme) => {
 		if(!datas) return "";
 		return (
 			<UncontrolledCollapse toggler={`#${toggleLabel}`} >
@@ -56,7 +48,7 @@ const TableHistory = (props) => {
 				</tr>
 				</thead>
 				<tbody>
-				{createRow(datas)}
+				{createRow(datas,theme)}
 				</tbody>
 		
 				</Table>
@@ -67,11 +59,11 @@ const TableHistory = (props) => {
 
 	return (
 	<div className="layout">
-			<Button color="secondary" size="lg" id={toggleLabel} block style={{ marginBottom: '1rem' }}>
+			<Button color="secondary" size="lg" id={toggleLabel} block style={{ marginBottom: '1rem',color: (props.theme == 'theme_light' ? 'black' : 'white')}}>
 		{dateLabel} {datas ? '' : '(No Data)'}
 	</Button>
 
-		{createTable(datas)}
+		{createTable(datas,props.theme)}
 
 	</div>
 

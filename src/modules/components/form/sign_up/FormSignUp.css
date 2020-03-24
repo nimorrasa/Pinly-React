@@ -63,7 +63,7 @@ select {
     padding-left: 0;
   }
 
-.Sign_up button {
+.Sign_up .button {
     display: inline-block;
     font-weight: 400;
     color: white;

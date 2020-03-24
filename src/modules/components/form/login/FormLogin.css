@@ -60,7 +60,7 @@ select {
     padding-left: 0;
   }
 
-.Login button {
+.Login .button {
     display: inline-block;
     font-weight: 400;
     color: white;

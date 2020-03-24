@@ -139,10 +139,10 @@ const LoginEmail = (props) => {
                 </Col>
             </Row>
             <Row>
-                <Col className="button" lg='5' xs='7'>
+                <Col lg='5' xs='7'>
                 </Col>
-                <Col className="button" lg='3' xs='3' style={{paddingRight: "0"}}>
-                    <button type="submit">Login</button>
+                <Col lg='3' xs='3' style={{paddingRight: "0"}}>
+                    <button className="button" type="submit">Login</button>
                 </Col>
                 </Row>
                 <Row style={{paddingTop: "10%"}}>

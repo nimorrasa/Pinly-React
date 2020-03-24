@@ -21,7 +21,9 @@ import firebase from 'firebase';
 import { useCookies } from 'react-cookie';
 
 const MyNavbar = (props) => {
-    const [cookies, setCookie, removeCookie] = useCookies(['theme']);
+	const [cookies, setCookie, removeCookie] = useCookies(['theme']);
+	const [displayHome,setDisplayHome] = useState('none');
+	const [isLoading,setIsLoading] = useState(true);
 	const [isOpen, setIsOpen] = useState(false);
 	const [isDark, setIsDark] = useState(true);
 	const [theme, setTheme] = useState('dark');
@@ -52,18 +54,19 @@ const MyNavbar = (props) => {
 		
 			firebase.auth().onAuthStateChanged(async function(user) {
 				if (user) {
-						let data = await fetchData(user.uid);
-						setIsAuth(true);
-					}else{
-						setIsAuth(false)
-					}
-				});
-			
+					let data = await fetchData(user.uid);
+					setIsAuth(true);
+				}else{
+					setDisplayHome('block');
+					setIsAuth(false)
+				}
+			});
+			setIsLoading(false);
 
 	},[]);
 
 	return (
-		<div>
+		<div style={{display: (isLoading ? 'none' : 'block')}}>
 		<Navbar bg={theme} light={theme === 'light'} dark={theme === 'dark'}  expand="md">
 			<NavbarBrand href="/">
 				<Media className="App-header-logo"  src={logo}></Media>
@@ -71,7 +74,7 @@ const MyNavbar = (props) => {
 			<NavbarToggler onClick={toggle} />
 			<Collapse isOpen={isOpen} navbar>
 			<Nav className="mr-auto" navbar>
-				<NavItem style={{display: (isAuth ? 'none' : 'block')}}>
+				<NavItem style={{display: displayHome}}>
 				<Link to='/home'><MyButton type="text" title="Home"></MyButton></Link>
 				</NavItem>
 				<NavItem>

@@ -183,8 +183,8 @@ const SignUp1 = (props) => {
             <BirthDateInput register={register} setValue={setValue} getValues={getValues}></BirthDateInput>
             <MacAddressInput updateMacAddressError={handleErrorMacAddressError} register={register} setValue={setValue}></MacAddressInput>
             <Row>
-                <Col className="button" lg='3' md="3" xs='3'>
-                <button type="submit">Next</button>
+                <Col lg='3' md="3" xs='3'>
+                <button className="button" type="submit">Next</button>
                 </Col>
             </Row>
             </Col>

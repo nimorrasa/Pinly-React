@@ -111,8 +111,8 @@ const Profile = (props) => {
                         <h3>{sleepScoreWeekly}% for week</h3>
                         <div>
                             <Row>
-                                <Col lg="6" md="6" xs="12"><Button className="App-button moreinfo" onClick={goToSleepScore}>MORE INFO</Button></Col>
-                                <Col lg="6" md="6" xs="12"><Button className="App-button" onClick={goToHistory}>HISTORY</Button></Col>
+                                <Col lg="6" md="6" xs="12"><Button className="App-button button moreinfo" onClick={goToSleepScore}>MORE INFO</Button></Col>
+                                <Col lg="6" md="6" xs="12"><Button className="App-button button " onClick={goToHistory}>HISTORY</Button></Col>
                             </Row>
                         </div>
                         </div>

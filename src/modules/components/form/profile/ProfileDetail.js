@@ -30,7 +30,7 @@ const ProfileDetail = (props) => {
         <Row>
             <Col lg="10" md="9" xs="10"></Col>
             <Col lg="2" md="3" xs="2" style={{padding: 0, margin: 0}}>
-                <Button className="edit_button" onClick={toggleEdit}>Edit</Button>
+                <Button className="button edit_button" onClick={toggleEdit}>Edit</Button>
             </Col>
         </Row>
         <Col className='Profile_step_1' xs='12'>

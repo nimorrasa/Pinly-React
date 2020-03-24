@@ -1,7 +1,7 @@
 import React, { useCallback , useEffect } from "react";
 import { Row, Col } from "reactstrap";
 import '../form/sign_up/FormSignUp.css';
-import DatePicker from 'reactstrap-date-picker';
+import DatePicker from 'react-date-picker';
 
 const BirthdateInput = (props) => {
   const dateValue = props.getValues && props.getValues().birthdate
