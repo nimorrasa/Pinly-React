@@ -21,7 +21,6 @@ const TableHistory = (props) => {
 	)
 
 	const createRow = useCallback((datas,theme) => {
-		console.log(theme);
 		return (
 			<tr style={{color : (theme == 'theme_light' ? 'black' : 'white')}}>
 			<th scope="row">{datas['Sleep_Score_Today']}</th>

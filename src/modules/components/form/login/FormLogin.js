@@ -77,7 +77,6 @@ const FormLogin = (props) => {
 
 		async function isRedirect () {
 			let redirectResult = await firebase.auth().getRedirectResult();
-			console.log("Redirect :",redirectResult);
 			if(redirectResult.operationType == 'signIn'){
 				let get_user_data = await fetchData(redirectResult.user.uid);
 				if(get_user_data == null) {

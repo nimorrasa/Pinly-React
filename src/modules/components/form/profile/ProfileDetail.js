@@ -13,13 +13,9 @@ const ProfileDetail = (props) => {
 
     useEffect(
         () => {
-            console.log('f',props.userData);
             if(props.userData.birthdate != null) {
-                console.log('fetch',props.userData.birthdate);
                 let date = new Date(props.userData.birthdate);
-                console.log('date',date);
                 let array_birthdate = date.toLocaleDateString().split('/');
-                console.log('array',array_birthdate);
                 let newBirthdate = array_birthdate[1]+'-'+array_birthdate[0]+'-'+array_birthdate[2];
                 setDateFormat(newBirthdate);
             }else{

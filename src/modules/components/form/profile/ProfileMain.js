@@ -22,10 +22,8 @@ const ProfileMain = (props) => {
 		}
 	
 		firebase.auth().onAuthStateChanged(async function(user) {
-			console.log(user);
 			if (user) {
 				let data = await fetchData(user.uid);
-				console.log(data)	
 				setUserData(data);
 			}else{
 				history.push('/login');
@@ -70,7 +68,6 @@ const ProfileMain = (props) => {
 			const database = await firebase.database();
 			const result = await database.ref('/users').child(userId).set(registerData);
 			const res = await updateMacAddress(registerData.uid, registerData.mac_address);
-			console.log(res);
 			alert('Success');	  
 			localStorage.setItem("uid", userId);
 		} catch(error) {

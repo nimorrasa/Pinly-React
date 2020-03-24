@@ -35,7 +35,6 @@ const DiseaseInput = (props) => {
 
 	useEffect(() => {
 		if(props.getValues && props.getValues().disease){
-			console.log(props.getValues().disease);
 			setDisease(props.getValues().disease.split(","));
 		}
 		props.setValue('disease', setoption(props.value && props.value.split(',')));

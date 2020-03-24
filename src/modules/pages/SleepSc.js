@@ -71,7 +71,6 @@ const SleepSc = (props) => {
 		async function fetchDataMic (mac_address) {
 			let date = get_today_string();
 			let mics = await get_mic_summary(date,mac_address);
-			console.log(mics);
 			return !mics.doc ? null : formatMicData(mics.doc);
 		}
     
@@ -110,9 +109,6 @@ const SleepSc = (props) => {
 	function formatMicData (array) {
 		let hours = [];
 		let series = [];
-
-		console.log(array)
-
 		for (let index = 0; index < array.length; index++) {
 			const element = array[index];
 			hours.push(element['Hour_num']);

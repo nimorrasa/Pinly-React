@@ -13,7 +13,6 @@ const AsstData = (props) => {
 
     useEffect(
         () => {
-            console.log(props.title,props.detail);
             setTitle(props.title);
             setDetail(props.detail);
         },

@@ -26,7 +26,6 @@ const Bar = (props) => {
 
   useEffect(
     () => {
-      console.log("Update",props)
       setHours(props.values.hours);
       setSeries(props.values.series);
     },

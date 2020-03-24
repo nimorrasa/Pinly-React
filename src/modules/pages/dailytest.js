@@ -57,7 +57,7 @@ const dailytest = (props) => {
 				const result1 = await database.ref('/users').child(userId).update(sleepData);
 				const result2 = await database.ref('/users').child(userId).child('daily_test').update(daily_test);
 				log_data(userId,userData.mac_address,1,timestamp);
-				alert('Success');	
+				alert('Good Dream!');	
 				history.push("/wait_to_sleep");  
 			} catch(error) {
 				var errorCode = error.code;
@@ -120,7 +120,7 @@ const dailytest = (props) => {
 					</Row>
 					<Row style={{textAlign: "center"}}> 
 						<Col lg="12" md="12" xs="12">
-							<a href="/wait_to_sleep"><button className="btn-default">Continue ></button></a>
+							<a href="/wait_to_sleep"><button className="button btn-default" style={{color: 'white'}}>Continue</button></a>
 						</Col>
 					</Row>
 				</Container>

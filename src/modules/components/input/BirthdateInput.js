@@ -7,8 +7,6 @@ const BirthdateInput = (props) => {
   const [dateValue,setDateValue] = useState(props.getValues && props.getValues().birthdate)
   useEffect(() => {
     if(props.value) {
-      console.log('effect1',props.value)
-      console.log('effect2',new Date(props.value))
       setDateValue(new Date(props.value));
       props.setValue('birthdate', new Date(props.value));
     }
@@ -17,8 +15,6 @@ const BirthdateInput = (props) => {
 
   const onDateChange = useCallback(
     value => {
-      console.log('change1',value)
-      console.log('change2',new Date(value))
       setDateValue(value);
       props.setValue("birthdate", value);
     },

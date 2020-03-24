@@ -16,8 +16,6 @@ export function get_today_string() {
 }
 
 export function get_date_string(date) {
-    // let date = date.toISOString();
-    console.log(date);
     return date.toISOString().substring(0, 10);
 }
 
