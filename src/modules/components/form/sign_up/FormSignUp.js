@@ -3,7 +3,7 @@ import './FormSignUp.css';
 import SignUp1  from './form/SignUp1.js';
 import SignUp2  from './form/SignUp2.js';
 import { useHistory } from "react-router-dom";
-import { createMacAddress } from '../../../helpers';
+import { createMacAddress, diseaseValueData } from '../../../helpers';
 import firebase from 'firebase';
 
 const FormSignUp = (props) => {
@@ -34,12 +34,12 @@ const FormSignUp = (props) => {
       email : newData.email,
       username : newData.username,
       password : newData.password,
-      birthdate :newBirthdate,
+      birthdate :newBirthdate.toString(),
       mac_address : newData.mac_address,
       weight : userData.weight,
       height : userData.height,
       gender : userData.gender,
-      disease : userData.disease
+      disease : diseaseValueData(userData.disease)
     });
   });
 
@@ -53,7 +53,7 @@ const FormSignUp = (props) => {
       weight : newData.weight,
       height : newData.height,
       gender : newData.gender,
-      disease : newData.disease
+      disease : diseaseValueData(newData.disease)
     };
     setUserData(registerData);
 

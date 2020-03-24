@@ -29,7 +29,7 @@ const ProfileForm = (props) => {
 
     useEffect(
         () => {
-            setValue('birthdate',props.userData.birthdate);
+            setValue('birthdate',new Date(props.userData.birthdate));
             setValue('weight', props.userData.weight);
             setValue('height', props.userData.height);
             setValue('mac_address',props.userData.mac_address);

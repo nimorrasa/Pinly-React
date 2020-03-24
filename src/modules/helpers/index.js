@@ -1,3 +1,10 @@
+export function diseaseValueData(options) {
+    let datas = [];
+    for(const data of options) {
+        datas.push(data.value);
+    }
+    return datas.toString();
+}
 
 export function toPercent (value,max_value=10) {
     return value * 100 / max_value;

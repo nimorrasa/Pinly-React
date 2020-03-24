@@ -5,6 +5,7 @@ import ProfileForm  from './ProfileForm.js';
 import { useHistory } from "react-router-dom";
 import { updateMacAddress } from '../../../helpers';
 import firebase from 'firebase';
+import { diseaseValueData } from '../../../helpers';
 
 const ProfileMain = (props) => {
 	const history = useHistory();
@@ -21,8 +22,10 @@ const ProfileMain = (props) => {
 		}
 	
 		firebase.auth().onAuthStateChanged(async function(user) {
-		if (user) {
-			let data = await fetchData(user.uid);
+			console.log(user);
+			if (user) {
+				let data = await fetchData(user.uid);
+				console.log(data)	
 				setUserData(data);
 			}else{
 				history.push('/login');
@@ -38,32 +41,21 @@ const ProfileMain = (props) => {
 		// props.onStepChange(step);
 	});
 
-
-	function valueData(options) {
-		let datas = [];
-		for(const data of options) {
-			datas.push(data.value);
-		}
-		return datas.toString();
-	}
-
-
 	const handleSubmit = useCallback(async (newData) => {
 		const userId = userData.uid;
 		const weight = newData.weight;
 		const height = newData.height;
-		const disease = valueData(newData.disease);
+		const disease = diseaseValueData(newData.disease);
 		const birthdate = newData.birthdate;
 		const mac_address = newData.mac_address;
 
-		let birthdate_data = new Date(birthdate);
-		let byear = birthdate_data.getFullYear();
+		let byear = birthdate.getFullYear();
 		
 		let registerData = {
 		  uid : userId,
 		  email : userData.email,
 		  username : userData.username,
-		  birthdate :birthdate,
+		  birthdate :birthdate.toString(),
 		  byear : byear,
 		  mac_address : mac_address,
 		  weight : weight,
