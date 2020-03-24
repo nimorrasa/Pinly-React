@@ -38,7 +38,7 @@ const DiseaseInput = (props) => {
 			console.log(props.getValues().disease);
 			setDisease(props.getValues().disease.split(","));
 		}
-		props.setValue('disease', props.value);
+		props.setValue('disease', setoption(props.value && props.value.split(',')));
 	}, [props.getValues])
 
 

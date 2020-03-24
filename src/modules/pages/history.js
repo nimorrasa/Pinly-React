@@ -46,6 +46,7 @@ const history = (props) => {
 			let table = [];
 			for (let data in datas) {
 				let content = datas[data];
+				// console.log(content);
 				table.push(<Row justify-content-md-center="true"><TableHistory toggleLabel={`toggle_${data}`} date={data} data={content}/></Row>)
 			}
 		return table;

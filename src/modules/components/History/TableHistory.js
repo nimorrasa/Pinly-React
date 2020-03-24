@@ -31,7 +31,7 @@ const TableHistory = (props) => {
 	const createRow = useCallback((datas) => {
 
 		return (
-			<tr>
+			<tr style={{color : (theme == 'light' ? 'black' : 'white')}}>
 			<th scope="row">{datas['Sleep_Score_Today']}</th>
 			<td >{datas['Time_Hr']} hrs {datas['Time_Min']} min</td>
 			<td >{datas['Mic']}</td>
@@ -42,23 +42,25 @@ const TableHistory = (props) => {
 	})
 
 	const createTable = useCallback((datas) => {
-		if(!datas) return "No Data";
+		if(!datas) return "";
 		return (
-			<Table striped>
-			<thead>
-			<tr>
-				<th >SLEEP SCORE</th>
-				<th >TOTAL SLEEP HOUR</th>
-				<th >SNOR</th>
-				<th >TEMPERATURE</th>
-				<th >HEART RATE</th>
-			</tr>
-			</thead>
-			<tbody>
-			{createRow(datas)}
-			</tbody>
-	
-			</Table>
+			<UncontrolledCollapse toggler={`#${toggleLabel}`} >
+				<Table striped>
+				<thead>
+				<tr>
+					<th >SLEEP SCORE</th>
+					<th >TOTAL SLEEP HOUR</th>
+					<th >SNOR</th>
+					<th >TEMPERATURE</th>
+					<th >HEART RATE</th>
+				</tr>
+				</thead>
+				<tbody>
+				{createRow(datas)}
+				</tbody>
+		
+				</Table>
+			</UncontrolledCollapse>
 		);
 	})
 
@@ -66,11 +68,11 @@ const TableHistory = (props) => {
 	return (
 	<div className="layout">
 			<Button color="secondary" size="lg" id={toggleLabel} block style={{ marginBottom: '1rem' }}>
-		{dateLabel}
+		{dateLabel} {datas ? '' : '(No Data)'}
 	</Button>
-	<UncontrolledCollapse toggler={`#${toggleLabel}`} >
+
 		{createTable(datas)}
-	</UncontrolledCollapse>
+
 	</div>
 
 	);
