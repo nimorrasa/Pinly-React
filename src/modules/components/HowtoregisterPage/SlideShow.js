@@ -11,6 +11,7 @@ import pic5 from'./img_register/5.png';
 const slideImages = [ {pic1},{pic2},{pic3},{pic4},{pic5},];
  
 const properties = {
+  autoplay: false,
   duration: 5000,
   transitionDuration: 500,
   infinite: true,

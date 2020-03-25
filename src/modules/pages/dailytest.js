@@ -21,7 +21,7 @@ const dailytest = (props) => {
     const history = useHistory();
 	const { handleSubmit, register, setValue , getValues, errors } = useForm();
 
-	const [visible, setVisible] = useState(false);
+	const [visible, setVisible] = useState(true);
 
 	const onDismiss = useCallback(() => {
 		setVisible(false);
@@ -55,7 +55,7 @@ const dailytest = (props) => {
 			const timer = setTimeout(() => {
 				setVisible(false);
 				history.push("/wait_to_sleep");  
-			  }, 3000);
+			  }, 300000);
 			  return () => clearTimeout(timer);
 		}
 	}, [visible]);
@@ -125,11 +125,19 @@ const dailytest = (props) => {
 			<div className="loading" style={{textAlign: "center",top: "30vh",height: "50vh",color: "white",display : (!isLoading ? 'none' : 'block' )}}>
 				<i className="fa fa-spinner fa-spin fa-3x fa-fw"></i>
 			</div>    
-			<Alert color="primary" isOpen={visible} toggle={onDismiss} fade={false}>
-				Good Dream!
-			</Alert>
 			<form onSubmit={handleSubmit(submitSleep)}  style={{display : (isLoading ? 'none' : 'block' )}}>
 				<Container>
+					<Row style={{textAlign: "center"}}>
+						<Col lg="3" md="1" xs="1">
+						</Col>
+						<Col lg="6" md="10" xs="10">
+							<Alert style={{textAlign: "center"}} color="primary" isOpen={visible} toggle={onDismiss} fade={false}>
+								Good Dream!
+							</Alert>
+						</Col>
+						<Col lg="3" md="1" xs="1">
+						</Col>
+					</Row>
 					<Row>
 						<Col lg="9" md="9" xs="9">
 							<div className="row">

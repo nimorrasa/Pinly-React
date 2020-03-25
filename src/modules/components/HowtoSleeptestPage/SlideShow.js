@@ -11,6 +11,7 @@ import pic4 from'./img_usesleeptest/4.png';
 const slideImages = [ {pic1},{pic2},{pic3},{pic4},];
  
 const properties = {
+  autoplay: false,
   duration: 5000,
   transitionDuration: 500,
   infinite: true,
