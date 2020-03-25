@@ -47,7 +47,6 @@ const Assistant = (props) => {
 			firebase.auth().onAuthStateChanged(async function(user) {
 				if (user) {
 					let data = await fetchData(user.uid);
-					console.log(data);
 					setUserData(data);
 					setShowData(data.asst);
 				}else{
