@@ -15,10 +15,18 @@ import firebase from 'firebase';
 import { log_data } from '../helpers';
 import { Container, Row, Col } from 'reactstrap';
 import DailyButton from '../components/DailyTestPage/DailyButton.js';
+import { Alert } from 'reactstrap';
 
 const dailytest = (props) => {
     const history = useHistory();
 	const { handleSubmit, register, setValue , getValues, errors } = useForm();
+
+	const [visible, setVisible] = useState(false);
+
+	const onDismiss = useCallback(() => {
+		setVisible(false);
+		history.push("/wait_to_sleep");  
+	},[]);
 
 	const [ isLoading, setIsLoading ] = useState(true);
 	const [userData,setUserData] = useState({});
@@ -34,6 +42,23 @@ const dailytest = (props) => {
 		},
 		[setNavbarTheme,setTheme]
 	);
+
+	const toggleAlert = useCallback(
+		() => {
+			setVisible(true);
+		},
+		[]
+	);
+
+	useEffect(() => {
+		if(visible) {
+			const timer = setTimeout(() => {
+				setVisible(false);
+				history.push("/wait_to_sleep");  
+			  }, 3000);
+			  return () => clearTimeout(timer);
+		}
+	}, [visible]);
 
 	const submitSleep = useCallback(
 		async (newData) => {
@@ -57,8 +82,7 @@ const dailytest = (props) => {
 				const result1 = await database.ref('/users').child(userId).update(sleepData);
 				const result2 = await database.ref('/users').child(userId).child('daily_test').update(daily_test);
 				log_data(userId,userData.mac_address,1,timestamp);
-				alert('Good Dream!');	
-				history.push("/wait_to_sleep");  
+				toggleAlert();	
 			} catch(error) {
 				var errorCode = error.code;
 				var errorMessage = error.message;
@@ -101,6 +125,9 @@ const dailytest = (props) => {
 			<div className="loading" style={{textAlign: "center",top: "30vh",height: "50vh",color: "white",display : (!isLoading ? 'none' : 'block' )}}>
 				<i className="fa fa-spinner fa-spin fa-3x fa-fw"></i>
 			</div>    
+			<Alert color="primary" isOpen={visible} toggle={onDismiss} fade={false}>
+				Good Dream!
+			</Alert>
 			<form onSubmit={handleSubmit(submitSleep)}  style={{display : (isLoading ? 'none' : 'block' )}}>
 				<Container>
 					<Row>
