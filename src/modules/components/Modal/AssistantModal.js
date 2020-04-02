@@ -43,7 +43,7 @@ const AssistantModal = (props) => {
             <tbody>
               <tr>
                 <th scope="row">Coffee</th>
-                <td>{dailyResult && dailyResult.caffeine}</td>
+                <td>{dailyResult && dailyResult.coffee}</td>
               </tr>
               <tr>
                 <th scope="row">Alcohol</th>
@@ -55,7 +55,7 @@ const AssistantModal = (props) => {
               </tr>
               <tr>
                 <th scope="row">Stress</th>
-                <td>{dailyResult && dailyResult.stress}</td>
+                <td>{dailyResult && dailyResult.tea}</td>
               </tr>
               <tr>
                 <th scope="row">Nap</th>

@@ -67,9 +67,9 @@ const dailytest = (props) => {
 			let sleepData = {};
 			let daily_test = {};
 			daily_test.alcohol = newData.alcohol;
-			daily_test.caffeine = newData.caffeine;
+			daily_test.coffee = newData.coffee;
 			daily_test.smoking = newData.smoking;
-			daily_test.stress = newData.stress;
+			daily_test.tea = newData.tea;
 			daily_test.nap = newData.nap;
 			daily_test.working = newData.working;
 			daily_test.exercise = newData.exercise;
@@ -141,10 +141,10 @@ const dailytest = (props) => {
 					<Row>
 						<Col lg="9" md="9" xs="9">
 							<div className="row">
-								<Col lg="6" md="6" xs="6"><DailyButton name="caffeine" title="Coffee" unit="cups" image={btn_cf} setValue={setValue} register={register} /></Col>
+								<Col lg="6" md="6" xs="6"><DailyButton name="coffee" title="Coffee" unit="cups" image={btn_cf} setValue={setValue} register={register} /></Col>
 								<Col lg="6" md="6" xs="6"><DailyButton name="alcohol" title="Alcohol Drink" unit="bottle" image={btn_al} setValue={setValue} register={register} /></Col>
 								<Col lg="6" md="6" xs="6"><DailyButton name="smoking" title="Smoking" unit="rolls" image={btn_smk} setValue={setValue} register={register} /></Col>
-								<Col lg="6" md="6" xs="6"><DailyButton name="stress" title="Tea" unit="levels" image={btn_tea} setValue={setValue} register={register} /></Col>
+								<Col lg="6" md="6" xs="6"><DailyButton name="tea" title="Tea" unit="levels" image={btn_tea} setValue={setValue} register={register} /></Col>
 							</div>
 						</Col>
 						<Col lg="3" md="3" xs="3" style={{paddingTop: "10px"}}>
