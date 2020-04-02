@@ -95,6 +95,7 @@ const SocialRegister = (props) => {
           height : values.height,
           gender : values.is_male ? 'Male' : 'Female',
           disease : values.disease,
+          sleep_status : 0,
           mac_address : values.mac_address
         });
     };

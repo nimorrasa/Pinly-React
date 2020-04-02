@@ -89,7 +89,7 @@ const FormSignUp = (props) => {
         byear : byear,
         mac_address : mac_address,
         disease: disease,
-        sleep_status : 2
+        sleep_status : 0
 			};
 
       registerData.userId = userId;

@@ -21,7 +21,7 @@ const dailytest = (props) => {
     const history = useHistory();
 	const { handleSubmit, register, setValue , getValues, errors } = useForm();
 
-	const [visible, setVisible] = useState(true);
+	const [visible, setVisible] = useState(false);
 
 	const onDismiss = useCallback(() => {
 		setVisible(false);
@@ -55,7 +55,7 @@ const dailytest = (props) => {
 			const timer = setTimeout(() => {
 				setVisible(false);
 				history.push("/wait_to_sleep");  
-			  }, 300000);
+			  }, 3000);
 			  return () => clearTimeout(timer);
 		}
 	}, [visible]);
