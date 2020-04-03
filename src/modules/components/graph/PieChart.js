@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 import ReactApexChart from "react-apexcharts";
 
-
+import ReactTooltip from "react-tooltip";
 const PieChart = (props) => {
     const series= [props.value];
 
@@ -49,18 +49,18 @@ const PieChart = (props) => {
             dataLabels: {
             show: true,
             name: {
-                offsetY: -10,
+                offsetY: 15,
                 show: true,
                 color: props.theme == 'dark' ? 'white' : 'black',
-                fontSize: '17px'
+                fontSize: '37px'
             },
             value: {
                 formatter: function(val) {
-                return `${new Date(props.currentSleep).toLocaleTimeString('en-US')} - ${new Date(props.currentWakeUp).toLocaleTimeString('en-US')}`;
+                return `${new Date(props.currentSleep).toLocaleTimeString('en-US')}`;
                 },
                 color: 'grey',
-                fontSize: props.timeSize ? props.timeSize : '16px',
-                show: true,
+                fontSize: props.timeSize ? props.timeSize : '26px',
+                show: false,
             }
             }
         }
@@ -86,7 +86,7 @@ const PieChart = (props) => {
     
     return (
         <div id="card">
-            <div id="chart">
+            <div id="chart" data-tip data-for="pie_graph">
                 <ReactApexChart
                     options={options}
                     series={series}
@@ -94,6 +94,9 @@ const PieChart = (props) => {
                     // width="300"
                 />
             </div>
+            <ReactTooltip id="pie_graph">
+                  <h4>{`${new Date(props.currentSleep).toLocaleTimeString('en-US')} - ${new Date(props.currentWakeUp).toLocaleTimeString('en-US')}`}</h4>
+            </ReactTooltip>
         </div>
     );
 }

@@ -134,10 +134,9 @@ const SleepSc = (props) => {
 							<SleepScore sleepScoreToday={sleepScoreToday} sleepScoreYesterday={sleepScoreYesterday}/>
 						</Row>
 						  <Row style={{paddingLeft: "25%"}}>
-						  <PieChart timeSize="10px" theme={navbarTheme} totalSleep={totalSleep} currentSleep={currentSleep} currentWakeUp={currentWakeUp} value={sleepScoreToday}></PieChart>
+						  <PieChart timeSize="18px" theme={navbarTheme} totalSleep={totalSleep} currentSleep={currentSleep} currentWakeUp={currentWakeUp} value={sleepScoreToday}></PieChart>
 						  </Row>
 						  <Row style={{paddingLeft: "30%"}}>
-						  	<Temp value={temp}/>
 						  </Row>
         			</Col>
 					<Col lg="6" md="6" xs="6">
@@ -150,24 +149,27 @@ const SleepSc = (props) => {
 						<Row style={{textAlign: "center"}}>
 							<Col lg="12" md="12" xs="12">
 								{/* <h1 style={{textAlign: "left"}}>Snore Level (dB)</h1> */}
-								<Bar values={summaryMics}/>
+								<Bar theme={navbarTheme} values={summaryMics}/>
 								<strong style={{textAlign: "center"}}>Hour Times (hr)</strong>
 							</Col>
 						</Row>
 						<Row style={{paddingLeft: "20%"}}>
-							<HRSensor value={hearthRate}/>
 						</Row>
                 	</Col>
                 </Row>
 				<Row className="button">
-					<Col md="4" lg="4" xs="4">
+					<Col md="4" lg="4" xs="4"  style={{paddingLeft: "10%"}}>
+						<HRSensor value={hearthRate}/>
 					</Col>
 					<Col md="4" lg="4" xs="4" style={{padding: 0, textAlign: "center", width: "100%"}}>
-						<button type="button" onClick={goToHistory} className="btn-default" data-toggle="modal" data-target="#myModal">
+						<button style={{fontSize: "2rem"}} type="button" onClick={goToHistory} className="btn-default" data-toggle="modal" data-target="#myModal">
 							HISTORY
 						</button>
 					</Col>
-					<Col md="4" lg="4" xs="4">
+					<Col md="4" lg="4" xs="4" style={{paddingRight: "10%"}}>
+						<Row>
+							<Temp value={temp}/>
+						</Row>
 					</Col>
 				</Row>
             </div>

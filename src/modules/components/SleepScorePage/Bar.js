@@ -48,6 +48,25 @@ const Bar = (props) => {
         <Chart
           id="bar_graph"
           options={ {
+            dataLabels: {
+              enabled: true,
+              enabledOnSeries: undefined,
+              formatter: function (val, opts) {
+                  return val
+              },
+              textAnchor: 'middle',
+              distributed: false,
+              offsetX: 0,
+              offsetY: 0,
+              style: {
+                  fontSize: '24px',
+                  fontWeight: 'bold',
+                  colors: ['white']
+              },
+              background: {
+                enabled: false,
+              },
+            },
             chart: {
               id: "basic-bar",
               toolbar: {
@@ -57,10 +76,42 @@ const Bar = (props) => {
             stroke: {
               width: [2, 0, 0]
             },
-    
+            yaxis: {
+              labels: {
+                show: true,
+                align: 'right',
+                minWidth: 0,
+                maxWidth: 160,
+                style: {
+                    colors: props.theme == 'dark' ? 'white' : 'black',
+                    fontSize: '15px',
+                    fontFamily: 'Helvetica, Arial, sans-serif',
+                    fontWeight: 400,
+                    cssClass: 'apexcharts-yaxis-label',
+                },
+                offsetX: 0,
+                offsetY: 0,
+                rotate: 0
+            },
+            },
             xaxis: {
-              categories: hours
-              
+              categories: hours,
+              labels: {
+                show: true,
+                align: 'right',
+                minWidth: 0,
+                maxWidth: 160,
+                style: {
+                    colors: props.theme == 'dark' ? 'white' : 'black',
+                    fontSize: '22px',
+                    fontFamily: 'Helvetica, Arial, sans-serif',
+                    fontWeight: 400,
+                    cssClass: 'apexcharts-yaxis-label',
+                },
+                offsetX: 0,
+                offsetY: 0,
+                rotate: 0
+            },
             }
           }}
           series={[
