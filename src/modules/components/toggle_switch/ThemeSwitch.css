@@ -57,8 +57,6 @@ label .fa-sun-o {
 .checkbox:checked + .label .fa-moon-o {
   color:  #7b7b7c;
   padding-left: 20px;
-  
-
 }
 .checkbox:checked + .label .fa-sun-o {
   color:  #7b7b7c;

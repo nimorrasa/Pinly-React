@@ -1,15 +1,19 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import './ThemeSwitch.css';
 
 const ThemeSwitch = (props) => {
 
-  const [isDark,setIsDark] = useState(props.isDark);
+  const [isDark,setIsDark] = useState(false);
 
   const handleChange = () => {
     let new_theme = !isDark;
     setIsDark(new_theme);
     props.onChangeTheme(new_theme)
   };
+
+  useEffect(() => {
+    setIsDark(props.isDark)
+  }, [props.isDark])
 
   return (
     <button className="icon-button">
@@ -20,7 +24,7 @@ const ThemeSwitch = (props) => {
         id="night-mode"
         defaultValue={isDark}
         onChange={handleChange}
-        defaultChecked={isDark}
+        checked={isDark}
         />
       <label htmlFor="night-mode" className="label">
         <i className="fa fa-sun-o"></i>
