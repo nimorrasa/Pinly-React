@@ -52,15 +52,15 @@ const PieChart = (props) => {
                 offsetY: 15,
                 show: true,
                 color: props.theme == 'dark' ? 'white' : 'black',
-                fontSize: '37px'
+                fontSize: props.hourSize ? props.hourSize : '17px',
             },
             value: {
                 formatter: function(val) {
-                return `${new Date(props.currentSleep).toLocaleTimeString('en-US')}`;
+                    return `${new Date(props.currentSleep).toLocaleTimeString('en-US')} - ${new Date(props.currentWakeUp).toLocaleTimeString('en-US')}`;
                 },
                 color: 'grey',
-                fontSize: props.timeSize ? props.timeSize : '26px',
-                show: false,
+                fontSize: props.timeSize ? props.timeSize : '16px',
+                show: props.showTime,
             }
             }
         }

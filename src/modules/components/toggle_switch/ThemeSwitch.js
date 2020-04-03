@@ -1,9 +1,10 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import './ThemeSwitch.css';
+import { useCookies } from 'react-cookie';
 
 const ThemeSwitch = (props) => {
-
-  const [isDark,setIsDark] = useState(false);
+  const [cookies, setCookie, removeCookie] = useCookies(['theme']);
+  const [isDark,setIsDark] = useState(undefined);
 
   const handleChange = () => {
     let new_theme = !isDark;
@@ -12,8 +13,8 @@ const ThemeSwitch = (props) => {
   };
 
   useEffect(() => {
-    setIsDark(props.isDark)
-  }, [props.isDark])
+    setIsDark(cookies.theme == 'dark')
+  }, [cookies.theme])
 
   return (
     <button className="icon-button">

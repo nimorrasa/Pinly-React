@@ -134,7 +134,7 @@ const SleepSc = (props) => {
 							<SleepScore sleepScoreToday={sleepScoreToday} sleepScoreYesterday={sleepScoreYesterday}/>
 						</Row>
 						  <Row style={{paddingLeft: "25%"}}>
-						  <PieChart timeSize="18px" theme={navbarTheme} totalSleep={totalSleep} currentSleep={currentSleep} currentWakeUp={currentWakeUp} value={sleepScoreToday}></PieChart>
+						  <PieChart showTime={false} hourSize="37px" timeSize="18px" theme={navbarTheme} totalSleep={totalSleep} currentSleep={currentSleep} currentWakeUp={currentWakeUp} value={sleepScoreToday}></PieChart>
 						  </Row>
 						  <Row style={{paddingLeft: "30%"}}>
 						  </Row>
