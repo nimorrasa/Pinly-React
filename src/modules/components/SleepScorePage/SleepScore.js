@@ -67,11 +67,11 @@ const SleepScore = (props) => {
 						<h1 class="oversize" style={colorLight}>{sleepScoreToday}</h1>
 					</Col>
 					<Col lg="6" md="6" xs="6" style={{textAlign: "left",paddingTop: "10%"}}>
-						<h1 style={{padding: 0,margin: 0}}><FontAwesomeIcon style={{color : (diff >= 0 ? "rgb(60, 199, 195)" : "red")}} icon={diff >= 0 ? faCaretUp : faCaretDown}></FontAwesomeIcon>{(sleepScoreYesterday > 0 ? diff * 100/ sleepScoreYesterday : 100)}%</h1> 
+						<h1 style={{padding: 0,margin: 0}}><FontAwesomeIcon style={{color : (diff >= 0 ? "rgb(60, 199, 195)" : "red")}} icon={diff >= 0 ? faCaretUp : faCaretDown}></FontAwesomeIcon>{(sleepScoreYesterday == 0 ? sleepScoreToday : diff * 100/ sleepScoreYesterday)}%</h1> 
 					</Col>
 				</Row>
                 <ReactTooltip id="happyFace">
-                  {getTooltipMessage(90)}
+                  {getTooltipMessage(sleepScoreToday)}
                 </ReactTooltip>
 				<Row>
 					<h1 style={colorfont}>Is'<span style={colorLightNR}>{(diff)}</span> point {diff >= 0 ? 'higher' : 'lower' } than yesterday</h1>
