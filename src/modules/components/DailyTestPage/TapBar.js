@@ -68,7 +68,7 @@ export const TapBar = (props) => {
 					<ProgressBar percentRange={percentRange}/>
 				</div>
 				<div className="toggle-buttons button">
-					<button type="button" className="btn btn-link" onClick={() => setProgress(percentRange < 500 ? percentRange - 10 : 500) }><h1>-</h1></button>
+					<button disabled={percentRange==0} type="button" className="btn btn-link" onClick={() => setProgress(percentRange < 500 ? percentRange - 10 : 500) }><h1>-</h1></button>
 					<button type="button" className="btn btn-link" onClick={() => setProgress(percentRange < 500 ? percentRange + 10 : 500) }><h1>+</h1></button>
 					<button type="button" className="btn btn-link" onClick={() => setProgress(0)}><span>Reset</span></button>
 				</div>
