@@ -89,10 +89,8 @@ const SleepSc = (props) => {
 
 				let date = new Date();
 				date.setDate(date.getDate() - 1);
-
-				// console.log(date);
 				let yesterday_data = await fetchDataHardware(get_date_string(date),data.mac_address);
-				if(yesterday_data && yesterday_data.doc) setSleepScoreYesterday(toPercent(yesterday_data.Sleep_Score_Today));
+				if(yesterday_data && yesterday_data) setSleepScoreYesterday(toPercent(yesterday_data.Sleep_Score_Today));
 
 				let micData = await fetchDataMic(data.mac_address);
 				setSummaryMics(micData);
