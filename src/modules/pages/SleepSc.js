@@ -141,7 +141,7 @@ const SleepSc = (props) => {
 						  </Row>
         			</Col>
 					<Col lg="6" md="6" xs="6">
-						<Row style={{textAlign: "center"}}>
+						<Row style={{textAlign: "center",paddingRight: "20%"}}>
 							<Col lg="12" md="12" xs="12">
 								<h1>Ready to Sleep?</h1>
 								<Link to="/daily_test"><img src={go_to_sleep} onMouseOver={onMouseOverGoToSleep} onMouseOut={onMouseOutGoToSleep} alt="Button Go To Sleep _Daily Test" style={{ opacity: (isHoverGoToSleep ? "50%" : "100%"), maxHeight: "22vh"}}></img></Link>

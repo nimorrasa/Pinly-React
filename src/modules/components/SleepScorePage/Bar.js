@@ -46,6 +46,7 @@ const Bar = (props) => {
           <p>0 - no sound, 100 - very loud</p>
         </Row>
         <Chart
+          id="bar_graph"
           options={ {
             chart: {
               id: "basic-bar",
