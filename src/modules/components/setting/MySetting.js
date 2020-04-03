@@ -48,13 +48,13 @@ const MySetting = (props) => {
     },[firebase]);
   
     return (
-      <Dropdown className={props.theme} onMouseOver={onMouseEnter} onMouseLeave={onMouseLeave} isOpen={dropdownOpen} toggle={toggle}>
+      <Dropdown style={{display : (isAuth ? 'block' : 'none' )}} className={props.theme} onMouseOver={onMouseEnter} onMouseLeave={onMouseLeave} isOpen={dropdownOpen} toggle={toggle}>
         <DropdownToggle tag="button" type="button" className="my-button my-setting">
           <i className="fa fa-cog" style={{fontSize: "25px"}}></i>
         </DropdownToggle>
         <DropdownMenu  right>
-          <DropdownItem style={{textAlign: "right"}} className='my-language'>Language <MyLink destination='/home?lang=th' text='TH'></MyLink>/<MyLink destination='/home?lang=en' text='EN'></MyLink></DropdownItem>
-          <DropdownItem style={{display : (isAuth ? 'block' : 'none' ),textAlign: "right"}}><a onClick={handleLogout}>Logout</a></DropdownItem>
+          {/* <DropdownItem style={{textAlign: "right"}} className='my-language'>Language <MyLink destination='/home?lang=th' text='TH'></MyLink>/<MyLink destination='/home?lang=en' text='EN'></MyLink></DropdownItem> */}
+          <DropdownItem style={{textAlign: "right"}}><a onClick={handleLogout}>Logout</a></DropdownItem>
         </DropdownMenu>
       </Dropdown>
     );

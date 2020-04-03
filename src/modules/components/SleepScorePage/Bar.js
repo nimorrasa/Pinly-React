@@ -73,6 +73,48 @@ const Bar = (props) => {
                 show: true
               }
             },
+            tooltip: {
+              enabled: true,
+              enabledOnSeries: undefined,
+              shared: true,
+              followCursor: false,
+              intersect: false,
+              inverseOrder: false,
+              custom: undefined,
+              fillSeriesColor: false,
+              theme: props.theme,
+              style: {
+                fontSize: '12px',
+                fontFamily: undefined
+              },
+              onDatasetHover: {
+                  highlightDataSeries: false,
+              },
+              x: {
+                  show: true,
+                  format: 'dd MMM',
+                  formatter: undefined,
+              },
+              y: {
+                  formatter: undefined,
+                  title: {
+                      formatter: (seriesName) => seriesName,
+                  },
+              },
+              z: {
+                  formatter: undefined,
+                  title: 'Size: '
+              },
+              marker: {
+                  show: false,
+              },
+              fixed: {
+                  enabled: false,
+                  position: 'topRight',
+                  offsetX: 0,
+                  offsetY: 0,
+              },
+          },
             stroke: {
               width: [2, 0, 0]
             },
