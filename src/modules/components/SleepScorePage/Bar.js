@@ -59,7 +59,7 @@ const Bar = (props) => {
               offsetX: 0,
               offsetY: 0,
               style: {
-                  fontSize: '24px',
+                  fontSize: '2ex',
                   fontWeight: 'bold',
                   colors: ['white']
               },
