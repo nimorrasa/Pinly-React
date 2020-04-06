@@ -158,7 +158,7 @@ const Bar = (props) => {
           }}
           series={[
             {
-              name: "series-1",
+              name: "sound",
               background: "#141313",
               data: series,
             }

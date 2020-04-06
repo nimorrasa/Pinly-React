@@ -15,7 +15,7 @@ firebase.initializeApp(config);
 firebase.analytics();
 
 function App() {
-  const notification_at = "22:01";
+  const notification_at = "22:00";
 
   const times = notification_at.split(":");
   const hour = parseInt(times[0]);
