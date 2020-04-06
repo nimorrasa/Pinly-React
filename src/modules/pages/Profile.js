@@ -106,7 +106,7 @@ const Profile = (props) => {
                     <Col className="profile right" lg="5" sm="6">
                         <div className="center">
                         <div><h1>Today</h1></div>
-                        <PieChart showTime={true} theme={navbarTheme} totalSleep={totalSleep} currentSleep={currentSleep} currentWakeUp={currentWakeUp} value={sleepScoreToday}></PieChart>
+                        <PieChart isSleepScore={false} showTime={true} theme={navbarTheme} totalSleep={totalSleep} currentSleep={currentSleep} currentWakeUp={currentWakeUp} value={sleepScoreToday}></PieChart>
                         <h3>Your sleep score today is {parseInt(sleepScoreToday)}%</h3>
                         <h3>{sleepScoreWeekly}% for week</h3>
                         <div>

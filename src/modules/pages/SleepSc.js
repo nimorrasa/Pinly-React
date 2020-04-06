@@ -131,49 +131,34 @@ const SleepSc = (props) => {
 			</div>
             <div className={"App Sleep_score "+theme} style={{display : (isLoading ? 'none' : 'block' )}}>
 				<Row className="content">
-          			<Col lg="6" md="6" xs="6">
-						<Row style={{paddingLeft: "25%"}}>
-							<SleepScore sleepScoreToday={sleepScoreToday} sleepScoreYesterday={sleepScoreYesterday}/>
-						</Row>
-						  <Row style={{paddingLeft: "25%"}}>
-						  <PieChart showTime={false} hourSize="37px" timeSize="18px" theme={navbarTheme} totalSleep={totalSleep} currentSleep={currentSleep} currentWakeUp={currentWakeUp} value={sleepScoreToday}></PieChart>
-						  </Row>
-						  <Row style={{paddingLeft: "30%"}}>
-						  </Row>
-        			</Col>
-					<Col lg="6" md="6" xs="6">
-						<Row style={{textAlign: "center",paddingRight: "20%"}}>
-							<Col lg="12" md="12" xs="12">
-								<h1>Ready to Sleep?</h1>
-								<Link to="/daily_test"><img src={go_to_sleep} onMouseOver={onMouseOverGoToSleep} onMouseOut={onMouseOutGoToSleep} alt="Button Go To Sleep _Daily Test" style={{ opacity: (isHoverGoToSleep ? "50%" : "100%"), maxHeight: "22vh"}}></img></Link>
-							</Col>
-						</Row>
-						<Row style={{textAlign: "center"}}>
-							<Col lg="12" md="12" xs="12">
-								{/* <h1 style={{textAlign: "left"}}>Snore Level (dB)</h1> */}
-								<Bar theme={navbarTheme} values={summaryMics}/>
-								<strong style={{textAlign: "center"}}>Hour Times (hr)</strong>
-							</Col>
-						</Row>
-						<Row style={{paddingLeft: "20%"}}>
-						</Row>
-                	</Col>
-                </Row>
-				<Row className="button">
-					<Col md="4" lg="4" xs="4"  style={{paddingLeft: "10%"}}>
+          			<Col lg="6" md="6" xs="12">
+						<SleepScore sleepScoreToday={sleepScoreToday} sleepScoreYesterday={sleepScoreYesterday}/>
+						<PieChart isSleepScore={true} showTime={false} hourSize="37px" timeSize="18px" theme={navbarTheme} totalSleep={totalSleep} currentSleep={currentSleep} currentWakeUp={currentWakeUp} value={sleepScoreToday}></PieChart>
 						<HRSensor value={hearthRate}/>
 					</Col>
-					<Col md="4" lg="4" xs="4" style={{padding: 0, textAlign: "center", width: "100%"}}>
+					<Col lg="6" md="6" xs="12">
+						<Col lg="12" md="12" xs="12">
+							<h1>Ready to Sleep?</h1>
+							<Link to="/daily_test"><img src={go_to_sleep} onMouseOver={onMouseOverGoToSleep} onMouseOut={onMouseOutGoToSleep} alt="Button Go To Sleep _Daily Test" style={{ opacity: (isHoverGoToSleep ? "50%" : "100%"), maxHeight: "20vh"}}></img></Link>
+						</Col>
+						<Col lg="12" md="12" xs="12">
+							<Bar theme={navbarTheme} values={summaryMics}/>
+							<strong style={{textAlign: "center"}}>Hour Times (hr)</strong>
+						</Col>
+						<Col lg="12" md="12" xs="12">
+							<Temp value={temp}/>
+						</Col>
+                	</Col>
+					<Col md="4" lg="4" xs="12">
+					</Col>
+					<Col md="4" lg="4" xs="12" style={{padding: 0, textAlign: "center", width: "100%"}}>
 						<button style={{fontSize: "2rem"}} type="button" onClick={goToHistory} className="btn-default" data-toggle="modal" data-target="#myModal">
 							HISTORY
 						</button>
 					</Col>
-					<Col md="4" lg="4" xs="4" style={{paddingRight: "10%"}}>
-						<Row>
-							<Temp value={temp}/>
-						</Row>
+					<Col md="4" lg="4" xs="12">
 					</Col>
-				</Row>
+                </Row>
             </div>
         </div>
     );

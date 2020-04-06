@@ -8,12 +8,9 @@ var colorLight ={
 }
 const Temp = (props) => {
   return (
-      <Row style={{width: "20vw"}}> {/* Centre */}
-            <div className="textsize">
-            <h1>Temperature<span className="middlesize" style={colorLight}>{props.value}  ํC</span></h1>
-            </div>
-            
-      </Row>
+    <div className="textsize">
+    <h1>Temperature<span className="middlesize" style={colorLight}>{props.value}  ํC</span></h1>
+    </div>
       );
     }
     

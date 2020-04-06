@@ -60,7 +60,7 @@ const SleepScore = (props) => {
 		<Row>
 			<Col style={{textAlign: "center",display: "relative"}}>
 				<div className="textsize">
-				<h1 style={colorheader}>Sleep Score</h1>
+				<h1>Sleep Score</h1>
 				</div>
 				<Row data-tip data-for="happyFace">
 					<Col lg="6" md="6" xs="6" style={{textAlign: "right"}}>
@@ -73,9 +73,7 @@ const SleepScore = (props) => {
                 <ReactTooltip id="happyFace">
                   {getTooltipMessage(sleepScoreToday)}
                 </ReactTooltip>
-				<Row>
-					<h1 style={colorfont}>Is'<span style={colorLightNR}>{Math.abs(diff)}</span> point {diff >= 0 ? 'higher' : 'lower' } than yesterday</h1>
-				</Row>	
+				<h1 style={colorfont}>Is'<span style={colorLightNR}>{Math.abs(diff)}</span> point {diff >= 0 ? 'higher' : 'lower' } than yesterday</h1>	
 			</Col>
 		</Row>
 	);

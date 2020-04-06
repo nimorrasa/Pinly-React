@@ -6,6 +6,10 @@
     overflow: hidden;
 }
 
+#chart {
+    max-height: 10%;
+}
+
 .Sleep_score .oversize {
     font-size: 8rem;
 }
@@ -52,6 +56,16 @@
 
     .Sleep_score {
         overflow: scroll;
+    }
+
+
+    .Sleep_score::-webkit-scrollbar {
+    display: none;
+    }
+    
+    /* Hide scrollbar for IE and Edge */
+    .Sleep_score {
+    -ms-overflow-style: none;
     }
 
     .Sleep_score h1 {

@@ -6,12 +6,18 @@ import ReactTooltip from "react-tooltip";
 const PieChart = (props) => {
     const series= [props.value];
 
+    const sleep_score_style = {
+        display: "flex",
+        justifyContent: "center",
+        padding: "5%"
+    };
+
     const options= {
         chart: {
-        type: 'radialBar',
-        toolbar: {
-            show: false
-        }
+            type: 'radialBar',
+            toolbar: {
+                show: false
+            }
         },
         plotOptions: {
         radialBar: {
@@ -85,13 +91,12 @@ const PieChart = (props) => {
     }
     
     return (
-        <div id="card">
+        <div id="card" style={props.isSleepScore ? sleep_score_style : null}>
             <div id="chart" data-tip data-for="pie_graph">
                 <ReactApexChart
                     options={options}
                     series={series}
                     type="radialBar"
-                    // width="300"
                 />
             </div>
             <ReactTooltip id="pie_graph">

@@ -5,6 +5,10 @@ import Chart from "react-apexcharts";
 
 const Bar = (props) => {
 
+  const sleep_score_style = {
+    display: "flex",
+    justifyContent: "center"
+};
 
   const [hours,setHours] = useState(props.values.hours);
   const [series,setSeries] = useState(props.values.series);
@@ -33,18 +37,14 @@ const Bar = (props) => {
   )
 
   return (
-    <Row>
-    <Row>
-      <Col lg="2" md="2" xs="2">
-
-      </Col>
-      <Col lg="18" md="8" xs="8">
-      <Row>
-          <strong>Snore Level (dB)</strong>
-        </Row>
-        <Row>
-          <p>0 - no sound, 100 - very loud</p>
-        </Row>
+    <div>
+      <Row style={{marginLeft: "22%"}}>
+        <strong>Snore Level (dB)</strong>
+      </Row>
+      <Row style={{marginLeft: "22%"}}>
+        <p>0 - no sound, 100 - very loud</p>
+      </Row>
+      <div style={sleep_score_style}>
         <Chart
           id="bar_graph"
           options={ {
@@ -164,12 +164,11 @@ const Bar = (props) => {
             }
           ]}
           type="bar"
-          style={{width: "30vw", height: "auto", maxHeight: "10vh"}}
+          style={{width: "auto", height: "auto", minWidth: "25vw", maxHeight: "10vh"}}
         />
-      </Col>
-
-    </Row>
-    </Row>
+      </div>
+    </div>
+     
   );
 }
 
