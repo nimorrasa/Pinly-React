@@ -27,12 +27,12 @@ const SleepSc = (props) => {
 
   const [sleepScoreToday,setSleepScoreToday] = useState(0);
   const [sleepScoreYesterday,setSleepScoreYesterday] = useState(0);
-  const [temp,setTemp] = useState(25);
+  const [temp,setTemp] = useState(0);
   const [summaryMics,setSummaryMics] = useState({
 	  hours : [],
 	  series : []
   });
-  const [hearthRate,setHearthRate] = useState(85);
+  const [hearthRate,setHearthRate] = useState(0);
   const [ userData, setUserData ] = useState({});
   const [ isLoading, setIsLoading ] = useState(true);
   const [theme,setTheme] = useState(props.theme);
@@ -83,7 +83,9 @@ const SleepSc = (props) => {
 				if(today_data && today_data.Sleep_Score_Today) setSleepScoreToday(toPercent(today_data.Sleep_Score_Today));
                 setTotalSleep(data.sleep_period);
                 setCurrentSleep(data.current_sleep);
-                setCurrentWakeUp(data.current_wakeup);
+				setCurrentWakeUp(data.current_wakeup);
+				setHearthRate(today_data.Heart_Rate);
+                setTemp(today_data.Temp);
 
 
 
