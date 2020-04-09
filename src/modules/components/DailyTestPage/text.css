@@ -1,6 +1,19 @@
 .textcenter {
-    text-align: center;
+  text-align: center;
+}
+
+.Bg-color .h1, .Bg-color h1 {
+  font-size: 2rem;
+}
+
+@media (max-width: 600px) {
+
+  .Bg-color .h1, .Bg-color h1 {
+    font-size: 1rem;
   }
-.textsize {
-  font-size:10vw;
+    
+  .wait_to_sleep_img {
+    width: 40vw;
+  }
+
 }
