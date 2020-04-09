@@ -67,9 +67,9 @@ export const TapBar = (props) => {
 				<ProgressBar percentRange={percentRange}/>
 			</div>
 			<div className="toggle-buttons button" style={{textAlign: "center"}}>
-				<button style={{fontSize: "3ex"}} disabled={percentRange==0} type="button" className="btn btn-link" onClick={() => setProgress(percentRange < 500 ? percentRange - 10 : 500) }><h1>-</h1></button>
-				<button style={{fontSize: "3ex"}} type="button" className="btn btn-link" onClick={() => setProgress(percentRange < 500 ? percentRange + 10 : 500) }><h1>+</h1></button>
-				<button style={{fontSize: "3ex"}} type="button" className="btn btn-link" onClick={() => setProgress(0)}><span>Reset</span></button>
+				<a style={{fontSize: "3ex"}} type="button" className={`btn btn-link ${percentRange <= 0 ? 'disabled' : ''}`} onClick={() => setProgress(percentRange < 500 ? percentRange - 10 : 500) }><h1>-</h1></a>
+				<a style={{fontSize: "3ex"}} type="button" className="btn btn-link" onClick={() => setProgress(percentRange < 500 ? percentRange + 10 : 500) }><h1>+</h1></a>
+				<a style={{fontSize: "3ex"}} type="button" className="btn btn-link" onClick={() => setProgress(0)}><span>Reset</span></a>
 			</div>
 		</div>
 	);

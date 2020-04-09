@@ -47,3 +47,17 @@
     color: #3cc7c3;
     background: transparent;
 }
+
+a.disabled {
+    pointer-events: none;
+    cursor: default;
+}
+
+
+@media (max-width: 600px) {
+
+    .progress-bar {
+        max-width: 30vw;
+    }
+
+}
