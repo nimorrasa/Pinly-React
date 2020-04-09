@@ -3,7 +3,7 @@
     max-width: 100%;
     max-height: 90vh;
     height: 80%;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 #chart {
@@ -53,16 +53,16 @@
         height: 10vh;
     }
 
-
+/* 
     .Sleep_score {
         overflow: scroll;
-    }
+    } */
 
-
+/* 
     .Sleep_score::-webkit-scrollbar {
     display: none;
     }
-    
+     */
     /* Hide scrollbar for IE and Edge */
     .Sleep_score {
     -ms-overflow-style: none;

@@ -5,6 +5,16 @@ body{
   font-weight: 300;
 }
 
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: rgba(51,51,51,0.7);
+  z-index: 10;
+}
+
 .App {
   text-align: center;
   max-height: 100vh;
@@ -12,7 +22,8 @@ body{
   color: white;
   padding-left: 5vw;
   padding-right: 5vw;
-  height: 100%
+  height: 100%;
+  margin: 0;
 }
 
 .App-logo {
@@ -86,6 +97,17 @@ body{
 }
 
 @media (max-width: 600px) {
+
+.overlay {
+  overflow: scroll;
+}
+
+
+.overlay::-webkit-scrollbar {
+  display: none;
+}
+  
+
   .App-logo {
     padding-top: 0vh;
     max-width: 30vw;

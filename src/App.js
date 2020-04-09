@@ -49,7 +49,7 @@ function App() {
   },[setTheme]);
 
   return (
-    <div className={"App "+theme} style={{height: '100vh'}}>
+    <div className={"overlay App "+theme}>
       <Router>
         <Routes firebase={firebase} theme={theme} onChangeTheme={handleNavbarThemeChange}></Routes>
       </Router>
