@@ -84,10 +84,8 @@ const SleepSc = (props) => {
                 setTotalSleep(data.sleep_period);
                 setCurrentSleep(data.current_sleep);
 				setCurrentWakeUp(data.current_wakeup);
-				setHearthRate(today_data.Heart_Rate);
-                setTemp(today_data.Temp);
-
-
+				if(today_data && today_data.Heart_Rate) setHearthRate(today_data.Heart_Rate);
+                if(today_data && today_data.Temp)  setTemp(today_data.Temp);
 
 				let date = new Date();
 				date.setDate(date.getDate() - 1);
