@@ -4,7 +4,8 @@
         margin-right: auto;
 }
 .progress-bar {
-    width: 250px;
+    max-width: 15vw;
+    width: auto;
     height: 25px;
     border-radius: 50px;
     border: 2px solid #3cc7c3;

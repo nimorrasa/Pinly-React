@@ -61,20 +61,17 @@ export const TapBar = (props) => {
 
 
 	return (
-		<Row>
-			<Col lg="12" md="12" xs="12">
-				<h1>{percentRange == 500 ? `500 Mins ! Too Much!!` : `${props.title} :  ${percentRange} Mins`}</h1>
-				<div className="positionbar">
-					<ProgressBar percentRange={percentRange}/>
-				</div>
-				<div className="toggle-buttons button">
-					<button disabled={percentRange==0} type="button" className="btn btn-link" onClick={() => setProgress(percentRange < 500 ? percentRange - 10 : 500) }><h1>-</h1></button>
-					<button type="button" className="btn btn-link" onClick={() => setProgress(percentRange < 500 ? percentRange + 10 : 500) }><h1>+</h1></button>
-					<button type="button" className="btn btn-link" onClick={() => setProgress(0)}><span>Reset</span></button>
-				</div>
-			</Col>
-		</Row>
-
+		<div>
+			<h1 style={{fontSize: "5ex",textAlign: "center"}}>{percentRange == 500 ? `500 Mins ! Too Much!!` : `${props.title} :  ${percentRange} Mins`}</h1>
+			<div className="positionbar">
+				<ProgressBar percentRange={percentRange}/>
+			</div>
+			<div className="toggle-buttons button" style={{textAlign: "center"}}>
+				<button style={{fontSize: "3ex"}} disabled={percentRange==0} type="button" className="btn btn-link" onClick={() => setProgress(percentRange < 500 ? percentRange - 10 : 500) }><h1>-</h1></button>
+				<button style={{fontSize: "3ex"}} type="button" className="btn btn-link" onClick={() => setProgress(percentRange < 500 ? percentRange + 10 : 500) }><h1>+</h1></button>
+				<button style={{fontSize: "3ex"}} type="button" className="btn btn-link" onClick={() => setProgress(0)}><span>Reset</span></button>
+			</div>
+		</div>
 	);
 };
 
