@@ -12,10 +12,6 @@ code {
     monospace;
 }
 
-.react-date-picker__wrapper {
-  width: 120px;
-}
-
 @font-face {
   font-family: 'RSU_Regular';
   src: url('fonts/rsufont/RSU_Regular.ttf');

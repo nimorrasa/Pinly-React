@@ -82,7 +82,7 @@ const SignUp = (props) => {
                         <p>PINLY is an application for sleep monitoring just for you.</p>
                         <FormSignUp firebase={firebase} onStepChange={onStepChange} onSubmit={onSubmit}></FormSignUp>
                     </Col>
-                    <Col className="col_right blank" lg="6" xs="12" style={{backgroundColor: "rgb(76, 199, 195)", display: (step == 'sign_up_step_2' ? 'block' : 'none')}}>
+                    <Col className={`col_right blank ${step == 'sign_up_step_2' && 'visible'}`} lg="6" xs="12" style={{backgroundColor: "rgb(76, 199, 195)"}}>
                     </Col>
                 </Row>
             </div>

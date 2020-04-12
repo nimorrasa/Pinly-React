@@ -87,6 +87,14 @@ select {
     width: 5%;
 }
 
+.Sign_up .col_right.blank {
+    display: none;
+}
+
+.Sign_up .col_right.blank.visible {
+    display: block;
+}
+
 @media (max-width: 800px) {
     .Sign_up h1 {
         font-size: 2rem;
@@ -98,6 +106,10 @@ select {
     .Sign_up .col_right {
         padding-top: 0;
         height: 0;
+    }
+
+    .Sign_up .col_right.blank.visible {
+        display: none;
     }
 
 }
