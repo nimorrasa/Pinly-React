@@ -36,7 +36,7 @@ const ProfileDetail = (props) => {
             </Row>
             <Row className="center">
                 <Col lg="12" md="12" xs="12">
-                    <Button className="profile_button"><img width="100%" src={profie_picture} alt="Card image cap" /></Button>
+                    <img className="profile_button" src={profie_picture} alt="Card image cap" />
                 </Col>
                 <Col lg="12" md="12" xs="12">
                     <CardText>{props.userData != null ? props.userData.username : 'None'}</CardText>
@@ -44,46 +44,60 @@ const ProfileDetail = (props) => {
             </Row>
             <Row className='Profile_step_1'>
                 <Row>
-                    <Col lg="2" md="2" xs="2">
-                        <FontAwesomeIcon icon={faBirthdayCake} />
+                    <Col lg="12" md="12" xs="12">
+                        <Row>
+                            <Col lg="2" md="2" xs="2">
+                                <FontAwesomeIcon icon={faBirthdayCake} />
+                            </Col>
+                            <Col id="birthdate" lg='10' md="10" xs='10'>
+                                <p className="m-0">Birthdate</p>
+                                <p>{dateFormat}</p>
+                            </Col>
+                        </Row>
                     </Col>
-                    <Col id="birthdate" lg='6' md="6" xs='10'>
-                        <p className="m-0">Birthdate</p>
-                        <p>{dateFormat}</p>
+                    <Col lg="6" md="6" xs="12">
+                        <Row>
+                            <Col lg="2" md="2" xs="2">
+                                <FontAwesomeIcon icon={faWeight} />
+                            </Col>
+                            <Col id="birthdate" lg='10' md="10" xs='10'>
+                                <p className="m-0">Weight</p>
+                                <p>{props.userData == null ? 'None' : props.userData.weight+' kg'}</p>
+                            </Col>
+                        </Row>
                     </Col>
-                </Row>
-                <Row> 
-                    <Col lg="2" md="2" xs="2">
-                        <FontAwesomeIcon icon={faWeight} />
+                    <Col lg="6" md="6" xs="12">
+                        <Row>
+                            <Col lg="2" md="2" xs="2">
+                                <FontAwesomeIcon icon={faRulerVertical} />
+                            </Col>
+                            <Col id="birthdate" lg='10' md="10" xs='10'>
+                                <p className="m-0">Height</p>
+                                <p>{props.userData == null ? 'None' : props.userData.height+' cm'}</p>
+                            </Col>
+                        </Row>
                     </Col>
-                    <Col id="weight" lg='4' md="4" xs='14'>
-                        <p className="m-0">Weight</p>
-                        <p>{props.userData == null ? 'None' : props.userData.weight+' kg'}</p>
+                    <Col lg="12" md="12" xs="12">
+                        <Row>
+                            <Col lg="2" md="2" xs="2">
+                                <FontAwesomeIcon icon={faStethoscope} />
+                            </Col>
+                            <Col id="birthdate" lg='10' md="10" xs='10'>
+                                <p className="m-0">Disease</p>
+                                <p>{props.userData == null ? 'None' : props.userData.disease}</p>
+                            </Col>
+                        </Row>
                     </Col>
-                    <Col lg="2" md="2" xs="2">
-                        <FontAwesomeIcon icon={faRulerVertical} />
-                    </Col>
-                    <Col id="height" lg='4' md="4" xs='4'>
-                        <p className="m-0">Height</p>
-                        <p>{props.userData == null ? 'None' : props.userData.height+' cm'}</p>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col lg="2" md="2" xs="2">
-                        <FontAwesomeIcon icon={faStethoscope} />
-                    </Col>
-                    <Col id="disease" lg='10' md="10" xs='10'>
-                        <p className="m-0">Disease</p>
-                        <p>{props.userData == null ? 'None' : props.userData.disease}</p>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col lg="2" md="2" xs="2">
-                        <FontAwesomeIcon icon={faAddressCard} />
-                    </Col>
-                    <Col id="mac_address" lg='10' md="10" xs='10'>
-                        <p className="m-0">Pillow Mac Address</p>
-                        <p>{props.userData == null ? 'None' : props.userData.mac_address}</p>
+                    <Col lg="12" md="12" xs="12">
+                        <Row>
+                            <Col lg="2" md="2" xs="2">
+                                <FontAwesomeIcon icon={faAddressCard} />
+                            </Col>
+                            <Col id="birthdate" lg='10' md="10" xs='10'>
+                                <p className="m-0">Pillow Mac Address</p>
+                                <p>{props.userData == null ? 'None' : props.userData.mac_address}</p>
+                            </Col>
+                        </Row>
                     </Col>
                 </Row>
             </Row>

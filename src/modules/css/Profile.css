@@ -54,6 +54,11 @@
 }
 
 @media (max-width: 800px) {
+    .Profile .profile_button {
+        width: 20vw;
+        border-radius: 10vw;
+    }
+
     .Profile .right {
         padding-top: 10vh;
     }

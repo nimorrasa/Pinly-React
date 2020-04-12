@@ -54,11 +54,16 @@ const ProfileForm = (props) => {
                 <Button type="submit" className="button edit_button">SAVE</Button>
             </Col>
         </Row>
+        <Row className="center">
+                <Col lg="12" md="12" xs="12">
+                    <img className="profile_button" src={profie_picture} alt="Card image cap" />
+                </Col>
+                <Col lg="12" md="12" xs="12">
+                    <CardText>{props.userData != null ? props.userData.username : 'None'}</CardText>
+                </Col>
+            </Row>
+
         <Row className='Profile_step_1'>
-            <div className="center">
-                <Button className="profile_button"><img width="100%" src={profie_picture} alt="Card image cap" /></Button>
-                <CardText>{props.userData != null ? props.userData.username : 'None'}</CardText>
-            </div>
             <Row>
                 <Col lg="2" md="2" xs="2">
                     <FontAwesomeIcon icon={faBirthdayCake} />
