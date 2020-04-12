@@ -150,7 +150,7 @@ const dailytest = (props) => {
 						<Col lg="3" md="12" xs="12" style={{paddingTop: "10px"}}>
 							<div className="row">
 								<Col lg="12" md="4" xs="12"><TapBar unit="Mins" name="nap" title="Nap" setValue={setValue} register={register} /></Col>
-								<Col lg="12" md="4" xs="12"><TapBar unit="Hours" name="working" title="Work" setValue={setValue} register={register} /></Col>
+								<Col lg="12" md="4" xs="12"><TapBar unit="Mins" name="working" title="Work" setValue={setValue} register={register} /></Col>
 								<Col lg="12" md="4" xs="12"><TapBar unit="Mins" name="exercise" title="Exercise" setValue={setValue} register={register} /></Col>
 							</div>
 						</Col>

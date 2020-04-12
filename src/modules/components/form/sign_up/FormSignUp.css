@@ -3,7 +3,6 @@
 }
 
 .Sign_up .col_left{
-    /* background-color: rgb(76, 199, 195); */
     padding: 5vh;
     padding-top: 20vh;
 }
@@ -50,10 +49,6 @@ select {
     display: none;
 }
 
-/* .Sign_up .col_left{
-    display: none;
-} */
-
 .sign_up_step_2 .sign_up_2{
     display: block;
 }
@@ -99,8 +94,11 @@ select {
     .Sign_up h1 {
         font-size: 2rem;
     }
+
     .Sign_up .col_left{
         display: none;
+        padding: 0;
+        padding-top: 0;
     }
 
     .Sign_up .col_right {
