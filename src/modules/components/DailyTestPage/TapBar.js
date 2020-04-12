@@ -62,7 +62,7 @@ export const TapBar = (props) => {
 
 	return (
 		<div>
-			<h1 style={{fontSize: "5ex",textAlign: "center"}}>{percentRange == 500 ? `500 Mins ! Too Much!!` : `${props.title} :  ${percentRange} Mins`}</h1>
+			<h1 style={{fontSize: "5ex",textAlign: "center"}}>{percentRange == 500 ? `500 Mins ! Too Much!!` : `${props.title} :  ${percentRange} ${props.unit}`}</h1>
 			<div className="positionbar">
 				<ProgressBar percentRange={percentRange}/>
 			</div>

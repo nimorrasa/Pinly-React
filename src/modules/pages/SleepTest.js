@@ -71,7 +71,7 @@ const SleepTest = (props) => {
                             <CardTitle>Show sleep score</CardTitle>
                             <CardBody>
                                 <Link to="/sleep_score">
-                                    <a href="sleep_score" onMouseOver={onMouseOverSleepScore} onMouseOut={onMouseOutSleepScore} style={{opacity : (isHoverSleepScore ? '50%' : '100%')}}><img className="button"  src={sleep_score}></img></a>
+                                    <a href="sleep_score" onMouseOver={onMouseOverSleepScore} onMouseOut={onMouseOutSleepScore} style={{opacity : (isHoverSleepScore ? '50%' : '100%')}}><img className="button sleep_test_button" src={sleep_score}></img></a>
                                 </Link>
                             </CardBody>
                         </Card>
@@ -79,9 +79,9 @@ const SleepTest = (props) => {
                     <Col lg="6" md="6" xs="12">
                         <Card>
                             <CardTitle>Ready to Sleep?</CardTitle>
-                            <CardBody>
+                            <CardBody style={{objectFit: "contain"}}>
                                 <Link to="/daily_test">
-                                    <a href="daily_test" onMouseOver={onMouseOverGoToSleep} onMouseOut={onMouseOutGoToSleep} style={{opacity : (isHoverGoToSleep ? '50%' : '100%')}}><img className="button"  src={go_to_sleep}></img></a>
+                                    <a href="daily_test" onMouseOver={onMouseOverGoToSleep} onMouseOut={onMouseOutGoToSleep} style={{opacity : (isHoverGoToSleep ? '50%' : '100%')}}><img className="button sleep_test_button"  src={go_to_sleep}></img></a>
                                 </Link>
                             </CardBody>
                         </Card>

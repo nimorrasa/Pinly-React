@@ -76,7 +76,7 @@ const Waittosleep = (props) => {
 				<img className="wait_to_sleep_img" src={IconWaittosleep} alt="Icon Wait to Sleep"></img>
 					<div className="textsize">
 						<h1 style={colorheader}>Please close your Device's screen.</h1>
-						<h1 style={colorheader}>So the system can better measure and assess the quality og your sleep.</h1>
+						<h1 style={colorheader}>So the system can better measure and assess the quality of your sleep.</h1>
 					</div>
 			</div>
 			</div></a>

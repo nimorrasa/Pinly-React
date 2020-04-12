@@ -99,6 +99,10 @@ body{
 
 @media (max-width: 600px) {
 
+.navbar.navbar-expand-md {
+  text-align: right;
+}
+
 .overlay {
   overflow: scroll;
 }
