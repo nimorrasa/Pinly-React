@@ -46,7 +46,7 @@ const ProfileForm = (props) => {
   )
 
     return (
-        <div>
+        <Col className="profile card left" lg="6" md="12" xs="12">
         <form onSubmit={handleSubmit(onSubmit)}>
         <Row>
             <Col lg="10" md="9" xs="10"></Col>
@@ -54,7 +54,7 @@ const ProfileForm = (props) => {
                 <Button type="submit" className="button edit_button">SAVE</Button>
             </Col>
         </Row>
-        <Col className='Profile_step_1' xs='12'>
+        <Row className='Profile_step_1'>
             <div className="center">
                 <Button className="profile_button"><img width="100%" src={profie_picture} alt="Card image cap" /></Button>
                 <CardText>{props.userData != null ? props.userData.username : 'None'}</CardText>
@@ -128,9 +128,9 @@ const ProfileForm = (props) => {
                     <MacAddressInput updateMacAddressError={handleErrorMacAddressError} setValue={setValue} register={register} value={props.userData == null ? '' : props.userData.mac_address}></MacAddressInput>
                 </Col>
             </Row>
-          </Col>
+          </Row>
         </form>
-        </div>
+        </Col>
     );
 }
 export default ProfileForm;

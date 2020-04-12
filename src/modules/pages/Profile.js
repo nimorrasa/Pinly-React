@@ -97,13 +97,10 @@ const Profile = (props) => {
 			</div>
             <div className={"App Profile "+theme} style={{display : (isLoading ? 'none' : 'block' )}}>
                 <Row>
-                    <Col className="profile card left" lg="5" xs="12" >
-                       <ProfileMain></ProfileMain>
-                    </Col>
-                    <Col lg="2" sm="0" style={{textAlign: "center", paddingTop: "35vh"}}>
-
-                    </Col>
-                    <Col className="profile right" lg="5" xs="12">
+                    {/* <Col className="profile card left" lg="6" md="12" xs="12" > */}
+                    <ProfileMain></ProfileMain>
+                    {/* </Col> */}
+                    <Col className="profile right" lg="6" md="12" xs="12">
                         <div className="center">
                         <div><h1>Today</h1></div>
                         <PieChart isSleepScore={false} showTime={true} theme={navbarTheme} totalSleep={totalSleep} currentSleep={currentSleep} currentWakeUp={currentWakeUp} value={sleepScoreToday}></PieChart>

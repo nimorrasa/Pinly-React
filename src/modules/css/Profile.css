@@ -2,7 +2,6 @@
 
 .Profile .card {
     background-color: white;
-    height: 80vh;
     padding: 8vh;
     padding-top: 2vh;
     margin-top: 3vh;
@@ -18,17 +17,21 @@
 .Profile .center {
     text-align: center;
 }
- 
+
 .Profile .profile_button {
     background-color: transparent;
     width: 10vw;
-    height: 10vw;
+    height: auto;
     border-radius: 5vw;
 }
 
 /* .Profile .apexcharts-toolbar {
     display: none;
 } */
+
+.Profile .btn-secondary {
+    border-color: transparent;
+}
 
 
 .Profile .moreinfo {
@@ -37,11 +40,25 @@
     background: transparent;
 }
 
-
 .theme_light .moreinfo {
     color: black;
 }
 
 .theme_dark .moreinfo {
     color: white;
+}
+
+.Profile .btn-secondary:hover {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+@media (max-width: 800px) {
+    .Profile .right {
+        padding-top: 10vh;
+    }
+    .overlay {
+        overflow: scroll;
+    }
+
 }
