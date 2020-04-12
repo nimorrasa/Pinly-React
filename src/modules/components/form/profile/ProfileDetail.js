@@ -55,7 +55,7 @@ const ProfileDetail = (props) => {
                             </Col>
                         </Row>
                     </Col>
-                    <Col lg="6" md="6" xs="12">
+                    <Col lg="12" md="12" xs="12">
                         <Row>
                             <Col lg="2" md="2" xs="2">
                                 <FontAwesomeIcon icon={faWeight} />
@@ -64,10 +64,6 @@ const ProfileDetail = (props) => {
                                 <p className="m-0">Weight</p>
                                 <p>{props.userData == null ? 'None' : props.userData.weight+' kg'}</p>
                             </Col>
-                        </Row>
-                    </Col>
-                    <Col lg="6" md="6" xs="12">
-                        <Row>
                             <Col lg="2" md="2" xs="2">
                                 <FontAwesomeIcon icon={faRulerVertical} />
                             </Col>
@@ -100,7 +96,7 @@ const ProfileDetail = (props) => {
                         </Row>
                     </Col>
                 </Row>
-            </Row>
+            </Row>  
         </Col>
     );
 }

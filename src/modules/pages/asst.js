@@ -12,7 +12,14 @@ const Assistant = (props) => {
 	const history = useHistory();
 	const datas = {'asst_alcohol' : 'Alcohol','asst_coffee' : 'Coffee','asst_smoking' : 'Smoke','asst_tea': 'Tea','asst_nap' : 'Nap','asst_exercise' :'Exercise','asst_working' :'Work'};
 	const [isLoading,setIsLoading] = useState(true);
-	const [showData,setShowData] = useState([]);
+	const [showData,setShowData] = useState({
+		"asst_coffee" : "No today data yet",
+		"asst_smoking" : "No today data yet",
+		"asst_tea" : "No today data yet",
+		"asst_nap" : "No today data yet",
+		"asst_exercise" : "No today data yet",
+		"asst_working" : "No today data yet"
+	});
 	const [userData,setUserData] = useState({});
     const [theme,setTheme] = useState(props.theme);
     const [navbarTheme, setNavbarTheme] = useState(props.theme === 'theme_dark' ? 'dark' : 'light');
@@ -48,7 +55,7 @@ const Assistant = (props) => {
 				if (user) {
 					let data = await fetchData(user.uid);
 					setUserData(data);
-					setShowData(data.asst);
+					if(data && data.asst) setShowData(data.asst);
 				}else{
 					history.push('/login');
 				}

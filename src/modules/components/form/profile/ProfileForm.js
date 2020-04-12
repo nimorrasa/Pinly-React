@@ -65,72 +65,82 @@ const ProfileForm = (props) => {
 
         <Row className='Profile_step_1'>
             <Row>
-                <Col lg="2" md="2" xs="2">
-                    <FontAwesomeIcon icon={faBirthdayCake} />
-                </Col>
-                <Col id="birthdate" lg='10' md="10" xs='10'>
-                <BirthdateInput setValue={setValue} register={register} getValues={getValues} value={props.userData == null ? '' : props.userData.birthdate}></BirthdateInput>
-                </Col>
-            </Row>
-          <Row> 
-          <Col lg="2" md="2" xs="2">
-                <FontAwesomeIcon icon={faWeight} />
-                </Col>
-                <Col id="weight" lg='5' md="10" xs='10'>
+                <Col lg="12" md="12" xs="12">
                     <Row>
-                        <p className="m-0">Weight</p>
-                    </Row>
-                    <Row>
-                        <Col lg="10" md="10" xs="10" style={{paddingRight: 0}}>
-                            <input
-                            style={{width: "80%"}}
-                            type="number"
-                            name="weight"
-                            placeholder="weight"
-                            ref={register({required: 'Required'})}/>
-                        </Col>
-                        <Col lg="2" md="2" xs="2" style={{padding: 0}}>
-                            <p className="m-0">kg</p>
-                        </Col>
+                    <Col lg="2" md="2" xs="2">
+                        <FontAwesomeIcon icon={faBirthdayCake} />
+                    </Col>
+                    <Col id="birthdate" lg='6' md="6" xs='6'>
+                        <BirthdateInput setValue={setValue} register={register} getValues={getValues} value={props.userData == null ? '' : props.userData.birthdate}></BirthdateInput>
+                    </Col>
                     </Row>
                 </Col>
-                <Col lg="1" md="2" xs="1">
-                    <FontAwesomeIcon icon={faRulerVertical} />
+                <Col lg="12" md="12" xs="12">
+                    <Row>
+                        <Col lg="2" md="2" xs="2">
+                            <FontAwesomeIcon icon={faWeight} />
+                        </Col>
+                        <Col id="weight" lg='10' md="10" xs='10'>
+                            <Row className="m-0">
+                                <p className="m-0">Weight</p>
+                            </Row>
+                            <Row>
+                                <Col lg="5" md="5" xs="10" style={{paddingRight: 0}}>
+                                    <input
+                                    style={{width: "80%"}}
+                                    type="number"
+                                    name="weight"
+                                    placeholder="weight"
+                                    ref={register({required: 'Required'})}/>
+                                </Col>
+                                <Col lg="2" md="2" xs="2" style={{padding: 0}}>
+                                    <p className="m-0">kg</p>
+                                </Col>
+                             </Row>
+                        </Col>
+                        <Col lg="2" md="2" xs="2">
+                            <FontAwesomeIcon icon={faRulerVertical} />
+                        </Col>
+                        <Col id="height" lg='10' md="10" xs='10'>
+                            <Row className="m-0">
+                                <p className="m-0">Height</p>
+                            </Row>
+                            <Row>
+                                <Col lg="5" md="5" xs="10" style={{paddingRight: 0}}>
+                                    <input
+                                    style={{width: "80%"}}
+                                    type="number"
+                                    name="height"
+                                    id="height"
+                                    placeholder="height"
+                                    ref={register({required: 'Required'})}/>
+                                </Col>
+                                <Col lg="2" md="2" xs="2" style={{padding: 0}}>
+                                    <p className="m-0">cm</p>
+                                </Col>
+                             </Row>
+                        </Col>
+                    </Row>
                 </Col>
-            <Col id="height" lg='4' md="10" xs='10'>
-                <Row>
-                    <p className="m-0">Height</p>
-                </Row>
-                <Row>
-                    <Col lg="10" md="10" xs="10" style={{paddingRight: 0}}>
-                        <input
-                        style={{width: "80%"}}
-                        type="number"
-                        name="height"
-                        id="height"
-                        placeholder="height"
-                        ref={register({required: 'Required'})}/>
+                <Col lg="12" md="12" xs="12">
+                    <Row>
+                    <Col lg="2" md="2" xs="2">
+                        <FontAwesomeIcon icon={faStethoscope} />
                     </Col>
-                    <Col lg="2" md="2" xs="2" style={{padding: 0}}>
-                        <p className="m-0">cm</p>
-                    </Col>
-                </Row>
-            </Col>
-            </Row>
-          <Row>
-                <Col lg="2" md="2" xs="2">
-                    <FontAwesomeIcon icon={faStethoscope} />
-                </Col>
-                <Col id="disease" lg='10' md="10" xs='10'>
+                    <Col id="disease" lg='10' md="10" xs='10'>
                     <DiseaseInput getValues={getValues} setValue={setValue} register={register} value={props.userData == null ? '' : props.userData.disease}></DiseaseInput>
+                    </Col>
+                    </Row>
                 </Col>
-            </Row>
-            <Row>
-                <Col lg="2" md="2" xs="2">
-                    <FontAwesomeIcon icon={faAddressCard} />
-                </Col>
-                <Col id="mac_address" lg='10' md="10" xs='10'>
+                <Col lg="12" md="12" xs="12">
+                    <Row>
+                    <Col lg="2" md="2" xs="2">
+                        <FontAwesomeIcon icon={faAddressCard} />
+                    </Col>
+                    <Col id="mac_address" lg='10' md="10" xs='10'>
                     <MacAddressInput updateMacAddressError={handleErrorMacAddressError} setValue={setValue} register={register} value={props.userData == null ? '' : props.userData.mac_address}></MacAddressInput>
+                    </Col>
+                    </Row>
                 </Col>
             </Row>
           </Row>

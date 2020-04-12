@@ -18,4 +18,11 @@
     .Assistant {
         font-size: 0.8rem;
     }
-  }
+
+    .Assistant .scrollable {
+        height: 100%;
+        overflow-y: hidden;
+    }
+    
+
+}
