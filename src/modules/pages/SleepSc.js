@@ -130,18 +130,19 @@ const SleepSc = (props) => {
             <div className={"App Sleep_score "+theme} style={{display : (isLoading ? 'none' : 'block' )}}>
 				<Row className="content">
           			<Col lg="6" md="6" xs="12">
+					  	<h1 style={{fontSize: "1.8rem"}}>Sleep score</h1>
 						<SleepScore sleepScoreToday={sleepScoreToday} sleepScoreYesterday={sleepScoreYesterday}/>
 						<PieChart isSleepScore={true} showTime={false} hourSize="37px" timeSize="18px" theme={navbarTheme} totalSleep={totalSleep} currentSleep={currentSleep} currentWakeUp={currentWakeUp} value={sleepScoreToday}></PieChart>
 						<HRSensor value={hearthRate}/>
 					</Col>
 					<Col lg="6" md="6" xs="12">
 						<Col lg="12" md="12" xs="12">
-							<h1>Ready to Sleep?</h1>
+							<h1 style={{fontSize: "1.8rem"}}>Ready to Sleep?</h1>
 							<Link to="/daily_test"><img src={go_to_sleep} onMouseOver={onMouseOverGoToSleep} onMouseOut={onMouseOutGoToSleep} alt="Button Go To Sleep _Daily Test" style={{ opacity: (isHoverGoToSleep ? "50%" : "100%"), maxHeight: "20vh"}}></img></Link>
 						</Col>
-						<Col lg="12" md="12" xs="12">
+						<Col lg="12" md="12" xs="12" className="bar_layout">
 							<Bar theme={navbarTheme} values={summaryMics}/>
-							<strong style={{textAlign: "center"}}>Hour Times (hr)</strong>
+							<p style={{textAlign: "center"}}>Hour Times (hr)</p>
 						</Col>
 						<Col lg="12" md="12" xs="12">
 							<Temp value={temp}/>

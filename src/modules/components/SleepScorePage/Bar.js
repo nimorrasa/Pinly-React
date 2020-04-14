@@ -59,8 +59,8 @@ const Bar = (props) => {
               offsetX: 0,
               offsetY: 0,
               style: {
-                  fontSize: '2ex',
-                  fontWeight: 'bold',
+                  fontSize: '1.2rem',
+                  fontWeight: 'regular',
                   colors: ['white']
               },
               background: {
@@ -84,7 +84,7 @@ const Bar = (props) => {
               fillSeriesColor: false,
               theme: props.theme,
               style: {
-                fontSize: '12px',
+                fontSize: '1rem',
                 fontFamily: undefined
               },
               onDatasetHover: {
@@ -126,7 +126,7 @@ const Bar = (props) => {
                 maxWidth: 160,
                 style: {
                     colors: props.theme == 'dark' ? 'white' : 'black',
-                    fontSize: '15px',
+                    fontSize: '1.2rem',
                     fontFamily: 'Helvetica, Arial, sans-serif',
                     fontWeight: 400,
                     cssClass: 'apexcharts-yaxis-label',
@@ -145,7 +145,7 @@ const Bar = (props) => {
                 maxWidth: 160,
                 style: {
                     colors: props.theme == 'dark' ? 'white' : 'black',
-                    fontSize: '22px',
+                    fontSize: '1.2rem',
                     fontFamily: 'Helvetica, Arial, sans-serif',
                     fontWeight: 400,
                     cssClass: 'apexcharts-yaxis-label',

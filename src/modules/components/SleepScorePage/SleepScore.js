@@ -59,9 +59,6 @@ const SleepScore = (props) => {
 	return (
 		<Row>
 			<Col style={{textAlign: "center",display: "relative"}}>
-				<div className="textsize">
-				<h1>Sleep Score</h1>
-				</div>
 				<Row data-tip data-for="happyFace">
 					<Col lg="6" md="6" xs="6" style={{textAlign: "right"}}>
 						<h1 class="oversize" style={colorLight}>{sleepScoreToday}</h1>

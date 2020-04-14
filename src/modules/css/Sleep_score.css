@@ -14,10 +14,9 @@
     font-size: 8rem;
 }
 
-.Sleep_score .middlesize {
-    font-size: 5rem;
+.Sleep_score .middlesize span {
+    font-size: 3rem;
 }
-
 
 .Sleep_score .content {
     height: 80vh;
@@ -46,9 +45,13 @@
     }
 
     .Sleep_score .middlesize {
-        font-size: 32px;
+        font-size: 2rem;
     }
-    
+
+    .Sleep_score .middlesize span {
+        font-size: 2rem;
+    }
+
     .Sleep_score .button {
         height: 10vh;
     }

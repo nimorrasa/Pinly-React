@@ -9,7 +9,8 @@ import './SleepSc';
 
 var colorheader ={
   color: '#ffffff',
-  padding: 20
+  padding: 20,
+  fontSize: "1.75rem"
 }
 
 const Wakeup = (props) => {

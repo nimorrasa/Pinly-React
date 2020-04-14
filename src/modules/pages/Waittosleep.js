@@ -10,7 +10,8 @@ import { log_data } from '../helpers';
 
 var colorheader ={
   color: '#ffffff',
-  padding: 20
+  padding: 20,
+  fontSize: "1.7rem"
 }
 const Waittosleep = (props) => {
 	const history = useHistory();

@@ -9,7 +9,7 @@ var colorLight ={
 const Temp = (props) => {
   return (
     <div className="textsize">
-    <h1>Temperature<span className="middlesize" style={colorLight}>{props.value}  ํC</span></h1>
+    <h1 className="middlesize">Temperature<span style={colorLight}>{props.value}  ํC</span></h1>
     </div>
       );
     }
