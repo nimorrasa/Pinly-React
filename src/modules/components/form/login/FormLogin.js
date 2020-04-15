@@ -41,14 +41,13 @@ const FormLogin = (props) => {
 				const response = await firebase.auth().signInWithEmailAndPassword(result.email, result.password);
 				login_userId = response.user.uid;
 				setUserId(login_userId);
-				// history.push('/sleep_score');
+				history.push('/sleep_score');
 			} catch(error) {
 				let errorCode = error.code;
 				let errorMessage = error.message;
 				alert('Email :' + errorMessage);
 			}
 		}else if(result.type == 'facebook') {
-			alert("Alert "+result.type); 
 			try{
 				const response = await firebase.auth().signInWithRedirect(new firebase.auth.FacebookAuthProvider());
 				// login_userId = response.user.uid;
@@ -59,7 +58,6 @@ const FormLogin = (props) => {
 				alert('Facebook : '+errorMessage);
 			}
 		}else if(result.type == 'google') {
-			alert("Alert "+result.type); 
 			try {
 				let google_provider = new firebase.auth.GoogleAuthProvider();
 				const response = await firebase.auth().signInWithRedirect(google_provider);
@@ -87,22 +85,16 @@ const FormLogin = (props) => {
 
 			if(redirectResult.operationType == 'signIn'){
 				console.log('signIn',redirectResult.user.uid);
-				setStep('login_with_social');
 
 				let get_user_data = await fetchData(redirectResult.user.uid);
 				if(get_user_data == null) {
-
-					alert("login_with_social"); 
+					setStep('login_with_social');
 				}else{
 					setUserData(get_user_data);
-					alert("go sleep_score"); 
-					// history.push('/sleep_score');
+					history.push('/sleep_score');
 				}
 				setUserId(redirectResult.user.uid);
 			}
-			props.setIsLoading(false);
-			console.log('Not signIn',redirectResult);
-			alert("Not signIn"); 
 		}
 		isRedirect();
 	},[]);
@@ -135,7 +127,7 @@ const FormLogin = (props) => {
 	},[]);
 
 	if(step == 'login_with_email') return <LoginEmail onResult={handleResult} onChangeStep={handleStep} style={{display: (props.isLoading ? "hide" : 'block')}}></LoginEmail>;
-	return <SocialRegister isLoading={props.isLoading} setIsLoading={props.setIsLoading} userId={userId} onSuccess={handleRegister} onChangeStep={handleStep}></SocialRegister>;
+	return <SocialRegister isLoading={props.isLoading} userId={userId} onSuccess={handleRegister} onChangeStep={handleStep}></SocialRegister>;
 
 	};
 

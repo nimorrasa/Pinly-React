@@ -8,6 +8,7 @@ import BirthDateInput from '../../../input/BirthdateInput.js';
 import MacAddressInput from '../../../../components/input/MacAddressinput.js';
 import DiseaseInput from "../../../input/DiseaseInput";
 import GenderRadio from "../../../input/GenderRadio";
+import { diseaseValueData } from '../../../../helpers';
 
 const SocialRegister = (props) => {
     const history = useHistory();
@@ -94,7 +95,7 @@ const SocialRegister = (props) => {
           weight : values.weight,
           height : values.height,
           gender : values.is_male ? 'Male' : 'Female',
-          disease : values.disease,
+          disease : diseaseValueData(values.disease),
           sleep_status : 0,
           mac_address : values.mac_address
         });

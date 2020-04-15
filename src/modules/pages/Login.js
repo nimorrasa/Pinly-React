@@ -35,10 +35,10 @@ const Login = (props) => {
         
         props.onChangeTheme('theme_light');
     
-        firebase.auth().onAuthStateChanged(function(user) {
+        firebase.auth().onAuthStateChanged(async function(user) {
             if (user) {
+                let userData = await fetchData (user.uid);
                 setUserId(user);
-                history.goBack();
             }
             setIsLoading(false);
         });
