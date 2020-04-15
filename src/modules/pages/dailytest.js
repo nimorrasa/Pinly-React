@@ -102,8 +102,12 @@ const dailytest = (props) => {
 			firebase.auth().onAuthStateChanged(async function(user) {
 				if (user) {
 					let data = await fetchData(user.uid);
+					if(!data){
+						alert("Please fill your info!");
+						history.push('/profile');
+					}
 					setUserData(data);
-					if(data.sleep_status == 1) history.push('/wait_to_sleep');
+					if(data && data.sleep_status == 1) history.push('/wait_to_sleep');
 					setIsLoading(false);
 				}
 			});
@@ -124,7 +128,7 @@ const dailytest = (props) => {
 			<MyNavbar theme={navbarTheme} onChangeTheme={handleNavbarThemeChange} hideThemeSwitch={false}></MyNavbar>  
 			<div className="loading" style={{textAlign: "center",top: "30vh",height: "50vh",color: "white",display : (!isLoading ? 'none' : 'block' )}}>
 				<i className="fa fa-spinner fa-spin fa-3x fa-fw"></i>
-			</div>    
+			</div>  
 			<form onSubmit={handleSubmit(submitSleep)}  style={{display : (isLoading ? 'none' : 'block' )}}>
 				<Container>
 					<Row style={{textAlign: "center"}}>

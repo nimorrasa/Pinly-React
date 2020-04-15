@@ -13,8 +13,8 @@ const ProfileDetail = (props) => {
 
     useEffect(
         () => {
-            if(props.userData.birthdate != null) {
-                let date = new Date(props.userData.birthdate);
+            if(props.userData && props.userData.birthdate != null) {
+                let date = new Date(props.userData && props.userData.birthdate);
                 let array_birthdate = date.toLocaleDateString().split('/');
                 let newBirthdate = array_birthdate[1]+'-'+array_birthdate[0]+'-'+array_birthdate[2];
                 setDateFormat(newBirthdate);
@@ -23,7 +23,7 @@ const ProfileDetail = (props) => {
             }
 
         },
-        [props.userData.birthdate]
+        [props.userData]
     )
 
     return (

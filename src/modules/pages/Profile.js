@@ -58,13 +58,13 @@ const Profile = (props) => {
                 let data = await fetchData(user.uid);
                 setUserData(data);
 
-                let hardwares = await fetchDataScore(data.mac_address);
+                let hardwares = await fetchDataScore(data && data.mac_address);
                 if(hardwares.doc && hardwares.doc.Sleep_Score_Today > 0) setSleepScoreToday(toPercent(hardwares.doc.Sleep_Score_Today));
-                setTotalSleep(data.sleep_period);
-                setCurrentSleep(data.current_sleep);
-                setCurrentWakeUp(data.current_wakeup);
+                setTotalSleep(data && data.sleep_period);
+                setCurrentSleep(data && data.current_sleep);
+                setCurrentWakeUp(data && data.current_wakeup);
 
-                let weeklyScore = await fetchDataWeekly(user.uid, data.mac_address);
+                let weeklyScore = await fetchDataWeekly(user.uid, data && data.mac_address);
                 if(weeklyScore.doc) setSleepScoreWeekly(toPercent(getWeekly(weeklyScore.doc)));
             }else{
                 history.push('/login');

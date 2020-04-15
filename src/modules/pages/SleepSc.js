@@ -79,20 +79,20 @@ const SleepSc = (props) => {
 				let data = await fetchData(user.uid);
 				setUserData(data);
 
-				let today_data = await fetchDataHardware(get_today_string(),data.mac_address);
+				let today_data = await fetchDataHardware(get_today_string(),data && data.mac_address);
 				if(today_data && today_data.Sleep_Score_Today) setSleepScoreToday(toPercent(today_data.Sleep_Score_Today));
-                setTotalSleep(data.sleep_period);
-                setCurrentSleep(data.current_sleep);
-				setCurrentWakeUp(data.current_wakeup);
+                setTotalSleep(data && data.sleep_period);
+                setCurrentSleep(data && data.current_sleep);
+				setCurrentWakeUp(data && data.current_wakeup);
 				if(today_data && today_data.Heart_Rate) setHearthRate(today_data.Heart_Rate);
                 if(today_data && today_data.Temp)  setTemp(today_data.Temp);
 
 				let date = new Date();
 				date.setDate(date.getDate() - 1);
-				let yesterday_data = await fetchDataHardware(get_date_string(date),data.mac_address);
+				let yesterday_data = await fetchDataHardware(get_date_string(date),data && data.mac_address);
 				if(yesterday_data && yesterday_data) setSleepScoreYesterday(toPercent(yesterday_data.Sleep_Score_Today));
 
-				let micData = await fetchDataMic(data.mac_address);
+				let micData = await fetchDataMic(data && data.mac_address);
 				setSummaryMics(micData);
 
             }else{

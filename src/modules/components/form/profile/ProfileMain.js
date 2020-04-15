@@ -23,7 +23,9 @@ const ProfileMain = (props) => {
 	
 		firebase.auth().onAuthStateChanged(async function(user) {
 			if (user) {
+				// console.log(user.email);
 				let data = await fetchData(user.uid);
+				if(!data) data = {uid: user.uid,email : user.email,username: user.email, gender: "Male"};
 				setUserData(data);
 			}else{
 				history.push('/login');
@@ -40,25 +42,25 @@ const ProfileMain = (props) => {
 	});
 
 	const handleSubmit = useCallback(async (newData) => {
-		const userId = userData.uid;
-		const weight = newData.weight;
-		const height = newData.height;
-		const disease = diseaseValueData(newData.disease);
-		const birthdate = newData.birthdate;
-		const mac_address = newData.mac_address;
+		const userId = userData && userData.uid;
+		const weight = newData && newData.weight;
+		const height = newData && newData.height;
+		const disease = diseaseValueData(newData && newData.disease);
+		const birthdate = newData && newData.birthdate;
+		const mac_address = newData && newData.mac_address;
 
 		let byear = birthdate.getFullYear();
 		
 		let registerData = {
 		  uid : userId,
-		  email : userData.email,
-		  username : userData.username,
+		  email : userData && userData.email,
+		  username : userData && userData.username,
 		  birthdate :birthdate.toString(),
 		  byear : byear,
 		  mac_address : mac_address,
 		  weight : weight,
 		  height : height,
-		  gender : userData.gender,
+		  gender : userData && userData.gender,
 		  disease : disease,
 		  sleep_status : 2
 		};

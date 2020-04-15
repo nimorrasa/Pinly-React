@@ -45,6 +45,7 @@ const FormLogin = (props) => {
 				alert('Email :' + errorMessage);
 			}
 		}else if(result.type == 'facebook') {
+			alert("Alert "+result.type); 
 			try{
 				const response = await firebase.auth().signInWithRedirect(new firebase.auth.FacebookAuthProvider());
 				// login_userId = response.user.uid;
@@ -55,6 +56,7 @@ const FormLogin = (props) => {
 				alert('Facebook : '+errorMessage);
 			}
 		}else if(result.type == 'google') {
+			alert("Alert "+result.type); 
 			try {
 				let google_provider = new firebase.auth.GoogleAuthProvider();
 				const response = await firebase.auth().signInWithRedirect(google_provider);
@@ -77,16 +79,24 @@ const FormLogin = (props) => {
 
 		async function isRedirect () {
 			let redirectResult = await firebase.auth().getRedirectResult();
+
 			if(redirectResult.operationType == 'signIn'){
+				console.log('signIn',redirectResult.user.uid);
+
 				let get_user_data = await fetchData(redirectResult.user.uid);
 				if(get_user_data == null) {
 					setStep('login_with_social');
+					alert("login_with_social"); 
 				}else{
 					setUserData(get_user_data);
+					alert("go sleep_score"); 
 					history.push('/sleep_score');
 				}
 				setUserId(redirectResult.user.uid);
 			}
+
+			console.log('Not signIn',redirectResult);
+			alert("Not signIn"); 
 		}
 		props.setIsLoading(true);
 		isRedirect();
