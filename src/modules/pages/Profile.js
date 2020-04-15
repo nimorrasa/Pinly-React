@@ -5,10 +5,11 @@ import firebase from 'firebase';
 import { useHistory } from "react-router-dom";
 import ProfileMain from '../components/form/profile/ProfileMain.js';
 import PieChart from '../components/graph/PieChart.js';
-import right_chevron from '../../images/icon/right_chevron.png';
+import '../css/MyTheme.css';
 import '../css/Profile.css';
 import { useCookies } from 'react-cookie';
 import { getDetail, get_sleep_data_by_macaddress, get_today_string, toPercent } from '../helpers';
+import LoadingScreen from 'react-loading-screen'
 
 const Profile = (props) => {
     const history = useHistory();
@@ -90,6 +91,13 @@ const Profile = (props) => {
     const goToHistory = useCallback(() => { history.push('/history')},[]);
 
     return (
+        <LoadingScreen
+            bgColor={theme == 'theme_light' ? '#F5F9FD' : '141313'}
+            loading={isLoading}
+            spinnerColor='#9ee5f8'
+            logoSrc='/logo.png'
+            text='Loading'
+        > 
         <div>
             <MyNavbar theme={navbarTheme} onChangeTheme={handleNavbarThemeChange} hideThemeSwitch={false}></MyNavbar>
             <div className="loading" style={{textAlign: "center",top: "30vh",height: "50vh",color: "white",display : (!isLoading ? 'none' : 'block' )}}>
@@ -120,7 +128,7 @@ const Profile = (props) => {
                 
             </div>
         </div>
-
+        </LoadingScreen>
     );
 }
 

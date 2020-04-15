@@ -19,7 +19,7 @@ import firebase from 'firebase';
 import { useCookies } from 'react-cookie';
 import { Route, Switch,BrowserRouter, Link } from 'react-router-dom';
 import { get_mic_summary, getDetail, get_today_string, toPercent, get_date_string } from '../helpers';
-
+import LoadingScreen from 'react-loading-screen';
 //Create Component - JSX 
 const SleepSc = (props) => {
   const history = useHistory();
@@ -122,7 +122,14 @@ const SleepSc = (props) => {
     const onMouseOutGoToSleep = useCallback(() => { setIsHoverGoToSleep(false); },[setIsHoverGoToSleep]);
 
     return(
-<div>
+		<LoadingScreen
+			bgColor={theme == 'light' ? '#F5F9FD' : '141313'}
+			loading={isLoading}
+			spinnerColor='#9ee5f8'
+			logoSrc='/logo.png'
+			text='Loading'
+		> 
+		<div>
             <MyNavbar theme={navbarTheme} onChangeTheme={handleNavbarThemeChange} hideThemeSwitch={false}></MyNavbar>
             <div className="loading" style={{textAlign: "center",top: "30vh",height: "50vh",color: "white",display : (!isLoading ? 'none' : 'block' )}}>
 				<i className="fa fa-spinner fa-spin fa-3x fa-fw"></i>
@@ -160,6 +167,7 @@ const SleepSc = (props) => {
                 </Row>
             </div>
         </div>
+		</LoadingScreen>
     );
   }
 

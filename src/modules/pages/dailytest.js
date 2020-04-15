@@ -16,6 +16,7 @@ import { log_data } from '../helpers';
 import { Container, Row, Col } from 'reactstrap';
 import DailyButton from '../components/DailyTestPage/DailyButton.js';
 import { Alert } from 'reactstrap';
+import LoadingScreen from 'react-loading-screen';
 
 const dailytest = (props) => {
     const history = useHistory();
@@ -124,6 +125,13 @@ const dailytest = (props) => {
 	);
 
 	return (
+		<LoadingScreen
+        	bgColor={theme == 'light' ? '#F5F9FD' : '141313'}
+			loading={isLoading}
+			spinnerColor='#9ee5f8'
+			logoSrc='/logo.png'
+			text='Loading'
+		> 
 		<div>
 			<MyNavbar theme={navbarTheme} onChangeTheme={handleNavbarThemeChange} hideThemeSwitch={false}></MyNavbar>  
 			<div className="loading" style={{textAlign: "center",top: "30vh",height: "50vh",color: "white",display : (!isLoading ? 'none' : 'block' )}}>
@@ -167,6 +175,7 @@ const dailytest = (props) => {
 				</Container>
 			</form>
 		</div>
+		</LoadingScreen>
 	);
 
 }

@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import MyNavbar from '../components/navbar/MyNavbar.js';
 import { useHistory } from "react-router-dom";
 import firebase from 'firebase';
+import LoadingScreen from 'react-loading-screen'
 
 const Login = (props) => {
     const history = useHistory();
@@ -46,6 +47,13 @@ const Login = (props) => {
 
 
     return (
+        <LoadingScreen
+            loading={isLoading}
+            bgColor={theme == 'theme_light' ? '#F5F9FD' : '141313'}
+            spinnerColor='#9ee5f8'
+            logoSrc='/logo.png'
+            text='Loading'
+        > 
         <div>
             <MyNavbar theme={navbarTheme} onChangeTheme={handleNavbarThemeChange} hideThemeSwitch={true}></MyNavbar>
             <div className="loading" style={{textAlign: "center",top: "30vh",height: "50vh",color: "white",display : (!isLoading ? 'none' : 'block' )}}>
@@ -56,7 +64,7 @@ const Login = (props) => {
                     <Col className="col_left" lg="6" xs="12">
                         <h2 id="label" className="m-0 p-0"><b>LOGIN</b></h2>
                         <h4 className="general_section m-0 p-0">Don't have on account? <Link style={{textDecoration: 'none'}} to="/sign_up"><span style={{color: "#3cc7c3"}}>Create your account</span></Link></h4>
-                        <FormLogin setIsLoading={setIsLoading} firebase={firebase} onChangeStep={onStepChange} onLogin={handleUserId}></FormLogin>
+                        <FormLogin isLoading={isLoading} setIsLoading={setIsLoading} firebase={firebase} onChangeStep={onStepChange} onLogin={handleUserId}></FormLogin>
                     </Col>
                     <Col className="col_right" lg="6" xs="12">
                         <header className="App-header">
@@ -67,6 +75,7 @@ const Login = (props) => {
                 </Row>
             </div>
         </div>
+        </LoadingScreen>
 
     );
 }

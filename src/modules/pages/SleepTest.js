@@ -8,6 +8,7 @@ import sleep_score from '../../images/button/sleep_score.png';
 import go_to_sleep from '../../images/button/go_to_sleep.png';
 import firebase from 'firebase';
 import { useCookies } from 'react-cookie';
+import LoadingScreen from 'react-loading-screen';
 
 const SleepTest = (props) => {
     const history = useHistory();
@@ -59,6 +60,13 @@ const SleepTest = (props) => {
     }
 
     return (
+        <LoadingScreen
+            bgColor={theme == 'theme_light' ? '#F5F9FD' : '141313'}
+            loading={isLoading}
+            spinnerColor='#9ee5f8'
+            logoSrc='/logo.png'
+            text='Loading'
+        > 
         <div>
             <MyNavbar theme={navbarTheme} onChangeTheme={handleNavbarThemeChange} hideThemeSwitch={false}></MyNavbar>
             <div className="loading" style={{textAlign: "center",top: "30vh",height: "50vh",color: "white",display : (!isLoading ? 'none' : 'block' )}}>
@@ -89,6 +97,7 @@ const SleepTest = (props) => {
                 </Row>
             </div>
         </div>
+        </LoadingScreen>
     );
 }
 

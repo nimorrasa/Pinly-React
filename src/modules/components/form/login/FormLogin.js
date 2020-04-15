@@ -10,7 +10,7 @@ import firebase from 'firebase';
 
 const FormLogin = (props) => {
 	const history = useHistory();
-	const [isLoading,setIsLoading] = useState(true);
+	// const [isLoading,setIsLoading] = useState(true);
 	const [cookies, setCookie] = useCookies();
 	const [userId, setUserId] = useState('');
 
@@ -27,18 +27,21 @@ const FormLogin = (props) => {
 	const [step,setStep] = useState('login_with_email');
 
 	const handleStep = useCallback((step) => {
+		props.setIsLoading(true);
 		setStep(step);
 		props.onChangeStep(step);
+		props.setIsLoading(false);
 	});
 
   	const handleResult = useCallback( async (result) => {
 		let login_userId = null;
+		props.setIsLoading(true);
 		if(result.type == 'login_with_email') {
 			try {
 				const response = await firebase.auth().signInWithEmailAndPassword(result.email, result.password);
 				login_userId = response.user.uid;
 				setUserId(login_userId);
-				history.push('/sleep_score');
+				// history.push('/sleep_score');
 			} catch(error) {
 				let errorCode = error.code;
 				let errorMessage = error.message;
@@ -68,6 +71,7 @@ const FormLogin = (props) => {
 				alert('Google : ' + errorMessage);
 			}
 		}
+		props.setIsLoading(false);
 
 	},[]);
 
@@ -78,34 +82,32 @@ const FormLogin = (props) => {
 		}
 
 		async function isRedirect () {
+			props.setIsLoading(true);
 			let redirectResult = await firebase.auth().getRedirectResult();
 
 			if(redirectResult.operationType == 'signIn'){
 				console.log('signIn',redirectResult.user.uid);
+				setStep('login_with_social');
 
 				let get_user_data = await fetchData(redirectResult.user.uid);
 				if(get_user_data == null) {
-					setStep('login_with_social');
+
 					alert("login_with_social"); 
 				}else{
 					setUserData(get_user_data);
 					alert("go sleep_score"); 
-					history.push('/sleep_score');
+					// history.push('/sleep_score');
 				}
 				setUserId(redirectResult.user.uid);
 			}
-
+			props.setIsLoading(false);
 			console.log('Not signIn',redirectResult);
 			alert("Not signIn"); 
 		}
-		props.setIsLoading(true);
 		isRedirect();
-		props.setIsLoading(false);
-		setIsLoading(false);
 	},[]);
 
 	const handleRegister = useCallback(async (user) => {
-		setIsLoading(true);
 		let newBirthdate = user.birthdate;
 		let current_userid = firebase.auth().currentUser.uid;
 
@@ -132,8 +134,8 @@ const FormLogin = (props) => {
 		history.push('/sleep_score');
 	},[]);
 
-	if(step == 'login_with_email') return <LoginEmail onResult={handleResult} onChangeStep={handleStep} style={{display: (isLoading ? "hide" : 'block')}}></LoginEmail>;
-	return <SocialRegister userId={userId} onSuccess={handleRegister} onChangeStep={handleStep}></SocialRegister>;
+	if(step == 'login_with_email') return <LoginEmail onResult={handleResult} onChangeStep={handleStep} style={{display: (props.isLoading ? "hide" : 'block')}}></LoginEmail>;
+	return <SocialRegister isLoading={props.isLoading} setIsLoading={props.setIsLoading} userId={userId} onSuccess={handleRegister} onChangeStep={handleStep}></SocialRegister>;
 
 	};
 

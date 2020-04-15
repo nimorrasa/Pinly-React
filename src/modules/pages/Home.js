@@ -8,6 +8,7 @@ import MyNavbar from '../components/navbar/MyNavbar.js';
 import firebase from 'firebase';
 import { useCookies } from 'react-cookie';
 import { useHistory } from "react-router-dom";
+import LoadingScreen from 'react-loading-screen';
 
 const Home = (props) => {
   const history = useHistory();
@@ -50,6 +51,13 @@ const Home = (props) => {
 
 
   return (
+    <LoadingScreen
+        loading={isLoading}
+        bgColor={theme == 'theme_light' ? '#F5F9FD' : '141313'}
+        spinnerColor='#9ee5f8'
+        logoSrc='/logo.png'
+        text='Loading'
+    > 
     <div>
       <MyNavbar theme={navbarTheme} onChangeTheme={handleNavbarThemeChange} hideThemeSwitch={false}></MyNavbar>
       <div className="loading" style={{textAlign: "center",top: "30vh",height: "50vh",color: "white",display : (!isLoading ? 'none' : 'block' )}}>
@@ -71,6 +79,7 @@ const Home = (props) => {
         </div>
       </div>
     </div>
+    </LoadingScreen>
   );
 }
 
