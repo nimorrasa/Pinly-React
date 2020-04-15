@@ -48,9 +48,9 @@ const Login = (props) => {
                     else history.push('/sleep_score');
                 }
             }
-
+            setIsLoading(false);
         });
-        setIsLoading(false);
+
 	},[]);
 
 
