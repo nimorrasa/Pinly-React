@@ -35,14 +35,22 @@ const Login = (props) => {
         
         props.onChangeTheme('theme_light');
     
+        setIsLoading(true);
         firebase.auth().onAuthStateChanged(async function(user) {
             if (user) {
                 let userData = await fetchData (user.uid);
                 setUserId(user);
+                console.log(userData);
+
+                console.log(history.length,document.referrer);
+                if(userData && userData.email && userData.username) {
+                    if(document.referrer) history.goBack();
+                    else history.push('/sleep_score');
+                }
             }
-            setIsLoading(false);
+
         });
-    
+        setIsLoading(false);
 	},[]);
 
 

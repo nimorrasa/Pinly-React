@@ -91,7 +91,7 @@ const SocialRegister = (props) => {
         }
         props.onSuccess({
           username : values.username,
-          birthdate : values.birthdate,
+          birthdate : values.birthdate.toString(),
           weight : values.weight,
           height : values.height,
           gender : values.is_male ? 'Male' : 'Female',
