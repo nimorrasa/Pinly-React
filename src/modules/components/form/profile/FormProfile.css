@@ -87,7 +87,7 @@ select {
     width: 5%;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
     .Profile h1 {
         font-size: 2rem;
     }

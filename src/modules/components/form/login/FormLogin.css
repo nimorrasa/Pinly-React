@@ -2,6 +2,10 @@
     padding: 0;
 }
 
+.Login p {
+    font-size: 1.5rem;
+}
+
 .Login .col_left{
     padding-left: 5vw;
     padding-right: 10vw;
@@ -95,10 +99,7 @@ select {
 }
 
 
-@media (max-width: 800px) {
-    p{
-        font-size: 1rem;
-    }
+@media (max-width: 900px) {
     .Login .col_right{
         display: none;
     }

@@ -74,7 +74,7 @@ const Login = (props) => {
                         <h4 className="general_section m-0 p-0">Don't have on account? <Link style={{textDecoration: 'none'}} to="/sign_up"><span style={{color: "#3cc7c3"}}>Create your account</span></Link></h4>
                         <FormLogin isLoading={isLoading} setIsLoading={setIsLoading} firebase={firebase} onChangeStep={onStepChange} onLogin={handleUserId}></FormLogin>
                     </Col>
-                    <Col className="col_right" lg="6" xs="12">
+                    <Col className="div_logo col_right" lg="6" xs="12">
                         <header className="App-header">
                             <img src={logo} className="App-logo" alt="logo" />
                         </header>

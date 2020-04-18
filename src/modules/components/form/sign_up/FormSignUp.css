@@ -2,6 +2,10 @@
     padding: 0;
 }
 
+.Sign_up p {
+    font-size: 1.5rem;
+}
+
 .Sign_up .col_left{
     padding: 5vh;
     padding-top: 20vh;
@@ -90,7 +94,7 @@ select {
     display: block;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
     .Sign_up h1 {
         font-size: 2rem;
     }
@@ -109,5 +113,14 @@ select {
     .Sign_up .col_right.blank.visible {
         display: none;
     }
+
+    .Sign_up .sign_up_1 {
+        padding-bottom: 50px;
+    }
+
+    .Sign_up .sign_up_2 {
+        padding-bottom: 50px;
+    }
+
 
 }

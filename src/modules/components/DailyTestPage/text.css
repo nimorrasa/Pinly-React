@@ -6,7 +6,7 @@
   font-size: 2rem;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 900px) {
 
   .Bg-color .h1, .Bg-color h1 {
     font-size: 1rem;

@@ -54,7 +54,7 @@ a.disabled {
 }
 
 
-@media (max-width: 600px) {
+@media (max-width: 900px) {
 
     .progress-bar {
         max-width: 50vw;

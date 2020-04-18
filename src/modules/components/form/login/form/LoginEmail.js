@@ -84,7 +84,7 @@ const LoginEmail = (props) => {
             <Col className='login' xs='12'>
             <Row id="email"> 
                 <Col lg='8' xs='10' style={{paddingRight: "0"}}>
-                <p className="m-0">Email</p>
+                <p className="m-0" style={{fontSize: "1.5rem"}}>Email</p>
                 <input
                     type="email"
                     name="email"
@@ -104,7 +104,7 @@ const LoginEmail = (props) => {
             </Row>
             <Row>
             <Col id="password" lg='8' xs='10' style={{paddingRight: "0"}}>
-                <p className="m-0">Password</p>
+                <p className="m-0" style={{fontSize: "1.5rem"}}>Password</p>
                 <input
                 type={!passwordShow ? 'password' : 'text'}
                 name="password"
@@ -122,7 +122,7 @@ const LoginEmail = (props) => {
                 </Col>
             </Row>
             <Row style={{padding: "0"}}>
-                <Col lg='4' xs='6'>
+                <Col lg='4' md="4" xs='12'>
                     <p>
                         <input
                             type="checkbox"
@@ -132,9 +132,9 @@ const LoginEmail = (props) => {
                             Remember Me
                     </p>
                 </Col>
-                <Col lg='1' xs='1'>
+                <Col lg='1' md="4" xs='0'>
                 </Col>
-                <Col lg='5' xs='5' >
+                <Col lg='5' md="4" xs='12' >
                     <MyLink destination='?forgot_password' text='Forgot Password?'></MyLink>
                 </Col>
             </Row>

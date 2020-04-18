@@ -69,7 +69,7 @@ const SignUp1 = (props) => {
         <form onSubmit={handleSubmit(onSubmit)}>
         <Col className='sign_up_2' xs='12'>
           <Row> 
-            <Col id="weight" lg='3' xs='4'>
+            <Col id="weight" lg='3' md="3" xs='6'>
               <p className="m-0">Weight</p>
               <input
                 type="number"
@@ -77,7 +77,7 @@ const SignUp1 = (props) => {
                 placeholder="weight"
                 ref={register({required: 'Required'})}/>
             </Col>
-            <Col id="height" lg='3' xs='4'>
+            <Col id="height" lg='3' md="3" xs='6'>
             <p className="m-0">Height</p>
             <input
               type="number"

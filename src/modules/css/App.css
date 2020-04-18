@@ -98,6 +98,9 @@ body{
 }
 
 @media (max-width: 600px) {
+.App {
+  /* max-height: unset; */
+}
 
 .navbar.navbar-expand-md {
   text-align: right;
@@ -105,6 +108,7 @@ body{
 
 .overlay {
   overflow: scroll;
+  /* position: unset; */
 }
 
 
