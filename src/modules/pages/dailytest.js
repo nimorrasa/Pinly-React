@@ -3,12 +3,13 @@ import MyNavbar from '../components/navbar/MyNavbar.js';
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import '../css/App.css';
-//import components 
+//import รูปภาพ ที่ต้องใช้
 import btn_tea from '../../modules/components/DailyTestPage/btn_tea.png';
 import btn_smk from '../../modules/components/DailyTestPage/btn_smk.png';
 import btn_al from '../../modules/components/DailyTestPage/btn_al.png';
 import btn_cf from '../../modules/components/DailyTestPage/btn_cf.png';
 
+//import Component ที่ต้องใช้
 import TapBar from '../components/DailyTestPage/TapBar';
 import { useCookies } from 'react-cookie';
 import firebase from 'firebase';
@@ -18,23 +19,26 @@ import DailyButton from '../components/DailyTestPage/DailyButton.js';
 import { Alert } from 'reactstrap';
 import LoadingScreen from 'react-loading-screen';
 
+//สร้าง component ชื่อ dailytest โดยให้รับตัวแปรมาเป็น props ด้วย (React Hook)
 const dailytest = (props) => {
-    const history = useHistory();
+	//ประกาศตัวแปรที่จำเป็นต้องใช้ใน component นี้
+	const history = useHistory();
 	const { handleSubmit, register, setValue , getValues, errors } = useForm();
 
 	const [visible, setVisible] = useState(false);
-
-	const onDismiss = useCallback(() => {
-		setVisible(false);
-		history.push("/wait_to_sleep");  
-	},[]);
-
 	const [ isLoading, setIsLoading ] = useState(true);
 	const [userData,setUserData] = useState({});
 	const [cookies, setCookie, removeCookie] = useCookies(['theme']);
 	const [theme,setTheme] = useState(props.theme);
 	const [navbarTheme, setNavbarTheme] = useState(props.theme === 'theme_dark' ? 'dark' : 'light');
 
+	// สำหรับปิด toast
+	const onDismiss = useCallback(() => {
+		setVisible(false);
+		history.push("/wait_to_sleep");  
+	},[]);
+
+	// สร้าง callback function สำหรับการเปลี่ยนแปลง theme
 	const handleNavbarThemeChange = useCallback(
 		(current_theme) => {
 			setNavbarTheme(current_theme);
@@ -44,6 +48,7 @@ const dailytest = (props) => {
 		[setNavbarTheme,setTheme]
 	);
 
+	// แสดงข้อความ Good Night (Toast)
 	const toggleAlert = useCallback(
 		() => {
 			setVisible(true);
@@ -51,6 +56,7 @@ const dailytest = (props) => {
 		[]
 	);
 
+	// จับเวลาปิดข้อความ Good Night (Toast)
 	useEffect(() => {
 		if(visible) {
 			const timer = setTimeout(() => {
@@ -61,6 +67,7 @@ const dailytest = (props) => {
 		}
 	}, [visible]);
 
+	// อัพเดทข้อมูลการนอนเข้า firebase และ หลังบ้าน
 	const submitSleep = useCallback(
 		async (newData) => {
 			let timestamp = new Date();
@@ -93,6 +100,7 @@ const dailytest = (props) => {
 		[userData]
 	)
 
+	// สำหรับตั้งค่าตัวแปรต่างๆก่อนจะ reder html ออกมา โดยจะดึงข้อมูลจาก firebase และ หลังบ้านมาอัพเดทเพื่อนำไปแสดง
 	useEffect(
 		() => {
 			async function fetchData (user_id) {
@@ -116,7 +124,7 @@ const dailytest = (props) => {
 		[]
 	);
     
-
+	// update theme ด้วย cookie
 	useEffect(
 		() => {
 			handleNavbarThemeChange(cookies.theme);
@@ -124,6 +132,7 @@ const dailytest = (props) => {
 		[cookies.theme]
 	);
 
+	// Render ออกไปเป็น html
 	return (
 		<LoadingScreen
         	bgColor={theme == 'light' ? '#F5F9FD' : '141313'}
@@ -179,5 +188,6 @@ const dailytest = (props) => {
 	);
 
 }
-    
+ 
+// export เพื่อให้สามารถเรียกใช้ component นี้ได้ในที่อื่นโดยการ import
 export default dailytest;
